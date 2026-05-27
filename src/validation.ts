@@ -36,3 +36,17 @@ export const resolveSessionSchema = z.object({
     })
     .optional()
 });
+
+export const loginSchema = z.object({
+  airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  username: z.string().min(1).max(320),
+  password: z.string().min(1).max(1024),
+  locale: z.string().min(2).max(10).optional(),
+  proxy: z
+    .object({
+      url: z.string().url(),
+      username: z.string().optional(),
+      password: z.string().optional()
+    })
+    .optional()
+});

@@ -1,7 +1,15 @@
 import { cookieHeader, FlareSolverrClient } from "../core/flaresolverr.js";
-import type { AirlineAdapter, FlightOption, FlightSearchInput, HarnessSession } from "../core/types.js";
+import { ManualInterventionRequired } from "../core/errors.js";
+import { config } from "../core/config.js";
+import type { Cookie, FrameLocator, Locator, Page } from "playwright-core";
+import { chromium } from "playwright-core";
+import type { AirlineAdapter, BrowserCookie, FlightOption, FlightSearchInput, HarnessSession, LoginInput, LoginResult } from "../core/types.js";
 
 const DEFAULT_LOCALE = "en-gb";
+const RYANAIR_SITE_LOCALE = "gb/en";
+const EMAIL_SELECTOR = "input[type='email'], input[name='email'], input[autocomplete='username'], input[formcontrolname*='email' i]";
+const PASSWORD_SELECTOR =
+  "input[type='password'], input[name='password'], input[autocomplete='current-password'], input[formcontrolname*='password' i]";
 
 export class RyanairAdapter implements AirlineAdapter {
   code = "ryanair" as const;
@@ -29,6 +37,51 @@ export class RyanairAdapter implements AirlineAdapter {
     const fares = await this.findFareFinderFlights(input, session);
     if (fares) return fares;
     return this.findAvailabilityFlights(input, session);
+  }
+
+  async login(input: LoginInput, session: HarnessSession): Promise<LoginResult> {
+    if (!config.browserWsEndpoint) {
+      throw new ManualInterventionRequired("Ryanair login requires BROWSER_WS_ENDPOINT.", {
+        airline: this.code
+      });
+    }
+
+    const siteLocale = input.locale ?? RYANAIR_SITE_LOCALE;
+    const browser = await chromium.connect(config.browserWsEndpoint, { timeout: 20_000 });
+    const context = await browser.newContext({
+      userAgent: session.userAgent,
+      locale: browserLocale(input.locale),
+      viewport: { width: 1440, height: 1100 },
+      ignoreHTTPSErrors: true
+    });
+
+    try {
+      await context.addCookies(toPlaywrightCookies(session.cookies, this.baseUrl));
+      const page = await context.newPage();
+      await page.goto(`${this.baseUrl}/${siteLocale}`, {
+        waitUntil: "domcontentloaded",
+        timeout: config.renderedFlowTimeoutMs
+      });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      await dismissCookieBanners(page);
+      await openLoginPanel(page);
+      await fillLoginForm(page, input.username, input.password);
+      const outcome = await submitLoginForm(page);
+      const cookies = await context.cookies();
+      const authState = await authenticationState(page, outcome === "submitted");
+
+      return {
+        airline: this.code,
+        authenticated: authState.authenticated,
+        url: page.url(),
+        accountLabel: authState.accountLabel,
+        cookieCount: cookies.length,
+        diagnostics: authState.diagnostics
+      };
+    } finally {
+      await context.close();
+    }
   }
 
   private async findFareFinderFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[] | null> {
@@ -108,6 +161,270 @@ export class RyanairAdapter implements AirlineAdapter {
       "user-agent": session.userAgent ?? "Mozilla/5.0"
     };
   }
+}
+
+async function openLoginPanel(page: Page): Promise<void> {
+  const selectors = [
+    "button:has-text('Log in')",
+    "a:has-text('Log in')",
+    "button:has-text('Login')",
+    "a:has-text('Login')",
+    "button:has-text('myRyanair')",
+    "a:has-text('myRyanair')",
+    "[data-ref*='login']",
+    "[data-testid*='login']"
+  ];
+
+  for (const selector of selectors) {
+    if (await clickIfVisible(page, selector, 2_000)) {
+      await page.waitForTimeout(1_500);
+      if (await hasEmailField(page)) return;
+    }
+  }
+
+  if (await hasEmailField(page)) return;
+  throw new ManualInterventionRequired("Ryanair login form was not reachable from the homepage.", {
+    airline: "ryanair",
+    currentUrl: page.url(),
+    ...(await loginPageDiagnostics(page))
+  });
+}
+
+async function fillLoginForm(page: Page, username: string, password: string): Promise<void> {
+  const email = await emailField(page);
+  if ((await email.count()) === 0) {
+    throw new ManualInterventionRequired("Ryanair email field was not found.", {
+      airline: "ryanair",
+      currentUrl: page.url()
+    });
+  }
+
+  await email.click({ timeout: 5_000 });
+  await email.fill(username, { timeout: 5_000 });
+
+  let passwordField = await passwordInput(page);
+  if (!(await passwordField.isVisible({ timeout: 1_000 }).catch(() => false))) {
+    await advanceEmailStep(page);
+    passwordField = await passwordInput(page);
+  }
+
+  if (!(await passwordField.isVisible({ timeout: 8_000 }).catch(() => false))) {
+    throw new ManualInterventionRequired("Ryanair password step was not reachable after email entry.", {
+      airline: "ryanair",
+      currentUrl: page.url()
+    });
+  }
+
+  await passwordField.click({ timeout: 5_000 });
+  await passwordField.fill(password, { timeout: 5_000 });
+}
+
+async function advanceEmailStep(page: Page): Promise<void> {
+  await page.keyboard.press("Enter");
+  if (await (await passwordInput(page)).isVisible({ timeout: 3_000 }).catch(() => false)) return;
+
+  const selectors = [
+    "button[type='submit']",
+    "button:has-text('Continue')",
+    "button:has-text('Next')",
+    "button:has-text('Log in')",
+    "button:has-text('Login')",
+    "[data-ref*='login'] button"
+  ];
+
+  const frame = authFrame(page);
+  for (const selector of selectors) {
+    if (await clickIfVisible(frame, selector, 3_000)) {
+      if (await (await passwordInput(page)).isVisible({ timeout: 5_000 }).catch(() => false)) return;
+    }
+    if (await clickIfVisible(page, selector, 3_000)) {
+      if (await (await passwordInput(page)).isVisible({ timeout: 5_000 }).catch(() => false)) return;
+    }
+  }
+}
+
+async function submitLoginForm(page: Page): Promise<"submitted"> {
+  const selectors = [
+    "button[type='submit']",
+    "button:has-text('Log in')",
+    "button:has-text('Login')",
+    "button:has-text('Sign in')",
+    "[data-ref*='login'] button"
+  ];
+
+  const frame = authFrame(page);
+  for (const selector of selectors) {
+    if (await clickIfVisible(frame, selector, 5_000)) {
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(4_000);
+      return "submitted";
+    }
+    if (await clickIfVisible(page, selector, 5_000)) {
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(4_000);
+      return "submitted";
+    }
+  }
+
+  await page.keyboard.press("Enter");
+  await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+  await page.waitForTimeout(4_000);
+  return "submitted";
+}
+
+async function hasEmailField(page: Page): Promise<boolean> {
+  return (await (await emailField(page)).count().catch(() => 0)) > 0;
+}
+
+async function emailField(page: Page): Promise<Locator> {
+  return loginField(page, EMAIL_SELECTOR);
+}
+
+async function passwordInput(page: Page): Promise<Locator> {
+  return loginField(page, PASSWORD_SELECTOR);
+}
+
+async function loginField(page: Page, selector: string): Promise<Locator> {
+  const frameField = authFrame(page).locator(selector).first();
+  if ((await frameField.count().catch(() => 0)) > 0) return frameField;
+  return page.locator(selector).first();
+}
+
+function authFrame(page: Page): FrameLocator {
+  return page.frameLocator("iframe[data-ref='kyc-iframe'], iframe.kyc-iframe");
+}
+
+async function loginPageDiagnostics(page: Page): Promise<Record<string, unknown>> {
+  return page
+    .evaluate(() => {
+      const cookieOverlay = document.querySelector("#cookie-popup-with-overlay");
+      const visibleButtons = Array.from(document.querySelectorAll("button, a"))
+        .map((element) => ({
+          text: (element.textContent ?? "").trim().replace(/\s+/g, " ").slice(0, 80),
+          tag: element.tagName.toLowerCase(),
+          dataRef: element.getAttribute("data-ref"),
+          visible: Boolean(element instanceof HTMLElement && (element.offsetWidth || element.offsetHeight || element.getClientRects().length))
+        }))
+        .filter((element) => element.visible && /(log|cookie|agree|accept|myryanair)/i.test(`${element.text} ${element.dataRef ?? ""}`))
+        .slice(0, 20);
+
+      return {
+        cookieOverlayVisible: Boolean(
+          cookieOverlay instanceof HTMLElement && (cookieOverlay.offsetWidth || cookieOverlay.offsetHeight || cookieOverlay.getClientRects().length)
+        ),
+        loginEmailInputCount: document.querySelectorAll(
+          "input[type='email'], input[name='email'], input[autocomplete='username'], input[formcontrolname*='email' i]"
+        ).length,
+        visibleButtons
+      };
+    })
+    .catch(() => ({}));
+}
+
+async function dismissCookieBanners(page: Page): Promise<void> {
+  const selectors = [
+    "button[data-ref='cookie.accept-all']",
+    "button[data-testid='cookie-accept-all']",
+    "button:has-text('Yes, I agree')",
+    "button:has-text('Accept all')",
+    "button:has-text('Accept cookies')",
+    "button:has-text('Allow all')",
+    "button:has-text('I agree')",
+    "button:has-text('Agree')"
+  ];
+  for (const selector of selectors) {
+    if (await clickIfVisible(page, selector, 5_000)) {
+      await page.locator("#cookie-popup-with-overlay").waitFor({ state: "hidden", timeout: 5_000 }).catch(() => undefined);
+      await page.waitForTimeout(500);
+      return;
+    }
+  }
+}
+
+async function clickIfVisible(scope: Page | FrameLocator, selector: string, timeout: number): Promise<boolean> {
+  try {
+    const locator = scope.locator(selector);
+    const count = await locator.count();
+    for (let index = 0; index < count; index += 1) {
+      const candidate = locator.nth(index);
+      if (!(await candidate.isVisible({ timeout: Math.min(timeout, 1_000) }).catch(() => false))) continue;
+      await candidate.scrollIntoViewIfNeeded({ timeout: Math.min(timeout, 2_000) }).catch(() => undefined);
+      await candidate.click({ timeout }).catch(async () => {
+        await candidate.click({ timeout, force: true });
+      });
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+function looksAuthenticated(text: string): boolean {
+  return /(log out|logout|myryanair|my ryanair|account|profile|wallet|trips)/i.test(text) && !/invalid password|incorrect|try again/i.test(text);
+}
+
+function accountLabel(text: string): string | undefined {
+  const match = text.match(/\b(myRyanair|My Ryanair|Account|Profile|Wallet|Trips)\b/);
+  return match?.[0];
+}
+
+function loginFailureReason(text: string): string {
+  if (/invalid|incorrect|wrong|try again|not match|failed|attempts left/i.test(text)) return "login_rejected_or_form_error";
+  if (/verify|verification|security|captcha|challenge|verification code|register this device|8-digit/i.test(text)) return "verification_required";
+  return "authenticated_indicator_not_found";
+}
+
+async function authenticationState(
+  page: Page,
+  loginSubmitted: boolean
+): Promise<{ authenticated: boolean; accountLabel?: string; diagnostics: Record<string, unknown> }> {
+  const bodyText = await page.locator("body").innerText({ timeout: 5_000 }).catch(() => "");
+  const frameText = await authFrame(page).locator("body").innerText({ timeout: 3_000 }).catch(() => "");
+  const combinedText = `${bodyText}\n${frameText}`;
+  const reason = loginFailureReason(combinedText);
+  const authFrameVisible = await authFrame(page)
+    .locator("body")
+    .isVisible({ timeout: 1_000 })
+    .catch(() => false);
+  const authenticated = loginSubmitted && reason === "authenticated_indicator_not_found" && !authFrameVisible && looksAuthenticated(bodyText);
+
+  return {
+    authenticated,
+    accountLabel: authenticated ? accountLabel(bodyText) : undefined,
+    diagnostics: {
+      loginSubmitted,
+      reason: authenticated ? "authenticated_indicator_found" : reason,
+      authFrameVisible
+    }
+  };
+}
+
+function toPlaywrightCookies(cookies: BrowserCookie[], url: string): Cookie[] {
+  const target = new URL(url);
+  return cookies.map((cookie) => ({
+    name: cookie.name,
+    value: cookie.value,
+    domain: cookie.domain ?? target.hostname,
+    path: cookie.path ?? "/",
+    expires: cookie.expires && cookie.expires > 0 ? cookie.expires : -1,
+    httpOnly: cookie.httpOnly ?? false,
+    secure: cookie.secure ?? target.protocol === "https:",
+    sameSite: sameSite(cookie.sameSite) ?? "Lax"
+  }));
+}
+
+function sameSite(value?: string): "Strict" | "Lax" | "None" | undefined {
+  if (!value) return undefined;
+  const normalized = value.toLowerCase();
+  if (normalized === "strict") return "Strict";
+  if (normalized === "none" || normalized === "no_restriction") return "None";
+  return "Lax";
+}
+
+function browserLocale(value?: string): string {
+  if (!value || value.includes("/")) return "en-GB";
+  return value;
 }
 
 export function parseRyanairFareFinder(data: unknown, input: FlightSearchInput): FlightOption[] {

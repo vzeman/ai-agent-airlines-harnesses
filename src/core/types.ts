@@ -50,6 +50,23 @@ export interface FlightSearchInput {
   includeScreenshot?: boolean;
 }
 
+export interface LoginInput {
+  airline: AirlineCode;
+  username: string;
+  password: string;
+  locale?: string;
+  proxy?: ProxyConfig;
+}
+
+export interface LoginResult {
+  airline: AirlineCode;
+  authenticated: boolean;
+  url: string;
+  accountLabel?: string;
+  cookieCount: number;
+  diagnostics?: Record<string, unknown>;
+}
+
 export interface HarnessSession {
   id: string;
   airline: AirlineCode;
@@ -102,4 +119,5 @@ export interface AirlineAdapter {
   baseUrl: string;
   resolveSession(sessionId: string, options?: { proxy?: ProxyConfig }): Promise<HarnessSession>;
   findFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]>;
+  login?(input: LoginInput, session: HarnessSession): Promise<LoginResult>;
 }

@@ -184,6 +184,67 @@ Manual-intervention response:
 
 Agents should not repeatedly retry these responses. Use them to implement a custom harness script for that airline.
 
+### `POST /task/login`
+
+Runtime-only airline login. Credentials are supplied by the caller and must not be committed to the repository, examples, logs, or docs. The task creates a short-lived FlareSolverr session, performs the browser login attempt, returns sanitized status, and destroys the session.
+
+Ryanair is the first implemented login harness.
+
+```bash
+curl -X POST http://localhost:8787/task/login \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","username":"user@example.com","password":"runtime-secret","locale":"gb/en"}'
+```
+
+PowerShell helper:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\login-airline.ps1 -Airline ryanair -Username "user@example.com" -Password $password
+```
+
+Successful response shape:
+
+```json
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": true,
+    "url": "https://www.ryanair.com/...",
+    "accountLabel": "myRyanair",
+    "cookieCount": 12,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "authenticated_indicator_found"
+    }
+  }
+}
+```
+
+Ryanair may require email/device verification after a valid password. In that case the harness reports the blocker without exposing credentials:
+
+```json
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": false,
+    "url": "https://www.ryanair.com/gb/en",
+    "cookieCount": 14,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "verification_required",
+      "authFrameVisible": true
+    }
+  }
+}
+```
+
+The response deliberately excludes the username and password.
+
 Unsupported route response:
 
 ```json

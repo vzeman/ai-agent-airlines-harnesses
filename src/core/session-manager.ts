@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import type { AirlineAdapter, FlightSearchInput, HarnessSession, ProxyConfig } from "./types.js";
+import type { AirlineAdapter, FlightSearchInput, HarnessSession, LoginInput, ProxyConfig } from "./types.js";
 import { FlareSolverrClient } from "./flaresolverr.js";
 
 export class SessionManager {
@@ -18,7 +18,7 @@ export class SessionManager {
 
   async withResolvedSession<T>(
     adapter: AirlineAdapter,
-    input: FlightSearchInput,
+    input: FlightSearchInput | LoginInput,
     fn: (session: HarnessSession) => Promise<T>
   ): Promise<{ sessionId: string; data: T }> {
     const session = await this.resolve(adapter, input.proxy);

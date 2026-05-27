@@ -4,7 +4,7 @@ import { cookieHeader } from "../src/core/flaresolverr.js";
 import { ManualInterventionRequired } from "../src/core/errors.js";
 import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
-import { flightSearchSchema, resolveSessionSchema } from "../src/validation.js";
+import { flightSearchSchema, loginSchema, resolveSessionSchema } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
 
@@ -88,6 +88,18 @@ test("resolve-session validation accepts optional proxy credentials", () => {
   });
 
   assert.equal(parsed.proxy?.username, "user");
+});
+
+test("login validation accepts runtime credentials without examples needing secrets", () => {
+  const parsed = loginSchema.parse({
+    airline: "ryanair",
+    username: "person@example.com",
+    password: "runtime-only",
+    locale: "en-gb"
+  });
+
+  assert.equal(parsed.airline, "ryanair");
+  assert.equal(parsed.username, "person@example.com");
 });
 
 test("ManualInterventionRequired keeps diagnostics for API responses", () => {

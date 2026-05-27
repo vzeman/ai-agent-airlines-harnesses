@@ -61,9 +61,17 @@ If the response status is `manual_intervention_required`, inspect `diagnostics.b
 
 The harness owns browser work. It opens a resolved airline session, accepts common cookie-consent banners, loads the booking URL, waits for rendered results and XHR responses, extracts prices, and closes the Playwright context. Custom airline scripts should use ordinary page interactions such as `click`, `fill`, selecting suggestions, date-picker clicks, and search submission. Avoid ad-hoc manual browsing from the agent when the harness can be extended instead.
 
+## Login
+
+Use `POST /task/login` only when the user explicitly asks for an authenticated airline task. Credentials are runtime-only request fields. Never write credentials into examples, tests, docs, logs, screenshots, or commits.
+
+Ryanair login is implemented first. Other airlines return `manual_intervention_required` until their custom login flow is added.
+
+The login response is sanitized and does not include the username or password. It creates and destroys its FlareSolverr session automatically.
+
 ## Session Lifecycle
 
-For normal tasks, `/task/find-flights` creates and destroys a browser session automatically.
+For normal tasks, `/task/find-flights` and `/task/login` create and destroy a browser session automatically.
 
 Only use manual session commands for debugging:
 
