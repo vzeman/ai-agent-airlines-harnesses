@@ -1,9 +1,23 @@
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
 import { cookieHeader, FlareSolverrClient } from "../core/flaresolverr.js";
 import { ManualInterventionRequired } from "../core/errors.js";
 import { config } from "../core/config.js";
 import type { Cookie, FrameLocator, Locator, Page } from "playwright-core";
 import { chromium } from "playwright-core";
-import type { AirlineAdapter, BrowserCookie, FlightOption, FlightSearchInput, HarnessSession, LoginInput, LoginResult } from "../core/types.js";
+import type {
+  AirlineAdapter,
+  BookingListInput,
+  BookingListResult,
+  BookingSummary,
+  BrowserCookie,
+  FlightOption,
+  FlightSearchInput,
+  HarnessSession,
+  LoginInput,
+  LoginResult,
+  ScreenshotArtifact
+} from "../core/types.js";
 
 const DEFAULT_LOCALE = "en-gb";
 const RYANAIR_SITE_LOCALE = "gb/en";
@@ -68,6 +82,7 @@ export class RyanairAdapter implements AirlineAdapter {
       await openLoginPanel(page);
       await fillLoginForm(page, input.username, input.password);
       const outcome = await submitLoginForm(page);
+      if (input.verificationCode) await submitVerificationCode(page, input.verificationCode);
       const cookies = await context.cookies();
       const authState = await authenticationState(page, outcome === "submitted");
 
@@ -78,6 +93,81 @@ export class RyanairAdapter implements AirlineAdapter {
         accountLabel: authState.accountLabel,
         cookieCount: cookies.length,
         diagnostics: authState.diagnostics
+      };
+    } finally {
+      await context.close();
+    }
+  }
+
+  async listBookings(input: BookingListInput, session: HarnessSession): Promise<BookingListResult> {
+    if (!config.browserWsEndpoint) {
+      throw new ManualInterventionRequired("Ryanair booking list requires BROWSER_WS_ENDPOINT.", {
+        airline: this.code
+      });
+    }
+
+    const siteLocale = input.locale ?? RYANAIR_SITE_LOCALE;
+    const browser = await chromium.connect(config.browserWsEndpoint, { timeout: 20_000 });
+    const context = await browser.newContext({
+      userAgent: session.userAgent,
+      locale: browserLocale(input.locale),
+      viewport: { width: 1440, height: 1100 },
+      ignoreHTTPSErrors: true
+    });
+
+    try {
+      await context.addCookies(toPlaywrightCookies(session.cookies, this.baseUrl));
+      const page = await context.newPage();
+      await page.goto(`${this.baseUrl}/${siteLocale}`, {
+        waitUntil: "domcontentloaded",
+        timeout: config.renderedFlowTimeoutMs
+      });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      await dismissCookieBanners(page);
+      await openLoginPanel(page);
+      await fillLoginForm(page, input.username, input.password);
+      const outcome = await submitLoginForm(page);
+      if (input.verificationCode) await submitVerificationCode(page, input.verificationCode);
+      const authState = await authenticationState(page, outcome === "submitted");
+
+      if (!authState.authenticated) {
+        const cookies = await context.cookies();
+        const screenshot = input.includeScreenshot ? await captureBookingScreenshot(page, "Login blocker for Ryanair booking list", true) : undefined;
+        return {
+          airline: this.code,
+          authenticated: false,
+          url: page.url(),
+          count: 0,
+          bookings: [],
+          cookieCount: cookies.length,
+          screenshot,
+          diagnostics: {
+            ...authState.diagnostics,
+            bookingListLoaded: false
+          }
+        };
+      }
+
+      await openMyBookings(page, siteLocale);
+      const bookingTexts = await extractBookingTexts(page);
+      const bookings = bookingTexts.map((text) => parseRyanairBookingText(text)).filter((booking) => (input.activeOnly ?? true) ? !isPastBooking(booking) : true);
+      const cookies = await context.cookies();
+      const screenshot = input.includeScreenshot ? await captureBookingScreenshot(page, "Ryanair active bookings page", false) : undefined;
+
+      return {
+        airline: this.code,
+        authenticated: true,
+        url: page.url(),
+        count: bookings.length,
+        bookings,
+        cookieCount: cookies.length,
+        screenshot,
+        diagnostics: {
+          ...authState.diagnostics,
+          bookingListLoaded: true,
+          extractedTextBlocks: bookingTexts.length
+        }
       };
     } finally {
       await context.close();
@@ -272,6 +362,45 @@ async function submitLoginForm(page: Page): Promise<"submitted"> {
   return "submitted";
 }
 
+async function submitVerificationCode(page: Page, verificationCode: string): Promise<void> {
+  if (!(await verificationRequired(page))) return;
+
+  const frame = authFrame(page);
+  const selectors = [
+    "input[autocomplete='one-time-code']",
+    "input[name*='code' i]",
+    "input[placeholder*='code' i]",
+    "input[type='text']",
+    "input[type='tel']"
+  ];
+
+  for (const selector of selectors) {
+    const field = frame.locator(selector).first();
+    if (!(await field.isVisible({ timeout: 2_000 }).catch(() => false))) continue;
+    await field.click({ timeout: 5_000 });
+    await field.fill(verificationCode, { timeout: 5_000 });
+    break;
+  }
+
+  const buttons = ["button[type='submit']", "button:has-text('Continue')", "button:has-text('Verify')", "button:has-text('Submit')"];
+  for (const selector of buttons) {
+    if (await clickIfVisible(frame, selector, 5_000)) {
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(5_000);
+      return;
+    }
+  }
+
+  await page.keyboard.press("Enter");
+  await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+  await page.waitForTimeout(5_000);
+}
+
+async function verificationRequired(page: Page): Promise<boolean> {
+  const frameText = await authFrame(page).locator("body").innerText({ timeout: 3_000 }).catch(() => "");
+  return /verification code|register this device|8-digit|code expired/i.test(frameText);
+}
+
 async function hasEmailField(page: Page): Promise<boolean> {
   return (await (await emailField(page)).count().catch(() => 0)) > 0;
 }
@@ -370,6 +499,9 @@ function accountLabel(text: string): string | undefined {
 }
 
 function loginFailureReason(text: string): string {
+  if (/verification code|register this device|8-digit|code expired/i.test(text) && /invalid|incorrect|wrong|try again|not match|failed|attempts left/i.test(text)) {
+    return "verification_code_rejected";
+  }
   if (/invalid|incorrect|wrong|try again|not match|failed|attempts left/i.test(text)) return "login_rejected_or_form_error";
   if (/verify|verification|security|captcha|challenge|verification code|register this device|8-digit/i.test(text)) return "verification_required";
   return "authenticated_indicator_not_found";
@@ -395,8 +527,118 @@ async function authenticationState(
     diagnostics: {
       loginSubmitted,
       reason: authenticated ? "authenticated_indicator_found" : reason,
-      authFrameVisible
+      authFrameVisible,
+      ...(reason === "verification_required"
+        ? { nextAction: "read_email_verification_code_and_retry_with_verificationCode" }
+        : {}),
+      ...(reason === "verification_code_rejected" ? { nextAction: "read_fresh_email_verification_code_and_retry" } : {})
     }
+  };
+}
+
+async function openMyBookings(page: Page, locale: string): Promise<void> {
+  const selectors = [
+    "a:has-text('My Bookings')",
+    "button:has-text('My Bookings')",
+    "a:has-text('Trips')",
+    "button:has-text('Trips')",
+    "[data-ref*='my-booking']",
+    "[data-testid*='my-booking']"
+  ];
+
+  for (const selector of selectors) {
+    if (await clickIfVisible(page, selector, 5_000)) {
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(3_000);
+      if (/booking|trip/i.test(page.url()) || (await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "")).match(/booking|trip/i)) return;
+    }
+  }
+
+  await page.goto(`https://www.ryanair.com/${locale}/my-bookings`, {
+    waitUntil: "domcontentloaded",
+    timeout: config.renderedFlowTimeoutMs
+  });
+  await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+  await page.waitForTimeout(3_000);
+}
+
+async function extractBookingTexts(page: Page): Promise<string[]> {
+  const selectors = [
+    "[data-ref*='booking']",
+    "[data-testid*='booking']",
+    "[class*='booking']",
+    "[class*='trip-card']",
+    "[class*='reservation']",
+    "ry-trip-card",
+    "trip-card"
+  ];
+  const texts = new Set<string>();
+
+  for (const selector of selectors) {
+    const values = await page
+      .locator(selector)
+      .evaluateAll((elements) =>
+        elements
+          .map((element) => (element.textContent ?? "").trim().replace(/\s+/g, " "))
+          .filter((text) => text.length >= 20 && text.length <= 2_000)
+      )
+      .catch(() => []);
+    for (const value of values) {
+      if (!/booking|reservation|trip|flight|depart|return|confirmed|upcoming/i.test(value)) continue;
+      if (/cookie|privacy|newsletter|subscribe/i.test(value)) continue;
+      texts.add(value);
+    }
+  }
+
+  if (texts.size > 0) return [...texts].slice(0, 30);
+
+  const body = await page.locator("body").innerText({ timeout: 5_000 }).catch(() => "");
+  const normalized = body.trim().replace(/\s+/g, " ");
+  if (/no upcoming|no active|no bookings|you have no/i.test(normalized)) return [];
+  return normalized ? [normalized.slice(0, 2_000)] : [];
+}
+
+export function parseRyanairBookingText(text: string): BookingSummary {
+  const normalized = text.trim().replace(/\s+/g, " ");
+  const routeMatch = normalized.match(/\b([A-Z]{3})\b\s*(?:to|-|→)\s*\b([A-Z]{3})\b/i);
+  const referenceMatch =
+    normalized.match(/\b(?:booking|reservation)\s*(?:reference|ref|number)?\s*[:#]?\s*([A-Z0-9]{6,8})\b/i) ??
+    normalized.match(/\b([A-Z0-9]{6})\b/);
+  const dates = [...normalized.matchAll(/\b(20\d{2}-\d{2}-\d{2}|\d{1,2}\s+[A-Za-z]{3,9}\s+20\d{2})\b/g)].map((match) => match[1]);
+  const statusMatch = normalized.match(/\b(confirmed|upcoming|checked in|cancelled|completed|past|active)\b/i);
+
+  return {
+    airline: "ryanair",
+    bookingReference: referenceMatch?.[1],
+    origin: routeMatch?.[1]?.toUpperCase(),
+    destination: routeMatch?.[2]?.toUpperCase(),
+    departureDate: dates[0],
+    returnDate: dates[1],
+    status: statusMatch?.[1],
+    rawText: normalized
+  };
+}
+
+function isPastBooking(booking: BookingSummary): boolean {
+  return /past|completed|cancelled/i.test(booking.status ?? booking.rawText);
+}
+
+async function captureBookingScreenshot(page: Page, description: string, maskAuthFrame: boolean): Promise<ScreenshotArtifact> {
+  const relativeDir = path.join("artifacts", "screenshots");
+  const dir = path.resolve(relativeDir);
+  await mkdir(dir, { recursive: true });
+  const fileName = ["ryanair", "bookings", new Date().toISOString().replace(/[:.]/g, "-")].join("_");
+  const relativePath = path.join(relativeDir, `${fileName}.png`);
+  const filePath = path.resolve(relativePath);
+  const mask = maskAuthFrame ? [authFrame(page).locator("body")] : [];
+
+  await page.screenshot({ path: filePath, fullPage: true, mask });
+
+  return {
+    path: relativePath,
+    url: page.url(),
+    capturedAt: new Date().toISOString(),
+    description
   };
 }
 

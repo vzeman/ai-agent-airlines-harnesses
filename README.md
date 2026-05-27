@@ -247,6 +247,78 @@ The response deliberately excludes the username and password.
 
 Committed examples are sanitized. See `examples/ryanair/login-verification-required.response.json` for the expected response shape when Ryanair requires email/device verification.
 
+### `POST /task/list-bookings`
+
+Runtime-only authenticated task for listing active bookings in an airline account. Ryanair is implemented first. Credentials are supplied by the caller and are never included in the response.
+
+```bash
+curl -X POST http://localhost:8787/task/list-bookings \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","username":"user@example.com","password":"runtime-secret","locale":"gb/en","activeOnly":true}'
+```
+
+PowerShell helper:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en"
+```
+
+Request fields:
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `airline` | yes | `ryanair` for the implemented adapter |
+| `username` | yes | Runtime-only login username |
+| `password` | yes | Runtime-only login password |
+| `verificationCode` | no | Runtime-only email/device verification code, used only after Ryanair asks for it |
+| `locale` | no | Ryanair site locale, defaults to `gb/en` |
+| `activeOnly` | no | Defaults to active/upcoming bookings |
+| `includeScreenshot` | no | Captures a booking-list or login-blocker screenshot artifact |
+| `proxy` | no | Optional proxy config passed to FlareSolverr session creation |
+
+Successful authenticated response shape:
+
+```json
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": true,
+    "url": "https://www.ryanair.com/gb/en/my-bookings",
+    "count": 1,
+    "bookings": [
+      {
+        "airline": "ryanair",
+        "bookingReference": "ABC123",
+        "origin": "VIE",
+        "destination": "STN",
+        "departureDate": "2026-07-23",
+        "status": "Confirmed",
+        "rawText": "Booking reference ABC123 VIE to STN 2026-07-23 Confirmed"
+      }
+    ],
+    "cookieCount": 14,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "authenticated_indicator_found",
+      "bookingListLoaded": true
+    }
+  }
+}
+```
+
+If Ryanair requires email/device verification, the task stops before the bookings page and returns `authenticated: false`. See the sanitized example and redacted screenshot in `examples/ryanair/list-bookings-verification-required.response.json`.
+
+Agent flow for verification:
+
+1. Call `/task/list-bookings` with runtime credentials and no `verificationCode`.
+2. If `data.diagnostics.reason` is `verification_required`, use an external Gmail-capable tool to read the fresh Ryanair verification code.
+3. Call `/task/list-bookings` again with the same runtime credentials plus `verificationCode`.
+4. If Ryanair accepts the code, the harness continues to My Bookings and returns `data.bookings`.
+5. If `data.diagnostics.reason` is `verification_code_rejected`, read a fresh code and retry once.
+
 Unsupported route response:
 
 ```json

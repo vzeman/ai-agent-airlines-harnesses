@@ -80,9 +80,27 @@ Interpret `data.authenticated` and `data.diagnostics.reason`:
 
 - `authenticated_indicator_found`: login completed.
 - `verification_required`: Ryanair requires an email/device code; stop and report that blocker.
+- `verification_code_rejected`: the supplied code was rejected or expired; get a fresh code and retry once.
 - `login_rejected_or_form_error`: credentials were rejected or the form showed an error; do not retry more than once.
 
 See `examples/ryanair/login-verification-required.response.json` for a sanitized example.
+
+## Active Bookings
+
+Use `POST /task/list-bookings` or `scripts/list-bookings.ps1` when the user asks for active bookings in an airline account. Ryanair is implemented first.
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -IncludeScreenshot
+```
+
+If the response has `data.diagnostics.reason = "verification_required"`, use an authorized Gmail/tooling workflow to retrieve the fresh Ryanair verification code, then call the same task again with `-VerificationCode`:
+
+```powershell
+.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -VerificationCode "12345678"
+```
+
+After the code is accepted, continue with the same harness task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. See `examples/ryanair/list-bookings-verification-required.response.json` for a sanitized verification example.
 
 ## Session Lifecycle
 

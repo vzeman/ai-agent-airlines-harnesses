@@ -8,7 +8,7 @@ import { getAdapter, listAirlines } from "./airlines/index.js";
 import { capturePricingScreenshot } from "./airlines/rendered-browser.js";
 import { pricingScreenshotUrl } from "./airlines/screenshot-url.js";
 import { assertRouteSupported, getAirlineSupport, listAirlineSupport } from "./airlines/support.js";
-import { flightSearchSchema, loginSchema, resolveSessionSchema } from "./validation.js";
+import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema } from "./validation.js";
 
 const sessions = new SessionManager();
 
@@ -140,6 +140,39 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
 
     try {
       const result = await sessions.withResolvedSession(adapter, input, async (session) => adapter.login!(input, session));
+      sendJson(res, 200, {
+        status: "ok",
+        sessionId: result.sessionId,
+        data: result.data
+      } satisfies TaskResult<unknown>);
+    } catch (error) {
+      if (error instanceof ManualInterventionRequired) {
+        sendJson(res, 200, {
+          status: "manual_intervention_required",
+          message: error.message,
+          diagnostics: error.diagnostics
+        } satisfies TaskResult<unknown>);
+        return;
+      }
+      throw error;
+    }
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/task/list-bookings") {
+    const input = bookingListSchema.parse(await readJson(req));
+    const adapter = getAdapter(input.airline);
+    if (!adapter.listBookings) {
+      sendJson(res, 200, {
+        status: "manual_intervention_required",
+        message: `${adapter.code} booking list is not implemented yet.`,
+        diagnostics: { airline: adapter.code }
+      } satisfies TaskResult<unknown>);
+      return;
+    }
+
+    try {
+      const result = await sessions.withResolvedSession(adapter, input, async (session) => adapter.listBookings!(input, session));
       sendJson(res, 200, {
         status: "ok",
         sessionId: result.sessionId,

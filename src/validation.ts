@@ -41,6 +41,7 @@ export const loginSchema = z.object({
   airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
   username: z.string().min(1).max(320),
   password: z.string().min(1).max(1024),
+  verificationCode: z.string().min(4).max(16).optional(),
   locale: z.string().min(2).max(10).optional(),
   proxy: z
     .object({
@@ -49,4 +50,9 @@ export const loginSchema = z.object({
       password: z.string().optional()
     })
     .optional()
+});
+
+export const bookingListSchema = loginSchema.extend({
+  activeOnly: z.boolean().optional(),
+  includeScreenshot: z.boolean().optional()
 });

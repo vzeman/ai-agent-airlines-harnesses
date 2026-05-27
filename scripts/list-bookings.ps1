@@ -7,9 +7,11 @@ param(
   [securestring]$Password,
   [string]$VerificationCode = "",
   [string]$Locale = "gb/en",
+  [switch]$IncludeScreenshot,
   [string]$HarnessUrl = "http://localhost:8787"
 )
 
+$ErrorActionPreference = "Stop"
 $passwordPtr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($Password)
 $plainPassword = [Runtime.InteropServices.Marshal]::PtrToStringAuto($passwordPtr)
 
@@ -19,14 +21,20 @@ try {
     username = $Username
     password = $plainPassword
     locale = $Locale
+    activeOnly = $true
+  }
+
+  if ($IncludeScreenshot) {
+    $payload.includeScreenshot = $true
   }
 
   if ($VerificationCode -ne "") {
     $payload.verificationCode = $VerificationCode
   }
 
-  $body = $payload | ConvertTo-Json -Depth 5
-  Invoke-RestMethod -UseBasicParsing -Uri "$HarnessUrl/task/login" -Method Post -ContentType "application/json" -Body $body
+  $body = $payload | ConvertTo-Json -Depth 10
+  Invoke-RestMethod -UseBasicParsing -Uri "$HarnessUrl/task/list-bookings" -Method Post -ContentType "application/json" -Body $body |
+    ConvertTo-Json -Depth 50
 }
 finally {
   if ($passwordPtr -ne [IntPtr]::Zero) {

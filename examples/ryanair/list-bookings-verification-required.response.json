@@ -1,0 +1,24 @@
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": false,
+    "url": "https://www.ryanair.com/gb/en",
+    "count": 0,
+    "bookings": [],
+    "cookieCount": 14,
+    "screenshot": {
+      "path": "examples/ryanair/list-bookings-verification-required.screenshot.png",
+      "url": "https://www.ryanair.com/gb/en",
+      "capturedAt": "2026-05-27T10:04:09.621Z",
+      "description": "Login blocker for Ryanair booking list"
+    },
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "verification_required",
+      "authFrameVisible": true,
+      "bookingListLoaded": false
+    }
+  }
+}

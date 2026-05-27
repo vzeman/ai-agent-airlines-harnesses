@@ -54,6 +54,7 @@ export interface LoginInput {
   airline: AirlineCode;
   username: string;
   password: string;
+  verificationCode?: string;
   locale?: string;
   proxy?: ProxyConfig;
 }
@@ -64,6 +65,33 @@ export interface LoginResult {
   url: string;
   accountLabel?: string;
   cookieCount: number;
+  diagnostics?: Record<string, unknown>;
+}
+
+export interface BookingListInput extends LoginInput {
+  activeOnly?: boolean;
+  includeScreenshot?: boolean;
+}
+
+export interface BookingSummary {
+  airline: AirlineCode;
+  bookingReference?: string;
+  origin?: string;
+  destination?: string;
+  departureDate?: string;
+  returnDate?: string;
+  status?: string;
+  rawText: string;
+}
+
+export interface BookingListResult {
+  airline: AirlineCode;
+  authenticated: boolean;
+  url: string;
+  count: number;
+  bookings: BookingSummary[];
+  cookieCount: number;
+  screenshot?: ScreenshotArtifact;
   diagnostics?: Record<string, unknown>;
 }
 
@@ -120,4 +148,5 @@ export interface AirlineAdapter {
   resolveSession(sessionId: string, options?: { proxy?: ProxyConfig }): Promise<HarnessSession>;
   findFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]>;
   login?(input: LoginInput, session: HarnessSession): Promise<LoginResult>;
+  listBookings?(input: BookingListInput, session: HarnessSession): Promise<BookingListResult>;
 }

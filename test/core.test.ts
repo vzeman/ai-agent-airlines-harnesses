@@ -4,8 +4,9 @@ import { cookieHeader } from "../src/core/flaresolverr.js";
 import { ManualInterventionRequired } from "../src/core/errors.js";
 import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
-import { flightSearchSchema, loginSchema, resolveSessionSchema } from "../src/validation.js";
+import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
+import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
 import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
 
 test("cookieHeader filters by domain and serializes name/value pairs", () => {
@@ -100,6 +101,32 @@ test("login validation accepts runtime credentials without examples needing secr
 
   assert.equal(parsed.airline, "ryanair");
   assert.equal(parsed.username, "person@example.com");
+});
+
+test("booking list validation accepts runtime credentials and screenshot flag", () => {
+  const parsed = bookingListSchema.parse({
+    airline: "ryanair",
+    username: "person@example.com",
+    password: "runtime-only",
+    verificationCode: "12345678",
+    locale: "gb/en",
+    activeOnly: true,
+    includeScreenshot: true
+  });
+
+  assert.equal(parsed.airline, "ryanair");
+  assert.equal(parsed.verificationCode, "12345678");
+  assert.equal(parsed.includeScreenshot, true);
+});
+
+test("Ryanair booking text parser extracts reference, route, date, and status", () => {
+  const booking = parseRyanairBookingText("Booking reference ABC123 VIE to STN 2026-07-23 Confirmed");
+
+  assert.equal(booking.bookingReference, "ABC123");
+  assert.equal(booking.origin, "VIE");
+  assert.equal(booking.destination, "STN");
+  assert.equal(booking.departureDate, "2026-07-23");
+  assert.equal(booking.status, "Confirmed");
 });
 
 test("ManualInterventionRequired keeps diagnostics for API responses", () => {
