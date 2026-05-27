@@ -89,7 +89,7 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     ],
     countries: ["United States", "United Kingdom"],
     testedRoutes: [
-      { origin: "JFK", destination: "LAX", status: "manual_intervention_required", note: "Needs AA booking-flow extractor" },
+      { origin: "JFK", destination: "LAX", status: "priced", note: "Official American route-offer fallback" },
       { origin: "VIE", destination: "EWR", status: "unsupported", note: "VIE is outside this adapter's current AA support set" }
     ]
   },
@@ -106,7 +106,7 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     ],
     countries: ["United Kingdom", "United States", "Austria"],
     testedRoutes: [
-      { origin: "LHR", destination: "JFK", status: "manual_intervention_required", note: "Needs BA booking-flow extractor" },
+      { origin: "LHR", destination: "JFK", status: "priced", note: "Official British Airways route/destination offer fallback" },
       { origin: "VIE", destination: "EWR", status: "manual_intervention_required", note: "Likely connecting itinerary, exact extractor not yet implemented" }
     ]
   },

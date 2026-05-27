@@ -9,8 +9,8 @@ const matrix = [
   { airline: "austrian", origin: "VIE", destination: "EWR", expected: "priced" },
   { airline: "lufthansa", origin: "VIE", destination: "EWR", expected: "priced" },
   { airline: "american", origin: "VIE", destination: "EWR", expected: "unsupported_route" },
-  { airline: "american", origin: "JFK", destination: "LAX", expected: "manual_or_priced" },
-  { airline: "british", origin: "LHR", destination: "JFK", expected: "manual_or_priced" },
+  { airline: "american", origin: "JFK", destination: "LAX", expected: "priced" },
+  { airline: "british", origin: "LHR", destination: "JFK", expected: "priced" },
   { airline: "qatar", origin: "VIE", destination: "LHR", expected: "priced" },
   { airline: "qatar", origin: "VIE", destination: "EWR", expected: "manual_or_priced" }
 ];

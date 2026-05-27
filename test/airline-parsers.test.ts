@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { parseAmericanRouteOfferPage } from "../src/airlines/american.js";
+import { parseBritishRouteOfferPage } from "../src/airlines/british.js";
 import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
 import { parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
 import { extractQatarFlights } from "../src/airlines/qatar.js";
@@ -159,4 +161,33 @@ test("Lufthansa Group route offer parser extracts official route page price and 
   assert.equal(flights[0].currency, "EUR");
   assert.equal(flights[0].flightNumber, "OS37");
   assert.equal(flights[0].departure, "2026-07-23T10:45:00");
+});
+
+test("American route offer parser extracts structured EveryMundo fares", () => {
+  const html = `
+    {"priceSpecification":{"totalPrice":277,"currencyCode":"USD","formattedTotalPrice":"$277"},"outboundFlight":{"departureAirportIataCode":"JFK","arrivalAirportIataCode":"LAX"}}
+  `;
+
+  const flights = parseAmericanRouteOfferPage(
+    html,
+    { airline: "american", origin: "JFK", destination: "LAX", dateOut: "2026-07-23", currency: "USD" },
+    "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles"
+  );
+
+  assert.equal(flights.length, 1);
+  assert.equal(flights[0].price, 277);
+  assert.equal(flights[0].currency, "USD");
+});
+
+test("British route offer parser extracts lowest published From fare", () => {
+  const html = `<main>Fare offers From £1175 From £617 From £538 From £541</main>`;
+  const flights = parseBritishRouteOfferPage(
+    html,
+    { airline: "british", origin: "LHR", destination: "JFK", dateOut: "2026-07-23", currency: "GBP" },
+    "https://www.britishairways.com/content/flights/usa/new-york"
+  );
+
+  assert.equal(flights.length, 1);
+  assert.equal(flights[0].price, 538);
+  assert.equal(flights[0].currency, "GBP");
 });
