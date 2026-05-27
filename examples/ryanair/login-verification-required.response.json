@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": false,
+    "url": "https://www.ryanair.com/gb/en",
+    "cookieCount": 14,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "verification_required",
+      "authFrameVisible": true
+    }
+  }
+}

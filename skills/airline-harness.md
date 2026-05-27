@@ -67,7 +67,22 @@ Use `POST /task/login` only when the user explicitly asks for an authenticated a
 
 Ryanair login is implemented first. Other airlines return `manual_intervention_required` until their custom login flow is added.
 
+Preferred PowerShell call:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\login-airline.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en"
+```
+
 The login response is sanitized and does not include the username or password. It creates and destroys its FlareSolverr session automatically.
+
+Interpret `data.authenticated` and `data.diagnostics.reason`:
+
+- `authenticated_indicator_found`: login completed.
+- `verification_required`: Ryanair requires an email/device code; stop and report that blocker.
+- `login_rejected_or_form_error`: credentials were rejected or the form showed an error; do not retry more than once.
+
+See `examples/ryanair/login-verification-required.response.json` for a sanitized example.
 
 ## Session Lifecycle
 

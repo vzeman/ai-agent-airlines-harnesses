@@ -245,6 +245,8 @@ Ryanair may require email/device verification after a valid password. In that ca
 
 The response deliberately excludes the username and password.
 
+Committed examples are sanitized. See `examples/ryanair/login-verification-required.response.json` for the expected response shape when Ryanair requires email/device verification.
+
 Unsupported route response:
 
 ```json
