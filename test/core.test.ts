@@ -4,7 +4,7 @@ import { cookieHeader } from "../src/core/flaresolverr.js";
 import { ManualInterventionRequired } from "../src/core/errors.js";
 import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
-import { bookingListSchema, flightSearchSchema, loginSchema, portalSchema, resolveSessionSchema, verificationCodeSchema } from "../src/validation.js";
+import { bookingDetailSchema, bookingListSchema, flightSearchSchema, loginSchema, portalSchema, resolveSessionSchema, verificationCodeSchema } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
 import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
@@ -145,6 +145,29 @@ test("portal validation accepts Ryanair account section review tasks", () => {
   );
 });
 
+test("booking detail validation accepts itinerary and receipt actions", () => {
+  const parsed = bookingDetailSchema.parse({
+    airline: "ryanair",
+    username: "person@example.com",
+    password: "runtime-only",
+    locale: "gb/en",
+    detailUrl: "https://www.ryanair.com/gb/en/trip/manage/00000000-0000-4000-8000-000000000000/itinerary",
+    actions: ["itinerary", "booking_receipt", "inflight_receipt", "open_claim", "passenger_products"],
+    includeScreenshot: true
+  });
+
+  assert.equal(parsed.actions?.includes("itinerary"), true);
+  assert.throws(() =>
+    bookingDetailSchema.parse({
+      airline: "ryanair",
+      username: "person@example.com",
+      password: "runtime-only",
+      detailUrl: "x",
+      actions: ["unsafe_action"]
+    })
+  );
+});
+
 test("verification-code validation accepts challenge continuation input", () => {
   const parsed = verificationCodeSchema.parse({
     airline: "ryanair",
@@ -172,6 +195,15 @@ test("Ryanair booking text parser accepts manage hub city rows", () => {
   assert.equal(booking.origin, "FARO");
   assert.equal(booking.destination, "VIENNA");
   assert.equal(booking.departureDate, "23 May");
+});
+
+test("Ryanair booking text parser accepts loaded older reservation rows", () => {
+  const booking = parseRyanairBookingText("Vienna to Faro • 18 Apr • Reservation number: Z9Y8X7 • 1");
+
+  assert.equal(booking.bookingReference, "Z9Y8X7");
+  assert.equal(booking.origin, "VIENNA");
+  assert.equal(booking.destination, "FARO");
+  assert.equal(booking.departureDate, "18 Apr");
 });
 
 test("ManualInterventionRequired keeps diagnostics for API responses", () => {

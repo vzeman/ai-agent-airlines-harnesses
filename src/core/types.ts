@@ -103,6 +103,42 @@ export interface BookingListResult {
   diagnostics?: Record<string, unknown>;
 }
 
+export interface BookingDetailInput extends LoginInput {
+  detailUrl: string;
+  actions?: BookingDetailAction[];
+}
+
+export type BookingDetailAction =
+  | "review"
+  | "itinerary"
+  | "booking_receipt"
+  | "inflight_receipt"
+  | "open_claim"
+  | "passenger_products";
+
+export interface DownloadArtifact {
+  path: string;
+  url?: string;
+  capturedAt: string;
+  description: string;
+}
+
+export interface BookingDetailResult {
+  airline: AirlineCode;
+  authenticated: boolean;
+  url: string;
+  detailLoaded: boolean;
+  booking?: BookingSummary;
+  headings: string[];
+  detailLines: string[];
+  actionLabels: string[];
+  requestedActions: BookingDetailAction[];
+  downloads: DownloadArtifact[];
+  cookieCount: number;
+  screenshot?: ScreenshotArtifact;
+  diagnostics?: Record<string, unknown>;
+}
+
 export type RyanairPortalSection = "personal_information" | "travel_documents" | "companions" | "wallet" | "bookings";
 
 export type PortalOperation = "review";
@@ -181,7 +217,8 @@ export interface AirlineAdapter {
   findFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]>;
   login?(input: LoginInput, session: HarnessSession): Promise<LoginResult>;
   listBookings?(input: BookingListInput, session: HarnessSession): Promise<BookingListResult>;
+  getBookingDetail?(input: BookingDetailInput, session: HarnessSession): Promise<BookingDetailResult>;
   managePortal?(input: PortalInput, session: HarnessSession): Promise<PortalResult>;
-  submitVerificationCode?(input: VerificationCodeInput): Promise<LoginResult | BookingListResult | PortalResult>;
+  submitVerificationCode?(input: VerificationCodeInput): Promise<LoginResult | BookingListResult | BookingDetailResult | PortalResult>;
   cancelVerificationChallenge?(challengeId: string): Promise<boolean>;
 }

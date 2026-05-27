@@ -358,6 +358,8 @@ If Ryanair requires email/device verification, the task pauses before the bookin
 
 If Ryanair loads a booking retrieval form instead of account booking cards, the harness reports `bookingListState: "retrieve_booking_form"` and returns an empty `bookings` array. This avoids treating form labels as real bookings.
 
+When `activeOnly` is `false`, the harness opens the authenticated `/trip/manage` page and clicks `Load more` until no more reservation rows appear, capped at 10 clicks. This lets the agent collect older previous bookings without manual browser interaction.
+
 Agent flow for verification:
 
 1. Call `/task/list-bookings` with runtime credentials.
@@ -365,6 +367,34 @@ Agent flow for verification:
 3. Call `/task/submit-verification-code` with `data.diagnostics.challengeId` and the code.
 4. If Ryanair accepts the code, the harness continues the same browser session to My Bookings and returns `data.bookings`.
 5. If `data.diagnostics.reason` is `verification_code_rejected`, read/request a fresh code and retry once while the challenge has not expired.
+
+### `POST /task/booking-detail`
+
+Runtime-only authenticated Ryanair reservation detail task. It opens a specific `trip/manage/...` reservation URL, including itinerary URLs, and returns visible headings, detail lines, action labels, optional screenshots, and optional downloaded receipt artifacts.
+
+Supported actions:
+
+- `review`
+- `itinerary`
+- `booking_receipt`
+- `inflight_receipt`
+- `open_claim`
+- `passenger_products`
+
+```bash
+curl -X POST http://localhost:8787/task/booking-detail \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","username":"user@example.com","password":"runtime-secret","locale":"gb/en","detailUrl":"https://www.ryanair.com/gb/en/trip/manage/<trip-id>/itinerary","actions":["itinerary","passenger_products"],"includeScreenshot":true}'
+```
+
+PowerShell helper:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\get-booking-detail.ps1 -Username "user@example.com" -Password $password -DetailUrl "https://www.ryanair.com/gb/en/trip/manage/<trip-id>/itinerary" -Actions itinerary,passenger_products -IncludeScreenshot
+```
+
+Receipt actions save files under `artifacts/downloads` only when Ryanair exposes a matching receipt download control. `open_claim` opens the claim/refund/compensation area when such a control is present; it does not submit a claim.
 
 ### `POST /task/manage-portal`
 

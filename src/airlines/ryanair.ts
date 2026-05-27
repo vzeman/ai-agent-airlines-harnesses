@@ -8,6 +8,9 @@ import type { BrowserContext, Cookie, FrameLocator, Locator, Page } from "playwr
 import { chromium } from "playwright-core";
 import type {
   AirlineAdapter,
+  BookingDetailAction,
+  BookingDetailInput,
+  BookingDetailResult,
   BookingListInput,
   BookingListResult,
   BookingSummary,
@@ -21,6 +24,7 @@ import type {
   PortalOperation,
   PortalResult,
   RyanairPortalSection,
+  DownloadArtifact,
   ScreenshotArtifact,
   VerificationCodeInput
 } from "../core/types.js";
@@ -33,6 +37,7 @@ const PASSWORD_SELECTOR =
 type PendingChallengeTask =
   | { kind: "login"; includeScreenshot: boolean }
   | { kind: "listBookings"; locale: string; activeOnly: boolean; includeScreenshot: boolean }
+  | { kind: "bookingDetail"; locale: string; detailUrl: string; actions: BookingDetailAction[]; includeScreenshot: boolean }
   | { kind: "managePortal"; locale: string; section: RyanairPortalSection; operation: PortalOperation; includeScreenshot: boolean };
 
 interface PendingVerificationChallenge {
@@ -191,6 +196,7 @@ export class RyanairAdapter implements AirlineAdapter {
       }
 
       await openMyBookings(page, siteLocale);
+      if (input.activeOnly === false) await loadAllBookingRows(page);
       const bookingTexts = await extractBookingTexts(page);
       const bookings = bookingTexts.map((text) => parseRyanairBookingText(text)).filter((booking) => (input.activeOnly ?? true) ? !isPastBooking(booking) : true);
       const cookies = await context.cookies();
@@ -302,7 +308,69 @@ export class RyanairAdapter implements AirlineAdapter {
     }
   }
 
-  async submitVerificationCode(input: VerificationCodeInput): Promise<LoginResult | BookingListResult | PortalResult> {
+  async getBookingDetail(input: BookingDetailInput, session: HarnessSession): Promise<BookingDetailResult> {
+    if (!config.browserWsEndpoint) {
+      throw new ManualInterventionRequired("Ryanair booking detail requires BROWSER_WS_ENDPOINT.", {
+        airline: this.code
+      });
+    }
+
+    const siteLocale = input.locale ?? RYANAIR_SITE_LOCALE;
+    const actions = normalizedBookingDetailActions(input.actions);
+    const browser = await chromium.connect(config.browserWsEndpoint, { timeout: 20_000 });
+    const context = await browser.newContext({
+      userAgent: session.userAgent,
+      locale: browserLocale(input.locale),
+      viewport: { width: 1440, height: 1100 },
+      ignoreHTTPSErrors: true,
+      acceptDownloads: true
+    });
+    let keepContextOpen = false;
+
+    try {
+      await context.addCookies(toPlaywrightCookies(session.cookies, this.baseUrl));
+      const page = await context.newPage();
+      await page.goto(`${this.baseUrl}/${siteLocale}`, {
+        waitUntil: "domcontentloaded",
+        timeout: config.renderedFlowTimeoutMs
+      });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      await dismissCookieBanners(page);
+      await openLoginPanel(page);
+      await fillLoginForm(page, input.username, input.password);
+      const outcome = await submitLoginForm(page);
+      if (input.verificationCode) await submitVerificationCode(page, input.verificationCode);
+      const authState = await authenticationState(page, outcome === "submitted");
+
+      if (!authState.authenticated) {
+        const cookies = await context.cookies();
+        const screenshot = input.includeScreenshot ? await captureBookingScreenshot(page, "Login blocker for Ryanair booking detail", true) : undefined;
+        const challenge =
+          !input.verificationCode && authState.diagnostics.reason === "verification_required"
+            ? registerVerificationChallenge(context, page, {
+                kind: "bookingDetail",
+                locale: siteLocale,
+                detailUrl: input.detailUrl,
+                actions,
+                includeScreenshot: input.includeScreenshot ?? false
+              })
+            : undefined;
+        keepContextOpen = Boolean(challenge);
+        return emptyBookingDetailResult(input.detailUrl, false, actions, cookies.length, screenshot, {
+          ...authState.diagnostics,
+          ...(challenge ? withChallengeDiagnostics({}, challenge) : {}),
+          detailLoaded: false
+        });
+      }
+
+      return await collectBookingDetail(page, context, siteLocale, input.detailUrl, actions, input.includeScreenshot ?? false, authState.diagnostics);
+    } finally {
+      if (!keepContextOpen) await context.close();
+    }
+  }
+
+  async submitVerificationCode(input: VerificationCodeInput): Promise<LoginResult | BookingListResult | BookingDetailResult | PortalResult> {
     const challenge = takeVerificationChallenge(input.challengeId);
     if (!challenge) {
       throw new ManualInterventionRequired("Ryanair verification challenge was not found or has expired.", {
@@ -335,6 +403,14 @@ export class RyanairAdapter implements AirlineAdapter {
       }
 
       if (!authState.authenticated) {
+        if (task.kind === "bookingDetail") {
+          const screenshot = task.includeScreenshot ? await captureBookingScreenshot(page, "Login blocker for Ryanair booking detail", true) : undefined;
+          return emptyBookingDetailResult(task.detailUrl, false, task.actions, cookies.length, screenshot, {
+            ...authState.diagnostics,
+            challengeResumed: true,
+            detailLoaded: false
+          });
+        }
         if (task.kind === "managePortal") {
           const screenshot = task.includeScreenshot ? await capturePortalScreenshot(page, `Login blocker for Ryanair ${task.section}`, true) : undefined;
           return emptyPortalResult(task.section, task.operation, page.url(), cookies.length, false, screenshot, {
@@ -358,6 +434,13 @@ export class RyanairAdapter implements AirlineAdapter {
             bookingListLoaded: false
           }
         };
+      }
+
+      if (task.kind === "bookingDetail") {
+        return await collectBookingDetail(page, context, task.locale, task.detailUrl, task.actions, task.includeScreenshot, {
+          ...authState.diagnostics,
+          challengeResumed: true
+        });
       }
 
       if (task.kind === "managePortal") {
@@ -388,6 +471,7 @@ export class RyanairAdapter implements AirlineAdapter {
       }
 
       await openMyBookings(page, task.locale);
+      if (!task.activeOnly) await loadAllBookingRows(page);
       const bookingTexts = await extractBookingTexts(page);
       const bookings = bookingTexts.map((text) => parseRyanairBookingText(text)).filter((booking) => (task.activeOnly ? !isPastBooking(booking) : true));
       const screenshot = task.includeScreenshot ? await captureBookingScreenshot(page, "Ryanair active bookings page", false) : undefined;
@@ -837,6 +921,210 @@ function withChallengeDiagnostics(
   };
 }
 
+function normalizedBookingDetailActions(actions: BookingDetailAction[] | undefined): BookingDetailAction[] {
+  const requested: BookingDetailAction[] = actions && actions.length > 0 ? actions : ["review"];
+  return [...new Set(requested)];
+}
+
+async function collectBookingDetail(
+  page: Page,
+  context: BrowserContext,
+  locale: string,
+  detailUrl: string,
+  actions: BookingDetailAction[],
+  includeScreenshot: boolean,
+  diagnostics: Record<string, unknown>
+): Promise<BookingDetailResult> {
+  const url = ryanairDetailUrl(locale, detailUrl, actions.includes("itinerary"));
+  await page.goto(url, { waitUntil: "domcontentloaded", timeout: config.renderedFlowTimeoutMs });
+  await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+  await page.waitForTimeout(3_000);
+  await dismissCookieBanners(page);
+
+  const downloads: DownloadArtifact[] = [];
+  const actionDiagnostics: Record<string, unknown> = {};
+
+  if (actions.includes("itinerary") && !/\/itinerary(?:$|[?#])/i.test(page.url())) {
+    await openDetailSubPage(page, "itinerary", [/itinerary/i, /view itinerary/i]);
+  }
+
+  if (actions.includes("passenger_products")) {
+    actionDiagnostics.passengerProductsOpened = await openDetailSubPage(page, "passenger_products", [
+      /passenger products/i,
+      /products/i,
+      /seats|bags|extras/i
+    ]);
+  }
+
+  if (actions.includes("open_claim")) {
+    actionDiagnostics.claimOpened = await openDetailSubPage(page, "open_claim", [/claim/i, /compensation/i, /refund/i]);
+  }
+
+  if (actions.includes("booking_receipt")) {
+    const artifact = await downloadDetailArtifact(page, context, [/booking receipt/i, /receipt/i], "Ryanair booking receipt");
+    if (artifact) downloads.push(artifact);
+    actionDiagnostics.bookingReceiptDownloaded = Boolean(artifact);
+  }
+
+  if (actions.includes("inflight_receipt")) {
+    const artifact = await downloadDetailArtifact(page, context, [/inflight receipt/i, /in-flight receipt/i, /onboard receipt/i], "Ryanair inflight receipt");
+    if (artifact) downloads.push(artifact);
+    actionDiagnostics.inflightReceiptDownloaded = Boolean(artifact);
+  }
+
+  const summary = await summarizeBookingDetailPage(page);
+  const cookies = await context.cookies();
+  const screenshot = includeScreenshot ? await captureBookingScreenshot(page, "Ryanair booking detail", false) : undefined;
+  const detailLoaded = await bookingDetailLooksLoaded(page);
+  const booking = summary.detailLines.length > 0 ? parseRyanairBookingText(summary.detailLines.join(" ")) : undefined;
+
+  return {
+    airline: "ryanair",
+    authenticated: true,
+    url: page.url(),
+    detailLoaded,
+    booking,
+    headings: summary.headings,
+    detailLines: summary.detailLines,
+    actionLabels: summary.actionLabels,
+    requestedActions: actions,
+    downloads,
+    cookieCount: cookies.length,
+    screenshot,
+    diagnostics: {
+      ...diagnostics,
+      detailLoaded,
+      ...actionDiagnostics
+    }
+  };
+}
+
+function ryanairDetailUrl(locale: string, detailUrl: string, forceItinerary: boolean): string {
+  const base = "https://www.ryanair.com";
+  const url = detailUrl.startsWith("http")
+    ? new URL(detailUrl)
+    : new URL(detailUrl.startsWith("/") ? detailUrl : `/${locale}/trip/manage/${detailUrl}`, base);
+  if (url.hostname !== "www.ryanair.com") {
+    throw new ManualInterventionRequired("Ryanair booking detail URL must be on www.ryanair.com.", {
+      airline: "ryanair",
+      detailUrl
+    });
+  }
+  if (forceItinerary && !/\/itinerary(?:$|[?#])/i.test(url.pathname)) {
+    url.pathname = `${url.pathname.replace(/\/$/, "")}/itinerary`;
+  }
+  return url.toString();
+}
+
+async function openDetailSubPage(page: Page, name: string, labels: RegExp[]): Promise<boolean> {
+  for (const label of labels) {
+    const link = page.getByRole("link", { name: label }).first();
+    if (await link.isVisible({ timeout: 1_500 }).catch(() => false)) {
+      await link.click({ timeout: 5_000 });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      return true;
+    }
+    const button = page.getByRole("button", { name: label }).first();
+    if (await button.isVisible({ timeout: 1_500 }).catch(() => false)) {
+      await button.click({ timeout: 5_000 });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      return true;
+    }
+  }
+  return /itinerary/i.test(name) && /\/itinerary(?:$|[?#])/i.test(page.url());
+}
+
+async function downloadDetailArtifact(
+  page: Page,
+  context: BrowserContext,
+  labels: RegExp[],
+  description: string
+): Promise<DownloadArtifact | undefined> {
+  for (const label of labels) {
+    const button = page.getByRole("button", { name: label }).first();
+    const link = page.getByRole("link", { name: label }).first();
+    const target = (await button.isVisible({ timeout: 1_000 }).catch(() => false)) ? button : link;
+    if (!(await target.isVisible({ timeout: 1_000 }).catch(() => false))) continue;
+
+    const relativeDir = path.join("artifacts", "downloads");
+    const dir = path.resolve(relativeDir);
+    await mkdir(dir, { recursive: true });
+    const startedAt = new Date().toISOString();
+
+    const downloadPromise = page.waitForEvent("download", { timeout: 10_000 }).catch(() => undefined);
+    const pagePromise = context.waitForEvent("page", { timeout: 10_000 }).catch(() => undefined);
+    await target.click({ timeout: 5_000 }).catch(async () => target.click({ timeout: 5_000, force: true }));
+    const download = await downloadPromise;
+    if (download) {
+      const suggested = download.suggestedFilename().replace(/[^A-Za-z0-9._-]/g, "_");
+      const relativePath = path.join(relativeDir, `${Date.now()}_${suggested || "download"}`);
+      await download.saveAs(path.resolve(relativePath));
+      return { path: relativePath, capturedAt: startedAt, description };
+    }
+
+    const openedPage = await pagePromise;
+    if (openedPage) {
+      await openedPage.waitForLoadState("domcontentloaded", { timeout: 10_000 }).catch(() => undefined);
+      return { path: "", url: openedPage.url(), capturedAt: startedAt, description };
+    }
+  }
+  return undefined;
+}
+
+async function summarizeBookingDetailPage(page: Page): Promise<{ headings: string[]; detailLines: string[]; actionLabels: string[] }> {
+  return page
+    .evaluate(() => {
+      const normalize = (value: string | null | undefined) => (value ?? "").trim().replace(/\s+/g, " ");
+      const unique = (values: string[]) => [...new Set(values.filter(Boolean))].slice(0, 80);
+      const bodyLines = normalize(document.body?.innerText)
+        .split(/ (?=(?:[A-Z][a-z]+ to [A-Z][a-z]+|Reservation number|Flight|Seat|Bag|Passenger|Itinerary|Total|Paid|Date|Time)\b)/)
+        .map((line) => line.trim())
+        .filter((line) => line.length >= 3 && line.length <= 240);
+      return {
+        headings: unique(Array.from(document.querySelectorAll("h1,h2,h3,[role='heading']")).map((element) => normalize(element.textContent))),
+        detailLines: unique(bodyLines),
+        actionLabels: unique(
+          Array.from(document.querySelectorAll("button,a"))
+            .map((element) => normalize(element.textContent || element.getAttribute("aria-label")))
+            .filter((text) => text.length > 0 && text.length <= 80)
+        )
+      };
+    })
+    .catch(() => ({ headings: [], detailLines: [], actionLabels: [] }));
+}
+
+async function bookingDetailLooksLoaded(page: Page): Promise<boolean> {
+  const text = await page.locator("body").innerText({ timeout: 4_000 }).catch(() => "");
+  if (/\b404\b|page is off sightseeing|we're sorry/i.test(text)) return false;
+  return /itinerary|reservation|booking|passenger|seat|bag|receipt|claim|flight/i.test(text);
+}
+
+function emptyBookingDetailResult(
+  detailUrl: string,
+  authenticated: boolean,
+  actions: BookingDetailAction[],
+  cookieCount: number,
+  screenshot: ScreenshotArtifact | undefined,
+  diagnostics: Record<string, unknown>
+): BookingDetailResult {
+  return {
+    airline: "ryanair",
+    authenticated,
+    url: detailUrl,
+    detailLoaded: false,
+    headings: [],
+    detailLines: [],
+    actionLabels: [],
+    requestedActions: actions,
+    downloads: [],
+    cookieCount,
+    screenshot,
+    diagnostics
+  };
+}
+
 const PORTAL_SECTIONS: Record<RyanairPortalSection, { labels: RegExp[]; path: string; expected: RegExp }> = {
   personal_information: {
     labels: [/personal information/i, /profile/i, /account details/i],
@@ -1052,6 +1340,38 @@ async function extractBookingTexts(page: Page): Promise<string[]> {
   const normalized = body.trim().replace(/\s+/g, " ");
   if (/no upcoming|no active|no bookings|you have no/i.test(normalized)) return [];
   return [];
+}
+
+async function loadAllBookingRows(page: Page): Promise<void> {
+  let previousRows = await reservationRowCount(page);
+  for (let attempt = 0; attempt < 10; attempt += 1) {
+    const button = page.getByRole("button", { name: /load more/i }).first();
+    if (!(await button.isVisible({ timeout: 2_000 }).catch(() => false))) return;
+    if (await button.isDisabled({ timeout: 1_000 }).catch(() => false)) return;
+
+    await button.scrollIntoViewIfNeeded({ timeout: 3_000 }).catch(() => undefined);
+    await button.click({ timeout: 5_000 }).catch(async () => {
+      await button.click({ timeout: 5_000, force: true });
+    });
+    await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+    await page.waitForTimeout(2_000);
+
+    const nextRows = await reservationRowCount(page);
+    if (nextRows <= previousRows) {
+      if (!(await button.isVisible({ timeout: 1_000 }).catch(() => false))) return;
+      await page.waitForTimeout(1_000);
+      const finalRows = await reservationRowCount(page);
+      if (finalRows <= previousRows) return;
+      previousRows = finalRows;
+      continue;
+    }
+    previousRows = nextRows;
+  }
+}
+
+async function reservationRowCount(page: Page): Promise<number> {
+  const body = await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "");
+  return extractReservationRows(body).length;
 }
 
 function extractReservationRows(text: string): string[] {

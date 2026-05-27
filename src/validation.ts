@@ -58,6 +58,14 @@ export const bookingListSchema = loginSchema.extend({
   includeScreenshot: z.boolean().optional()
 });
 
+export const bookingDetailSchema = loginSchema.extend({
+  detailUrl: z.string().min(1).max(1000),
+  actions: z
+    .array(z.enum(["review", "itinerary", "booking_receipt", "inflight_receipt", "open_claim", "passenger_products"]))
+    .max(6)
+    .optional()
+});
+
 export const portalSchema = loginSchema.extend({
   section: z.enum(["personal_information", "travel_documents", "companions", "wallet", "bookings"]),
   operation: z.enum(["review"]).optional()

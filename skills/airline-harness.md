@@ -121,7 +121,27 @@ If the response has `data.diagnostics.reason = "verification_required"`, use an 
 .\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "<challenge id>" -VerificationCode "<fresh code>"
 ```
 
-After the code is accepted, the harness continues the same pending task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. If Ryanair shows a retrieval form rather than booking cards, report `data.diagnostics.bookingListState = "retrieve_booking_form"` and the empty `data.bookings` array. See `examples/ryanair/list-bookings-verification-required.response.json` and `examples/ryanair/list-bookings-success.response.json` for sanitized examples.
+After the code is accepted, the harness continues the same pending task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. With `-AllBookings`, the harness clicks `Load more` on `/trip/manage` until older previous bookings stop appearing, capped at 10 clicks. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. If Ryanair shows a retrieval form rather than booking cards, report `data.diagnostics.bookingListState = "retrieve_booking_form"` and the empty `data.bookings` array. See `examples/ryanair/list-bookings-verification-required.response.json` and `examples/ryanair/list-bookings-success.response.json` for sanitized examples.
+
+## Booking Detail
+
+Use `POST /task/booking-detail` or `scripts/get-booking-detail.ps1` when the user asks for details of a specific Ryanair reservation, itinerary, receipts, claim options, or passenger products. Pass a full Ryanair `detailUrl` from `/trip/manage/...`, including `/itinerary` when the user wants itinerary details.
+
+Supported `actions`:
+
+- `review`
+- `itinerary`
+- `booking_receipt`
+- `inflight_receipt`
+- `open_claim`
+- `passenger_products`
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\get-booking-detail.ps1 -Username "user@example.com" -Password $password -DetailUrl "https://www.ryanair.com/gb/en/trip/manage/<trip-id>/itinerary" -Actions itinerary,passenger_products -IncludeScreenshot
+```
+
+If `data.diagnostics.reason = "verification_required"`, submit the code to the same pending challenge. The continuation returns `data.detailLines`, `data.actionLabels`, `data.downloads`, and optional `data.screenshot.path`. Receipt actions download artifacts only when Ryanair exposes matching controls. `open_claim` navigates/reviews the claim area; it must not submit a claim unless a later explicit submit operation is added.
 
 ## Ryanair Portal
 

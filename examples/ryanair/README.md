@@ -82,7 +82,22 @@ If Ryanair requires email/device verification, the agent should read the fresh c
 
 ![Ryanair post-login bookings screenshot](list-bookings-success.screenshot.png)
 
-The successful post-login example shows the actual state Ryanair returned for this account: the all-bookings/check-in page loaded, but Ryanair displayed the booking retrieval form instead of current or past booking cards. The harness reports this as `bookingListState: "retrieve_booking_form"` and returns an empty `data.bookings` array rather than inventing bookings from page labels.
+The all-bookings flow uses `/trip/manage` and clicks `Load more` for older previous bookings when requested. If Ryanair ever falls back to a booking retrieval form, the harness reports `bookingListState: "retrieve_booking_form"` and returns an empty `data.bookings` array rather than inventing bookings from page labels.
+
+## Booking Detail Example
+
+`POST /task/booking-detail` opens a specific Ryanair reservation detail URL and can review itinerary, passenger products, booking receipt, inflight receipt, and claim/refund entry points.
+
+PowerShell:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\get-booking-detail.ps1 -Username "user@example.com" -Password $password -DetailUrl "https://www.ryanair.com/gb/en/trip/manage/<trip-id>/itinerary" -Actions itinerary,passenger_products -IncludeScreenshot
+```
+
+Supported actions are `review`, `itinerary`, `booking_receipt`, `inflight_receipt`, `open_claim`, and `passenger_products`.
+
+Real itinerary and receipt screenshots/files can contain personal data, so committed examples should use sanitized JSON only. Runtime callers can keep screenshots under `artifacts/screenshots` and receipt downloads under `artifacts/downloads`.
 
 ## myRyanair Portal Review Example
 
