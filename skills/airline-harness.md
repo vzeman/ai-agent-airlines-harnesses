@@ -16,6 +16,16 @@ If the harness is not running:
 
 The harness listens at `http://localhost:8787`.
 
+## Supported Airports
+
+Use support metadata before trying unusual routes:
+
+```powershell
+Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:8787/airlines/ryanair/support"
+```
+
+If a task returns `unsupported_route`, report the reason from `diagnostics.reason` and do not retry that airline for the same route.
+
 ## Find Flights
 
 Use:

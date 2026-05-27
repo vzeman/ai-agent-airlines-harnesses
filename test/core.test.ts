@@ -6,6 +6,7 @@ import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
 import { flightSearchSchema, resolveSessionSchema } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
+import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
 
 test("cookieHeader filters by domain and serializes name/value pairs", () => {
   const header = cookieHeader(
@@ -57,6 +58,23 @@ test("pricingScreenshotUrl builds a representative Ryanair pricing page URL", ()
   assert.equal(url.searchParams.get("originIata"), "VIE");
   assert.equal(url.searchParams.get("destinationIata"), "STN");
   assert.equal(url.searchParams.get("dateOut"), "2026-06-15");
+});
+
+test("airline support exposes airports and rejects known unsupported routes", () => {
+  const support = getAirlineSupport("ryanair");
+  assert.ok(support.airports.some((airport) => airport.iata === "VIE"));
+  assert.ok(support.countries.includes("United Kingdom"));
+
+  assert.throws(
+    () =>
+      assertRouteSupported({
+        airline: "ryanair",
+        origin: "VIE",
+        destination: "EWR",
+        dateOut: "2026-07-23"
+      }),
+    /does not support VIE-EWR/
+  );
 });
 
 test("resolve-session validation accepts optional proxy credentials", () => {

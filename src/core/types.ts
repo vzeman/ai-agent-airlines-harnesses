@@ -13,6 +13,25 @@ export interface ProxyConfig {
   password?: string;
 }
 
+export interface AirportSupport {
+  iata: string;
+  city: string;
+  country: string;
+}
+
+export interface AirlineSupport {
+  airline: AirlineCode;
+  coverage: "curated" | "dynamic";
+  airports: AirportSupport[];
+  countries: string[];
+  testedRoutes: Array<{
+    origin: string;
+    destination: string;
+    status: "priced" | "unsupported" | "manual_intervention_required";
+    note?: string;
+  }>;
+}
+
 export interface FlightSearchInput {
   airline: AirlineCode;
   origin: string;
@@ -71,7 +90,7 @@ export interface ScreenshotArtifact {
 }
 
 export interface TaskResult<T> {
-  status: "ok" | "manual_intervention_required" | "error";
+  status: "ok" | "manual_intervention_required" | "unsupported_route" | "error";
   sessionId?: string;
   data?: T;
   message?: string;

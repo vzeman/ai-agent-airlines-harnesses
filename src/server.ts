@@ -2,10 +2,12 @@ import http from "node:http";
 import { config } from "./core/config.js";
 import { ManualInterventionRequired } from "./core/errors.js";
 import { SessionManager } from "./core/session-manager.js";
+import { UnsupportedRouteError } from "./core/unsupported-route.js";
 import type { TaskResult } from "./core/types.js";
 import { getAdapter, listAirlines } from "./airlines/index.js";
 import { capturePricingScreenshot } from "./airlines/rendered-browser.js";
 import { pricingScreenshotUrl } from "./airlines/screenshot-url.js";
+import { assertRouteSupported, getAirlineSupport, listAirlineSupport } from "./airlines/support.js";
 import { flightSearchSchema, resolveSessionSchema } from "./validation.js";
 
 const sessions = new SessionManager();
@@ -30,6 +32,21 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
 
   if (req.method === "GET" && url.pathname === "/health") {
     sendJson(res, 200, { status: "ok", airlines: listAirlines() });
+    return;
+  }
+
+  if (req.method === "GET" && url.pathname === "/airlines") {
+    sendJson(res, 200, { status: "ok", airlines: listAirlineSupport() });
+    return;
+  }
+
+  if (req.method === "GET" && url.pathname.startsWith("/airlines/") && url.pathname.endsWith("/support")) {
+    const airline = decodeURIComponent(url.pathname.slice("/airlines/".length, -"/support".length));
+    if (!listAirlines().includes(airline as never)) {
+      sendJson(res, 404, { status: "error", message: "unknown airline" });
+      return;
+    }
+    sendJson(res, 200, { status: "ok", support: getAirlineSupport(airline as never) });
     return;
   }
 
@@ -64,6 +81,7 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
     const input = flightSearchSchema.parse(await readJson(req));
     const adapter = getAdapter(input.airline);
     try {
+      assertRouteSupported(input);
       const result = await sessions.withResolvedSession(adapter, input, async (session) => {
         const flights = await adapter.findFlights(input, session);
         const screenshot = input.includeScreenshot
@@ -90,6 +108,14 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
       if (error instanceof ManualInterventionRequired) {
         sendJson(res, 200, {
           status: "manual_intervention_required",
+          message: error.message,
+          diagnostics: error.diagnostics
+        } satisfies TaskResult<unknown>);
+        return;
+      }
+      if (error instanceof UnsupportedRouteError) {
+        sendJson(res, 200, {
+          status: "unsupported_route",
           message: error.message,
           diagnostics: error.diagnostics
         } satisfies TaskResult<unknown>);

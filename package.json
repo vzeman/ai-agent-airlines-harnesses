@@ -10,6 +10,8 @@
     "cli": "tsx src/cli.ts",
     "check": "tsc -p tsconfig.json --noEmit",
     "test": "node --import tsx --test \"test/**/*.test.ts\"",
+    "test:routes": "node scripts/test-route-matrix.mjs",
+    "test:cookies": "node scripts/test-cookie-consent.mjs",
     "verify": "npm run check && npm test"
   },
   "dependencies": {

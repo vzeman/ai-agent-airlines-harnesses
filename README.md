@@ -25,6 +25,8 @@ The harness keeps browser infrastructure outside the LLM loop:
 
 Some airlines still return `manual_intervention_required` when their live site requires a deeper custom interaction script or partner/NDC priced-shopping access. This is intentional: the response includes the resolved booking URL and diagnostics needed to implement the next custom adapter.
 
+Routes known to be outside an adapter's current network return `unsupported_route` before opening a browser session.
+
 ## Compliance Note
 
 This project uses normal browser automation and session lifecycle management. It is not a stealth or fingerprint-spoofing toolkit. Custom browser scripts should model legitimate user actions such as clicking fields, filling text, selecting suggestions, choosing dates, submitting search, waiting for result cards, and extracting displayed prices.
@@ -82,6 +84,22 @@ Destroys a leaked or manually-created FlareSolverr session.
 
 ```bash
 curl -X DELETE http://localhost:8787/sessions/<session-id>
+```
+
+### `GET /airlines`
+
+Returns curated airport/country support metadata for every configured adapter.
+
+```bash
+curl http://localhost:8787/airlines
+```
+
+### `GET /airlines/:code/support`
+
+Returns airport, country, and tested-route metadata for one adapter.
+
+```bash
+curl http://localhost:8787/airlines/ryanair/support
 ```
 
 ### `POST /session/resolve`
@@ -165,6 +183,22 @@ Manual-intervention response:
 ```
 
 Agents should not repeatedly retry these responses. Use them to implement a custom harness script for that airline.
+
+Unsupported route response:
+
+```json
+{
+  "status": "unsupported_route",
+  "message": "ryanair does not support VIE-EWR in the current harness.",
+  "diagnostics": {
+    "airline": "ryanair",
+    "origin": "VIE",
+    "destination": "EWR",
+    "reason": "Known unsupported route for this airline adapter.",
+    "supportedAirportsEndpoint": "/airlines/ryanair/support"
+  }
+}
+```
 
 ## Screenshots
 
@@ -253,6 +287,12 @@ Full verification:
 
 ```bash
 npm run verify
+```
+
+Live route matrix against the running Docker harness:
+
+```bash
+npm run test:routes
 ```
 
 The test suite is offline and deterministic. It covers parser behavior, validation, session cleanup, manual-intervention diagnostics, and screenshot URL construction. CI runs `npm run verify`.
