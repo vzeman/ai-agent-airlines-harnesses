@@ -252,7 +252,7 @@ Committed examples are sanitized. See `examples/ryanair/login-verification-requi
 
 ### `POST /task/submit-verification-code`
 
-Continues a live Ryanair login or booking-list task after Ryanair asks for an email/device verification code. The original browser context stays open for a short time and is identified by `diagnostics.challengeId`.
+Continues a live Ryanair login or booking-list task after Ryanair asks for an email/device verification code. The original browser context stays open for about 20 minutes and is identified by `diagnostics.challengeId`.
 
 ```bash
 curl -X POST http://localhost:8787/task/submit-verification-code \

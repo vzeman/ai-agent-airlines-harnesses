@@ -26,7 +26,7 @@ const RYANAIR_SITE_LOCALE = "gb/en";
 const EMAIL_SELECTOR = "input[type='email'], input[name='email'], input[autocomplete='username'], input[formcontrolname*='email' i]";
 const PASSWORD_SELECTOR =
   "input[type='password'], input[name='password'], input[autocomplete='current-password'], input[formcontrolname*='password' i]";
-const VERIFICATION_CHALLENGE_TTL_MS = 10 * 60 * 1000;
+const VERIFICATION_CHALLENGE_TTL_MS = 20 * 60 * 1000;
 
 type PendingChallengeTask =
   | { kind: "login" }
@@ -190,6 +190,7 @@ export class RyanairAdapter implements AirlineAdapter {
       const bookings = bookingTexts.map((text) => parseRyanairBookingText(text)).filter((booking) => (input.activeOnly ?? true) ? !isPastBooking(booking) : true);
       const cookies = await context.cookies();
       const screenshot = input.includeScreenshot ? await captureBookingScreenshot(page, "Ryanair active bookings page", false) : undefined;
+      const bodyText = await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "");
 
       return {
         airline: this.code,
@@ -202,7 +203,8 @@ export class RyanairAdapter implements AirlineAdapter {
         diagnostics: {
           ...authState.diagnostics,
           bookingListLoaded: true,
-          extractedTextBlocks: bookingTexts.length
+          extractedTextBlocks: bookingTexts.length,
+          ...(bookingTexts.length === 0 ? { bookingListState: bookingListState(page.url(), bodyText) } : {})
         }
       };
     } finally {
@@ -262,6 +264,7 @@ export class RyanairAdapter implements AirlineAdapter {
       const bookingTexts = await extractBookingTexts(page);
       const bookings = bookingTexts.map((text) => parseRyanairBookingText(text)).filter((booking) => (task.activeOnly ? !isPastBooking(booking) : true));
       const screenshot = task.includeScreenshot ? await captureBookingScreenshot(page, "Ryanair active bookings page", false) : undefined;
+      const bodyText = await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "");
 
       return {
         airline: this.code,
@@ -275,7 +278,8 @@ export class RyanairAdapter implements AirlineAdapter {
           ...authState.diagnostics,
           challengeResumed: true,
           bookingListLoaded: true,
-          extractedTextBlocks: bookingTexts.length
+          extractedTextBlocks: bookingTexts.length,
+          ...(bookingTexts.length === 0 ? { bookingListState: bookingListState(page.url(), bodyText) } : {})
         }
       };
     } finally {
@@ -629,12 +633,11 @@ async function authenticationState(
 ): Promise<{ authenticated: boolean; accountLabel?: string; diagnostics: Record<string, unknown> }> {
   const bodyText = await page.locator("body").innerText({ timeout: 5_000 }).catch(() => "");
   const frameText = await authFrame(page).locator("body").innerText({ timeout: 3_000 }).catch(() => "");
-  const combinedText = `${bodyText}\n${frameText}`;
-  const reason = loginFailureReason(combinedText);
   const authFrameVisible = await authFrame(page)
     .locator("body")
     .isVisible({ timeout: 1_000 })
     .catch(() => false);
+  const reason = authFrameVisible ? loginFailureReason(frameText) : loginFailureReasonWithoutVerification(bodyText);
   const authenticated = loginSubmitted && reason === "authenticated_indicator_not_found" && !authFrameVisible && looksAuthenticated(bodyText);
 
   return {
@@ -650,6 +653,11 @@ async function authenticationState(
       ...(reason === "verification_code_rejected" ? { nextAction: "read_fresh_email_verification_code_and_retry" } : {})
     }
   };
+}
+
+function loginFailureReasonWithoutVerification(text: string): string {
+  if (/invalid|incorrect|wrong|try again|not match|failed|attempts left/i.test(text)) return "login_rejected_or_form_error";
+  return "authenticated_indicator_not_found";
 }
 
 function registerVerificationChallenge(
@@ -702,8 +710,8 @@ function withChallengeDiagnostics(
 
 async function openMyBookings(page: Page, locale: string): Promise<void> {
   const selectors = [
-    "a:has-text('My Bookings')",
-    "button:has-text('My Bookings')",
+    "button[data-ref='main-links__my_bookings']",
+    "[data-ref='main-links__my_bookings']",
     "a:has-text('Trips')",
     "button:has-text('Trips')",
     "[data-ref*='my-booking']",
@@ -714,16 +722,23 @@ async function openMyBookings(page: Page, locale: string): Promise<void> {
     if (await clickIfVisible(page, selector, 5_000)) {
       await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
       await page.waitForTimeout(3_000);
-      if (/booking|trip/i.test(page.url()) || (await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "")).match(/booking|trip/i)) return;
+      if (await isMyBookingsPage(page)) return;
     }
   }
 
-  await page.goto(`https://www.ryanair.com/${locale}/my-bookings`, {
+  await page.goto(`https://www.ryanair.com/${locale}/lp/check-in`, {
     waitUntil: "domcontentloaded",
     timeout: config.renderedFlowTimeoutMs
   });
   await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
   await page.waitForTimeout(3_000);
+  if (await isMyBookingsPage(page)) return;
+
+  throw new ManualInterventionRequired("Ryanair My Bookings page did not load after authentication.", {
+    airline: "ryanair",
+    currentUrl: page.url(),
+    reason: "my_bookings_not_loaded"
+  });
 }
 
 async function extractBookingTexts(page: Page): Promise<string[]> {
@@ -749,6 +764,7 @@ async function extractBookingTexts(page: Page): Promise<string[]> {
       .catch(() => []);
     for (const value of values) {
       if (!/booking|reservation|trip|flight|depart|return|confirmed|upcoming/i.test(value)) continue;
+      if (/retrieve your booking|use booking reservation number|didn.t book directly|email address/i.test(value)) continue;
       if (/cookie|privacy|newsletter|subscribe/i.test(value)) continue;
       texts.add(value);
     }
@@ -759,15 +775,20 @@ async function extractBookingTexts(page: Page): Promise<string[]> {
   const body = await page.locator("body").innerText({ timeout: 5_000 }).catch(() => "");
   const normalized = body.trim().replace(/\s+/g, " ");
   if (/no upcoming|no active|no bookings|you have no/i.test(normalized)) return [];
-  return normalized ? [normalized.slice(0, 2_000)] : [];
+  return [];
+}
+
+function bookingListState(url: string, text: string): string {
+  if (/retrieve your booking|use booking reservation number/i.test(text)) return "retrieve_booking_form";
+  if (/no upcoming|no active|no bookings|you have no/i.test(text)) return "empty";
+  if (/check-in|managehub/i.test(url)) return "loaded_without_booking_cards";
+  return "unknown";
 }
 
 export function parseRyanairBookingText(text: string): BookingSummary {
   const normalized = text.trim().replace(/\s+/g, " ");
   const routeMatch = normalized.match(/\b([A-Z]{3})\b\s*(?:to|-|→)\s*\b([A-Z]{3})\b/i);
-  const referenceMatch =
-    normalized.match(/\b(?:booking|reservation)\s*(?:reference|ref|number)?\s*[:#]?\s*([A-Z0-9]{6,8})\b/i) ??
-    normalized.match(/\b([A-Z0-9]{6})\b/);
+  const referenceMatch = normalized.match(/\b(?:booking|reservation)\s*(?:reference|ref|number)?\s*[:#]?\s*([A-Z0-9]{6,8})\b/i);
   const dates = [...normalized.matchAll(/\b(20\d{2}-\d{2}-\d{2}|\d{1,2}\s+[A-Za-z]{3,9}\s+20\d{2})\b/g)].map((match) => match[1]);
   const statusMatch = normalized.match(/\b(confirmed|upcoming|checked in|cancelled|completed|past|active)\b/i);
 
@@ -781,6 +802,16 @@ export function parseRyanairBookingText(text: string): BookingSummary {
     status: statusMatch?.[1],
     rawText: normalized
   };
+}
+
+async function isMyBookingsPage(page: Page): Promise<boolean> {
+  const text = await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "");
+  if (/\b404\b|page is off sightseeing|we're sorry/i.test(text)) return false;
+  if (/my-bookings|mybooking|trips|check-in/i.test(page.url()) && /my bookings|booking reference|check.?in|your trip|upcoming/i.test(text)) return true;
+  const heading = page
+    .getByRole("heading", { name: /^(my bookings|my trips|upcoming trips|your bookings|check-in)$/i })
+    .first();
+  return heading.isVisible({ timeout: 1_000 }).catch(() => false);
 }
 
 function isPastBooking(booking: BookingSummary): boolean {
