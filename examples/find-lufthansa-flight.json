@@ -1,0 +1,8 @@
+{
+  "airline": "lufthansa",
+  "origin": "FRA",
+  "destination": "LHR",
+  "dateOut": "2026-06-15",
+  "adults": 1,
+  "currency": "EUR"
+}

@@ -1,0 +1,8 @@
+{
+  "airline": "american",
+  "origin": "JFK",
+  "destination": "LAX",
+  "dateOut": "2026-06-15",
+  "adults": 1,
+  "currency": "USD"
+}

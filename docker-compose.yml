@@ -1,0 +1,47 @@
+services:
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: airline-flaresolverr
+    restart: unless-stopped
+    environment:
+      LOG_LEVEL: ${FLARESOLVERR_LOG_LEVEL:-info}
+      TZ: ${TZ:-Europe/Bratislava}
+      LANG: ${BROWSER_LANG:-en_GB}
+      HEADLESS: ${FLARESOLVERR_HEADLESS:-true}
+      DISABLE_MEDIA: ${FLARESOLVERR_DISABLE_MEDIA:-false}
+      TEST_URL: ${FLARESOLVERR_TEST_URL:-https://www.ryanair.com/}
+    ports:
+      - "${FLARESOLVERR_PORT:-8191}:8191"
+    shm_size: "2gb"
+
+  browser:
+    image: mcr.microsoft.com/playwright:v1.52.0-noble
+    container_name: airline-browser
+    restart: unless-stopped
+    command: npx -y playwright@1.52.0 run-server --host 0.0.0.0 --port 3000
+    environment:
+      TZ: ${TZ:-Europe/Bratislava}
+    ports:
+      - "${BROWSER_WS_PORT:-3000}:3000"
+    shm_size: "2gb"
+
+  harness:
+    image: node:22-bookworm-slim
+    container_name: airline-harness
+    restart: unless-stopped
+    working_dir: /app
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - flaresolverr
+      - browser
+    environment:
+      PORT: ${HARNESS_PORT:-8787}
+      FLARESOLVERR_URL: http://flaresolverr:8191/v1
+      BROWSER_WS_ENDPOINT: ws://browser:3000/
+      SESSION_TTL_MINUTES: ${SESSION_TTL_MINUTES:-10}
+      DEFAULT_MAX_TIMEOUT_MS: ${DEFAULT_MAX_TIMEOUT_MS:-90000}
+      DEFAULT_WAIT_SECONDS: ${DEFAULT_WAIT_SECONDS:-3}
+    ports:
+      - "${HARNESS_PORT:-8787}:8787"
+    volumes:
+      - .:/app

@@ -1,0 +1,8 @@
+{
+  "airline": "wizzair",
+  "origin": "VIE",
+  "destination": "LTN",
+  "dateOut": "2026-06-15",
+  "adults": 1,
+  "currency": "EUR"
+}

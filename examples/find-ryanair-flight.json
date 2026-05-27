@@ -1,0 +1,9 @@
+{
+  "airline": "ryanair",
+  "origin": "BTS",
+  "destination": "STN",
+  "dateOut": "2026-06-16",
+  "adults": 1,
+  "currency": "EUR",
+  "includeScreenshot": false
+}
