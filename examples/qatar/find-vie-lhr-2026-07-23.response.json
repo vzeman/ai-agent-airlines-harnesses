@@ -202,11 +202,11 @@
       }
     ],
     "screenshot": {
-      "path": "artifacts/screenshots/qatar_VIE_LHR_2026-07-23_2026-05-27T08-29-53-239Z.png",
-      "url": "https://www.qatarairways.com/app/booking/flight-selection?tripType=O&fromStation=VIE&toStation=LHR&departing=2026-07-23&returning=&adults=1&children=0&infants=0&cabinClass=E",
-      "capturedAt": "2026-05-27T08:29:53.278Z",
-      "description": "Pricing evidence page for qatar VIE-LHR 2026-07-23",
-      "repositoryPath": "examples/qatar/find-vie-lhr-2026-07-23.screenshot.png"
+      "path": "examples/qatar/screenshot.png",
+      "url": "https://www.qatarairways.com/app/booking/flight-selection?selLang=en&tripType=O&fromStation=VIE&toStation=LHR&departing=2026-07-23&returning=&adults=1&children=0&infants=0&cabinClass=E&bookingClass=E",
+      "capturedAt": "2026-05-27T08:45:44.021Z",
+      "description": "Pricing evidence rendered from FlareSolverr-resolved Qatar Airways HTML for qatar VIE-LHR 2026-07-23",
+      "repositoryPath": "examples/qatar/screenshot.png"
     }
   }
 }

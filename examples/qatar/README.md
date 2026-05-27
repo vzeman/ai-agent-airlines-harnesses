@@ -9,4 +9,4 @@ Confirmed working example for qatar on VIE-LHR, departing 2026-07-23.
 
 ![Qatar Airways pricing screenshot](screenshot.png)
 
-The screenshot is captured by the harness with cookie banners accepted before capture. Route-offer pages can contain published indicative fares; exact live checkout prices still require the airline booking flow to complete.
+The screenshot is rendered from the FlareSolverr-resolved Qatar Airways HTML that produced the fare extraction, with the static cookie overlay removed before capture. Exact live checkout prices still require the airline booking flow to complete.
