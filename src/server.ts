@@ -8,7 +8,7 @@ import { getAdapter, listAirlines } from "./airlines/index.js";
 import { capturePricingScreenshot } from "./airlines/rendered-browser.js";
 import { pricingScreenshotUrl } from "./airlines/screenshot-url.js";
 import { assertRouteSupported, getAirlineSupport, listAirlineSupport } from "./airlines/support.js";
-import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema } from "./validation.js";
+import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema, verificationCodeSchema } from "./validation.js";
 
 const sessions = new SessionManager();
 
@@ -59,6 +59,28 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
     const sessionId = decodeURIComponent(url.pathname.slice("/sessions/".length));
     await sessions.destroy(sessionId);
     sendJson(res, 200, { status: "ok", destroyed: sessionId });
+    return;
+  }
+
+  if (req.method === "DELETE" && url.pathname.startsWith("/task/verification-challenges/")) {
+    const remainder = url.pathname.slice("/task/verification-challenges/".length);
+    const [airline, ...challengeParts] = remainder.split("/");
+    const challengeId = decodeURIComponent(challengeParts.join("/"));
+    if (!listAirlines().includes(airline as never)) {
+      sendJson(res, 404, { status: "error", message: "unknown airline" });
+      return;
+    }
+    const adapter = getAdapter(airline as never);
+    if (!adapter.cancelVerificationChallenge) {
+      sendJson(res, 200, {
+        status: "manual_intervention_required",
+        message: `${adapter.code} verification challenge cancellation is not implemented yet.`,
+        diagnostics: { airline: adapter.code }
+      } satisfies TaskResult<unknown>);
+      return;
+    }
+    const cancelled = await adapter.cancelVerificationChallenge(challengeId);
+    sendJson(res, 200, { status: "ok", data: { cancelled, challengeId } } satisfies TaskResult<unknown>);
     return;
   }
 
@@ -177,6 +199,38 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
         status: "ok",
         sessionId: result.sessionId,
         data: result.data
+      } satisfies TaskResult<unknown>);
+    } catch (error) {
+      if (error instanceof ManualInterventionRequired) {
+        sendJson(res, 200, {
+          status: "manual_intervention_required",
+          message: error.message,
+          diagnostics: error.diagnostics
+        } satisfies TaskResult<unknown>);
+        return;
+      }
+      throw error;
+    }
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/task/submit-verification-code") {
+    const input = verificationCodeSchema.parse(await readJson(req));
+    const adapter = getAdapter(input.airline);
+    if (!adapter.submitVerificationCode) {
+      sendJson(res, 200, {
+        status: "manual_intervention_required",
+        message: `${adapter.code} verification-code continuation is not implemented yet.`,
+        diagnostics: { airline: adapter.code }
+      } satisfies TaskResult<unknown>);
+      return;
+    }
+
+    try {
+      const data = await adapter.submitVerificationCode(input);
+      sendJson(res, 200, {
+        status: "ok",
+        data
       } satisfies TaskResult<unknown>);
     } catch (error) {
       if (error instanceof ManualInterventionRequired) {

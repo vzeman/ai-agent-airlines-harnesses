@@ -42,7 +42,7 @@ curl -X POST http://localhost:8787/task/login \
 
 This example uses the placeholder username `user@example.com`. Real usernames, passwords, and verification codes are runtime-only values and are not returned by the harness.
 
-When Ryanair asks for device or email verification, the harness returns `authenticated: false` with `diagnostics.reason` set to `verification_required`. Agents should read the fresh code with an authorized Gmail-capable tool, then retry with `verificationCode`. If the response is `authenticated: true`, continue with the authenticated task using the harness rather than manual browser clicks.
+When Ryanair asks for device or email verification, the harness returns `authenticated: false`, `diagnostics.reason = "verification_required"`, and a short-lived `diagnostics.challengeId`. Agents should read the fresh code with an authorized Gmail-capable tool or ask the human user for it, then call `POST /task/submit-verification-code` with that `challengeId`. If the continuation response is `authenticated: true`, continue with the authenticated task using the harness rather than manual browser clicks.
 
 ## Active Bookings Example
 
@@ -55,16 +55,17 @@ $password = Read-Host "Ryanair password" -AsSecureString
 .\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -IncludeScreenshot
 ```
 
-If Ryanair requires email/device verification, the agent should read the fresh code through a separate Gmail-capable tool and retry with `-VerificationCode`:
+If Ryanair requires email/device verification, the agent should read the fresh code through a separate Gmail-capable tool or ask the human user, then continue the same browser session with the returned `challengeId`:
 
 ```powershell
-.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -VerificationCode "12345678" -IncludeScreenshot
+.\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "ryanair-verification-..." -VerificationCode "12345678"
 ```
 
 - Request: `list-bookings-verification-required.request.json`
 - Response: `list-bookings-verification-required.response.json`
+- Continuation request: `submit-verification-code.request.json`
 - Screenshot: `list-bookings-verification-required.screenshot.png`
 
 ![Ryanair bookings verification screenshot](list-bookings-verification-required.screenshot.png)
 
-This example is intentionally a verification-blocker state. Once the agent supplies a fresh `verificationCode` and Ryanair accepts it, the same task continues to My Bookings and returns `data.bookings`.
+This example is intentionally a verification-blocker state. Once the agent supplies a fresh code to `/task/submit-verification-code` and Ryanair accepts it, the harness continues the same pending task to My Bookings and returns `data.bookings`.

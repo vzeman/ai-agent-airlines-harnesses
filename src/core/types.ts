@@ -68,6 +68,12 @@ export interface LoginResult {
   diagnostics?: Record<string, unknown>;
 }
 
+export interface VerificationCodeInput {
+  airline: AirlineCode;
+  challengeId: string;
+  verificationCode: string;
+}
+
 export interface BookingListInput extends LoginInput {
   activeOnly?: boolean;
   includeScreenshot?: boolean;
@@ -149,4 +155,6 @@ export interface AirlineAdapter {
   findFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]>;
   login?(input: LoginInput, session: HarnessSession): Promise<LoginResult>;
   listBookings?(input: BookingListInput, session: HarnessSession): Promise<BookingListResult>;
+  submitVerificationCode?(input: VerificationCodeInput): Promise<LoginResult | BookingListResult>;
+  cancelVerificationChallenge?(challengeId: string): Promise<boolean>;
 }

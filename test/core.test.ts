@@ -4,7 +4,7 @@ import { cookieHeader } from "../src/core/flaresolverr.js";
 import { ManualInterventionRequired } from "../src/core/errors.js";
 import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
-import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema } from "../src/validation.js";
+import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema, verificationCodeSchema } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
 import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
@@ -117,6 +117,16 @@ test("booking list validation accepts runtime credentials and screenshot flag", 
   assert.equal(parsed.airline, "ryanair");
   assert.equal(parsed.verificationCode, "12345678");
   assert.equal(parsed.includeScreenshot, true);
+});
+
+test("verification-code validation accepts challenge continuation input", () => {
+  const parsed = verificationCodeSchema.parse({
+    airline: "ryanair",
+    challengeId: "ryanair-verification-12345678",
+    verificationCode: "12345678"
+  });
+
+  assert.equal(parsed.challengeId, "ryanair-verification-12345678");
 });
 
 test("Ryanair booking text parser extracts reference, route, date, and status", () => {

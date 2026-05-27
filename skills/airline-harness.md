@@ -79,11 +79,25 @@ The login response is sanitized and does not include the username or password. I
 Interpret `data.authenticated` and `data.diagnostics.reason`:
 
 - `authenticated_indicator_found`: login completed.
-- `verification_required`: Ryanair requires an email/device code; stop and report that blocker.
-- `verification_code_rejected`: the supplied code was rejected or expired; get a fresh code and retry once.
+- `verification_required`: Ryanair requires an email/device code; read it from an authorized mailbox tool or ask the human user, then call `scripts/submit-verification-code.ps1` with `data.diagnostics.challengeId`.
+- `verification_code_rejected`: the supplied code was rejected or expired; get a fresh code and retry once while the challenge is still valid.
 - `login_rejected_or_form_error`: credentials were rejected or the form showed an error; do not retry more than once.
 
 See `examples/ryanair/login-verification-required.response.json` for a sanitized example.
+
+When a response contains `data.diagnostics.challengeId`, the browser context is still alive. Do not restart login or call the original task again. Continue the same session:
+
+```powershell
+.\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "<challenge id>" -VerificationCode "<fresh code>"
+```
+
+The verification code is runtime-only. Never write it into files, examples, logs, or screenshots.
+
+If the user cannot provide the code or the agent stops the task, cancel the pending context:
+
+```powershell
+.\scripts\cancel-verification-challenge.ps1 -Airline ryanair -ChallengeId "<challenge id>"
+```
 
 ## Active Bookings
 
@@ -94,17 +108,17 @@ $password = Read-Host "Ryanair password" -AsSecureString
 .\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -IncludeScreenshot
 ```
 
-If the response has `data.diagnostics.reason = "verification_required"`, use an authorized Gmail/tooling workflow to retrieve the fresh Ryanair verification code, then call the same task again with `-VerificationCode`:
+If the response has `data.diagnostics.reason = "verification_required"`, use an authorized Gmail/tooling workflow to retrieve the fresh Ryanair verification code, then submit it to the pending challenge:
 
 ```powershell
-.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -VerificationCode "12345678"
+.\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "<challenge id>" -VerificationCode "<fresh code>"
 ```
 
-After the code is accepted, continue with the same harness task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. See `examples/ryanair/list-bookings-verification-required.response.json` for a sanitized verification example.
+After the code is accepted, the harness continues the same pending task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. See `examples/ryanair/list-bookings-verification-required.response.json` for a sanitized verification example.
 
 ## Session Lifecycle
 
-For normal tasks, `/task/find-flights` and `/task/login` create and destroy a browser session automatically.
+For normal tasks, `/task/find-flights`, `/task/login`, and `/task/list-bookings` create and destroy browser sessions automatically. The exception is Ryanair email/device verification: the harness keeps a pending browser context alive until `/task/submit-verification-code` is called or the challenge expires.
 
 Only use manual session commands for debugging:
 

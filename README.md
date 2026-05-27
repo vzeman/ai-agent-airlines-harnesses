@@ -237,7 +237,10 @@ Ryanair may require email/device verification after a valid password. In that ca
     "diagnostics": {
       "loginSubmitted": true,
       "reason": "verification_required",
-      "authFrameVisible": true
+      "authFrameVisible": true,
+      "challengeId": "ryanair-verification-...",
+      "challengeExpiresAt": "2026-05-27T10:30:00.000Z",
+      "nextAction": "read_email_verification_code_then_call_submit_verification_code"
     }
   }
 }
@@ -246,6 +249,37 @@ Ryanair may require email/device verification after a valid password. In that ca
 The response deliberately excludes the username and password.
 
 Committed examples are sanitized. See `examples/ryanair/login-verification-required.response.json` for the expected response shape when Ryanair requires email/device verification.
+
+### `POST /task/submit-verification-code`
+
+Continues a live Ryanair login or booking-list task after Ryanair asks for an email/device verification code. The original browser context stays open for a short time and is identified by `diagnostics.challengeId`.
+
+```bash
+curl -X POST http://localhost:8787/task/submit-verification-code \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","challengeId":"ryanair-verification-...","verificationCode":"12345678"}'
+```
+
+PowerShell helper:
+
+```powershell
+.\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "ryanair-verification-..." -VerificationCode "12345678"
+```
+
+Agent behavior:
+
+1. Call `/task/login` or `/task/list-bookings`.
+2. If `data.diagnostics.reason` is `verification_required`, read a fresh Ryanair code from Gmail using an authorized mail tool, or ask the human user to provide it.
+3. Call `/task/submit-verification-code` with `data.diagnostics.challengeId` and the code.
+4. Continue from the response returned by the continuation endpoint. For booking-list challenges, the harness proceeds to My Bookings automatically after Ryanair accepts the code.
+
+The code is runtime-only. Never commit it to examples, logs, screenshots, tests, or docs.
+
+If the user abandons the challenge, cancel it to close the pending browser context:
+
+```powershell
+.\scripts\cancel-verification-challenge.ps1 -Airline ryanair -ChallengeId "ryanair-verification-..."
+```
 
 ### `POST /task/list-bookings`
 
@@ -309,15 +343,15 @@ Successful authenticated response shape:
 }
 ```
 
-If Ryanair requires email/device verification, the task stops before the bookings page and returns `authenticated: false`. See the sanitized example and redacted screenshot in `examples/ryanair/list-bookings-verification-required.response.json`.
+If Ryanair requires email/device verification, the task pauses before the bookings page and returns `authenticated: false` plus `diagnostics.challengeId`. See the sanitized example and redacted screenshot in `examples/ryanair/list-bookings-verification-required.response.json`.
 
 Agent flow for verification:
 
-1. Call `/task/list-bookings` with runtime credentials and no `verificationCode`.
-2. If `data.diagnostics.reason` is `verification_required`, use an external Gmail-capable tool to read the fresh Ryanair verification code.
-3. Call `/task/list-bookings` again with the same runtime credentials plus `verificationCode`.
-4. If Ryanair accepts the code, the harness continues to My Bookings and returns `data.bookings`.
-5. If `data.diagnostics.reason` is `verification_code_rejected`, read a fresh code and retry once.
+1. Call `/task/list-bookings` with runtime credentials.
+2. If `data.diagnostics.reason` is `verification_required`, use an external Gmail-capable tool to read the fresh Ryanair verification code, or request it from the human user.
+3. Call `/task/submit-verification-code` with `data.diagnostics.challengeId` and the code.
+4. If Ryanair accepts the code, the harness continues the same browser session to My Bookings and returns `data.bookings`.
+5. If `data.diagnostics.reason` is `verification_code_rejected`, read/request a fresh code and retry once while the challenge has not expired.
 
 Unsupported route response:
 

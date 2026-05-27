@@ -1,9 +1,10 @@
 import { mkdir } from "node:fs/promises";
+import { randomUUID } from "node:crypto";
 import path from "node:path";
 import { cookieHeader, FlareSolverrClient } from "../core/flaresolverr.js";
 import { ManualInterventionRequired } from "../core/errors.js";
 import { config } from "../core/config.js";
-import type { Cookie, FrameLocator, Locator, Page } from "playwright-core";
+import type { BrowserContext, Cookie, FrameLocator, Locator, Page } from "playwright-core";
 import { chromium } from "playwright-core";
 import type {
   AirlineAdapter,
@@ -16,7 +17,8 @@ import type {
   HarnessSession,
   LoginInput,
   LoginResult,
-  ScreenshotArtifact
+  ScreenshotArtifact,
+  VerificationCodeInput
 } from "../core/types.js";
 
 const DEFAULT_LOCALE = "en-gb";
@@ -24,6 +26,22 @@ const RYANAIR_SITE_LOCALE = "gb/en";
 const EMAIL_SELECTOR = "input[type='email'], input[name='email'], input[autocomplete='username'], input[formcontrolname*='email' i]";
 const PASSWORD_SELECTOR =
   "input[type='password'], input[name='password'], input[autocomplete='current-password'], input[formcontrolname*='password' i]";
+const VERIFICATION_CHALLENGE_TTL_MS = 10 * 60 * 1000;
+
+type PendingChallengeTask =
+  | { kind: "login" }
+  | { kind: "listBookings"; locale: string; activeOnly: boolean; includeScreenshot: boolean };
+
+interface PendingVerificationChallenge {
+  id: string;
+  context: BrowserContext;
+  page: Page;
+  task: PendingChallengeTask;
+  expiresAt: number;
+  timeout: NodeJS.Timeout;
+}
+
+const pendingVerificationChallenges = new Map<string, PendingVerificationChallenge>();
 
 export class RyanairAdapter implements AirlineAdapter {
   code = "ryanair" as const;
@@ -68,6 +86,7 @@ export class RyanairAdapter implements AirlineAdapter {
       viewport: { width: 1440, height: 1100 },
       ignoreHTTPSErrors: true
     });
+    let keepContextOpen = false;
 
     try {
       await context.addCookies(toPlaywrightCookies(session.cookies, this.baseUrl));
@@ -85,6 +104,11 @@ export class RyanairAdapter implements AirlineAdapter {
       if (input.verificationCode) await submitVerificationCode(page, input.verificationCode);
       const cookies = await context.cookies();
       const authState = await authenticationState(page, outcome === "submitted");
+      const challenge =
+        !input.verificationCode && authState.diagnostics.reason === "verification_required"
+          ? registerVerificationChallenge(context, page, { kind: "login" })
+          : undefined;
+      keepContextOpen = Boolean(challenge);
 
       return {
         airline: this.code,
@@ -92,10 +116,10 @@ export class RyanairAdapter implements AirlineAdapter {
         url: page.url(),
         accountLabel: authState.accountLabel,
         cookieCount: cookies.length,
-        diagnostics: authState.diagnostics
+        diagnostics: challenge ? withChallengeDiagnostics(authState.diagnostics, challenge) : authState.diagnostics
       };
     } finally {
-      await context.close();
+      if (!keepContextOpen) await context.close();
     }
   }
 
@@ -114,6 +138,7 @@ export class RyanairAdapter implements AirlineAdapter {
       viewport: { width: 1440, height: 1100 },
       ignoreHTTPSErrors: true
     });
+    let keepContextOpen = false;
 
     try {
       await context.addCookies(toPlaywrightCookies(session.cookies, this.baseUrl));
@@ -134,6 +159,16 @@ export class RyanairAdapter implements AirlineAdapter {
       if (!authState.authenticated) {
         const cookies = await context.cookies();
         const screenshot = input.includeScreenshot ? await captureBookingScreenshot(page, "Login blocker for Ryanair booking list", true) : undefined;
+        const challenge =
+          !input.verificationCode && authState.diagnostics.reason === "verification_required"
+            ? registerVerificationChallenge(context, page, {
+                kind: "listBookings",
+                locale: siteLocale,
+                activeOnly: input.activeOnly ?? true,
+                includeScreenshot: input.includeScreenshot ?? false
+              })
+            : undefined;
+        keepContextOpen = Boolean(challenge);
         return {
           airline: this.code,
           authenticated: false,
@@ -144,6 +179,7 @@ export class RyanairAdapter implements AirlineAdapter {
           screenshot,
           diagnostics: {
             ...authState.diagnostics,
+            ...(challenge ? withChallengeDiagnostics({}, challenge) : {}),
             bookingListLoaded: false
           }
         };
@@ -170,8 +206,88 @@ export class RyanairAdapter implements AirlineAdapter {
         }
       };
     } finally {
+      if (!keepContextOpen) await context.close();
+    }
+  }
+
+  async submitVerificationCode(input: VerificationCodeInput): Promise<LoginResult | BookingListResult> {
+    const challenge = takeVerificationChallenge(input.challengeId);
+    if (!challenge) {
+      throw new ManualInterventionRequired("Ryanair verification challenge was not found or has expired.", {
+        airline: this.code,
+        challengeId: input.challengeId,
+        reason: "challenge_not_found_or_expired"
+      });
+    }
+
+    const { context, page, task } = challenge;
+    try {
+      await submitVerificationCode(page, input.verificationCode);
+      const authState = await authenticationState(page, true);
+      const cookies = await context.cookies();
+
+      if (task.kind === "login") {
+        return {
+          airline: this.code,
+          authenticated: authState.authenticated,
+          url: page.url(),
+          accountLabel: authState.accountLabel,
+          cookieCount: cookies.length,
+          diagnostics: {
+            ...authState.diagnostics,
+            challengeResumed: true
+          }
+        };
+      }
+
+      if (!authState.authenticated) {
+        const screenshot = task.includeScreenshot ? await captureBookingScreenshot(page, "Login blocker for Ryanair booking list", true) : undefined;
+        return {
+          airline: this.code,
+          authenticated: false,
+          url: page.url(),
+          count: 0,
+          bookings: [],
+          cookieCount: cookies.length,
+          screenshot,
+          diagnostics: {
+            ...authState.diagnostics,
+            challengeResumed: true,
+            bookingListLoaded: false
+          }
+        };
+      }
+
+      await openMyBookings(page, task.locale);
+      const bookingTexts = await extractBookingTexts(page);
+      const bookings = bookingTexts.map((text) => parseRyanairBookingText(text)).filter((booking) => (task.activeOnly ? !isPastBooking(booking) : true));
+      const screenshot = task.includeScreenshot ? await captureBookingScreenshot(page, "Ryanair active bookings page", false) : undefined;
+
+      return {
+        airline: this.code,
+        authenticated: true,
+        url: page.url(),
+        count: bookings.length,
+        bookings,
+        cookieCount: cookies.length,
+        screenshot,
+        diagnostics: {
+          ...authState.diagnostics,
+          challengeResumed: true,
+          bookingListLoaded: true,
+          extractedTextBlocks: bookingTexts.length
+        }
+      };
+    } finally {
       await context.close();
     }
+  }
+
+  async cancelVerificationChallenge(challengeId: string): Promise<boolean> {
+    const challenge = takeVerificationChallenge(challengeId);
+    if (!challenge) return false;
+    await challenge.context.close();
+    return true;
   }
 
   private async findFareFinderFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[] | null> {
@@ -533,6 +649,54 @@ async function authenticationState(
         : {}),
       ...(reason === "verification_code_rejected" ? { nextAction: "read_fresh_email_verification_code_and_retry" } : {})
     }
+  };
+}
+
+function registerVerificationChallenge(
+  context: BrowserContext,
+  page: Page,
+  task: PendingChallengeTask
+): Pick<PendingVerificationChallenge, "id" | "expiresAt"> {
+  cleanupExpiredVerificationChallenges();
+  const id = `ryanair-verification-${randomUUID()}`;
+  const expiresAt = Date.now() + VERIFICATION_CHALLENGE_TTL_MS;
+  const timeout = setTimeout(() => {
+    const challenge = pendingVerificationChallenges.get(id);
+    pendingVerificationChallenges.delete(id);
+    void challenge?.context.close().catch(() => undefined);
+  }, VERIFICATION_CHALLENGE_TTL_MS);
+  pendingVerificationChallenges.set(id, { id, context, page, task, expiresAt, timeout });
+  return { id, expiresAt };
+}
+
+function takeVerificationChallenge(id: string): PendingVerificationChallenge | undefined {
+  cleanupExpiredVerificationChallenges();
+  const challenge = pendingVerificationChallenges.get(id);
+  if (!challenge) return undefined;
+  pendingVerificationChallenges.delete(id);
+  clearTimeout(challenge.timeout);
+  return challenge;
+}
+
+function cleanupExpiredVerificationChallenges(): void {
+  const now = Date.now();
+  for (const [id, challenge] of pendingVerificationChallenges.entries()) {
+    if (challenge.expiresAt > now) continue;
+    pendingVerificationChallenges.delete(id);
+    clearTimeout(challenge.timeout);
+    void challenge.context.close().catch(() => undefined);
+  }
+}
+
+function withChallengeDiagnostics(
+  diagnostics: Record<string, unknown>,
+  challenge: Pick<PendingVerificationChallenge, "id" | "expiresAt">
+): Record<string, unknown> {
+  return {
+    ...diagnostics,
+    challengeId: challenge.id,
+    challengeExpiresAt: new Date(challenge.expiresAt).toISOString(),
+    nextAction: "read_email_verification_code_then_call_submit_verification_code"
   };
 }
 

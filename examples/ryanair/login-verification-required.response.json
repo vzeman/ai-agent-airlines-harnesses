@@ -10,7 +10,9 @@
       "loginSubmitted": true,
       "reason": "verification_required",
       "authFrameVisible": true,
-      "nextAction": "read_email_verification_code_and_retry_with_verificationCode"
+      "challengeId": "ryanair-verification-...",
+      "challengeExpiresAt": "2026-05-27T10:30:00.000Z",
+      "nextAction": "read_email_verification_code_then_call_submit_verification_code"
     }
   }
 }

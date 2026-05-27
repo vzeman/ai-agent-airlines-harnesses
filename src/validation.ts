@@ -56,3 +56,9 @@ export const bookingListSchema = loginSchema.extend({
   activeOnly: z.boolean().optional(),
   includeScreenshot: z.boolean().optional()
 });
+
+export const verificationCodeSchema = z.object({
+  airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  challengeId: z.string().min(8).max(80),
+  verificationCode: z.string().min(4).max(16)
+});
