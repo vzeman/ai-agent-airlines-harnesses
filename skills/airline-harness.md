@@ -123,9 +123,34 @@ If the response has `data.diagnostics.reason = "verification_required"`, use an 
 
 After the code is accepted, the harness continues the same pending task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. If Ryanair shows a retrieval form rather than booking cards, report `data.diagnostics.bookingListState = "retrieve_booking_form"` and the empty `data.bookings` array. See `examples/ryanair/list-bookings-verification-required.response.json` and `examples/ryanair/list-bookings-success.response.json` for sanitized examples.
 
+## Ryanair Portal
+
+Use `POST /task/manage-portal` or `scripts/manage-ryanair-portal.ps1` when the user asks to manage myRyanair account areas without a specific flight. Supported `section` values:
+
+- `personal_information`
+- `travel_documents`
+- `companions`
+- `wallet`
+- `bookings`
+
+The only supported `operation` is `review`. It navigates to the section and returns `data.headings`, `data.fieldLabels`, and `data.actionLabels` so the agent can decide the next step with few LLM/browser calls. It does not submit profile, document, companion, wallet, or booking changes.
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\manage-ryanair-portal.ps1 -Username "user@example.com" -Password $password -Section travel_documents -IncludeScreenshot
+```
+
+If `data.diagnostics.reason = "verification_required"`, submit the code to the same pending challenge:
+
+```powershell
+.\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "<challenge id>" -VerificationCode "<fresh code>"
+```
+
+After the code is accepted, the harness resumes the original portal section. Report `data.sectionLoaded`, `data.url`, and the returned labels. Portal screenshots may contain personal account data; never commit real-account portal screenshots.
+
 ## Session Lifecycle
 
-For normal tasks, `/task/find-flights`, `/task/login`, and `/task/list-bookings` create and destroy browser sessions automatically. The exception is Ryanair email/device verification: the harness keeps a pending browser context alive until `/task/submit-verification-code` is called or the challenge expires.
+For normal tasks, `/task/find-flights`, `/task/login`, `/task/list-bookings`, and `/task/manage-portal` create and destroy browser sessions automatically. The exception is Ryanair email/device verification: the harness keeps a pending browser context alive until `/task/submit-verification-code` is called or the challenge expires.
 
 Only use manual session commands for debugging:
 

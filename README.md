@@ -366,6 +366,61 @@ Agent flow for verification:
 4. If Ryanair accepts the code, the harness continues the same browser session to My Bookings and returns `data.bookings`.
 5. If `data.diagnostics.reason` is `verification_code_rejected`, read/request a fresh code and retry once while the challenge has not expired.
 
+### `POST /task/manage-portal`
+
+Runtime-only authenticated Ryanair myRyanair portal task. It logs in, handles the same email/device verification pause as login and bookings, navigates to the requested portal section, and returns a compact review of headings, field labels, and visible actions.
+
+Supported sections:
+
+- `personal_information`
+- `travel_documents`
+- `companions`
+- `wallet`
+- `bookings`
+
+The initial operation is `review`. It does not submit account changes. Use it to inspect the section and decide whether a later, explicit, narrowly-scoped edit task is needed.
+
+```bash
+curl -X POST http://localhost:8787/task/manage-portal \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","username":"user@example.com","password":"runtime-secret","locale":"gb/en","section":"travel_documents","operation":"review","includeScreenshot":true}'
+```
+
+PowerShell helper:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\manage-ryanair-portal.ps1 -Username "user@example.com" -Password $password -Section travel_documents -IncludeScreenshot
+```
+
+Response shape:
+
+```json
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": true,
+    "section": "travel_documents",
+    "operation": "review",
+    "url": "https://www.ryanair.com/gb/en/myryanair/travel-documents",
+    "sectionLoaded": true,
+    "headings": ["Travel documents"],
+    "fieldLabels": ["Document type", "Document number", "Expiry date"],
+    "actionLabels": ["Add document", "Edit", "Delete"],
+    "cookieCount": 14,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "authenticated_indicator_found",
+      "portalSectionLoaded": true
+    }
+  }
+}
+```
+
+Portal screenshots may contain account information. Treat them as runtime artifacts and do not commit real-account screenshots.
+
 Unsupported route response:
 
 ```json

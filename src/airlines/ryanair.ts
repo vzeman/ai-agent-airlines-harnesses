@@ -17,6 +17,10 @@ import type {
   HarnessSession,
   LoginInput,
   LoginResult,
+  PortalInput,
+  PortalOperation,
+  PortalResult,
+  RyanairPortalSection,
   ScreenshotArtifact,
   VerificationCodeInput
 } from "../core/types.js";
@@ -28,7 +32,8 @@ const PASSWORD_SELECTOR =
   "input[type='password'], input[name='password'], input[autocomplete='current-password'], input[formcontrolname*='password' i]";
 type PendingChallengeTask =
   | { kind: "login"; includeScreenshot: boolean }
-  | { kind: "listBookings"; locale: string; activeOnly: boolean; includeScreenshot: boolean };
+  | { kind: "listBookings"; locale: string; activeOnly: boolean; includeScreenshot: boolean }
+  | { kind: "managePortal"; locale: string; section: RyanairPortalSection; operation: PortalOperation; includeScreenshot: boolean };
 
 interface PendingVerificationChallenge {
   id: string;
@@ -212,7 +217,92 @@ export class RyanairAdapter implements AirlineAdapter {
     }
   }
 
-  async submitVerificationCode(input: VerificationCodeInput): Promise<LoginResult | BookingListResult> {
+  async managePortal(input: PortalInput, session: HarnessSession): Promise<PortalResult> {
+    if (!config.browserWsEndpoint) {
+      throw new ManualInterventionRequired("Ryanair portal management requires BROWSER_WS_ENDPOINT.", {
+        airline: this.code
+      });
+    }
+
+    const siteLocale = input.locale ?? RYANAIR_SITE_LOCALE;
+    const operation = input.operation ?? "review";
+    const browser = await chromium.connect(config.browserWsEndpoint, { timeout: 20_000 });
+    const context = await browser.newContext({
+      userAgent: session.userAgent,
+      locale: browserLocale(input.locale),
+      viewport: { width: 1440, height: 1100 },
+      ignoreHTTPSErrors: true
+    });
+    let keepContextOpen = false;
+
+    try {
+      await context.addCookies(toPlaywrightCookies(session.cookies, this.baseUrl));
+      const page = await context.newPage();
+      await page.goto(`${this.baseUrl}/${siteLocale}`, {
+        waitUntil: "domcontentloaded",
+        timeout: config.renderedFlowTimeoutMs
+      });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      await dismissCookieBanners(page);
+      await openLoginPanel(page);
+      await fillLoginForm(page, input.username, input.password);
+      const outcome = await submitLoginForm(page);
+      if (input.verificationCode) await submitVerificationCode(page, input.verificationCode);
+      const authState = await authenticationState(page, outcome === "submitted");
+
+      if (!authState.authenticated) {
+        const cookies = await context.cookies();
+        const screenshot = input.includeScreenshot ? await capturePortalScreenshot(page, `Login blocker for Ryanair ${input.section}`, true) : undefined;
+        const challenge =
+          !input.verificationCode && authState.diagnostics.reason === "verification_required"
+            ? registerVerificationChallenge(context, page, {
+                kind: "managePortal",
+                locale: siteLocale,
+                section: input.section,
+                operation,
+                includeScreenshot: input.includeScreenshot ?? false
+              })
+            : undefined;
+        keepContextOpen = Boolean(challenge);
+        return emptyPortalResult(input.section, operation, page.url(), cookies.length, false, screenshot, {
+          ...authState.diagnostics,
+          ...(challenge ? withChallengeDiagnostics({}, challenge) : {}),
+          portalSectionLoaded: false
+        });
+      }
+
+      const sectionState = await openPortalSection(page, siteLocale, input.section);
+      const summary = await summarizePortalPage(page);
+      const cookies = await context.cookies();
+      const screenshot = input.includeScreenshot
+        ? await capturePortalScreenshot(page, `Ryanair ${input.section.replace(/_/g, " ")} review`, false)
+        : undefined;
+
+      return {
+        airline: this.code,
+        authenticated: true,
+        section: input.section,
+        operation,
+        url: page.url(),
+        sectionLoaded: sectionState.loaded,
+        headings: summary.headings,
+        fieldLabels: summary.fieldLabels,
+        actionLabels: summary.actionLabels,
+        cookieCount: cookies.length,
+        screenshot,
+        diagnostics: {
+          ...authState.diagnostics,
+          portalSectionLoaded: sectionState.loaded,
+          portalSectionReason: sectionState.reason
+        }
+      };
+    } finally {
+      if (!keepContextOpen) await context.close();
+    }
+  }
+
+  async submitVerificationCode(input: VerificationCodeInput): Promise<LoginResult | BookingListResult | PortalResult> {
     const challenge = takeVerificationChallenge(input.challengeId);
     if (!challenge) {
       throw new ManualInterventionRequired("Ryanair verification challenge was not found or has expired.", {
@@ -245,6 +335,14 @@ export class RyanairAdapter implements AirlineAdapter {
       }
 
       if (!authState.authenticated) {
+        if (task.kind === "managePortal") {
+          const screenshot = task.includeScreenshot ? await capturePortalScreenshot(page, `Login blocker for Ryanair ${task.section}`, true) : undefined;
+          return emptyPortalResult(task.section, task.operation, page.url(), cookies.length, false, screenshot, {
+            ...authState.diagnostics,
+            challengeResumed: true,
+            portalSectionLoaded: false
+          });
+        }
         const screenshot = task.includeScreenshot ? await captureBookingScreenshot(page, "Login blocker for Ryanair booking list", true) : undefined;
         return {
           airline: this.code,
@@ -258,6 +356,33 @@ export class RyanairAdapter implements AirlineAdapter {
             ...authState.diagnostics,
             challengeResumed: true,
             bookingListLoaded: false
+          }
+        };
+      }
+
+      if (task.kind === "managePortal") {
+        const sectionState = await openPortalSection(page, task.locale, task.section);
+        const summary = await summarizePortalPage(page);
+        const screenshot = task.includeScreenshot
+          ? await capturePortalScreenshot(page, `Ryanair ${task.section.replace(/_/g, " ")} review`, false)
+          : undefined;
+        return {
+          airline: this.code,
+          authenticated: true,
+          section: task.section,
+          operation: task.operation,
+          url: page.url(),
+          sectionLoaded: sectionState.loaded,
+          headings: summary.headings,
+          fieldLabels: summary.fieldLabels,
+          actionLabels: summary.actionLabels,
+          cookieCount: cookies.length,
+          screenshot,
+          diagnostics: {
+            ...authState.diagnostics,
+            challengeResumed: true,
+            portalSectionLoaded: sectionState.loaded,
+            portalSectionReason: sectionState.reason
           }
         };
       }
@@ -712,6 +837,154 @@ function withChallengeDiagnostics(
   };
 }
 
+const PORTAL_SECTIONS: Record<RyanairPortalSection, { labels: RegExp[]; path: string; expected: RegExp }> = {
+  personal_information: {
+    labels: [/personal information/i, /profile/i, /account details/i],
+    path: "myryanair/profile",
+    expected: /personal information|profile|account details|contact details/i
+  },
+  travel_documents: {
+    labels: [/travel documents/i, /documents/i, /passport/i],
+    path: "myryanair/travel-documents",
+    expected: /travel documents|passport|document/i
+  },
+  companions: {
+    labels: [/companions/i, /saved passengers/i, /passengers/i],
+    path: "myryanair/companions",
+    expected: /companions|saved passengers|passenger/i
+  },
+  wallet: {
+    labels: [/my wallet/i, /wallet/i, /payment methods/i],
+    path: "myryanair/wallet",
+    expected: /wallet|payment methods|voucher|credit/i
+  },
+  bookings: {
+    labels: [/manage my bookings/i, /my bookings/i, /trips/i, /check.?in/i],
+    path: "lp/check-in",
+    expected: /my bookings|booking reference|check.?in|your trip|upcoming|retrieve your booking/i
+  }
+};
+
+async function openPortalSection(
+  page: Page,
+  locale: string,
+  section: RyanairPortalSection
+): Promise<{ loaded: boolean; reason: string }> {
+  if (section === "bookings") {
+    await openMyBookings(page, locale);
+    return { loaded: true, reason: "bookings_navigation_loaded" };
+  }
+
+  await openAccountMenu(page);
+  const target = PORTAL_SECTIONS[section];
+  for (const label of target.labels) {
+    const link = page.getByRole("link", { name: label }).first();
+    if (await link.isVisible({ timeout: 2_000 }).catch(() => false)) {
+      await link.click({ timeout: 5_000 });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      if (await portalSectionLooksLoaded(page, target.expected)) return { loaded: true, reason: "clicked_account_menu_link" };
+    }
+
+    const button = page.getByRole("button", { name: label }).first();
+    if (await button.isVisible({ timeout: 2_000 }).catch(() => false)) {
+      await button.click({ timeout: 5_000 });
+      await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+      await page.waitForTimeout(2_000);
+      if (await portalSectionLooksLoaded(page, target.expected)) return { loaded: true, reason: "clicked_account_menu_button" };
+    }
+  }
+
+  await page.goto(`https://www.ryanair.com/${locale}/${target.path}`, {
+    waitUntil: "domcontentloaded",
+    timeout: config.renderedFlowTimeoutMs
+  });
+  await page.waitForLoadState("networkidle", { timeout: 12_000 }).catch(() => undefined);
+  await page.waitForTimeout(3_000);
+  return {
+    loaded: await portalSectionLooksLoaded(page, target.expected),
+    reason: "direct_url_fallback"
+  };
+}
+
+async function openAccountMenu(page: Page): Promise<void> {
+  const selectors = [
+    "button:has-text('myRyanair')",
+    "button:has-text('My Ryanair')",
+    "a:has-text('myRyanair')",
+    "a:has-text('My Ryanair')",
+    "button[aria-label*='account' i]",
+    "button[aria-label*='profile' i]",
+    "[data-ref*='account']",
+    "[data-testid*='account']"
+  ];
+
+  for (const selector of selectors) {
+    if (await clickIfVisible(page, selector, 2_000)) {
+      await page.waitForTimeout(1_000);
+      return;
+    }
+  }
+}
+
+async function portalSectionLooksLoaded(page: Page, expected: RegExp): Promise<boolean> {
+  const text = await page.locator("body").innerText({ timeout: 4_000 }).catch(() => "");
+  if (/\b404\b|page is off sightseeing|we're sorry/i.test(text)) return false;
+  return expected.test(text);
+}
+
+async function summarizePortalPage(page: Page): Promise<{ headings: string[]; fieldLabels: string[]; actionLabels: string[] }> {
+  return page
+    .evaluate(() => {
+      const normalize = (value: string | null | undefined) => (value ?? "").trim().replace(/\s+/g, " ");
+      const unique = (values: string[]) => [...new Set(values.filter(Boolean))].slice(0, 30);
+      return {
+        headings: unique(Array.from(document.querySelectorAll("h1,h2,h3,[role='heading']")).map((element) => normalize(element.textContent))),
+        fieldLabels: unique(
+          Array.from(document.querySelectorAll("label,input,select,textarea"))
+            .map((element) => {
+              if (element instanceof HTMLInputElement || element instanceof HTMLSelectElement || element instanceof HTMLTextAreaElement) {
+                return normalize(element.getAttribute("aria-label") || element.getAttribute("placeholder") || element.getAttribute("name"));
+              }
+              return normalize(element.textContent);
+            })
+            .filter((text) => text.length <= 80)
+        ),
+        actionLabels: unique(
+          Array.from(document.querySelectorAll("button,a"))
+            .map((element) => normalize(element.textContent || element.getAttribute("aria-label")))
+            .filter((text) => text.length > 0 && text.length <= 80)
+        )
+      };
+    })
+    .catch(() => ({ headings: [], fieldLabels: [], actionLabels: [] }));
+}
+
+function emptyPortalResult(
+  section: RyanairPortalSection,
+  operation: PortalOperation,
+  url: string,
+  cookieCount: number,
+  authenticated: boolean,
+  screenshot: ScreenshotArtifact | undefined,
+  diagnostics: Record<string, unknown>
+): PortalResult {
+  return {
+    airline: "ryanair",
+    authenticated,
+    section,
+    operation,
+    url,
+    sectionLoaded: false,
+    headings: [],
+    fieldLabels: [],
+    actionLabels: [],
+    cookieCount,
+    screenshot,
+    diagnostics
+  };
+}
+
 async function openMyBookings(page: Page, locale: string): Promise<void> {
   const selectors = [
     "button[data-ref='main-links__my_bookings']",
@@ -823,6 +1096,10 @@ function isPastBooking(booking: BookingSummary): boolean {
 }
 
 async function captureBookingScreenshot(page: Page, description: string, maskAuthFrame: boolean): Promise<ScreenshotArtifact> {
+  return captureAccountScreenshot(page, description, maskAuthFrame);
+}
+
+async function capturePortalScreenshot(page: Page, description: string, maskAuthFrame: boolean): Promise<ScreenshotArtifact> {
   return captureAccountScreenshot(page, description, maskAuthFrame);
 }
 

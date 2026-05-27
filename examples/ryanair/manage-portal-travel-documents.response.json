@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "sessionId": "ryanair-...",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": true,
+    "section": "travel_documents",
+    "operation": "review",
+    "url": "https://www.ryanair.com/gb/en/myryanair/travel-documents",
+    "sectionLoaded": true,
+    "headings": [
+      "Travel documents"
+    ],
+    "fieldLabels": [
+      "Document type",
+      "Document number",
+      "Expiry date"
+    ],
+    "actionLabels": [
+      "Add document",
+      "Edit",
+      "Delete"
+    ],
+    "cookieCount": 14,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "authenticated_indicator_found",
+      "authFrameVisible": false,
+      "portalSectionLoaded": true,
+      "portalSectionReason": "direct_url_fallback"
+    }
+  }
+}

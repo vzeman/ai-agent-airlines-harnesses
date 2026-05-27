@@ -1,0 +1,9 @@
+{
+  "airline": "ryanair",
+  "username": "user@example.com",
+  "password": "runtime-secret",
+  "locale": "gb/en",
+  "section": "travel_documents",
+  "operation": "review",
+  "includeScreenshot": false
+}

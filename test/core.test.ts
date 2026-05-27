@@ -4,7 +4,7 @@ import { cookieHeader } from "../src/core/flaresolverr.js";
 import { ManualInterventionRequired } from "../src/core/errors.js";
 import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
-import { bookingListSchema, flightSearchSchema, loginSchema, resolveSessionSchema, verificationCodeSchema } from "../src/validation.js";
+import { bookingListSchema, flightSearchSchema, loginSchema, portalSchema, resolveSessionSchema, verificationCodeSchema } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
 import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
@@ -119,6 +119,30 @@ test("booking list validation accepts runtime credentials and screenshot flag", 
   assert.equal(parsed.airline, "ryanair");
   assert.equal(parsed.verificationCode, "12345678");
   assert.equal(parsed.includeScreenshot, true);
+});
+
+test("portal validation accepts Ryanair account section review tasks", () => {
+  const parsed = portalSchema.parse({
+    airline: "ryanair",
+    username: "person@example.com",
+    password: "runtime-only",
+    locale: "gb/en",
+    section: "travel_documents",
+    operation: "review",
+    includeScreenshot: true
+  });
+
+  assert.equal(parsed.section, "travel_documents");
+  assert.equal(parsed.operation, "review");
+  assert.equal(parsed.includeScreenshot, true);
+  assert.throws(() =>
+    portalSchema.parse({
+      airline: "ryanair",
+      username: "person@example.com",
+      password: "runtime-only",
+      section: "unsafe_submit"
+    })
+  );
 });
 
 test("verification-code validation accepts challenge continuation input", () => {

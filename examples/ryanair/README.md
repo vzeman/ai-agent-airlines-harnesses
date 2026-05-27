@@ -83,3 +83,21 @@ If Ryanair requires email/device verification, the agent should read the fresh c
 ![Ryanair post-login bookings screenshot](list-bookings-success.screenshot.png)
 
 The successful post-login example shows the actual state Ryanair returned for this account: the all-bookings/check-in page loaded, but Ryanair displayed the booking retrieval form instead of current or past booking cards. The harness reports this as `bookingListState: "retrieve_booking_form"` and returns an empty `data.bookings` array rather than inventing bookings from page labels.
+
+## myRyanair Portal Review Example
+
+`POST /task/manage-portal` navigates to authenticated myRyanair sections and returns section headings, field labels, and available actions. It does not submit account changes.
+
+PowerShell:
+
+```powershell
+$password = Read-Host "Ryanair password" -AsSecureString
+.\scripts\manage-ryanair-portal.ps1 -Username "user@example.com" -Password $password -Section travel_documents
+```
+
+Supported sections are `personal_information`, `travel_documents`, `companions`, `wallet`, and `bookings`.
+
+- Request: `manage-portal-travel-documents.request.json`
+- Response: `manage-portal-travel-documents.response.json`
+
+Real portal screenshots can contain personal account data, so this example intentionally commits only sanitized JSON. Runtime callers can pass `includeScreenshot: true` and keep the artifact outside the repository.
