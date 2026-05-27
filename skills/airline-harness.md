@@ -86,7 +86,7 @@ Interpret `data.authenticated` and `data.diagnostics.reason`:
 
 See `examples/ryanair/login-verification-required.response.json` for a sanitized example.
 
-When a response contains `data.diagnostics.challengeId`, the browser context is still alive for about 20 minutes. Do not restart login or call the original task again. Continue the same session:
+When a response contains `data.diagnostics.challengeId`, the browser context stays alive for `data.diagnostics.challengeTtlMinutes` minutes, default `45`. Do not restart login or call the original task again. Continue the same session:
 
 ```powershell
 .\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "<challenge id>" -VerificationCode "<fresh code>"

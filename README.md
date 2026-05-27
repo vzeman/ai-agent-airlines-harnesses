@@ -60,6 +60,12 @@ Docker services:
 - `browser`: Playwright browser server on port `3000`
 - `harness`: Node/TypeScript API on port `8787`
 
+Useful environment variables:
+
+- `RYANAIR_VERIFICATION_CHALLENGE_TTL_MINUTES`: minutes to keep a Ryanair verification browser context alive while waiting for a human or mailbox tool to provide the email code. Default: `45`.
+- `BROWSER_WS_ENDPOINT`: Playwright browser websocket endpoint used for rendered login and booking-list flows.
+- `FLARESOLVERR_URL`: FlareSolverr API endpoint. Default: `http://localhost:8191/v1`.
+
 ## API
 
 ### `GET /health`
@@ -244,6 +250,7 @@ Ryanair may require email/device verification after a valid password. In that ca
       "authFrameVisible": true,
       "challengeId": "ryanair-verification-...",
       "challengeExpiresAt": "2026-05-27T10:30:00.000Z",
+      "challengeTtlMinutes": 45,
       "nextAction": "read_email_verification_code_then_call_submit_verification_code"
     }
   }
@@ -256,7 +263,7 @@ Committed examples are sanitized. See `examples/ryanair/login-verification-requi
 
 ### `POST /task/submit-verification-code`
 
-Continues a live Ryanair login or booking-list task after Ryanair asks for an email/device verification code. The original browser context stays open for about 20 minutes and is identified by `diagnostics.challengeId`.
+Continues a live Ryanair login or booking-list task after Ryanair asks for an email/device verification code. The original browser context stays open for `RYANAIR_VERIFICATION_CHALLENGE_TTL_MINUTES` minutes, default `45`, and is identified by `diagnostics.challengeId`.
 
 ```bash
 curl -X POST http://localhost:8787/task/submit-verification-code \

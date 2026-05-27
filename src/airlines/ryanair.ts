@@ -26,8 +26,6 @@ const RYANAIR_SITE_LOCALE = "gb/en";
 const EMAIL_SELECTOR = "input[type='email'], input[name='email'], input[autocomplete='username'], input[formcontrolname*='email' i]";
 const PASSWORD_SELECTOR =
   "input[type='password'], input[name='password'], input[autocomplete='current-password'], input[formcontrolname*='password' i]";
-const VERIFICATION_CHALLENGE_TTL_MS = 20 * 60 * 1000;
-
 type PendingChallengeTask =
   | { kind: "login"; includeScreenshot: boolean }
   | { kind: "listBookings"; locale: string; activeOnly: boolean; includeScreenshot: boolean };
@@ -671,12 +669,13 @@ function registerVerificationChallenge(
 ): Pick<PendingVerificationChallenge, "id" | "expiresAt"> {
   cleanupExpiredVerificationChallenges();
   const id = `ryanair-verification-${randomUUID()}`;
-  const expiresAt = Date.now() + VERIFICATION_CHALLENGE_TTL_MS;
+  const ttlMs = config.ryanairVerificationChallengeTtlMinutes * 60 * 1000;
+  const expiresAt = Date.now() + ttlMs;
   const timeout = setTimeout(() => {
     const challenge = pendingVerificationChallenges.get(id);
     pendingVerificationChallenges.delete(id);
     void challenge?.context.close().catch(() => undefined);
-  }, VERIFICATION_CHALLENGE_TTL_MS);
+  }, ttlMs);
   pendingVerificationChallenges.set(id, { id, context, page, task, expiresAt, timeout });
   return { id, expiresAt };
 }
@@ -708,6 +707,7 @@ function withChallengeDiagnostics(
     ...diagnostics,
     challengeId: challenge.id,
     challengeExpiresAt: new Date(challenge.expiresAt).toISOString(),
+    challengeTtlMinutes: config.ryanairVerificationChallengeTtlMinutes,
     nextAction: "read_email_verification_code_then_call_submit_verification_code"
   };
 }

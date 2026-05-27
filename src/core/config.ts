@@ -3,6 +3,7 @@ export const config = {
   flaresolverrUrl: process.env.FLARESOLVERR_URL ?? "http://localhost:8191/v1",
   browserWsEndpoint: process.env.BROWSER_WS_ENDPOINT,
   sessionTtlMinutes: numberFromEnv("SESSION_TTL_MINUTES", 10),
+  ryanairVerificationChallengeTtlMinutes: numberFromEnv("RYANAIR_VERIFICATION_CHALLENGE_TTL_MINUTES", 45),
   defaultMaxTimeoutMs: numberFromEnv("DEFAULT_MAX_TIMEOUT_MS", 90_000),
   defaultWaitSeconds: numberFromEnv("DEFAULT_WAIT_SECONDS", 3),
   renderedFlowTimeoutMs: numberFromEnv("RENDERED_FLOW_TIMEOUT_MS", 45_000),

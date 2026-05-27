@@ -20,6 +20,7 @@
       "authFrameVisible": true,
       "challengeId": "ryanair-verification-...",
       "challengeExpiresAt": "2026-05-27T10:30:00.000Z",
+      "challengeTtlMinutes": 45,
       "nextAction": "read_email_verification_code_then_call_submit_verification_code",
       "bookingListLoaded": false
     }
