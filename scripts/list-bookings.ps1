@@ -7,6 +7,7 @@ param(
   [securestring]$Password,
   [string]$VerificationCode = "",
   [string]$Locale = "gb/en",
+  [switch]$AllBookings,
   [switch]$IncludeScreenshot,
   [string]$HarnessUrl = "http://localhost:8787"
 )
@@ -21,7 +22,7 @@ try {
     username = $Username
     password = $plainPassword
     locale = $Locale
-    activeOnly = $true
+    activeOnly = -not $AllBookings
   }
 
   if ($IncludeScreenshot) {

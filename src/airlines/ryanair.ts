@@ -29,7 +29,7 @@ const PASSWORD_SELECTOR =
 const VERIFICATION_CHALLENGE_TTL_MS = 20 * 60 * 1000;
 
 type PendingChallengeTask =
-  | { kind: "login" }
+  | { kind: "login"; includeScreenshot: boolean }
   | { kind: "listBookings"; locale: string; activeOnly: boolean; includeScreenshot: boolean };
 
 interface PendingVerificationChallenge {
@@ -106,9 +106,10 @@ export class RyanairAdapter implements AirlineAdapter {
       const authState = await authenticationState(page, outcome === "submitted");
       const challenge =
         !input.verificationCode && authState.diagnostics.reason === "verification_required"
-          ? registerVerificationChallenge(context, page, { kind: "login" })
+          ? registerVerificationChallenge(context, page, { kind: "login", includeScreenshot: input.includeScreenshot ?? false })
           : undefined;
       keepContextOpen = Boolean(challenge);
+      const screenshot = input.includeScreenshot && !challenge ? await captureAccountScreenshot(page, "Ryanair login result", true) : undefined;
 
       return {
         airline: this.code,
@@ -116,6 +117,7 @@ export class RyanairAdapter implements AirlineAdapter {
         url: page.url(),
         accountLabel: authState.accountLabel,
         cookieCount: cookies.length,
+        screenshot,
         diagnostics: challenge ? withChallengeDiagnostics(authState.diagnostics, challenge) : authState.diagnostics
       };
     } finally {
@@ -229,12 +231,14 @@ export class RyanairAdapter implements AirlineAdapter {
       const cookies = await context.cookies();
 
       if (task.kind === "login") {
+        const screenshot = task.includeScreenshot ? await captureAccountScreenshot(page, "Ryanair successful login proof", true) : undefined;
         return {
           airline: this.code,
           authenticated: authState.authenticated,
           url: page.url(),
           accountLabel: authState.accountLabel,
           cookieCount: cookies.length,
+          screenshot,
           diagnostics: {
             ...authState.diagnostics,
             challengeResumed: true
@@ -764,7 +768,7 @@ async function extractBookingTexts(page: Page): Promise<string[]> {
       .catch(() => []);
     for (const value of values) {
       if (!/booking|reservation|trip|flight|depart|return|confirmed|upcoming/i.test(value)) continue;
-      if (/retrieve your booking|use booking reservation number|didn.t book directly|email address/i.test(value)) continue;
+      if (/retrieve your booking|use booking reservation number|booking reservation number|reservation number|didn.t book directly|email address/i.test(value)) continue;
       if (/cookie|privacy|newsletter|subscribe/i.test(value)) continue;
       texts.add(value);
     }
@@ -819,10 +823,14 @@ function isPastBooking(booking: BookingSummary): boolean {
 }
 
 async function captureBookingScreenshot(page: Page, description: string, maskAuthFrame: boolean): Promise<ScreenshotArtifact> {
+  return captureAccountScreenshot(page, description, maskAuthFrame);
+}
+
+async function captureAccountScreenshot(page: Page, description: string, maskAuthFrame: boolean): Promise<ScreenshotArtifact> {
   const relativeDir = path.join("artifacts", "screenshots");
   const dir = path.resolve(relativeDir);
   await mkdir(dir, { recursive: true });
-  const fileName = ["ryanair", "bookings", new Date().toISOString().replace(/[:.]/g, "-")].join("_");
+  const fileName = ["ryanair", "account", new Date().toISOString().replace(/[:.]/g, "-")].join("_");
   const relativePath = path.join(relativeDir, `${fileName}.png`);
   const filePath = path.resolve(relativePath);
   const mask = maskAuthFrame ? [authFrame(page).locator("body")] : [];

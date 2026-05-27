@@ -43,6 +43,7 @@ export const loginSchema = z.object({
   password: z.string().min(1).max(1024),
   verificationCode: z.string().min(4).max(16).optional(),
   locale: z.string().min(2).max(10).optional(),
+  includeScreenshot: z.boolean().optional(),
   proxy: z
     .object({
       url: z.string().url(),

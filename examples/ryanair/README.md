@@ -37,8 +37,12 @@ curl -X POST http://localhost:8787/task/login \
 - Request: `login-verification-required.request.json`
 - Response: `login-verification-required.response.json`
 - Screenshot: `login-verification-required.screenshot.png`
+- Successful login response: `login-success.response.json`
+- Successful login screenshot: `login-success.screenshot.png`
 
 ![Ryanair login verification screenshot](login-verification-required.screenshot.png)
+
+![Ryanair successful login screenshot](login-success.screenshot.png)
 
 This example uses the placeholder username `user@example.com`. Real usernames, passwords, and verification codes are runtime-only values and are not returned by the harness.
 
@@ -46,13 +50,19 @@ When Ryanair asks for device or email verification, the harness returns `authent
 
 ## Active Bookings Example
 
-Ryanair active bookings are driven through `POST /task/list-bookings`. This is an authenticated runtime task; no real account data is committed.
+Ryanair active/current and past bookings are driven through `POST /task/list-bookings`. This is an authenticated runtime task; no real account data is committed.
 
 PowerShell:
 
 ```powershell
 $password = Read-Host "Ryanair password" -AsSecureString
 .\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -IncludeScreenshot
+```
+
+Use `-AllBookings` to request current plus past booking state:
+
+```powershell
+.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -AllBookings -IncludeScreenshot
 ```
 
 If Ryanair requires email/device verification, the agent should read the fresh code through a separate Gmail-capable tool or ask the human user, then continue the same browser session with the returned `challengeId`:
@@ -65,7 +75,11 @@ If Ryanair requires email/device verification, the agent should read the fresh c
 - Response: `list-bookings-verification-required.response.json`
 - Continuation request: `submit-verification-code.request.json`
 - Screenshot: `list-bookings-verification-required.screenshot.png`
+- Successful post-login all-bookings response: `list-bookings-success.response.json`
+- Successful post-login all-bookings screenshot: `list-bookings-success.screenshot.png`
 
 ![Ryanair bookings verification screenshot](list-bookings-verification-required.screenshot.png)
 
-This example is intentionally a verification-blocker state. Once the agent supplies a fresh code to `/task/submit-verification-code` and Ryanair accepts it, the harness continues the same pending task to My Bookings and returns `data.bookings`.
+![Ryanair post-login bookings screenshot](list-bookings-success.screenshot.png)
+
+The successful post-login example shows the actual state Ryanair returned for this account: the all-bookings/check-in page loaded, but Ryanair displayed the booking retrieval form instead of current or past booking cards. The harness reports this as `bookingListState: "retrieve_booking_form"` and returns an empty `data.bookings` array rather than inventing bookings from page labels.

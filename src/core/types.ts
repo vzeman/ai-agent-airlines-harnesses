@@ -56,6 +56,7 @@ export interface LoginInput {
   password: string;
   verificationCode?: string;
   locale?: string;
+  includeScreenshot?: boolean;
   proxy?: ProxyConfig;
 }
 
@@ -65,6 +66,7 @@ export interface LoginResult {
   url: string;
   accountLabel?: string;
   cookieCount: number;
+  screenshot?: ScreenshotArtifact;
   diagnostics?: Record<string, unknown>;
 }
 

@@ -71,10 +71,11 @@ Preferred PowerShell call:
 
 ```powershell
 $password = Read-Host "Ryanair password" -AsSecureString
-.\scripts\login-airline.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en"
+.\scripts\login-airline.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -IncludeScreenshot
 ```
 
 The login response is sanitized and does not include the username or password. It creates and destroys its FlareSolverr session automatically.
+When `includeScreenshot` is true, use `data.screenshot.path` as successful login proof.
 
 Interpret `data.authenticated` and `data.diagnostics.reason`:
 
@@ -108,13 +109,19 @@ $password = Read-Host "Ryanair password" -AsSecureString
 .\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -IncludeScreenshot
 ```
 
+Use `-AllBookings` when the user asks for current plus past bookings:
+
+```powershell
+.\scripts\list-bookings.ps1 -Airline ryanair -Username "user@example.com" -Password $password -Locale "gb/en" -AllBookings -IncludeScreenshot
+```
+
 If the response has `data.diagnostics.reason = "verification_required"`, use an authorized Gmail/tooling workflow to retrieve the fresh Ryanair verification code, then submit it to the pending challenge:
 
 ```powershell
 .\scripts\submit-verification-code.ps1 -Airline ryanair -ChallengeId "<challenge id>" -VerificationCode "<fresh code>"
 ```
 
-After the code is accepted, the harness continues the same pending task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. See `examples/ryanair/list-bookings-verification-required.response.json` for a sanitized verification example.
+After the code is accepted, the harness continues the same pending task; do not manually click through My Bookings in the LLM loop. The canonical booking result is `data.bookings`. If `includeScreenshot` was requested, use `data.screenshot.path` as visual evidence. If Ryanair shows a retrieval form rather than booking cards, report `data.diagnostics.bookingListState = "retrieve_booking_form"` and the empty `data.bookings` array. See `examples/ryanair/list-bookings-verification-required.response.json` and `examples/ryanair/list-bookings-success.response.json` for sanitized examples.
 
 ## Session Lifecycle
 

@@ -193,14 +193,14 @@ Ryanair is the first implemented login harness.
 ```bash
 curl -X POST http://localhost:8787/task/login \
   -H 'content-type: application/json' \
-  -d '{"airline":"ryanair","username":"user@example.com","password":"runtime-secret","locale":"gb/en"}'
+  -d '{"airline":"ryanair","username":"user@example.com","password":"runtime-secret","locale":"gb/en","includeScreenshot":true}'
 ```
 
 PowerShell helper:
 
 ```powershell
 $password = Read-Host "Ryanair password" -AsSecureString
-.\scripts\login-airline.ps1 -Airline ryanair -Username "user@example.com" -Password $password
+.\scripts\login-airline.ps1 -Airline ryanair -Username "user@example.com" -Password $password -IncludeScreenshot
 ```
 
 Successful response shape:
@@ -215,6 +215,10 @@ Successful response shape:
     "url": "https://www.ryanair.com/...",
     "accountLabel": "myRyanair",
     "cookieCount": 12,
+    "screenshot": {
+      "path": "artifacts/screenshots/ryanair_account_...",
+      "description": "Ryanair successful login proof"
+    },
     "diagnostics": {
       "loginSubmitted": true,
       "reason": "authenticated_indicator_found"
@@ -307,7 +311,7 @@ Request fields:
 | `password` | yes | Runtime-only login password |
 | `verificationCode` | no | Runtime-only email/device verification code, used only after Ryanair asks for it |
 | `locale` | no | Ryanair site locale, defaults to `gb/en` |
-| `activeOnly` | no | Defaults to active/upcoming bookings |
+| `activeOnly` | no | Defaults to active/upcoming bookings. Set `false` to request current plus past/all-booking state |
 | `includeScreenshot` | no | Captures a booking-list or login-blocker screenshot artifact |
 | `proxy` | no | Optional proxy config passed to FlareSolverr session creation |
 
@@ -344,6 +348,8 @@ Successful authenticated response shape:
 ```
 
 If Ryanair requires email/device verification, the task pauses before the bookings page and returns `authenticated: false` plus `diagnostics.challengeId`. See the sanitized example and redacted screenshot in `examples/ryanair/list-bookings-verification-required.response.json`.
+
+If Ryanair loads a booking retrieval form instead of account booking cards, the harness reports `bookingListState: "retrieve_booking_form"` and returns an empty `bookings` array. This avoids treating form labels as real bookings.
 
 Agent flow for verification:
 

@@ -7,6 +7,7 @@ param(
   [securestring]$Password,
   [string]$VerificationCode = "",
   [string]$Locale = "gb/en",
+  [switch]$IncludeScreenshot,
   [string]$HarnessUrl = "http://localhost:8787"
 )
 
@@ -23,6 +24,10 @@ try {
 
   if ($VerificationCode -ne "") {
     $payload.verificationCode = $VerificationCode
+  }
+
+  if ($IncludeScreenshot) {
+    $payload.includeScreenshot = $true
   }
 
   $body = $payload | ConvertTo-Json -Depth 5

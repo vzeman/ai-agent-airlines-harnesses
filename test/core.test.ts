@@ -96,11 +96,13 @@ test("login validation accepts runtime credentials without examples needing secr
     airline: "ryanair",
     username: "person@example.com",
     password: "runtime-only",
-    locale: "en-gb"
+    locale: "en-gb",
+    includeScreenshot: true
   });
 
   assert.equal(parsed.airline, "ryanair");
   assert.equal(parsed.username, "person@example.com");
+  assert.equal(parsed.includeScreenshot, true);
 });
 
 test("booking list validation accepts runtime credentials and screenshot flag", () => {

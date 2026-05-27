@@ -1,0 +1,26 @@
+{
+  "status": "ok",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": true,
+    "url": "https://www.ryanair.com/gb/en/lp/check-in/link?returnTo=managehub",
+    "count": 0,
+    "bookings": [],
+    "cookieCount": 14,
+    "screenshot": {
+      "path": "examples/ryanair/list-bookings-success.screenshot.png",
+      "url": "https://www.ryanair.com/gb/en/lp/check-in/link?returnTo=managehub",
+      "capturedAt": "2026-05-27T11:43:15.854Z",
+      "description": "Ryanair post-login all-bookings page"
+    },
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "authenticated_indicator_found",
+      "authFrameVisible": false,
+      "challengeResumed": true,
+      "bookingListLoaded": true,
+      "bookingListState": "retrieve_booking_form",
+      "extractedTextBlocks": 0
+    }
+  }
+}
