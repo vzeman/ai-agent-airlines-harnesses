@@ -17,8 +17,8 @@ The harness keeps browser infrastructure outside the LLM loop:
 | --- | --- | --- |
 | Ryanair | `ryanair` | Fare Finder API first, availability API fallback, optional screenshot of pricing page |
 | Wizz Air | `wizzair` | Session resolution, historical API probe, rendered-page diagnostics |
-| Austrian | `austrian` | Session resolution, prepared booking URL, rendered-page diagnostics |
-| Lufthansa | `lufthansa` | Session resolution, prepared booking URL, rendered-page diagnostics |
+| Austrian | `austrian` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback |
+| Lufthansa | `lufthansa` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback |
 | American Airlines | `american` | Session resolution, prepared booking URL, rendered-page diagnostics |
 | British Airways | `british` | Session resolution, prepared booking URL, rendered-page diagnostics |
 | Qatar Airways | `qatar` | Booking-flow page extraction for priced options |

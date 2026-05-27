@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
+import { parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
 import { extractQatarFlights } from "../src/airlines/qatar.js";
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
 import type { FlightSearchInput } from "../src/core/types.js";
@@ -135,4 +136,27 @@ test("Qatar rendered-page parser extracts multiple economy options from booking-
   assert.equal(flights[0].price, 980);
   assert.equal(flights[1].price, 1049);
   assert.equal(flights[0].departure, "2026-06-15T16:05:00");
+});
+
+test("Lufthansa Group route offer parser extracts official route page price and Austrian EWR schedule", () => {
+  const html = `
+    <main>
+      <section>Cheapest flight from €581</section>
+      <section>Flightplan Vienna New York 10:45 VIE 13:55 EWR Flight duration: 09:10 OS37 Mo Tu We Th Fr Sa Su</section>
+    </main>
+  `;
+
+  const flights = parseLufthansaGroupOfferPage(
+    html,
+    { airline: "austrian", origin: "VIE", destination: "EWR", dateOut: "2026-07-23", currency: "EUR" },
+    "austrian",
+    "OS",
+    "https://www.austrian.com/lhg/us/en/o-d/cy-cy/vienna-new-york"
+  );
+
+  assert.equal(flights.length, 1);
+  assert.equal(flights[0].price, 581);
+  assert.equal(flights[0].currency, "EUR");
+  assert.equal(flights[0].flightNumber, "OS37");
+  assert.equal(flights[0].departure, "2026-07-23T10:45:00");
 });
