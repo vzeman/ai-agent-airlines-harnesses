@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "sessionId": "austrian-40caa96e-af1a-4c40-8e92-c7a37078f749",
+  "data": {
+    "count": 1,
+    "flights": [
+      {
+        "airline": "austrian",
+        "origin": "VIE",
+        "destination": "EWR",
+        "departure": "2026-07-23T10:45:00",
+        "arrival": "2026-07-23T13:55:00",
+        "flightNumber": "OS37",
+        "currency": "EUR",
+        "price": 581,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "OS",
+          "sourceUrl": "https://www.austrian.com/lhg/us/en/o-d/cy-cy/vienna-new-york",
+          "caveat": "Official Lufthansa Group route page offer. This is the published lowest route offer, not a guaranteed live seat quote for the exact departure date until the booking flow is completed.",
+          "context": "Cheapest flight from € 581 Flight duration approx. 09:10 Departure and arrival airport VIE-NYC Non-stop flight Flightplan Vienna New York New York Vienna 10:45 VIE 13:55 EWR Flight duration: 09:10 OS37 Mo Tu We Th Fr Sa Su 16:55 VIE 20:05 JFK Flight duration: 09:10 OS35 Mo Tu - We Th Fr Sa Su Please note that the flight schedule changes regularly. 21:45 JFK 11:55 VIE Flight duration: 08:10 OS36 Mo Tu We - Th Fr Sa Su 17:40 EWR 07:50 VIE Flight duration: 08:10 OS38 Mo Tu We Th Fr Sa Su Please not"
+        }
+      }
+    ],
+    "screenshot": {
+      "path": "artifacts/screenshots/austrian_VIE_EWR_2026-07-23_2026-05-27T08-22-50-122Z.png",
+      "url": "https://www.austrian.com/lhg/us/en/o-d/cy-cy/vienna-new-york",
+      "capturedAt": "2026-05-27T08:22:50.482Z",
+      "description": "Pricing evidence page for austrian VIE-EWR 2026-07-23",
+      "repositoryPath": "examples/austrian/find-vie-ewr-2026-07-23.screenshot.png"
+    }
+  }
+}

@@ -1,0 +1,1108 @@
+{
+  "status": "ok",
+  "sessionId": "wizzair-1cf96b24-9a51-4820-8ffa-40dc2ffb268a",
+  "data": {
+    "count": 21,
+    "flights": [
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-23T00:00:00",
+        "currency": "EUR",
+        "price": 17.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 17.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-23T00:00:00",
+            "classOfService": "RS",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-21T00:00:00",
+        "currency": "EUR",
+        "price": 24.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 24.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-21T00:00:00",
+            "classOfService": "P",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-20T00:00:00",
+        "currency": "EUR",
+        "price": 24.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 24.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-20T00:00:00",
+            "classOfService": "P",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-16T00:00:00",
+        "currency": "EUR",
+        "price": 31.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 31.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-16T00:00:00",
+            "classOfService": "O",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-20T00:00:00",
+        "currency": "EUR",
+        "price": 31.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 31.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-20T00:00:00",
+            "classOfService": "O",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-23T00:00:00",
+        "currency": "EUR",
+        "price": 31.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 31.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-23T00:00:00",
+            "classOfService": "O",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-30T00:00:00",
+        "currency": "EUR",
+        "price": 31.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 31.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-30T00:00:00",
+            "classOfService": "O",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-11T00:00:00",
+        "currency": "EUR",
+        "price": 35.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 35.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-11T00:00:00",
+            "classOfService": "BO",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-18T00:00:00",
+        "currency": "EUR",
+        "price": 35.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 35.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-18T00:00:00",
+            "classOfService": "BO",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-13T00:00:00",
+        "currency": "EUR",
+        "price": 39.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 39.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-13T00:00:00",
+            "classOfService": "B",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-21T00:00:00",
+        "currency": "EUR",
+        "price": 39.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 39.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-21T00:00:00",
+            "classOfService": "B",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-27T00:00:00",
+        "currency": "EUR",
+        "price": 39.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 39.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-27T00:00:00",
+            "classOfService": "B",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-28T00:00:00",
+        "currency": "EUR",
+        "price": 39.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 39.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-28T00:00:00",
+            "classOfService": "B",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-07-02T00:00:00",
+        "currency": "EUR",
+        "price": 39.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 39.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-07-02T00:00:00",
+            "classOfService": "B",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-07-04T00:00:00",
+        "currency": "EUR",
+        "price": 39.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 39.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-07-04T00:00:00",
+            "classOfService": "B",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-25T00:00:00",
+        "currency": "EUR",
+        "price": 45.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 45.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-25T00:00:00",
+            "classOfService": "LB",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-27T00:00:00",
+        "currency": "EUR",
+        "price": 49.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "BTS",
+            "arrivalStation": "VAR",
+            "price": {
+              "amount": 49.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-27T00:00:00",
+            "classOfService": "L",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "BTS",
+        "destination": "VAR",
+        "departure": "2026-06-09T00:00:00",
+        "currency": "EUR",
+        "price": 55.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "outboundFlights": [
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 55.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-09T00:00:00",
+                "classOfService": "KL",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-10T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 35.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-11T00:00:00",
+                "classOfService": "BO",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-12T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 39.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-13T00:00:00",
+                "classOfService": "B",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-14T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-15T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 31.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-16T00:00:00",
+                "classOfService": "O",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-17T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 35.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-18T00:00:00",
+                "classOfService": "BO",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-19T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 31.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-20T00:00:00",
+                "classOfService": "O",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 24.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-21T00:00:00",
+                "classOfService": "P",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-22T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 31.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-23T00:00:00",
+                "classOfService": "O",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-24T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 45.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-25T00:00:00",
+                "classOfService": "LB",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-26T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "BTS",
+                "arrivalStation": "VAR",
+                "price": {
+                  "amount": 49.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-27T00:00:00",
+                "classOfService": "L",
+                "hasMacFlight": false
+              }
+            ],
+            "returnFlights": [
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 99.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-18T00:00:00",
+                "classOfService": "HI",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-19T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 24.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-20T00:00:00",
+                "classOfService": "P",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 39.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-21T00:00:00",
+                "classOfService": "B",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-22T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 17.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-23T00:00:00",
+                "classOfService": "RS",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-24T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 55.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-25T00:00:00",
+                "classOfService": "KL",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-26T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 39.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-27T00:00:00",
+                "classOfService": "B",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 39.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-28T00:00:00",
+                "classOfService": "B",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-06-29T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 31.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-06-30T00:00:00",
+                "classOfService": "O",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-07-01T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 39.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-07-02T00:00:00",
+                "classOfService": "B",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-07-03T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 39.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-07-04T00:00:00",
+                "classOfService": "B",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 59.99,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "price",
+                "date": "2026-07-05T00:00:00",
+                "classOfService": "K",
+                "hasMacFlight": false
+              },
+              {
+                "departureStation": "VAR",
+                "arrivalStation": "BTS",
+                "price": {
+                  "amount": 0,
+                  "currencyCode": "EUR",
+                  "exchangedAmount": null,
+                  "exchangedCurrencyCode": null
+                },
+                "priceType": "noData",
+                "date": "2026-07-06T00:00:00",
+                "classOfService": null,
+                "hasMacFlight": false
+              }
+            ],
+            "showPrices": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-25T00:00:00",
+        "currency": "EUR",
+        "price": 55.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 55.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-25T00:00:00",
+            "classOfService": "KL",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-07-05T00:00:00",
+        "currency": "EUR",
+        "price": 59.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 59.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-07-05T00:00:00",
+            "classOfService": "K",
+            "hasMacFlight": false
+          }
+        }
+      },
+      {
+        "airline": "wizzair",
+        "origin": "VAR",
+        "destination": "BTS",
+        "departure": "2026-06-18T00:00:00",
+        "currency": "EUR",
+        "price": 99.99,
+        "fareClass": "rendered-json",
+        "raw": {
+          "carrierCode": "W6",
+          "sourceUrl": "https://be.wizzair.com/28.10.1/Api/asset/farechart",
+          "object": {
+            "departureStation": "VAR",
+            "arrivalStation": "BTS",
+            "price": {
+              "amount": 99.99,
+              "currencyCode": "EUR",
+              "exchangedAmount": null,
+              "exchangedCurrencyCode": null
+            },
+            "priceType": "price",
+            "date": "2026-06-18T00:00:00",
+            "classOfService": "HI",
+            "hasMacFlight": false
+          }
+        }
+      }
+    ],
+    "screenshot": {
+      "path": "artifacts/screenshots/wizzair_BTS_VAR_2026-06-18_2026-05-27T08-22-22-491Z.png",
+      "url": "https://www.wizzair.com/en-gb/booking/select-flight/BTS/VAR/2026-06-18/2026-06-27/1/0/0/null",
+      "capturedAt": "2026-05-27T08:22:22.603Z",
+      "description": "Pricing evidence page for wizzair BTS-VAR 2026-06-18",
+      "repositoryPath": "examples/wizzair/find-bts-var-2026-06-18.screenshot.png"
+    }
+  }
+}

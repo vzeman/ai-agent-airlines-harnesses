@@ -26,16 +26,20 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     coverage: "curated",
     airports: [
       airport("VIE", "Vienna", "Austria"),
+      airport("BTS", "Bratislava", "Slovakia"),
       airport("LTN", "London Luton", "United Kingdom"),
       airport("LGW", "London Gatwick", "United Kingdom"),
+      airport("VAR", "Varna", "Bulgaria"),
       airport("BUD", "Budapest", "Hungary"),
       airport("OTP", "Bucharest", "Romania"),
       airport("TIA", "Tirana", "Albania"),
       airport("SKP", "Skopje", "North Macedonia")
     ],
-    countries: ["Austria", "United Kingdom", "Hungary", "Romania", "Albania", "North Macedonia"],
+    countries: ["Austria", "Slovakia", "United Kingdom", "Bulgaria", "Hungary", "Romania", "Albania", "North Macedonia"],
     testedRoutes: [
-      { origin: "VIE", destination: "LTN", status: "manual_intervention_required", note: "Needs current Wizz browser/XHR flow" },
+      { origin: "BTS", destination: "VAR", status: "priced", note: "Official Wizz Fare Finder route-page fallback" },
+      { origin: "BTS", destination: "LTN", status: "priced", note: "Official Wizz Fare Finder route-page fallback" },
+      { origin: "VIE", destination: "LTN", status: "manual_intervention_required", note: "Needs current Wizz browser/XHR flow or route fallback" },
       { origin: "VIE", destination: "EWR", status: "unsupported", note: "Wizz Air does not operate transatlantic EWR service" }
     ]
   },

@@ -72,6 +72,9 @@ export class WizzairAdapter implements AirlineAdapter {
         const extracted = extractPriceCandidates(solution.response ?? "", input, this.code, "W6", solution.url);
         if (extracted.length > 0) return extracted;
 
+        const routeOffer = await this.findOfficialRouteOffer(input, session);
+        if (routeOffer.length > 0) return routeOffer;
+
         let renderedDiagnostics: Record<string, unknown> | undefined;
         try {
           const rendered = await findRenderedFlights({
@@ -107,6 +110,20 @@ export class WizzairAdapter implements AirlineAdapter {
     return parseWizzAvailability(data, input);
   }
 
+  private async findOfficialRouteOffer(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]> {
+    const url = buildWizzRoutePageUrl(input);
+    if (!url) return [];
+
+    const solution = await this.flaresolverr.get({
+      url,
+      session: session.id,
+      waitInSeconds: 15,
+      disableMedia: true
+    });
+
+    return parseWizzRouteOfferPage(solution.response ?? "", input, solution.url || url);
+  }
+
   private bookingUrl(input: FlightSearchInput): string {
     const origin = input.origin.toUpperCase();
     const destination = input.destination.toUpperCase();
@@ -116,6 +133,126 @@ export class WizzairAdapter implements AirlineAdapter {
     const infants = input.infants ?? 0;
     return `${this.baseUrl}/${DEFAULT_LOCALE}/booking/select-flight/${origin}/${destination}/${input.dateOut}/${dateIn}/${adults}/${children}/${infants}/null`;
   }
+}
+
+function buildWizzRoutePageUrl(input: FlightSearchInput): string | undefined {
+  const locale = input.locale ?? DEFAULT_LOCALE;
+  const key = `${input.origin.toUpperCase()}-${input.destination.toUpperCase()}`;
+  const routes: Record<string, [string, string]> = {
+    "BTS-VAR": ["bratislava", "varna"],
+    "VAR-BTS": ["varna", "bratislava"],
+    "BTS-LTN": ["bratislava", "london"],
+    "LTN-BTS": ["london", "bratislava"]
+  };
+  const slugs = routes[key];
+  return slugs ? `https://www.wizzair.com/${locale}/flights/fare-finder/${slugs[0]}/${slugs[1]}` : undefined;
+}
+
+export function parseWizzRouteOfferPage(html: string, input: FlightSearchInput, sourceUrl: string): FlightOption[] {
+  const text = html
+    .replace(/<script[\s\S]*?<\/script>/g, " ")
+    .replace(/<style[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ");
+  const origin = input.origin.toUpperCase();
+  const destination = input.destination.toUpperCase();
+  if (!text.includes(origin) || !text.includes(destination)) return [];
+
+  const flights: FlightOption[] = [];
+  const fromPrice = firstRouteFromPrice(text);
+  if (fromPrice) {
+    flights.push({
+      airline: "wizzair",
+      origin,
+      destination,
+      departure: input.dateOut,
+      currency: fromPrice.currency,
+      price: fromPrice.price,
+      fareClass: "official-fare-finder",
+      raw: {
+        carrierCode: "W6",
+        sourceUrl,
+        caveat:
+          "Official Wizz Air Fare Finder route page. Published route fares are indicative and may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+        context: fromPrice.context
+      }
+    });
+  }
+
+  for (const calendarPrice of calendarPrices(text, input.currency ?? fromPrice?.currency ?? "EUR")) {
+    flights.push({
+      airline: "wizzair",
+      origin,
+      destination,
+      departure: calendarPrice.departure ?? input.dateOut,
+      currency: calendarPrice.currency,
+      price: calendarPrice.price,
+      fareClass: "official-fare-finder-calendar",
+      raw: {
+        carrierCode: "W6",
+        sourceUrl,
+        caveat:
+          "Official Wizz Air Fare Finder calendar price. Calendar values are indicative and may require live booking confirmation.",
+        context: calendarPrice.context
+      }
+    });
+  }
+
+  const unique = new Map<string, FlightOption>();
+  for (const flight of flights) {
+    unique.set(`${flight.departure}:${flight.price}:${flight.currency}:${flight.fareClass}`, flight);
+  }
+  return [...unique.values()].sort((a, b) => (a.price ?? 0) - (b.price ?? 0)).slice(0, 10);
+}
+
+function firstRouteFromPrice(text: string): { price: number; currency: string; context: string } | undefined {
+  const patterns = [
+    /(?:regular price|bežná cena)\s+(?:from|od)\s*([€£])\s*([0-9]+(?:[,.][0-9]{2})?)/i,
+    /(?:from|od)\s*([€£])\s*([0-9]+(?:[,.][0-9]{2})?)/i
+  ];
+
+  for (const pattern of patterns) {
+    const match = pattern.exec(text);
+    if (!match) continue;
+    const price = decimalPrice(match[2]);
+    if (price == null) continue;
+    return {
+      price,
+      currency: currencyFromSymbol(match[1]),
+      context: text.slice(Math.max(0, match.index - 180), Math.min(text.length, match.index + 220))
+    };
+  }
+  return undefined;
+}
+
+function calendarPrices(
+  text: string,
+  fallbackCurrency: string
+): Array<{ price: number; currency: string; departure?: string; context: string }> {
+  const output: Array<{ price: number; currency: string; departure?: string; context: string }> = [];
+  const pattern = /\b([1-3]?[0-9])\s+([0-9]+(?:[,.][0-9]{2}))\s+(EUR|GBP|USD|PLN|HUF|RON|BGN|CZK)\b/gi;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(text)) !== null) {
+    const price = decimalPrice(match[2]);
+    if (price == null || price < 5 || price > 5000) continue;
+    output.push({
+      price,
+      currency: match[3] ?? fallbackCurrency,
+      context: text.slice(Math.max(0, match.index - 120), Math.min(text.length, match.index + 160))
+    });
+  }
+  return output;
+}
+
+function decimalPrice(value: string): number | undefined {
+  const parsed = Number(value.replace(",", "."));
+  return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+function currencyFromSymbol(symbol: string): string {
+  if (symbol === "£") return "GBP";
+  return "EUR";
 }
 
 function parseWizzAvailability(data: unknown, input: FlightSearchInput): FlightOption[] {

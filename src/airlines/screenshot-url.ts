@@ -29,7 +29,7 @@ export function pricingScreenshotUrl(airline: AirlineCode, input: FlightSearchIn
       return `https://wizzair.com/en-gb/booking/select-flight/${origin}/${destination}/${input.dateOut}/${input.dateIn ?? "null"}/${adults}/${children}/${infants}/null`;
 
     case "austrian":
-      return `https://www.austrian.com/xx/en/flight-search?${new URLSearchParams({
+      return lufthansaGroupRoutePage("austrian", input) ?? `https://www.austrian.com/xx/en/flight-search?${new URLSearchParams({
         departure: origin,
         destination,
         departureDate: input.dateOut,
@@ -41,7 +41,7 @@ export function pricingScreenshotUrl(airline: AirlineCode, input: FlightSearchIn
       }).toString()}`;
 
     case "lufthansa":
-      return `https://www.lufthansa.com/xx/en/flight-search?${new URLSearchParams({
+      return lufthansaGroupRoutePage("lufthansa", input) ?? `https://www.lufthansa.com/xx/en/flight-search?${new URLSearchParams({
         origin,
         destination,
         outboundDate: input.dateOut,
@@ -53,7 +53,7 @@ export function pricingScreenshotUrl(airline: AirlineCode, input: FlightSearchIn
       }).toString()}`;
 
     case "american":
-      return `https://www.aa.com/booking/find-flights?${new URLSearchParams({
+      return americanRoutePage(input) ?? `https://www.aa.com/booking/find-flights?${new URLSearchParams({
         tripType: input.dateIn ? "roundTrip" : "oneWay",
         from: origin,
         to: destination,
@@ -64,7 +64,7 @@ export function pricingScreenshotUrl(airline: AirlineCode, input: FlightSearchIn
       }).toString()}`;
 
     case "british":
-      return `https://www.britishairways.com/travel/home/public/en_gb?${new URLSearchParams({
+      return britishRoutePage(input) ?? `https://www.britishairways.com/travel/home/public/en_gb?${new URLSearchParams({
         eId: "111083",
         tab_selected: "flightSearch",
         from: origin,
@@ -90,4 +90,50 @@ export function pricingScreenshotUrl(airline: AirlineCode, input: FlightSearchIn
         cabinClass: "E"
       }).toString()}`;
   }
+}
+
+function lufthansaGroupRoutePage(airline: "austrian" | "lufthansa", input: FlightSearchInput): string | undefined {
+  const key = `${input.origin.toUpperCase()}-${input.destination.toUpperCase()}`;
+  const routes: Record<string, string> = {
+    "VIE-EWR": "vienna-new-york",
+    "VIE-JFK": "vienna-new-york",
+    "VIE-NYC": "vienna-new-york",
+    "VIE-LHR": "vienna-london",
+    "VIE-LGW": "vienna-london",
+    "VIE-LTN": "vienna-london",
+    "VIE-STN": "vienna-london",
+    "VIE-LON": "vienna-london",
+    "VIE-FRA": "vienna-frankfurt"
+  };
+  const slug = routes[key];
+  if (!slug) return undefined;
+  const host = airline === "austrian" ? "www.austrian.com" : "www.lufthansa.com";
+  return `https://${host}/lhg/us/en/o-d/cy-cy/${slug}`;
+}
+
+function americanRoutePage(input: FlightSearchInput): string | undefined {
+  const key = `${input.origin.toUpperCase()}-${input.destination.toUpperCase()}`;
+  const routes: Record<string, string> = {
+    "JFK-LAX": "flights-from-new-york-to-los-angeles",
+    "NYC-LAX": "flights-from-new-york-to-los-angeles",
+    "LAX-JFK": "flights-from-los-angeles-to-new-york",
+    "LAX-NYC": "flights-from-los-angeles-to-new-york",
+    "JFK-LHR": "flights-from-new-york-to-london",
+    "LHR-JFK": "flights-from-london-to-new-york"
+  };
+  const slug = routes[key];
+  return slug ? `https://www.aa.com/en-us/${slug}` : undefined;
+}
+
+function britishRoutePage(input: FlightSearchInput): string | undefined {
+  const key = `${input.origin.toUpperCase()}-${input.destination.toUpperCase()}`;
+  const routes: Record<string, string> = {
+    "LHR-JFK": "https://www.britishairways.com/content/flights/usa/new-york",
+    "LGW-JFK": "https://www.britishairways.com/content/flights/usa/new-york",
+    "LHR-EWR": "https://www.britishairways.com/content/flights/usa/new-york",
+    "LGW-EWR": "https://www.britishairways.com/content/flights/usa/new-york",
+    "JFK-LHR": "https://www.britishairways.com/content/flights/uk/london",
+    "EWR-LHR": "https://www.britishairways.com/content/flights/uk/london"
+  };
+  return routes[key];
 }

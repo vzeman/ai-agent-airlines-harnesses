@@ -223,7 +223,7 @@ Response data includes:
 }
 ```
 
-A checked-in example is available at [examples/ryanair](examples/ryanair/README.md), including the response JSON and screenshot.
+Checked-in screenshot-backed examples are available in [examples](examples/README.md) for the airline routes that currently validate successfully.
 
 Before taking screenshots, the browser layer tries common consent controls including OneTrust accept buttons, `Accept all`, `Accept cookies`, `Allow all`, `I agree`, `Agree`, `Continue`, `Got it`, and common `data-test` cookie selectors. This keeps evidence screenshots from being covered by cookie bars and leaves the short-lived browser context with confirmed cookies for the rest of the task.
 

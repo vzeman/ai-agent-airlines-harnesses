@@ -1,0 +1,31 @@
+{
+  "status": "ok",
+  "sessionId": "lufthansa-8d21931e-a46f-4f8b-8f0a-8d96a2684cca",
+  "data": {
+    "count": 1,
+    "flights": [
+      {
+        "airline": "lufthansa",
+        "origin": "VIE",
+        "destination": "EWR",
+        "departure": "2026-07-23",
+        "currency": "EUR",
+        "price": 581,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "LH",
+          "sourceUrl": "https://www.lufthansa.com/lhg/us/en/o-d/cy-cy/vienna-new-york",
+          "caveat": "Official Lufthansa Group route page offer. This is the published lowest route offer, not a guaranteed live seat quote for the exact departure date until the booking flow is completed.",
+          "context": "Cheapest flight from € 581 Departure and arrival airport VIE-NYC Book your flights from Vienna to New York right away! Looking for affordable round-trip flights from Vienna to New York? Then check out our offers to find the best option for your journey. For example, you can fly from Vienna to New York and back in June 2026 for € 581 . Whether you’re planning to spend your vacation in USA or traveling to New York for a business meeting, a Lufthansa flight makes your journey from Austria to your d"
+        }
+      }
+    ],
+    "screenshot": {
+      "path": "artifacts/screenshots/lufthansa_VIE_EWR_2026-07-23_2026-05-27T08-23-19-883Z.png",
+      "url": "https://www.lufthansa.com/lhg/us/en/o-d/cy-cy/vienna-new-york",
+      "capturedAt": "2026-05-27T08:23:20.176Z",
+      "description": "Pricing evidence page for lufthansa VIE-EWR 2026-07-23",
+      "repositoryPath": "examples/lufthansa/find-vie-ewr-2026-07-23.screenshot.png"
+    }
+  }
+}

@@ -192,11 +192,13 @@ function flightFromObject(
   const origin = firstString(flat, ["origin", "originCode", "from", "departureAirport", "departureStation", "departure"]);
   const destination = firstString(flat, ["destination", "destinationCode", "to", "arrivalAirport", "arrivalStation", "arrival"]);
   const combined = JSON.stringify(value).toUpperCase();
-  const hasRoute =
+  const routeMatch =
     [origin, destination].some(Boolean)
-      ? matchesRoute(origin, destination, input)
-      : combined.includes(input.origin.toUpperCase()) && combined.includes(input.destination.toUpperCase());
-  if (!hasRoute) return undefined;
+      ? routeMatchKind(origin, destination, input)
+      : combined.includes(input.origin.toUpperCase()) && combined.includes(input.destination.toUpperCase())
+        ? "outbound"
+        : undefined;
+  if (!routeMatch) return undefined;
 
   const price = firstNumberByKey(flat, /(total|price|fare|amount|sell|gross|lowest)/i);
   if (price == null || price < 5 || price > 25_000) return undefined;
@@ -206,8 +208,8 @@ function flightFromObject(
 
   return {
     airline,
-    origin: input.origin.toUpperCase(),
-    destination: input.destination.toUpperCase(),
+    origin: normalizeIata(origin) ?? input.origin.toUpperCase(),
+    destination: normalizeIata(destination) ?? input.destination.toUpperCase(),
     departure: normalizeDeparture(departure, input.dateOut),
     arrival: firstString(flat, ["arrivalDateTime", "arrivalTime"]),
     flightNumber: firstString(flat, ["flightNumber", "marketingFlightNumber", "number"]),
@@ -273,9 +275,30 @@ function numberValue(value: unknown): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
-function matchesRoute(origin: string | undefined, destination: string | undefined, input: FlightSearchInput): boolean {
+function routeMatchKind(
+  origin: string | undefined,
+  destination: string | undefined,
+  input: FlightSearchInput
+): "outbound" | "return" | undefined {
+  const from = normalizeIata(origin);
+  const to = normalizeIata(destination);
+  const requestedOrigin = input.origin.toUpperCase();
+  const requestedDestination = input.destination.toUpperCase();
+  if (from === requestedOrigin && to === requestedDestination) return "outbound";
+  if (input.dateIn && from === requestedDestination && to === requestedOrigin) return "return";
+
   const route = `${origin ?? ""} ${destination ?? ""}`.toUpperCase();
-  return route.includes(input.origin.toUpperCase()) && route.includes(input.destination.toUpperCase());
+  if (route.includes(requestedOrigin) && route.includes(requestedDestination)) return "outbound";
+  if (input.dateIn && route.includes(requestedDestination) && route.includes(requestedOrigin)) return "return";
+  return undefined;
+}
+
+function normalizeIata(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  const upper = value.toUpperCase();
+  const exact = upper.match(/^[A-Z]{3}$/);
+  if (exact) return upper;
+  return upper.match(/\b[A-Z]{3}\b/)?.[0];
 }
 
 function normalizeDeparture(value: string, dateOut: string): string {

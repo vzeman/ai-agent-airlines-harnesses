@@ -1,0 +1,166 @@
+{
+  "status": "ok",
+  "sessionId": "american-0e87750e-f05f-4035-80cd-fd2ffd24f7b5",
+  "data": {
+    "count": 10,
+    "flights": [
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 277,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "urrencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$297\",\"formattedPriceWithoutCurrency\":\"297\",\"shortenedFormattedTotalPrice\":\"$297\",\"shortenedPriceWithoutCurrency\":\"297\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-08-18\",\"returnDate\":\"2026-08-25\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-27T03:41:59.807+0000\",\"formattedDepartureDate\":\"08/18/26\",\"formattedReturnDate\":\"08/25/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"8\",\"dayNumber\":\"18\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":4,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798224157421.3096162aahr\",\"priceSpecification\":{\"totalPrice\":277,\"usdTotalPrice\":277,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$277\",\"formattedPriceWithoutCurrency\":\"277\",\"shortenedFormattedTotalPrice\":\"$277\",\"shortenedPriceWithoutCurrency\":\"277\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"LGA\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-09-04\",\"returnDate\":\"2026-09-12\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":8,\"searchDate\":\"2026-05-26T19:06:55.743+0000\",\"formattedDepartureDate\":\"09/04/26\",\"formattedReturnDate\":\"09/12/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"9\",\"dayNumber\":\"4\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798235966211.2821526aahr\",\"priceSpecification\":{\"totalPrice\":357,\"usdTotalPrice\":357,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$357\",\"formattedPriceWithoutCurrency\":\"357\",\"shortenedFormattedTotalPrice\":\"$357\",\"shortenedPriceWithoutCurrency\":\"357\"},\"outboundFlight\":{"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 296.8,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "Code\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$297\",\"formattedPriceWithoutCurrency\":\"297\",\"shortenedFormattedTotalPrice\":\"$297\",\"shortenedPriceWithoutCurrency\":\"297\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-07-29\",\"returnDate\":\"2026-08-05\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:11:32.200+0000\",\"formattedDepartureDate\":\"07/29/26\",\"formattedReturnDate\":\"08/05/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"7\",\"dayNumber\":\"29\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798533198071.7118975aaic-00001\",\"priceSpecification\":{\"totalPrice\":296.8,\"usdTotalPrice\":296.8,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$297\",\"formattedPriceWithoutCurrency\":\"297\",\"shortenedFormattedTotalPrice\":\"$297\",\"shortenedPriceWithoutCurrency\":\"297\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-08-18\",\"returnDate\":\"2026-08-25\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-27T03:41:59.807+0000\",\"formattedDepartureDate\":\"08/18/26\",\"formattedReturnDate\":\"08/25/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"8\",\"dayNumber\":\"18\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":4,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798224157421.3096162aahr\",\"priceSpecification\":{\"totalPrice\":277,\"usdTotalPrice\":277,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$277\",\"formattedPriceWithoutCurrency\":\"277\",\"shortenedFormattedTotalPrice\":\"$277\",\"shortenedPriceWithoutCurrency\":\"277\"},\"outboundFligh"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 307.4,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "Code\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$504\",\"formattedPriceWithoutCurrency\":\"504\",\"shortenedFormattedTotalPrice\":\"$504\",\"shortenedPriceWithoutCurrency\":\"504\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-05-27\",\"returnDate\":\"2026-06-03\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:11:32.041+0000\",\"formattedDepartureDate\":\"05/27/26\",\"formattedReturnDate\":\"06/03/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"5\",\"dayNumber\":\"27\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798533207131.1382718aaic-00002\",\"priceSpecification\":{\"totalPrice\":307.4,\"usdTotalPrice\":307.4,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$308\",\"formattedPriceWithoutCurrency\":\"308\",\"shortenedFormattedTotalPrice\":\"$308\",\"shortenedPriceWithoutCurrency\":\"308\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-30\",\"returnDate\":\"2026-07-07\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-27T03:42:00.713+0000\",\"formattedDepartureDate\":\"06/30/26\",\"formattedReturnDate\":\"07/07/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"30\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":4,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798226922001.8692808aaic-00003\",\"priceSpecification\":{\"totalPrice\":296.8,\"usdTotalPrice\":296.8,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$297\",\"formattedPriceWithoutCurrency\":\"297\",\"shortenedFormattedTotalPrice\":\"$297\",\"shortenedPriceWithoutCurrency\":\"297\"},\"out"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 326.6,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "Code\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$383\",\"formattedPriceWithoutCurrency\":\"383\",\"shortenedFormattedTotalPrice\":\"$383\",\"shortenedPriceWithoutCurrency\":\"383\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-15\",\"returnDate\":\"2026-06-22\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:11:32.041+0000\",\"formattedDepartureDate\":\"06/15/26\",\"formattedReturnDate\":\"06/22/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"15\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798533196741.5751821aaic-00002\",\"priceSpecification\":{\"totalPrice\":326.6,\"usdTotalPrice\":326.6,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$327\",\"formattedPriceWithoutCurrency\":\"327\",\"shortenedFormattedTotalPrice\":\"$327\",\"shortenedPriceWithoutCurrency\":\"327\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-16\",\"returnDate\":\"2026-06-23\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-27T03:41:59.674+0000\",\"formattedDepartureDate\":\"06/16/26\",\"formattedReturnDate\":\"06/23/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"16\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":4,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798226920411.5738788aaic-00002\",\"priceSpecification\":{\"totalPrice\":372.8,\"usdTotalPrice\":372.8,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$373\",\"formattedPriceWithoutCurrency\":\"373\",\"shortenedFormattedTotalPrice\":\"$373\",\"shortenedPriceWithoutCurrency\":\"373\"},\"out"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 337,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "rrencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$447\",\"formattedPriceWithoutCurrency\":\"447\",\"shortenedFormattedTotalPrice\":\"$447\",\"shortenedPriceWithoutCurrency\":\"447\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-12\",\"returnDate\":\"2026-06-19\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:11:32.041+0000\",\"formattedDepartureDate\":\"06/12/26\",\"formattedReturnDate\":\"06/19/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"12\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798017904911.8807299aahr\",\"priceSpecification\":{\"totalPrice\":337,\"usdTotalPrice\":337,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$337\",\"formattedPriceWithoutCurrency\":\"337\",\"shortenedFormattedTotalPrice\":\"$337\",\"shortenedPriceWithoutCurrency\":\"337\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-13\",\"returnDate\":\"2026-06-17\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":4,\"searchDate\":\"2026-05-26T13:23:10.491+0000\",\"formattedDepartureDate\":\"06/13/26\",\"formattedReturnDate\":\"06/17/26\",\"isPastDay\":false,\"isWeekend\":true,\"monthNumber\":\"6\",\"dayNumber\":\"13\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":18,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798341025551.9685236aahr\",\"priceSpecification\":{\"totalPrice\":429,\"usdTotalPrice\":429,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$429\",\"formattedPriceWithoutCurrency\":\"429\",\"shortenedFormattedTotalPrice\":\"$429\",\"shortenedPriceWithoutCurrency\":\"429\"},\"outboundFlight\":{"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 346.4,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "Code\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$365\",\"formattedPriceWithoutCurrency\":\"365\",\"shortenedFormattedTotalPrice\":\"$365\",\"shortenedPriceWithoutCurrency\":\"365\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-09\",\"returnDate\":\"2026-06-30\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":21,\"searchDate\":\"2026-05-26T17:27:06.480+0000\",\"formattedDepartureDate\":\"06/09/26\",\"formattedReturnDate\":\"06/30/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"9\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":14,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798223724831.2873864aaic-00001\",\"priceSpecification\":{\"totalPrice\":346.4,\"usdTotalPrice\":346.4,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$347\",\"formattedPriceWithoutCurrency\":\"347\",\"shortenedFormattedTotalPrice\":\"$347\",\"shortenedPriceWithoutCurrency\":\"347\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"LGA\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-10\",\"returnDate\":\"2026-06-17\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:06:12.483+0000\",\"formattedDepartureDate\":\"06/10/26\",\"formattedReturnDate\":\"06/17/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"10\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798145708481.0249555aahr\",\"priceSpecification\":{\"totalPrice\":445,\"usdTotalPrice\":445,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$445\",\"formattedPriceWithoutCurrency\":\"445\",\"shortenedFormattedTotalPrice\":\"$445\",\"shortenedPriceWithoutCurrency\":\"445\"},\"outboundFlig"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 347,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "rrencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$465\",\"formattedPriceWithoutCurrency\":\"465\",\"shortenedFormattedTotalPrice\":\"$465\",\"shortenedPriceWithoutCurrency\":\"465\"},\"outboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"ECONOMY\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-22\",\"returnDate\":\"2026-06-29\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:11:32.041+0000\",\"formattedDepartureDate\":\"06/22/26\",\"formattedReturnDate\":\"06/29/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"22\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798307197631.2575423aahr\",\"priceSpecification\":{\"totalPrice\":347,\"usdTotalPrice\":347,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$347\",\"formattedPriceWithoutCurrency\":\"347\",\"shortenedFormattedTotalPrice\":\"$347\",\"shortenedPriceWithoutCurrency\":\"347\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-23\",\"returnDate\":\"2026-06-24\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":1,\"searchDate\":\"2026-05-26T21:25:19.763+0000\",\"formattedDepartureDate\":\"06/23/26\",\"formattedReturnDate\":\"06/24/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"23\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":10,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17797967879981.5724891aahr\",\"priceSpecification\":{\"totalPrice\":355,\"usdTotalPrice\":355,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$355\",\"formattedPriceWithoutCurrency\":\"355\",\"shortenedFormattedTotalPrice\":\"$355\",\"shortenedPriceWithoutCurrency\":\"355\"},\"outboundFlight\":"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 355,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "rrencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$355\",\"formattedPriceWithoutCurrency\":\"355\",\"shortenedFormattedTotalPrice\":\"$355\",\"shortenedPriceWithoutCurrency\":\"355\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-24\",\"returnDate\":\"2026-07-01\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T11:59:47.998+0000\",\"formattedDepartureDate\":\"06/24/26\",\"formattedReturnDate\":\"07/01/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"24\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":19,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798368708831.1389029aahr\",\"priceSpecification\":{\"totalPrice\":355,\"usdTotalPrice\":355,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$355\",\"formattedPriceWithoutCurrency\":\"355\",\"shortenedFormattedTotalPrice\":\"$355\",\"shortenedPriceWithoutCurrency\":\"355\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-25\",\"returnDate\":\"2026-07-21\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":26,\"searchDate\":\"2026-05-26T23:07:50.883+0000\",\"formattedDepartureDate\":\"06/25/26\",\"formattedReturnDate\":\"07/21/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"25\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":8,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798226920411.5738788aaic-00002\",\"priceSpecification\":{\"totalPrice\":446.61,\"usdTotalPrice\":446.61,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$447\",\"formattedPriceWithoutCurrency\":\"447\",\"shortenedFormattedTotalPrice\":\"$447\",\"shortenedPriceWithoutCurrency\":\"447\"},\"outb"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 357,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "urrencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$277\",\"formattedPriceWithoutCurrency\":\"277\",\"shortenedFormattedTotalPrice\":\"$277\",\"shortenedPriceWithoutCurrency\":\"277\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"LGA\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-09-04\",\"returnDate\":\"2026-09-12\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":8,\"searchDate\":\"2026-05-26T19:06:55.743+0000\",\"formattedDepartureDate\":\"09/04/26\",\"formattedReturnDate\":\"09/12/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"9\",\"dayNumber\":\"4\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798235966211.2821526aahr\",\"priceSpecification\":{\"totalPrice\":357,\"usdTotalPrice\":357,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$357\",\"formattedPriceWithoutCurrency\":\"357\",\"shortenedFormattedTotalPrice\":\"$357\",\"shortenedPriceWithoutCurrency\":\"357\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-10-17\",\"returnDate\":\"2026-10-24\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":7,\"searchDate\":\"2026-05-26T19:26:36.621+0000\",\"formattedDepartureDate\":\"10/17/26\",\"formattedReturnDate\":\"10/24/26\",\"isPastDay\":false,\"isWeekend\":true,\"monthNumber\":\"10\",\"dayNumber\":\"17\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":12,\"unit\":\"hour\",\"isPlural\":true}}],\"dailyHistogram\":[{\"datacoreId\":\"17798226920411.5738788aaic-00002\",\"priceSpecification\":{\"totalPrice\":503.8,\"usdTotalPrice\":503.8,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$504\",\"formattedPriceWithoutCurrency\":\"504\",\"shortenedFormattedTotalPrice\":\"$504\",\"shortenedPriceWithoutCurre"
+        }
+      },
+      {
+        "airline": "american",
+        "origin": "JFK",
+        "destination": "LAX",
+        "departure": "2026-07-23",
+        "currency": "USD",
+        "price": 365,
+        "fareClass": "official-route-offer",
+        "raw": {
+          "carrierCode": "AA",
+          "sourceUrl": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+          "caveat": "Official American Airlines route offer page. Published recent/lowest route fares may not be a guaranteed live quote for the exact requested departure date until the booking flow is completed.",
+          "context": "urrencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$465\",\"formattedPriceWithoutCurrency\":\"465\",\"shortenedFormattedTotalPrice\":\"$465\",\"shortenedPriceWithoutCurrency\":\"465\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"JFK\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-08\",\"returnDate\":\"2026-06-10\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":2,\"searchDate\":\"2026-05-26T16:48:35.478+0000\",\"formattedDepartureDate\":\"06/08/26\",\"formattedReturnDate\":\"06/10/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"8\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":15,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798164264801.0228512aahr\",\"priceSpecification\":{\"totalPrice\":365,\"usdTotalPrice\":365,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$365\",\"formattedPriceWithoutCurrency\":\"365\",\"shortenedFormattedTotalPrice\":\"$365\",\"shortenedPriceWithoutCurrency\":\"365\"},\"outboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\",\"departureAirportIataCode\":\"NYC\",\"arrivalAirportIataCode\":\"LAX\"},\"inboundFlight\":{\"fareClassInput\":\"Economy\",\"fareClass\":\"ECONOMY\"},\"departureDate\":\"2026-06-09\",\"returnDate\":\"2026-06-30\",\"journeyType\":\"ROUND_TRIP\",\"flightType\":\"DOMESTIC\",\"airline\":{\"iataCode\":\"AA\"},\"market\":\"US\",\"flightDeltaDays\":21,\"searchDate\":\"2026-05-26T17:27:06.480+0000\",\"formattedDepartureDate\":\"06/09/26\",\"formattedReturnDate\":\"06/30/26\",\"isPastDay\":false,\"isWeekend\":false,\"monthNumber\":\"6\",\"dayNumber\":\"9\",\"isFirstDayOfMonth\":false,\"lastSeen\":{\"value\":14,\"unit\":\"hour\",\"isPlural\":true}},{\"datacoreId\":\"17798223724831.2873864aaic-00001\",\"priceSpecification\":{\"totalPrice\":346.4,\"usdTotalPrice\":346.4,\"currencyCode\":\"USD\",\"currencySymbol\":\"$\",\"hasDiscount\":false,\"formattedTotalPrice\":\"$347\",\"formattedPriceWithoutCurrency\":\"347\",\"shortenedFormattedTotalPrice\":\"$347\",\"shortenedPriceWithoutCurrency\":\"347\"},\"outbou"
+        }
+      }
+    ],
+    "screenshot": {
+      "path": "artifacts/screenshots/american_JFK_LAX_2026-07-23_2026-05-27T08-23-46-110Z.png",
+      "url": "https://www.aa.com/en-us/flights-from-new-york-to-los-angeles",
+      "capturedAt": "2026-05-27T08:23:46.655Z",
+      "description": "Pricing evidence page for american JFK-LAX 2026-07-23",
+      "repositoryPath": "examples/american/find-jfk-lax-2026-07-23.screenshot.png"
+    }
+  }
+}

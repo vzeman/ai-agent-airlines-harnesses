@@ -6,6 +6,7 @@ import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
 import { parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
 import { extractQatarFlights } from "../src/airlines/qatar.js";
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
+import { parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
 import type { FlightSearchInput } from "../src/core/types.js";
 
 const baseInput: FlightSearchInput = {
@@ -177,6 +178,29 @@ test("American route offer parser extracts structured EveryMundo fares", () => {
   assert.equal(flights.length, 1);
   assert.equal(flights[0].price, 277);
   assert.equal(flights[0].currency, "USD");
+});
+
+test("Wizz Fare Finder parser extracts route and calendar prices", () => {
+  const html = `
+    <main>
+      Cheap flights from Bratislava to Varna (Black Sea)
+      Bratislava BTS Varna (Black Sea) VAR
+      Regular price from €29.98 from €29.98
+      May 2026 Mon Tue Wed Thu Fri Sat Sun 27 No flight 28 59.99 EUR 29 No flight 30 49.99 EUR
+      Please note that the amounts displayed on this page are only indications.
+    </main>
+  `;
+
+  const flights = parseWizzRouteOfferPage(
+    html,
+    { airline: "wizzair", origin: "BTS", destination: "VAR", dateOut: "2026-06-18", dateIn: "2026-06-27", currency: "EUR" },
+    "https://www.wizzair.com/en-gb/flights/fare-finder/bratislava/varna"
+  );
+
+  assert.equal(flights.length, 3);
+  assert.equal(flights[0].price, 29.98);
+  assert.equal(flights[0].currency, "EUR");
+  assert.equal(flights[0].fareClass, "official-fare-finder");
 });
 
 test("British route offer parser extracts lowest published From fare", () => {

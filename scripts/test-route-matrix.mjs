@@ -4,7 +4,7 @@ const dateOut = process.env.DATE_OUT ?? "2026-07-23";
 const matrix = [
   { airline: "ryanair", origin: "VIE", destination: "STN", expected: "priced-or-empty" },
   { airline: "ryanair", origin: "VIE", destination: "EWR", expected: "unsupported_route" },
-  { airline: "wizzair", origin: "VIE", destination: "LTN", expected: "manual_or_priced" },
+  { airline: "wizzair", origin: "BTS", destination: "VAR", expected: "priced" },
   { airline: "wizzair", origin: "VIE", destination: "EWR", expected: "unsupported_route" },
   { airline: "austrian", origin: "VIE", destination: "EWR", expected: "priced" },
   { airline: "lufthansa", origin: "VIE", destination: "EWR", expected: "priced" },
