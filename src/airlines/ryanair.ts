@@ -860,8 +860,8 @@ const PORTAL_SECTIONS: Record<RyanairPortalSection, { labels: RegExp[]; path: st
   },
   bookings: {
     labels: [/manage my bookings/i, /my bookings/i, /trips/i, /check.?in/i],
-    path: "lp/check-in",
-    expected: /my bookings|booking reference|check.?in|your trip|upcoming|retrieve your booking/i
+    path: "trip/manage",
+    expected: /my bookings|manage my bookings|booking reference|check.?in|your trip|upcoming|past|retrieve your booking/i
   }
 };
 
@@ -870,11 +870,6 @@ async function openPortalSection(
   locale: string,
   section: RyanairPortalSection
 ): Promise<{ loaded: boolean; reason: string }> {
-  if (section === "bookings") {
-    await openMyBookings(page, locale);
-    return { loaded: true, reason: "bookings_navigation_loaded" };
-  }
-
   await openAccountMenu(page);
   const target = PORTAL_SECTIONS[section];
   for (const label of target.labels) {
@@ -1003,7 +998,7 @@ async function openMyBookings(page: Page, locale: string): Promise<void> {
     }
   }
 
-  await page.goto(`https://www.ryanair.com/${locale}/lp/check-in`, {
+  await page.goto(`https://www.ryanair.com/${locale}/trip/manage`, {
     waitUntil: "domcontentloaded",
     timeout: config.renderedFlowTimeoutMs
   });
@@ -1042,6 +1037,7 @@ async function extractBookingTexts(page: Page): Promise<string[]> {
     for (const value of values) {
       if (!/booking|reservation|trip|flight|depart|return|confirmed|upcoming/i.test(value)) continue;
       if (/retrieve your booking|use booking reservation number|booking reservation number|reservation number|didn.t book directly|email address/i.test(value)) continue;
+      if (/can.t see your booking|find my booking|book a new trip|more options|need help|support cases/i.test(value)) continue;
       if (/cookie|privacy|newsletter|subscribe/i.test(value)) continue;
       texts.add(value);
     }
@@ -1050,9 +1046,21 @@ async function extractBookingTexts(page: Page): Promise<string[]> {
   if (texts.size > 0) return [...texts].slice(0, 30);
 
   const body = await page.locator("body").innerText({ timeout: 5_000 }).catch(() => "");
+  for (const value of extractReservationRows(body)) texts.add(value);
+  if (texts.size > 0) return [...texts].slice(0, 30);
+
   const normalized = body.trim().replace(/\s+/g, " ");
   if (/no upcoming|no active|no bookings|you have no/i.test(normalized)) return [];
   return [];
+}
+
+function extractReservationRows(text: string): string[] {
+  return text
+    .split(/\n+/)
+    .map((line) => line.trim().replace(/\s+/g, " "))
+    .filter((line) => /reservation number\s*:/i.test(line))
+    .filter((line) => !/can.t see your booking|retrieve your booking|booking reservation number/i.test(line))
+    .slice(0, 30);
 }
 
 function bookingListState(url: string, text: string): string {
@@ -1064,9 +1072,11 @@ function bookingListState(url: string, text: string): string {
 
 export function parseRyanairBookingText(text: string): BookingSummary {
   const normalized = text.trim().replace(/\s+/g, " ");
-  const routeMatch = normalized.match(/\b([A-Z]{3})\b\s*(?:to|-|→)\s*\b([A-Z]{3})\b/i);
+  const routeMatch =
+    normalized.match(/\b([A-Z]{3})\b\s*(?:to|-|→)\s*\b([A-Z]{3})\b/i) ??
+    normalized.match(/\b([A-Z][A-Za-z .'-]{1,40})\s+to\s+([A-Z][A-Za-z .'-]{1,40})\b/);
   const referenceMatch = normalized.match(/\b(?:booking|reservation)\s*(?:reference|ref|number)?\s*[:#]?\s*([A-Z0-9]{6,8})\b/i);
-  const dates = [...normalized.matchAll(/\b(20\d{2}-\d{2}-\d{2}|\d{1,2}\s+[A-Za-z]{3,9}\s+20\d{2})\b/g)].map((match) => match[1]);
+  const dates = [...normalized.matchAll(/\b(20\d{2}-\d{2}-\d{2}|\d{1,2}\s+[A-Za-z]{3,9}(?:\s+20\d{2})?)\b/g)].map((match) => match[1]);
   const statusMatch = normalized.match(/\b(confirmed|upcoming|checked in|cancelled|completed|past|active)\b/i);
 
   return {
@@ -1084,9 +1094,9 @@ export function parseRyanairBookingText(text: string): BookingSummary {
 async function isMyBookingsPage(page: Page): Promise<boolean> {
   const text = await page.locator("body").innerText({ timeout: 3_000 }).catch(() => "");
   if (/\b404\b|page is off sightseeing|we're sorry/i.test(text)) return false;
-  if (/my-bookings|mybooking|trips|check-in/i.test(page.url()) && /my bookings|booking reference|check.?in|your trip|upcoming/i.test(text)) return true;
+  if (/my-bookings|mybooking|mytrips|trip\/manage|trips|check-in/i.test(page.url()) && /my bookings|manage my bookings|booking reference|check.?in|your trip|upcoming|past|retrieve your booking/i.test(text)) return true;
   const heading = page
-    .getByRole("heading", { name: /^(my bookings|my trips|upcoming trips|your bookings|check-in)$/i })
+    .getByRole("heading", { name: /^(my bookings|manage my bookings|my trips|upcoming trips|past trips|your bookings|check-in)$/i })
     .first();
   return heading.isVisible({ timeout: 1_000 }).catch(() => false);
 }

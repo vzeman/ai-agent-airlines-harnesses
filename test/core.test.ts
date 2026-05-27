@@ -165,6 +165,15 @@ test("Ryanair booking text parser extracts reference, route, date, and status", 
   assert.equal(booking.status, "Confirmed");
 });
 
+test("Ryanair booking text parser accepts manage hub city rows", () => {
+  const booking = parseRyanairBookingText("Faro to Vienna • 23 May • Reservation number: ABC123 • 2");
+
+  assert.equal(booking.bookingReference, "ABC123");
+  assert.equal(booking.origin, "FARO");
+  assert.equal(booking.destination, "VIENNA");
+  assert.equal(booking.departureDate, "23 May");
+});
+
 test("ManualInterventionRequired keeps diagnostics for API responses", () => {
   const error = new ManualInterventionRequired("needs browser flow", { bookingUrl: "https://example.test" });
   assert.equal(error.message, "needs browser flow");
