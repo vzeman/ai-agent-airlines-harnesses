@@ -17,8 +17,8 @@ British Airways is not included in this screenshot set because both artifact-gen
 
 ## Login Example
 
-- Ryanair runtime login: [sanitized verification-required response](ryanair/login-verification-required.response.json), [redacted screenshot](ryanair/login-verification-required.screenshot.png)
-- Ryanair active bookings: [sanitized verification-required response](ryanair/list-bookings-verification-required.response.json), [redacted screenshot](ryanair/list-bookings-verification-required.screenshot.png)
+- Ryanair runtime login: [sanitized request](ryanair/login-verification-required.request.json), [sanitized verification-required response](ryanair/login-verification-required.response.json), [redacted screenshot](ryanair/login-verification-required.screenshot.png)
+- Ryanair active bookings: [sanitized request](ryanair/list-bookings-verification-required.request.json), [sanitized verification-required response](ryanair/list-bookings-verification-required.response.json), [redacted screenshot](ryanair/list-bookings-verification-required.screenshot.png)
 
 Use `POST /task/login` only for authenticated tasks. Supply credentials at runtime through the API request or `scripts/login-airline.ps1`; do not add them to repository files. A `verification_required` response means the airline accepted the submitted login step but needs a user-controlled email/device code, so the agent should stop and report that blocker.
 

@@ -9,7 +9,8 @@
     "diagnostics": {
       "loginSubmitted": true,
       "reason": "verification_required",
-      "authFrameVisible": true
+      "authFrameVisible": true,
+      "nextAction": "read_email_verification_code_and_retry_with_verificationCode"
     }
   }
 }

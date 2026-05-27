@@ -1,0 +1,8 @@
+{
+  "airline": "ryanair",
+  "username": "user@example.com",
+  "password": "runtime-secret",
+  "locale": "gb/en",
+  "activeOnly": true,
+  "includeScreenshot": true
+}
