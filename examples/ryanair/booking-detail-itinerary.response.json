@@ -1,0 +1,56 @@
+{
+  "status": "ok",
+  "data": {
+    "airline": "ryanair",
+    "authenticated": true,
+    "url": "https://www.ryanair.com/gb/en/trip/manage/<trip-id>/itinerary",
+    "detailLoaded": true,
+    "booking": {
+      "airline": "ryanair",
+      "bookingReference": "ABC123",
+      "origin": "VIE",
+      "destination": "STN",
+      "departureDate": "2026-07-23",
+      "status": "past",
+      "rawText": "ABC123 Vienna to London Stansted 23 Jul 2026"
+    },
+    "headings": [
+      "Itinerary",
+      "Passengers",
+      "Products"
+    ],
+    "detailLines": [
+      "Vienna VIE to London Stansted STN",
+      "Passenger 1",
+      "Cabin bag"
+    ],
+    "actionLabels": [
+      "Download booking receipt",
+      "Download inflight receipt",
+      "Open claim",
+      "View products"
+    ],
+    "requestedActions": [
+      "itinerary",
+      "passenger_products",
+      "booking_receipt",
+      "inflight_receipt",
+      "open_claim"
+    ],
+    "downloads": [
+      {
+        "path": "artifacts/downloads/booking-receipt-ABC123.pdf",
+        "capturedAt": "2026-05-27T12:10:00.000Z",
+        "description": "Runtime-only booking receipt artifact; not committed"
+      }
+    ],
+    "cookieCount": 14,
+    "diagnostics": {
+      "loginSubmitted": true,
+      "reason": "authenticated_indicator_found",
+      "authFrameVisible": false,
+      "detailState": "loaded",
+      "sanitizedExample": true
+    }
+  }
+}

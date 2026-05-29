@@ -1,0 +1,15 @@
+{
+  "airline": "ryanair",
+  "username": "user@example.com",
+  "password": "runtime-secret",
+  "locale": "gb/en",
+  "detailUrl": "https://www.ryanair.com/gb/en/trip/manage/<trip-id>/itinerary",
+  "actions": [
+    "itinerary",
+    "passenger_products",
+    "booking_receipt",
+    "inflight_receipt",
+    "open_claim"
+  ],
+  "includeScreenshot": false
+}
