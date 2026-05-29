@@ -69,7 +69,8 @@ export async function findRenderedFlights(params: {
         renderedStatus: response?.status(),
         renderedUrl: page.url(),
         capturedResponseCount: captured.length,
-        visibleTextLength: visibleText.length
+        visibleTextLength: visibleText.length,
+        visibleTextSample: visibleText.slice(0, 2_000)
       }
     };
   } finally {

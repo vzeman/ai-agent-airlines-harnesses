@@ -6,7 +6,7 @@ import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
 import { parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
 import { extractQatarFlights } from "../src/airlines/qatar.js";
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
-import { parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
+import { isWizzNoFlightsRendered, parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
 import type { FlightSearchInput } from "../src/core/types.js";
 
 const baseInput: FlightSearchInput = {
@@ -201,6 +201,19 @@ test("Wizz Fare Finder parser extracts route and calendar prices", () => {
   assert.equal(flights[0].price, 29.98);
   assert.equal(flights[0].currency, "EUR");
   assert.equal(flights[0].fareClass, "official-fare-finder");
+});
+
+test("Wizz rendered select-flight text detects no-flight terminal state", () => {
+  const text = `
+    Choose an outbound flight
+    VIE London Luton LTN
+    Mon 01, Jun
+    No flights on this date.
+    Show next available flight
+  `;
+
+  assert.equal(isWizzNoFlightsRendered(text), true);
+  assert.equal(isWizzNoFlightsRendered("Choose an outbound flight €49.99"), false);
 });
 
 test("British route offer parser extracts lowest published From fare", () => {
