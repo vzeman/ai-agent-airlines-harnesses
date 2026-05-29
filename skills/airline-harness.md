@@ -61,6 +61,7 @@ Use `-IncludeScreenshot` only when the user needs visual evidence of the pricing
 Use `-Airline wizzair` for Wizz Air.
 Use `-Airline lufthansa` or `-Airline austrian` for Lufthansa Group carriers.
 Use `-Airline american`, `-Airline british`, or `-Airline qatar` for the new browser-flow adapters.
+For Qatar, use each flight row's `raw.extractionSource`, `raw.sourceMethod`, and `raw.sourceUrl` as provenance. Direct browser access can return access-denied while the harness still succeeds through a FlareSolverr-resolved booking HTML response.
 
 The returned `data.flights` array is the canonical result. Prefer structured fields:
 
