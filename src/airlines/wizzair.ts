@@ -85,6 +85,7 @@ export class WizzairAdapter implements AirlineAdapter {
             session
           });
           if (rendered?.flights.length) return rendered.flights;
+          if (isWizzNoFlightsRendered(rendered?.diagnostics.visibleTextSample)) return [];
           renderedDiagnostics = rendered?.diagnostics;
         } catch (error) {
           renderedDiagnostics = {
@@ -133,6 +134,10 @@ export class WizzairAdapter implements AirlineAdapter {
     const infants = input.infants ?? 0;
     return `${this.baseUrl}/${DEFAULT_LOCALE}/booking/select-flight/${origin}/${destination}/${input.dateOut}/${dateIn}/${adults}/${children}/${infants}/null`;
   }
+}
+
+export function isWizzNoFlightsRendered(value: unknown): boolean {
+  return typeof value === "string" && /no flights on this date/i.test(value);
 }
 
 function buildWizzRoutePageUrl(input: FlightSearchInput): string | undefined {
