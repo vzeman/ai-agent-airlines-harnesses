@@ -6,6 +6,8 @@ Use this skill when the agent needs flight discovery or price extraction for Rya
 
 Call the harness once for a complete task. Do not navigate the airline website step by step unless the harness returns `manual_intervention_required` or an explicit error that cannot be retried.
 
+Use `docs/agent-task-contract.md` as the source of truth for task names, status handling, verification continuation, evidence artifacts, and session cleanup.
+
 ## Start Services
 
 If the harness is not running:

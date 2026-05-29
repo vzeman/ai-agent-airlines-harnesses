@@ -11,6 +11,8 @@ The harness keeps browser infrastructure outside the LLM loop:
 - Rendered flows accept common cookie-consent banners before extraction and screenshots.
 - Agents call one API endpoint instead of manually clicking through airline sites.
 
+The stable AI-agent task contract is documented in [docs/agent-task-contract.md](docs/agent-task-contract.md). New airline adapters and skills should follow that contract before adding airline-specific behavior.
+
 ## Supported Airlines
 
 | Airline | Code | Current strategy |
