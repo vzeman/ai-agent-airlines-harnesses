@@ -15,12 +15,16 @@ Login examples are sanitized and never include real usernames, passwords, cookie
 
 British Airways is not included in this screenshot set because both artifact-generation retries hit a FlareSolverr challenge timeout. Route-offer fallbacks are official airline pages but can be indicative rather than guaranteed checkout quotes. The response JSON includes the source and caveat in each fare's `raw` payload where applicable.
 
-## Login Example
+## Endpoint Examples
 
-- Ryanair runtime login: [sanitized request](ryanair/login-verification-required.request.json), [sanitized verification-required response](ryanair/login-verification-required.response.json), [redacted screenshot](ryanair/login-verification-required.screenshot.png)
-- Ryanair successful login proof: [response](ryanair/login-success.response.json), [screenshot](ryanair/login-success.screenshot.png)
-- Ryanair current and past bookings task: [sanitized request](ryanair/list-bookings-verification-required.request.json), [verification response](ryanair/list-bookings-verification-required.response.json), [post-login response](ryanair/list-bookings-success.response.json), [post-login screenshot](ryanair/list-bookings-success.screenshot.png)
-- Ryanair myRyanair portal review: [sanitized request](ryanair/manage-portal-travel-documents.request.json), [sanitized response](ryanair/manage-portal-travel-documents.response.json)
+| Endpoint | Scope | Request | Response | Screenshot / artifact policy |
+| --- | --- | --- | --- | --- |
+| `POST /task/find-flights` | Public flight pricing | See airline rows above | See airline rows above | Committed only for confirmed public pricing pages |
+| `POST /task/login` | Ryanair authenticated login | [request](ryanair/login-verification-required.request.json) | [verification required](ryanair/login-verification-required.response.json), [success](ryanair/login-success.response.json) | Redacted screenshots are committed for verification and success states |
+| `POST /task/submit-verification-code` | Continue a live Ryanair verification challenge | [request](ryanair/submit-verification-code.request.json) | [success](ryanair/submit-verification-code.response.json) | Verification codes are runtime-only and never committed |
+| `POST /task/list-bookings` | Ryanair current and past bookings | [request](ryanair/list-bookings-verification-required.request.json) | [verification required](ryanair/list-bookings-verification-required.response.json), [success](ryanair/list-bookings-success.response.json) | Redacted screenshots are committed; real booking screenshots stay runtime-only |
+| `POST /task/booking-detail` | Ryanair itinerary, passenger products, receipts, claims | [request](ryanair/booking-detail-itinerary.request.json) | [response](ryanair/booking-detail-itinerary.response.json) | Real itinerary screenshots, receipts, and downloads stay under runtime artifacts and are not committed |
+| `POST /task/manage-portal` | Ryanair myRyanair portal review | [request](ryanair/manage-portal-travel-documents.request.json) | [response](ryanair/manage-portal-travel-documents.response.json) | Real portal screenshots can expose account data and are not committed |
 
 Use `POST /task/login` only for authenticated tasks. Supply credentials at runtime through the API request or `scripts/login-airline.ps1`; do not add them to repository files. A `verification_required` response means the airline accepted the submitted login step but needs a user-controlled email/device code, so the agent should continue through `POST /task/submit-verification-code` after reading or receiving the fresh code.
 

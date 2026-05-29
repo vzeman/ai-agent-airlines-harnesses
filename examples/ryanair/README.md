@@ -37,6 +37,8 @@ curl -X POST http://localhost:8787/task/login \
 - Request: `login-verification-required.request.json`
 - Response: `login-verification-required.response.json`
 - Screenshot: `login-verification-required.screenshot.png`
+- Verification continuation request: `submit-verification-code.request.json`
+- Verification continuation response: `submit-verification-code.response.json`
 - Successful login response: `login-success.response.json`
 - Successful login screenshot: `login-success.screenshot.png`
 
@@ -97,7 +99,10 @@ $password = Read-Host "Ryanair password" -AsSecureString
 
 Supported actions are `review`, `itinerary`, `booking_receipt`, `inflight_receipt`, `open_claim`, and `passenger_products`.
 
-Real itinerary and receipt screenshots/files can contain personal data, so committed examples should use sanitized JSON only. Runtime callers can keep screenshots under `artifacts/screenshots` and receipt downloads under `artifacts/downloads`.
+- Request: `booking-detail-itinerary.request.json`
+- Response: `booking-detail-itinerary.response.json`
+
+Real itinerary and receipt screenshots/files can contain personal data, so committed examples use sanitized JSON only. Runtime callers can keep screenshots under `artifacts/screenshots` and receipt downloads under `artifacts/downloads`.
 
 ## myRyanair Portal Review Example
 
