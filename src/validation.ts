@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "date must be YYYY-MM-DD");
+const taskSessionIdSchema = z.string().min(8).max(120).optional();
 
 export const flightSearchSchema = z.object({
   airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
@@ -16,6 +17,7 @@ export const flightSearchSchema = z.object({
   flexDaysBeforeOut: z.number().int().min(0).max(7).optional(),
   flexDaysOut: z.number().int().min(0).max(7).optional(),
   locale: z.string().min(2).max(10).optional(),
+  taskSessionId: taskSessionIdSchema,
   includeScreenshot: z.boolean().optional(),
   proxy: z
     .object({
@@ -28,6 +30,7 @@ export const flightSearchSchema = z.object({
 
 export const resolveSessionSchema = z.object({
   airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  ttlMinutes: z.number().int().min(1).max(240).optional(),
   proxy: z
     .object({
       url: z.string().url(),
@@ -43,6 +46,7 @@ export const loginSchema = z.object({
   password: z.string().min(1).max(1024),
   verificationCode: z.string().min(4).max(16).optional(),
   locale: z.string().min(2).max(10).optional(),
+  taskSessionId: taskSessionIdSchema,
   includeScreenshot: z.boolean().optional(),
   proxy: z
     .object({

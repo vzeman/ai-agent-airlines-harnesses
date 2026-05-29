@@ -18,6 +18,22 @@ If the harness is not running:
 
 The harness listens at `http://localhost:8787`.
 
+## Reusable Sessions
+
+Normal task calls create and destroy sessions automatically. For a multi-step workflow, create a reusable session and pass its ID as `taskSessionId`:
+
+```powershell
+$session = .\scripts\create-session.ps1 -Airline ryanair -TtlMinutes 30 | ConvertFrom-Json
+```
+
+Use `$session.sessionId` only for related task calls, then close it:
+
+```powershell
+.\scripts\destroy-session.ps1 -SessionId $session.sessionId
+```
+
+Do not keep reusable sessions open after the user workflow is complete.
+
 ## Supported Airports
 
 Use support metadata before trying unusual routes:
@@ -172,7 +188,7 @@ After the code is accepted, the harness resumes the original portal section. Rep
 
 ## Session Lifecycle
 
-For normal tasks, `/task/find-flights`, `/task/login`, `/task/list-bookings`, and `/task/manage-portal` create and destroy browser sessions automatically. The exception is Ryanair email/device verification: the harness keeps a pending browser context alive until `/task/submit-verification-code` is called or the challenge expires.
+For normal tasks, `/task/find-flights`, `/task/login`, `/task/list-bookings`, `/task/booking-detail`, and `/task/manage-portal` create and destroy browser sessions automatically. The exceptions are reusable sessions created through `POST /sessions` and Ryanair email/device verification, where the harness keeps a pending browser context alive until `/task/submit-verification-code` is called or the challenge expires.
 
 Only use manual session commands for debugging:
 

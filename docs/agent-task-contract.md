@@ -9,6 +9,7 @@ This harness is an API boundary between an AI agent and airline websites. The ag
 - Do not retry `manual_intervention_required` in a loop. Retry once only for transient infrastructure failures.
 - Do not commit runtime credentials, verification codes, cookies, real-account screenshots, or receipt downloads.
 - When `diagnostics.challengeId` is present, continue the same browser context with `/task/submit-verification-code`; do not restart the original task.
+- Use `taskSessionId` only when the user workflow needs multiple related task calls on the same resolved airline session.
 - Always close debug/manual sessions with `DELETE /sessions/:id`.
 
 ## Status Values
@@ -199,7 +200,33 @@ Purpose: close a debug or leaked FlareSolverr session.
 Agent notes:
 
 - Normal tasks auto-clean sessions.
-- Manual sessions from `/session/resolve` must be closed explicitly.
+- Reusable sessions from `POST /sessions` or `/session/resolve` must be closed explicitly.
+
+### `createReusableSession`
+
+Endpoint: `POST /sessions`
+
+Purpose: create a resolved airline session that can be reused by later task calls.
+
+Request fields:
+
+- `airline`
+- optional `ttlMinutes`, clamped to 1-240 minutes
+- optional `proxy`
+
+Canonical result:
+
+- `sessionId`
+- `data.expiresAt`
+- `data.cookieCount`
+- `data.userAgent`
+
+Agent notes:
+
+- Pass the returned `sessionId` as `taskSessionId` on supported task requests.
+- Reusable sessions are useful for multi-step workflows and debugging; they are not the default.
+- Close the session with `DELETE /sessions/:id` as soon as the workflow finishes.
+- If a reusable session expires, rerun the original task with a fresh session rather than retrying the expired ID repeatedly.
 
 ## Failure Handling
 

@@ -51,7 +51,26 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
   }
 
   if (req.method === "GET" && url.pathname === "/sessions") {
-    sendJson(res, 200, { status: "ok", sessions: await sessions.list() });
+    sendJson(res, 200, { status: "ok", sessions: await sessions.list(), reusableSessions: sessions.listReusable() });
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/sessions") {
+    const body = resolveSessionSchema.parse(await readJson(req));
+    const result = await sessions.createReusable(getAdapter(body.airline), {
+      proxy: body.proxy,
+      ttlMinutes: body.ttlMinutes
+    });
+    sendJson(res, 200, {
+      status: "ok",
+      sessionId: result.session.id,
+      data: {
+        airline: result.session.airline,
+        cookieCount: result.session.cookies.length,
+        userAgent: result.session.userAgent,
+        expiresAt: result.expiresAt
+      }
+    } satisfies TaskResult<unknown>);
     return;
   }
 
@@ -86,14 +105,19 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
 
   if (req.method === "POST" && url.pathname === "/session/resolve") {
     const body = resolveSessionSchema.parse(await readJson(req));
-    const session = await sessions.resolve(getAdapter(body.airline), body.proxy);
+    const result = await sessions.createReusable(getAdapter(body.airline), {
+      proxy: body.proxy,
+      ttlMinutes: body.ttlMinutes
+    });
+    const session = result.session;
     sendJson(res, 200, {
       status: "ok",
       sessionId: session.id,
       data: {
         airline: session.airline,
         cookieCount: session.cookies.length,
-        userAgent: session.userAgent
+        userAgent: session.userAgent,
+        expiresAt: result.expiresAt
       }
     } satisfies TaskResult<unknown>);
     return;

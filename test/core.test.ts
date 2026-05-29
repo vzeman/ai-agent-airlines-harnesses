@@ -29,10 +29,12 @@ test("flight search validation accepts supported airlines and rejects malformed 
     destination: "LHR",
     dateOut: "2026-06-15",
     adults: 1,
+    taskSessionId: "qatar-reusable-session",
     includeScreenshot: true
   });
 
   assert.equal(parsed.airline, "qatar");
+  assert.equal(parsed.taskSessionId, "qatar-reusable-session");
   assert.equal(parsed.includeScreenshot, true);
   assert.throws(() =>
     flightSearchSchema.parse({
@@ -81,6 +83,7 @@ test("airline support exposes airports and rejects known unsupported routes", ()
 test("resolve-session validation accepts optional proxy credentials", () => {
   const parsed = resolveSessionSchema.parse({
     airline: "ryanair",
+    ttlMinutes: 45,
     proxy: {
       url: "http://proxy.example:8080",
       username: "user",
@@ -89,6 +92,7 @@ test("resolve-session validation accepts optional proxy credentials", () => {
   });
 
   assert.equal(parsed.proxy?.username, "user");
+  assert.equal(parsed.ttlMinutes, 45);
 });
 
 test("login validation accepts runtime credentials without examples needing secrets", () => {
@@ -261,6 +265,35 @@ test("SessionManager destroys resolved sessions after task failure", async () =>
 
   assert.equal(calls.length, 2);
   assert.match(calls[1], /^destroy:ryanair-/);
+});
+
+test("SessionManager reuses explicit task sessions and destroys them on request", async () => {
+  const calls: string[] = [];
+  const flaresolverr = {
+    async createSession(session: string) {
+      calls.push(`create:${session}`);
+    },
+    async destroySession(session: string) {
+      calls.push(`destroy:${session}`);
+    },
+    async listSessions() {
+      return [];
+    }
+  };
+  const manager = new SessionManager(flaresolverr as never);
+  const lease = await manager.createReusable(fakeAdapter(), { ttlMinutes: 1 });
+
+  const result = await manager.withResolvedSession(fakeAdapter(), { ...input(), taskSessionId: lease.session.id }, async (session) => session.id);
+
+  assert.equal(result.data, lease.session.id);
+  assert.equal(calls.length, 1);
+  assert.equal(manager.listReusable()[0]?.sessionId, lease.session.id);
+
+  await manager.destroy(lease.session.id);
+
+  assert.equal(calls.length, 2);
+  assert.match(calls[1], /^destroy:ryanair-/);
+  assert.deepEqual(manager.listReusable(), []);
 });
 
 function fakeAdapter(): AirlineAdapter {
