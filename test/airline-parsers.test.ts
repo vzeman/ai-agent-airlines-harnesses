@@ -4,7 +4,7 @@ import { parseAmericanRouteOfferPage } from "../src/airlines/american.js";
 import { classifyBritishRenderedState, classifyBritishRouteOfferPage, parseBritishRouteOfferPage } from "../src/airlines/british.js";
 import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
 import { classifyLufthansaGroupRoutePage, parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
-import { extractQatarFlights } from "../src/airlines/qatar.js";
+import { classifyQatarPageState, extractQatarFlights } from "../src/airlines/qatar.js";
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
 import { isWizzNoFlightsRendered, parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
 import type { FlightSearchInput } from "../src/core/types.js";
@@ -139,6 +139,28 @@ test("Qatar rendered-page parser extracts multiple economy options from booking-
   assert.equal(flights[0].price, 980);
   assert.equal(flights[1].price, 1049);
   assert.equal(flights[0].departure, "2026-06-15T16:05:00");
+  assert.equal((flights[0].raw as { extractionSource: string }).extractionSource, "flaresolverr-html");
+  assert.equal((flights[0].raw as { sourceMethod: string }).sourceMethod, "qatar-booking-html-card-parser");
+});
+
+test("Qatar parser deduplicates repeated cards and ignores overlapping business prices", () => {
+  const card = "16:05 VIE 1 Stop, 16h 55m 08:00 +1 LHR Flight details €1,230 Economy €1,230 Business €6,706";
+  const html = `<main>Lowest fare Business €6,706 ${card} ${card}</main>`;
+  const flights = extractQatarFlights(
+    html,
+    { airline: "qatar", origin: "VIE", destination: "LHR", dateOut: "2026-07-23", currency: "EUR" },
+    { resolvedUrl: "https://www.qatarairways.com/app/booking/flight-selection", extractionSource: "flaresolverr-html" }
+  );
+
+  assert.equal(flights.length, 1);
+  assert.equal(flights[0].price, 1230);
+  assert.equal((flights[0].raw as { sourceUrl: string }).sourceUrl, "https://www.qatarairways.com/app/booking/flight-selection");
+});
+
+test("Qatar page classifier distinguishes booking results from access denied", () => {
+  assert.equal(classifyQatarPageState("Flight details €1,230 Economy"), "booking_results");
+  assert.equal(classifyQatarPageState("Access Denied Reference #18.abc"), "access_denied");
+  assert.equal(classifyQatarPageState("Qatar Airways homepage"), "no_price_found");
 });
 
 test("Lufthansa Group route offer parser extracts official route page price and Austrian EWR schedule", () => {

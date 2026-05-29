@@ -131,6 +131,7 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     countries: ["Qatar", "Austria", "United Kingdom", "United States"],
     testedRoutes: [
       { origin: "VIE", destination: "LHR", status: "priced", note: "Booking-flow page extraction" },
+      { origin: "VIE", destination: "LGW", status: "priced", note: "Booking-flow page extraction" },
       { origin: "DOH", destination: "LHR", status: "priced", note: "Booking-flow page extraction" },
       { origin: "VIE", destination: "EWR", status: "manual_intervention_required", note: "Needs deeper Qatar flow or route-specific fallback" }
     ]

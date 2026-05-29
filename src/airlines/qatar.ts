@@ -1,5 +1,11 @@
 import type { FlightOption, FlightSearchInput } from "../core/types.js";
+import type { BrowserFlowExtractContext } from "./browser-flow.js";
 import { BrowserFlowAdapter } from "./browser-flow.js";
+
+export interface QatarExtractionOptions {
+  resolvedUrl?: string;
+  extractionSource?: "flaresolverr-html" | "rendered-browser";
+}
 
 export class QatarAdapter extends BrowserFlowAdapter {
   constructor() {
@@ -23,20 +29,20 @@ export class QatarAdapter extends BrowserFlowAdapter {
         });
         return `${baseUrl}/app/booking/flight-selection?${params.toString()}`;
       },
-      extractFlights: extractQatarFlights
+      extractFlights: (html, input, context) => extractQatarFlights(html, input, qatarExtractionOptions(context))
     });
   }
 }
 
-export function extractQatarFlights(html: string, input: FlightSearchInput): FlightOption[] {
-  const text = html
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&euro;/g, "€")
-    .replace(/&#8364;/g, "€")
-    .replace(/\s+/g, " ")
-    .trim();
+function qatarExtractionOptions(context: BrowserFlowExtractContext): QatarExtractionOptions {
+  return {
+    resolvedUrl: context.resolvedUrl,
+    extractionSource: "flaresolverr-html"
+  };
+}
+
+export function extractQatarFlights(html: string, input: FlightSearchInput, options: QatarExtractionOptions = {}): FlightOption[] {
+  const text = normalizeQatarText(html);
   const origin = input.origin.toUpperCase();
   const destination = input.destination.toUpperCase();
   const cardPattern = new RegExp(
@@ -64,6 +70,10 @@ export function extractQatarFlights(html: string, input: FlightSearchInput): Fli
       price,
       fareClass: "economy",
       raw: {
+        carrierCode: "QR",
+        extractionSource: options.extractionSource ?? "flaresolverr-html",
+        sourceMethod: "qatar-booking-html-card-parser",
+        sourceUrl: options.resolvedUrl,
         durationAndStops: durationAndStops.trim(),
         context: text.slice(Math.max(0, match.index - 80), Math.min(text.length, match.index + 220))
       }
@@ -71,4 +81,22 @@ export function extractQatarFlights(html: string, input: FlightSearchInput): Fli
   }
 
   return [...flights.values()].sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
+}
+
+export function classifyQatarPageState(html: string): "booking_results" | "access_denied" | "no_price_found" {
+  const text = normalizeQatarText(html);
+  if (/access denied|request blocked|reference #[a-z0-9-]+/i.test(text)) return "access_denied";
+  if (/Flight details\s+€[0-9][0-9,]*\s+Economy/i.test(text)) return "booking_results";
+  return "no_price_found";
+}
+
+function normalizeQatarText(html: string): string {
+  return html
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&euro;/g, "€")
+    .replace(/&#8364;/g, "€")
+    .replace(/\s+/g, " ")
+    .trim();
 }
