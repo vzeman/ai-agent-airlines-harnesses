@@ -22,7 +22,7 @@ The stable AI-agent task contract is documented in [docs/agent-task-contract.md]
 | Austrian | `austrian` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback with precise non-retryable blockers |
 | Lufthansa | `lufthansa` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback with precise non-retryable blockers |
 | American Airlines | `american` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback |
-| British Airways | `british` | Session resolution, prepared booking URL, rendered-page diagnostics, official route/destination-offer fallback |
+| British Airways | `british` | Session resolution, prepared booking URL, rendered-page diagnostics, explicit high-demand queue detection, official route/destination-offer fallback |
 | Qatar Airways | `qatar` | Booking-flow page extraction for priced options |
 
 Some airlines still return `manual_intervention_required` when their live site requires a deeper custom interaction script or partner/NDC priced-shopping access. This is intentional: the response includes the resolved booking URL and diagnostics needed to implement the next custom adapter.

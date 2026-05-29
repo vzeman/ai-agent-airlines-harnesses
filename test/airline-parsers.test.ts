@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { parseAmericanRouteOfferPage } from "../src/airlines/american.js";
-import { parseBritishRouteOfferPage } from "../src/airlines/british.js";
+import { classifyBritishRenderedState, classifyBritishRouteOfferPage, parseBritishRouteOfferPage } from "../src/airlines/british.js";
 import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
 import { classifyLufthansaGroupRoutePage, parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
 import { extractQatarFlights } from "../src/airlines/qatar.js";
@@ -233,4 +233,15 @@ test("British route offer parser extracts lowest published From fare", () => {
   assert.equal(flights.length, 1);
   assert.equal(flights[0].price, 538);
   assert.equal(flights[0].currency, "GBP");
+});
+
+test("British classifiers distinguish route offers and high-demand queue pages", () => {
+  assert.equal(classifyBritishRouteOfferPage("<main>Flights to New York From £412</main>"), "offer");
+  assert.equal(
+    classifyBritishRenderedState({
+      visibleTextSample: "Welcome to ba.com We are experiencing high demand on ba.com at the moment. Thank you for your patience."
+    }),
+    "high_demand_queue"
+  );
+  assert.equal(classifyBritishRenderedState({ visibleTextSample: "Book a flight Flight search From To Depart" }), "search_form");
 });
