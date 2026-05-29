@@ -19,8 +19,8 @@ The stable AI-agent task contract is documented in [docs/agent-task-contract.md]
 | --- | --- | --- |
 | Ryanair | `ryanair` | Fare Finder API first, availability API fallback, optional screenshot of pricing page |
 | Wizz Air | `wizzair` | Session resolution, historical API probe, rendered-page diagnostics |
-| Austrian | `austrian` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback |
-| Lufthansa | `lufthansa` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback |
+| Austrian | `austrian` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback with precise non-retryable blockers |
+| Lufthansa | `lufthansa` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback with precise non-retryable blockers |
 | American Airlines | `american` | Session resolution, prepared booking URL, rendered-page diagnostics, official route-offer fallback |
 | British Airways | `british` | Session resolution, prepared booking URL, rendered-page diagnostics, official route/destination-offer fallback |
 | Qatar Airways | `qatar` | Booking-flow page extraction for priced options |
@@ -198,7 +198,14 @@ Manual-intervention response:
     "resolvedStatus": 200,
     "rendered": {
       "capturedResponseCount": 12
-    }
+    },
+    "routeOffer": {
+      "attempted": true,
+      "pageState": "page_not_found",
+      "parsedOfferCount": 0
+    },
+    "blocker": "The live booking page rendered without structured fare results, and the official route-offer page did not expose a parseable lowest fare.",
+    "retryable": false
   }
 }
 ```

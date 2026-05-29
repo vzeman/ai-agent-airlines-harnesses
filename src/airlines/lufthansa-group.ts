@@ -11,6 +11,11 @@ interface LufthansaGroupConfig {
   localePath: string;
 }
 
+interface RouteOfferLookup {
+  flights: FlightOption[];
+  diagnostics: Record<string, unknown>;
+}
+
 export class LufthansaGroupAdapter extends BrowserFlowAdapter {
   private readonly groupSettings: LufthansaGroupConfig;
   private readonly groupFlaresolverr = new FlareSolverrClient();
@@ -34,16 +39,37 @@ export class LufthansaGroupAdapter extends BrowserFlowAdapter {
     } catch (error) {
       if (!(error instanceof ManualInterventionRequired)) throw error;
 
-      const fallback = await this.findOfficialRouteOffer(input, session);
-      if (fallback.length > 0) return fallback;
+      const routeOffer = await this.findOfficialRouteOffer(input, session);
+      if (routeOffer.flights.length > 0) return routeOffer.flights;
 
-      throw error;
+      throw new ManualInterventionRequired(
+        `${this.groupSettings.code} priced shopping could not extract an exact fare from the live booking flow.`,
+        {
+          ...error.diagnostics,
+          routeOffer: routeOffer.diagnostics,
+          blocker:
+            "The live booking page rendered without structured fare results, and the official route-offer page did not expose a parseable lowest fare.",
+          retryable: false,
+          nextHarnessStep:
+            "Implement a Lufthansa Group form-driving flow that selects origin, destination, date, and passengers in the rendered page, or configure partner/NDC priced-shopping credentials."
+        }
+      );
     }
   }
 
-  private async findOfficialRouteOffer(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]> {
+  private async findOfficialRouteOffer(input: FlightSearchInput, session: HarnessSession): Promise<RouteOfferLookup> {
     const routePageUrl = buildOfficialRoutePageUrl(this.groupSettings.code, input);
-    if (!routePageUrl) return [];
+    if (!routePageUrl) {
+      return {
+        flights: [],
+        diagnostics: {
+          attempted: false,
+          reason: "unsupported_route_offer_slug",
+          origin: input.origin.toUpperCase(),
+          destination: input.destination.toUpperCase()
+        }
+      };
+    }
 
     const solution = await this.groupFlaresolverr.get({
       url: routePageUrl,
@@ -52,7 +78,20 @@ export class LufthansaGroupAdapter extends BrowserFlowAdapter {
       disableMedia: true
     });
 
-    return parseLufthansaGroupOfferPage(solution.response ?? "", input, this.groupSettings.code, this.groupSettings.carrierCode, solution.url);
+    const response = solution.response ?? "";
+    const flights = parseLufthansaGroupOfferPage(response, input, this.groupSettings.code, this.groupSettings.carrierCode, solution.url);
+    return {
+      flights,
+      diagnostics: {
+        attempted: true,
+        routePageUrl,
+        resolvedUrl: solution.url,
+        status: solution.status,
+        responseLength: response.length,
+        parsedOfferCount: flights.length,
+        pageState: classifyLufthansaGroupRoutePage(response)
+      }
+    };
   }
 }
 
@@ -127,15 +166,7 @@ export function parseLufthansaGroupOfferPage(
   carrierCode: "LH" | "OS",
   sourceUrl: string
 ): FlightOption[] {
-  const text = html
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&euro;/g, "€")
-    .replace(/&#8364;/g, "€")
-    .replace(/\s+/g, " ")
-    .trim();
+  const text = normalizeLufthansaGroupText(html);
 
   const priceMatch =
     text.match(/Cheapest flight\s+from\s+([€$£])\s*([0-9][0-9,.]*)/i) ??
@@ -166,6 +197,25 @@ export function parseLufthansaGroupOfferPage(
       }
     }
   ];
+}
+
+export function classifyLufthansaGroupRoutePage(html: string): "offer" | "page_not_found" | "no_price_found" {
+  const text = normalizeLufthansaGroupText(html);
+  if (/page (could )?not (be )?found|page not found/i.test(text)) return "page_not_found";
+  if (/Cheapest flight\s+from\s+[€$£]\s*[0-9]|from\s+[€$£]\s*[0-9]/i.test(text)) return "offer";
+  return "no_price_found";
+}
+
+function normalizeLufthansaGroupText(html: string): string {
+  return html
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&euro;/g, "€")
+    .replace(/&#8364;/g, "€")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function parseAustrianNewYorkSchedule(text: string, input: FlightSearchInput): { departure: string; arrival?: string; flightNumber?: string } | undefined {

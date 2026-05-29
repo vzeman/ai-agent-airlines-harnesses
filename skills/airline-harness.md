@@ -73,7 +73,7 @@ The returned `data.flights` array is the canonical result. Prefer structured fie
 
 When `data.screenshot` is present, report `data.screenshot.path` as the evidence artifact. Do not request screenshots by default because they require a rendered browser context and are slower than structured price extraction.
 
-If the response status is `manual_intervention_required`, inspect `diagnostics.bookingUrl` and `diagnostics.rendered`. Do not retry repeatedly; one retry is enough for transient errors. Treat this as a signal that the airline needs a custom harness script, not as an instruction for the LLM agent to manually click through the whole website.
+If the response status is `manual_intervention_required`, inspect `diagnostics.bookingUrl`, `diagnostics.rendered`, `diagnostics.routeOffer`, and `diagnostics.blocker` when present. Do not retry repeatedly; one retry is enough for transient errors. Treat `retryable: false` as a terminal adapter diagnostic that needs implementation work, not as an instruction for the LLM agent to manually click through the whole website.
 
 ## Browser Behavior
 
