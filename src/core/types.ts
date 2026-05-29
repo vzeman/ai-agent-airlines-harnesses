@@ -13,6 +13,10 @@ export interface ProxyConfig {
   password?: string;
 }
 
+export interface SessionReuseInput {
+  taskSessionId?: string;
+}
+
 export interface AirportSupport {
   iata: string;
   city: string;
@@ -32,7 +36,7 @@ export interface AirlineSupport {
   }>;
 }
 
-export interface FlightSearchInput {
+export interface FlightSearchInput extends SessionReuseInput {
   airline: AirlineCode;
   origin: string;
   destination: string;
@@ -50,7 +54,7 @@ export interface FlightSearchInput {
   includeScreenshot?: boolean;
 }
 
-export interface LoginInput {
+export interface LoginInput extends SessionReuseInput {
   airline: AirlineCode;
   username: string;
   password: string;

@@ -80,11 +80,23 @@ curl http://localhost:8787/health
 
 ### `GET /sessions`
 
-Lists active FlareSolverr sessions. Normal task calls should leave this empty after completion.
+Lists active FlareSolverr sessions and reusable task-session leases. Normal task calls should leave active sessions empty after completion.
 
 ```bash
 curl http://localhost:8787/sessions
 ```
+
+### `POST /sessions`
+
+Creates a reusable resolved airline session for multi-step agent workflows. Normal task calls do not need this; they still create and destroy short-lived sessions automatically.
+
+```bash
+curl -X POST http://localhost:8787/sessions \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","ttlMinutes":30}'
+```
+
+Use the returned `sessionId` as `taskSessionId` in task requests. Close it with `DELETE /sessions/:id` when finished.
 
 ### `DELETE /sessions/:id`
 
@@ -112,7 +124,7 @@ curl http://localhost:8787/airlines/ryanair/support
 
 ### `POST /session/resolve`
 
-Creates a browser-resolved session for debugging.
+Creates a reusable browser-resolved session for debugging. Prefer `POST /sessions` for new code.
 
 ```bash
 curl -X POST http://localhost:8787/session/resolve \
@@ -120,7 +132,7 @@ curl -X POST http://localhost:8787/session/resolve \
   -d '{"airline":"ryanair"}'
 ```
 
-Manual sessions must be destroyed after inspection.
+Manual/reusable sessions must be destroyed after inspection.
 
 ### `POST /task/find-flights`
 
@@ -147,6 +159,7 @@ Request fields:
 | `infants` | no | Infant passenger count |
 | `currency` | no | Preferred ISO currency |
 | `locale` | no | Locale such as `en-gb` |
+| `taskSessionId` | no | Reuse a session created by `POST /sessions`; omit for automatic cleanup |
 | `includeScreenshot` | no | When `true`, capture a pricing evidence screenshot and return artifact metadata |
 | `proxy` | no | Optional proxy config passed to FlareSolverr session creation |
 
