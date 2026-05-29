@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { parseAmericanRouteOfferPage } from "../src/airlines/american.js";
 import { parseBritishRouteOfferPage } from "../src/airlines/british.js";
 import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
-import { parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
+import { classifyLufthansaGroupRoutePage, parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
 import { extractQatarFlights } from "../src/airlines/qatar.js";
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
 import { isWizzNoFlightsRendered, parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
@@ -162,6 +162,12 @@ test("Lufthansa Group route offer parser extracts official route page price and 
   assert.equal(flights[0].currency, "EUR");
   assert.equal(flights[0].flightNumber, "OS37");
   assert.equal(flights[0].departure, "2026-07-23T10:45:00");
+});
+
+test("Lufthansa Group route page classifier distinguishes offers and blockers", () => {
+  assert.equal(classifyLufthansaGroupRoutePage("<main>Flights from Vienna to London from €127</main>"), "offer");
+  assert.equal(classifyLufthansaGroupRoutePage("<main>The page could not be found</main>"), "page_not_found");
+  assert.equal(classifyLufthansaGroupRoutePage("<main>Flight search without prices</main>"), "no_price_found");
 });
 
 test("American route offer parser extracts structured EveryMundo fares", () => {
