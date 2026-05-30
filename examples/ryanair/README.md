@@ -15,6 +15,21 @@ Confirmed working example for Ryanair on VIE-STN, departing 2026-07-23.
 
 The screenshot is captured by the harness with cookie banners accepted before capture. Route-offer pages can contain published indicative fares; exact live checkout prices still require the airline booking flow to complete.
 
+## Live Airport Catalog
+
+Confirmed live airport catalog example for Ryanair.
+
+- Endpoint: `POST /task/supported-airports`
+- Request body: `{"airline":"ryanair","source":"live","limit":500}`
+- Response: `supported-airports-live.response.json`
+- Screenshot: `supported-airports-live.screenshot.png`
+- Airports returned: 224
+- Catalog source: `official-ryanair-active-airports`
+
+![Ryanair live airport catalog screenshot](supported-airports-live.screenshot.png)
+
+Airport catalog discovery does not create a browser or FlareSolverr session. Use the response `data.diagnostics.ryanair.source` as the provenance field when reporting the catalog source.
+
 ## Runtime Login Example
 
 Ryanair login is driven through `POST /task/login`. Credentials are passed only at runtime and must never be committed to examples, screenshots, docs, tests, or logs.

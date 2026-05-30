@@ -1,0 +1,3361 @@
+{
+  "status": "ok",
+  "data": {
+    "source": "live",
+    "requestedSource": "live",
+    "count": 248,
+    "airports": [
+      {
+        "iata": "ABJ",
+        "city": "Abidjan",
+        "country": "Cote d'Ivoire",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ABV",
+        "city": "Abuja",
+        "country": "Nigeria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ABZ",
+        "city": "Aberdeen",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ACC",
+        "city": "Accra",
+        "country": "Ghana",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ADB",
+        "city": "Izmir",
+        "country": "Turkey",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ADD",
+        "city": "Addis Ababa",
+        "country": "Ethiopia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "AGP",
+        "city": "Malaga",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ALA",
+        "city": "Alma-ata",
+        "country": "Kazakhstan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ALF",
+        "city": "Alta",
+        "country": "Norway",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ALG",
+        "city": "Algier",
+        "country": "Algeria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "AMM",
+        "city": "Amman",
+        "country": "Jordan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "AMS",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "AOI",
+        "city": "Ancona",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ARN",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ASB",
+        "city": "Ashkhabad",
+        "country": "Turkmenistan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ATH",
+        "city": "Athens",
+        "country": "Greece",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ATL",
+        "city": "Atlanta",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "AUH",
+        "city": "Abu Dhabi",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "AYT",
+        "city": "Antalya",
+        "country": "Turkey",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BAH",
+        "city": "Bahrain",
+        "country": "Bahrain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BCN",
+        "city": "Barcelona",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BEG",
+        "city": "Belgrade",
+        "country": "Serbia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BEY",
+        "city": "Beirut",
+        "country": "Lebanon",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BFS",
+        "city": "Belfast",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BGO",
+        "city": "Bergen",
+        "country": "Norway",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BHX",
+        "city": "Birmingham",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BIA",
+        "city": "Bastia",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BIO",
+        "city": "Bilbao",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BJM",
+        "city": "Bujumbura",
+        "country": "Burundi",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BKK",
+        "city": "Bangkok",
+        "country": "Thailand",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BLL",
+        "city": "Billund",
+        "country": "Denmark",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BLQ",
+        "city": "Bologna",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BLR",
+        "city": "Bangalore",
+        "country": "India",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BOG",
+        "city": "Bogota",
+        "country": "Colombia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BOM",
+        "city": "Mumbai",
+        "country": "India",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BOS",
+        "city": "Boston",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BRE",
+        "city": "Bremen",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BRI",
+        "city": "Bari",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BRU",
+        "city": "Brussels",
+        "country": "Belgium",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BSL",
+        "city": "Mulhouse",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "BUD",
+        "city": "Budapest",
+        "country": "Hungary",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CAG",
+        "city": "Cagliari",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CAI",
+        "city": "Cairo",
+        "country": "Egypt",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CCS",
+        "city": "Caracas",
+        "country": "Venezuela",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CDG",
+        "city": "Paris",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CGN",
+        "city": "Cologne",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CKY",
+        "city": "Conakry",
+        "country": "Guinea",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CLJ",
+        "city": "Cluj-napoca",
+        "country": "Romania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CLO",
+        "city": "Cali",
+        "country": "Colombia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CLT",
+        "city": "Charlotte",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CMN",
+        "city": "Casablanca",
+        "country": "Morocco",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CNX",
+        "city": "Chiang Mai",
+        "country": "Thailand",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "COO",
+        "city": "Cotonou",
+        "country": "Benin",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CPH",
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CTA",
+        "city": "Catania",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CTU",
+        "city": "Chengdu",
+        "country": "China",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "CWB",
+        "city": "Curitiba",
+        "country": "Brazil",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DAR",
+        "city": "Dar Es Salaam",
+        "country": "Tanzania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DBV",
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DEL",
+        "city": "Delhi",
+        "country": "India",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DEN",
+        "city": "Denver",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DFW",
+        "city": "Dallas-Fort Worth",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DKR",
+        "city": "Dakar",
+        "country": "Senegal",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DLA",
+        "city": "Douala",
+        "country": "Cameroon",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DME",
+        "city": "Moscow",
+        "country": "Russia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DMM",
+        "city": "Dammam",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DOH",
+        "city": "Doha",
+        "country": "Qatar",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DOK",
+        "city": "Donetsk",
+        "country": "Ukraine",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DRS",
+        "city": "Dresden",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DTM",
+        "city": "Dortmund",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DTW",
+        "city": "Detroit",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DUB",
+        "city": "Dublin",
+        "country": "Ireland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DUS",
+        "city": "Duesseldorf",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "DXB",
+        "city": "Dubai",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "EBB",
+        "city": "Entebbe",
+        "country": "Uganda",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "EBL",
+        "city": "Erbil",
+        "country": "Iraq",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "EDI",
+        "city": "Edinburgh",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ESB",
+        "city": "Ankara",
+        "country": "Turkey",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "EWR",
+        "city": "Newark",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "EZE",
+        "city": "Buenos Aires",
+        "country": "Argentina",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FAO",
+        "city": "Faro",
+        "country": "Portugal",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FCO",
+        "city": "Rome",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FDH",
+        "city": "Friedrichshafen",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FIH",
+        "city": "Kinshasa",
+        "country": "Congo (Kinshasa)",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FLR",
+        "city": "Florence",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FMO",
+        "city": "Munster",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FNA",
+        "city": "Freetown",
+        "country": "Sierra Leone",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "FRA",
+        "city": "Frankfurt",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GDN",
+        "city": "Gdansk",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GIG",
+        "city": "Rio De Janeiro",
+        "country": "Brazil",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GLA",
+        "city": "Glasgow",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GOA",
+        "city": "Genoa",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GOJ",
+        "city": "Nizhniy Novgorod",
+        "country": "Russia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GOT",
+        "city": "Gothenborg",
+        "country": "Sweden",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GRU",
+        "city": "Sao Paulo",
+        "country": "Brazil",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GRZ",
+        "city": "Graz",
+        "country": "Austria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GVA",
+        "city": "Geneva",
+        "country": "Switzerland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GWT",
+        "city": "Westerland",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "GYD",
+        "city": "Baku",
+        "country": "Azerbaijan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HAJ",
+        "city": "Hannover",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HAM",
+        "city": "Hamburg",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HEL",
+        "city": "Helsinki",
+        "country": "Finland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HER",
+        "city": "Heraklion",
+        "country": "Greece",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HKG",
+        "city": "Hong Kong",
+        "country": "Hong Kong",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HKT",
+        "city": "Phuket",
+        "country": "Thailand",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HND",
+        "city": "Tokyo",
+        "country": "Japan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "HRE",
+        "city": "Harare",
+        "country": "Zimbabwe",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "IAD",
+        "city": "Washington",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "IAH",
+        "city": "Houston",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "IBZ",
+        "city": "Ibiza",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ICN",
+        "city": "Seoul",
+        "country": "South Korea",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "IKA",
+        "city": "Tehran",
+        "country": "Iran",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "INN",
+        "city": "Innsbruck",
+        "country": "Austria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "IST",
+        "city": "Istanbul",
+        "country": "Turkey",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "JED",
+        "city": "Jeddah",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "JFK",
+        "city": "New York",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "JNB",
+        "city": "Johannesburg",
+        "country": "South Africa",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "JRO",
+        "city": "Kilimanjaro",
+        "country": "Tanzania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KBP",
+        "city": "Kiev",
+        "country": "Ukraine",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KBV",
+        "city": "Krabi",
+        "country": "Thailand",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KGL",
+        "city": "Kigali",
+        "country": "Rwanda",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KIV",
+        "city": "Chisinau",
+        "country": "Moldova",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KIX",
+        "city": "Osaka",
+        "country": "Japan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KLX",
+        "city": "Kalamata",
+        "country": "Greece",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KRK",
+        "city": "Krakow",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KTW",
+        "city": "Katowice",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KUF",
+        "city": "Samara",
+        "country": "Russia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KUL",
+        "city": "Kuala Lumpur",
+        "country": "Malaysia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "KWI",
+        "city": "Kuwait",
+        "country": "Kuwait",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LAD",
+        "city": "Luanda",
+        "country": "Angola",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LAX",
+        "city": "Los Angeles",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LCA",
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LCY",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LDB",
+        "city": "Londrina",
+        "country": "Brazil",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LED",
+        "city": "St. Petersburg",
+        "country": "Russia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LEJ",
+        "city": "Leipzig",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LFW",
+        "city": "Lome",
+        "country": "Togo",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LHR",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LIM",
+        "city": "Lima",
+        "country": "Peru",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LIN",
+        "city": "Milan",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LIS",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LJU",
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LNZ",
+        "city": "Linz",
+        "country": "Austria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LOS",
+        "city": "Lagos",
+        "country": "Nigeria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LUN",
+        "city": "Lusaka",
+        "country": "Zambia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LUX",
+        "city": "Luxemburg",
+        "country": "Luxembourg",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LWO",
+        "city": "Lvov",
+        "country": "Ukraine",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "LYS",
+        "city": "Lyon",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MAA",
+        "city": "Madras",
+        "country": "India",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MAD",
+        "city": "Madrid",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MAN",
+        "city": "Manchester",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MBA",
+        "city": "Mombasa",
+        "country": "Kenya",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MCO",
+        "city": "Orlando",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MCT",
+        "city": "Muscat",
+        "country": "Oman",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MEX",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MIA",
+        "city": "Miami",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MLA",
+        "city": "Malta",
+        "country": "Malta",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MPL",
+        "city": "Montpellier",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MRS",
+        "city": "Marseille",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MSQ",
+        "city": "Minsk 2",
+        "country": "Belarus",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MSY",
+        "city": "New Orleans",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MUC",
+        "city": "Munich",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "MXP",
+        "city": "Milano",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NAP",
+        "city": "Naples",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NBO",
+        "city": "Nairobi",
+        "country": "Kenya",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NCE",
+        "city": "Nice",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NCL",
+        "city": "Newcastle",
+        "country": "United Kingdom",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NGO",
+        "city": "Nagoya",
+        "country": "Japan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NKG",
+        "city": "Nanjing",
+        "country": "China",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NRT",
+        "city": "Tokyo",
+        "country": "Japan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NSI",
+        "city": "Yaounde",
+        "country": "Cameroon",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "NUE",
+        "city": "Nuernberg",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ODS",
+        "city": "Odessa",
+        "country": "Ukraine",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "OLB",
+        "city": "Olbia",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "OPO",
+        "city": "Porto",
+        "country": "Portugal",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ORD",
+        "city": "Chicago",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "OSL",
+        "city": "Oslo",
+        "country": "Norway",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "OTP",
+        "city": "Bucharest",
+        "country": "Romania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "OUA",
+        "city": "Ouagadougou",
+        "country": "Burkina Faso",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PAD",
+        "city": "Paderborn",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PEK",
+        "city": "Beijing",
+        "country": "China",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PHC",
+        "city": "Port Hartcourt",
+        "country": "Nigeria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PHL",
+        "city": "Philadelphia",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PMI",
+        "city": "Palma de Mallorca",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PMO",
+        "city": "Palermo",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PNQ",
+        "city": "Pune",
+        "country": "India",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "POZ",
+        "city": "Poznan",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PRG",
+        "city": "Prague",
+        "country": "Czech Republic",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PRN",
+        "city": "Pristina",
+        "country": "Serbia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PSA",
+        "city": "Pisa",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PUY",
+        "city": "Pula",
+        "country": "Croatia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "PVG",
+        "city": "Shanghai",
+        "country": "China",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "RIX",
+        "city": "Riga",
+        "country": "Latvia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "RLG",
+        "city": "Laage",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ROB",
+        "city": "Monrovia",
+        "country": "Liberia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "RTM",
+        "city": "Rotterdam",
+        "country": "Netherlands",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "RUH",
+        "city": "Riyadh",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "RZE",
+        "city": "Rzeszow",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SBZ",
+        "city": "Sibiu",
+        "country": "Romania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SCN",
+        "city": "Saarbruecken",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SEA",
+        "city": "Seattle",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SFO",
+        "city": "San Francisco",
+        "country": "United States",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SHE",
+        "city": "Shenyang",
+        "country": "China",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SIN",
+        "city": "Singapore",
+        "country": "Singapore",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SJJ",
+        "city": "Sarajevo",
+        "country": "Bosnia and Herzegovina",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SKG",
+        "city": "Thessaloniki",
+        "country": "Greece",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SNN",
+        "city": "Shannon",
+        "country": "Ireland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SOF",
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SPU",
+        "city": "Split",
+        "country": "Croatia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SSG",
+        "city": "Malabo",
+        "country": "Equatorial Guinea",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "STR",
+        "city": "Stuttgart",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SUF",
+        "city": "Lamezia",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SVG",
+        "city": "Stavanger",
+        "country": "Norway",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "SZG",
+        "city": "Salzburg",
+        "country": "Austria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TAO",
+        "city": "Qingdao",
+        "country": "China",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TBS",
+        "city": "Tbilisi",
+        "country": "Georgia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TIA",
+        "city": "Tirana",
+        "country": "Albania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TLL",
+        "city": "Tallinn-ulemiste International",
+        "country": "Estonia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TLS",
+        "city": "Toulouse",
+        "country": "France",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TLV",
+        "city": "Tel-aviv",
+        "country": "Israel",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TOS",
+        "city": "Tromso",
+        "country": "Norway",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TRN",
+        "city": "Torino",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TRS",
+        "city": "Ronchi De Legionari",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TSE",
+        "city": "Tselinograd",
+        "country": "Kazakhstan",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TSR",
+        "city": "Timisoara",
+        "country": "Romania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TUN",
+        "city": "Tunis",
+        "country": "Tunisia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "TXL",
+        "city": "Berlin",
+        "country": "Germany",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "UIO",
+        "city": "Quito",
+        "country": "Ecuador",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "VCE",
+        "city": "Venice",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "VIE",
+        "city": "Vienna",
+        "country": "Austria",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "VKO",
+        "city": "Moscow",
+        "country": "Russia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "VLC",
+        "city": "Valencia",
+        "country": "Spain",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "VNO",
+        "city": "Vilnius",
+        "country": "Lithuania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "VRN",
+        "city": "Villafranca",
+        "country": "Italy",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "WAW",
+        "city": "Warsaw",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "WRO",
+        "city": "Wroclaw",
+        "country": "Poland",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YEG",
+        "city": "Edmonton",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YHZ",
+        "city": "Halifax",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YOW",
+        "city": "Ottawa",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YUL",
+        "city": "Montreal",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YVR",
+        "city": "Vancouver",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YYC",
+        "city": "Calgary",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YYT",
+        "city": "St. John's",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "YYZ",
+        "city": "Toronto",
+        "country": "Canada",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ZAD",
+        "city": "Zadar",
+        "country": "Croatia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ZAG",
+        "city": "Zagreb",
+        "country": "Croatia",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ZNZ",
+        "city": "Zanzibar",
+        "country": "Tanzania",
+        "airlines": [
+          "lufthansa"
+        ]
+      },
+      {
+        "iata": "ZRH",
+        "city": "Zurich",
+        "country": "Switzerland",
+        "airlines": [
+          "lufthansa"
+        ]
+      }
+    ],
+    "airlines": [
+      {
+        "airline": "lufthansa",
+        "coverage": "dynamic",
+        "airports": [
+          {
+            "iata": "ABJ",
+            "city": "Abidjan",
+            "country": "Cote d'Ivoire"
+          },
+          {
+            "iata": "ABV",
+            "city": "Abuja",
+            "country": "Nigeria"
+          },
+          {
+            "iata": "ABZ",
+            "city": "Aberdeen",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "ACC",
+            "city": "Accra",
+            "country": "Ghana"
+          },
+          {
+            "iata": "ADB",
+            "city": "Izmir",
+            "country": "Turkey"
+          },
+          {
+            "iata": "ADD",
+            "city": "Addis Ababa",
+            "country": "Ethiopia"
+          },
+          {
+            "iata": "AGP",
+            "city": "Malaga",
+            "country": "Spain"
+          },
+          {
+            "iata": "ALA",
+            "city": "Alma-ata",
+            "country": "Kazakhstan"
+          },
+          {
+            "iata": "ALF",
+            "city": "Alta",
+            "country": "Norway"
+          },
+          {
+            "iata": "ALG",
+            "city": "Algier",
+            "country": "Algeria"
+          },
+          {
+            "iata": "AMM",
+            "city": "Amman",
+            "country": "Jordan"
+          },
+          {
+            "iata": "AMS",
+            "city": "Amsterdam",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "AOI",
+            "city": "Ancona",
+            "country": "Italy"
+          },
+          {
+            "iata": "ARN",
+            "city": "Stockholm",
+            "country": "Sweden"
+          },
+          {
+            "iata": "ASB",
+            "city": "Ashkhabad",
+            "country": "Turkmenistan"
+          },
+          {
+            "iata": "ATH",
+            "city": "Athens",
+            "country": "Greece"
+          },
+          {
+            "iata": "ATL",
+            "city": "Atlanta",
+            "country": "United States"
+          },
+          {
+            "iata": "AUH",
+            "city": "Abu Dhabi",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "AYT",
+            "city": "Antalya",
+            "country": "Turkey"
+          },
+          {
+            "iata": "BAH",
+            "city": "Bahrain",
+            "country": "Bahrain"
+          },
+          {
+            "iata": "BCN",
+            "city": "Barcelona",
+            "country": "Spain"
+          },
+          {
+            "iata": "BEG",
+            "city": "Belgrade",
+            "country": "Serbia"
+          },
+          {
+            "iata": "BEY",
+            "city": "Beirut",
+            "country": "Lebanon"
+          },
+          {
+            "iata": "BFS",
+            "city": "Belfast",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BGO",
+            "city": "Bergen",
+            "country": "Norway"
+          },
+          {
+            "iata": "BHX",
+            "city": "Birmingham",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BIA",
+            "city": "Bastia",
+            "country": "France"
+          },
+          {
+            "iata": "BIO",
+            "city": "Bilbao",
+            "country": "Spain"
+          },
+          {
+            "iata": "BJM",
+            "city": "Bujumbura",
+            "country": "Burundi"
+          },
+          {
+            "iata": "BKK",
+            "city": "Bangkok",
+            "country": "Thailand"
+          },
+          {
+            "iata": "BLL",
+            "city": "Billund",
+            "country": "Denmark"
+          },
+          {
+            "iata": "BLQ",
+            "city": "Bologna",
+            "country": "Italy"
+          },
+          {
+            "iata": "BLR",
+            "city": "Bangalore",
+            "country": "India"
+          },
+          {
+            "iata": "BOG",
+            "city": "Bogota",
+            "country": "Colombia"
+          },
+          {
+            "iata": "BOM",
+            "city": "Mumbai",
+            "country": "India"
+          },
+          {
+            "iata": "BOS",
+            "city": "Boston",
+            "country": "United States"
+          },
+          {
+            "iata": "BRE",
+            "city": "Bremen",
+            "country": "Germany"
+          },
+          {
+            "iata": "BRI",
+            "city": "Bari",
+            "country": "Italy"
+          },
+          {
+            "iata": "BRU",
+            "city": "Brussels",
+            "country": "Belgium"
+          },
+          {
+            "iata": "BSL",
+            "city": "Mulhouse",
+            "country": "France"
+          },
+          {
+            "iata": "BUD",
+            "city": "Budapest",
+            "country": "Hungary"
+          },
+          {
+            "iata": "CAG",
+            "city": "Cagliari",
+            "country": "Italy"
+          },
+          {
+            "iata": "CAI",
+            "city": "Cairo",
+            "country": "Egypt"
+          },
+          {
+            "iata": "CCS",
+            "city": "Caracas",
+            "country": "Venezuela"
+          },
+          {
+            "iata": "CDG",
+            "city": "Paris",
+            "country": "France"
+          },
+          {
+            "iata": "CGN",
+            "city": "Cologne",
+            "country": "Germany"
+          },
+          {
+            "iata": "CKY",
+            "city": "Conakry",
+            "country": "Guinea"
+          },
+          {
+            "iata": "CLJ",
+            "city": "Cluj-napoca",
+            "country": "Romania"
+          },
+          {
+            "iata": "CLO",
+            "city": "Cali",
+            "country": "Colombia"
+          },
+          {
+            "iata": "CLT",
+            "city": "Charlotte",
+            "country": "United States"
+          },
+          {
+            "iata": "CMN",
+            "city": "Casablanca",
+            "country": "Morocco"
+          },
+          {
+            "iata": "CNX",
+            "city": "Chiang Mai",
+            "country": "Thailand"
+          },
+          {
+            "iata": "COO",
+            "city": "Cotonou",
+            "country": "Benin"
+          },
+          {
+            "iata": "CPH",
+            "city": "Copenhagen",
+            "country": "Denmark"
+          },
+          {
+            "iata": "CTA",
+            "city": "Catania",
+            "country": "Italy"
+          },
+          {
+            "iata": "CTU",
+            "city": "Chengdu",
+            "country": "China"
+          },
+          {
+            "iata": "CWB",
+            "city": "Curitiba",
+            "country": "Brazil"
+          },
+          {
+            "iata": "DAR",
+            "city": "Dar Es Salaam",
+            "country": "Tanzania"
+          },
+          {
+            "iata": "DBV",
+            "city": "Dubrovnik",
+            "country": "Croatia"
+          },
+          {
+            "iata": "DEL",
+            "city": "Delhi",
+            "country": "India"
+          },
+          {
+            "iata": "DEN",
+            "city": "Denver",
+            "country": "United States"
+          },
+          {
+            "iata": "DFW",
+            "city": "Dallas-Fort Worth",
+            "country": "United States"
+          },
+          {
+            "iata": "DKR",
+            "city": "Dakar",
+            "country": "Senegal"
+          },
+          {
+            "iata": "DLA",
+            "city": "Douala",
+            "country": "Cameroon"
+          },
+          {
+            "iata": "DME",
+            "city": "Moscow",
+            "country": "Russia"
+          },
+          {
+            "iata": "DMM",
+            "city": "Dammam",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "DOH",
+            "city": "Doha",
+            "country": "Qatar"
+          },
+          {
+            "iata": "DOK",
+            "city": "Donetsk",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "DRS",
+            "city": "Dresden",
+            "country": "Germany"
+          },
+          {
+            "iata": "DTM",
+            "city": "Dortmund",
+            "country": "Germany"
+          },
+          {
+            "iata": "DTW",
+            "city": "Detroit",
+            "country": "United States"
+          },
+          {
+            "iata": "DUB",
+            "city": "Dublin",
+            "country": "Ireland"
+          },
+          {
+            "iata": "DUS",
+            "city": "Duesseldorf",
+            "country": "Germany"
+          },
+          {
+            "iata": "DXB",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "EBB",
+            "city": "Entebbe",
+            "country": "Uganda"
+          },
+          {
+            "iata": "EBL",
+            "city": "Erbil",
+            "country": "Iraq"
+          },
+          {
+            "iata": "EDI",
+            "city": "Edinburgh",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "ESB",
+            "city": "Ankara",
+            "country": "Turkey"
+          },
+          {
+            "iata": "EWR",
+            "city": "Newark",
+            "country": "United States"
+          },
+          {
+            "iata": "EZE",
+            "city": "Buenos Aires",
+            "country": "Argentina"
+          },
+          {
+            "iata": "FAO",
+            "city": "Faro",
+            "country": "Portugal"
+          },
+          {
+            "iata": "FCO",
+            "city": "Rome",
+            "country": "Italy"
+          },
+          {
+            "iata": "FDH",
+            "city": "Friedrichshafen",
+            "country": "Germany"
+          },
+          {
+            "iata": "FIH",
+            "city": "Kinshasa",
+            "country": "Congo (Kinshasa)"
+          },
+          {
+            "iata": "FLR",
+            "city": "Florence",
+            "country": "Italy"
+          },
+          {
+            "iata": "FMO",
+            "city": "Munster",
+            "country": "Germany"
+          },
+          {
+            "iata": "FNA",
+            "city": "Freetown",
+            "country": "Sierra Leone"
+          },
+          {
+            "iata": "FRA",
+            "city": "Frankfurt",
+            "country": "Germany"
+          },
+          {
+            "iata": "GDN",
+            "city": "Gdansk",
+            "country": "Poland"
+          },
+          {
+            "iata": "GIG",
+            "city": "Rio De Janeiro",
+            "country": "Brazil"
+          },
+          {
+            "iata": "GLA",
+            "city": "Glasgow",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "GOA",
+            "city": "Genoa",
+            "country": "Italy"
+          },
+          {
+            "iata": "GOJ",
+            "city": "Nizhniy Novgorod",
+            "country": "Russia"
+          },
+          {
+            "iata": "GOT",
+            "city": "Gothenborg",
+            "country": "Sweden"
+          },
+          {
+            "iata": "GRU",
+            "city": "Sao Paulo",
+            "country": "Brazil"
+          },
+          {
+            "iata": "GRZ",
+            "city": "Graz",
+            "country": "Austria"
+          },
+          {
+            "iata": "GVA",
+            "city": "Geneva",
+            "country": "Switzerland"
+          },
+          {
+            "iata": "GWT",
+            "city": "Westerland",
+            "country": "Germany"
+          },
+          {
+            "iata": "GYD",
+            "city": "Baku",
+            "country": "Azerbaijan"
+          },
+          {
+            "iata": "HAJ",
+            "city": "Hannover",
+            "country": "Germany"
+          },
+          {
+            "iata": "HAM",
+            "city": "Hamburg",
+            "country": "Germany"
+          },
+          {
+            "iata": "HEL",
+            "city": "Helsinki",
+            "country": "Finland"
+          },
+          {
+            "iata": "HER",
+            "city": "Heraklion",
+            "country": "Greece"
+          },
+          {
+            "iata": "HKG",
+            "city": "Hong Kong",
+            "country": "Hong Kong"
+          },
+          {
+            "iata": "HKT",
+            "city": "Phuket",
+            "country": "Thailand"
+          },
+          {
+            "iata": "HND",
+            "city": "Tokyo",
+            "country": "Japan"
+          },
+          {
+            "iata": "HRE",
+            "city": "Harare",
+            "country": "Zimbabwe"
+          },
+          {
+            "iata": "IAD",
+            "city": "Washington",
+            "country": "United States"
+          },
+          {
+            "iata": "IAH",
+            "city": "Houston",
+            "country": "United States"
+          },
+          {
+            "iata": "IBZ",
+            "city": "Ibiza",
+            "country": "Spain"
+          },
+          {
+            "iata": "ICN",
+            "city": "Seoul",
+            "country": "South Korea"
+          },
+          {
+            "iata": "IKA",
+            "city": "Tehran",
+            "country": "Iran"
+          },
+          {
+            "iata": "INN",
+            "city": "Innsbruck",
+            "country": "Austria"
+          },
+          {
+            "iata": "IST",
+            "city": "Istanbul",
+            "country": "Turkey"
+          },
+          {
+            "iata": "JED",
+            "city": "Jeddah",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "JFK",
+            "city": "New York",
+            "country": "United States"
+          },
+          {
+            "iata": "JNB",
+            "city": "Johannesburg",
+            "country": "South Africa"
+          },
+          {
+            "iata": "JRO",
+            "city": "Kilimanjaro",
+            "country": "Tanzania"
+          },
+          {
+            "iata": "KBP",
+            "city": "Kiev",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "KBV",
+            "city": "Krabi",
+            "country": "Thailand"
+          },
+          {
+            "iata": "KGL",
+            "city": "Kigali",
+            "country": "Rwanda"
+          },
+          {
+            "iata": "KIV",
+            "city": "Chisinau",
+            "country": "Moldova"
+          },
+          {
+            "iata": "KIX",
+            "city": "Osaka",
+            "country": "Japan"
+          },
+          {
+            "iata": "KLX",
+            "city": "Kalamata",
+            "country": "Greece"
+          },
+          {
+            "iata": "KRK",
+            "city": "Krakow",
+            "country": "Poland"
+          },
+          {
+            "iata": "KTW",
+            "city": "Katowice",
+            "country": "Poland"
+          },
+          {
+            "iata": "KUF",
+            "city": "Samara",
+            "country": "Russia"
+          },
+          {
+            "iata": "KUL",
+            "city": "Kuala Lumpur",
+            "country": "Malaysia"
+          },
+          {
+            "iata": "KWI",
+            "city": "Kuwait",
+            "country": "Kuwait"
+          },
+          {
+            "iata": "LAD",
+            "city": "Luanda",
+            "country": "Angola"
+          },
+          {
+            "iata": "LAX",
+            "city": "Los Angeles",
+            "country": "United States"
+          },
+          {
+            "iata": "LCA",
+            "city": "Larnaca",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "LCY",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LDB",
+            "city": "Londrina",
+            "country": "Brazil"
+          },
+          {
+            "iata": "LED",
+            "city": "St. Petersburg",
+            "country": "Russia"
+          },
+          {
+            "iata": "LEJ",
+            "city": "Leipzig",
+            "country": "Germany"
+          },
+          {
+            "iata": "LFW",
+            "city": "Lome",
+            "country": "Togo"
+          },
+          {
+            "iata": "LHR",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LIM",
+            "city": "Lima",
+            "country": "Peru"
+          },
+          {
+            "iata": "LIN",
+            "city": "Milan",
+            "country": "Italy"
+          },
+          {
+            "iata": "LIS",
+            "city": "Lisbon",
+            "country": "Portugal"
+          },
+          {
+            "iata": "LJU",
+            "city": "Ljubljana",
+            "country": "Slovenia"
+          },
+          {
+            "iata": "LNZ",
+            "city": "Linz",
+            "country": "Austria"
+          },
+          {
+            "iata": "LOS",
+            "city": "Lagos",
+            "country": "Nigeria"
+          },
+          {
+            "iata": "LUN",
+            "city": "Lusaka",
+            "country": "Zambia"
+          },
+          {
+            "iata": "LUX",
+            "city": "Luxemburg",
+            "country": "Luxembourg"
+          },
+          {
+            "iata": "LWO",
+            "city": "Lvov",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "LYS",
+            "city": "Lyon",
+            "country": "France"
+          },
+          {
+            "iata": "MAA",
+            "city": "Madras",
+            "country": "India"
+          },
+          {
+            "iata": "MAD",
+            "city": "Madrid",
+            "country": "Spain"
+          },
+          {
+            "iata": "MAN",
+            "city": "Manchester",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "MBA",
+            "city": "Mombasa",
+            "country": "Kenya"
+          },
+          {
+            "iata": "MCO",
+            "city": "Orlando",
+            "country": "United States"
+          },
+          {
+            "iata": "MCT",
+            "city": "Muscat",
+            "country": "Oman"
+          },
+          {
+            "iata": "MEX",
+            "city": "Mexico City",
+            "country": "Mexico"
+          },
+          {
+            "iata": "MIA",
+            "city": "Miami",
+            "country": "United States"
+          },
+          {
+            "iata": "MLA",
+            "city": "Malta",
+            "country": "Malta"
+          },
+          {
+            "iata": "MPL",
+            "city": "Montpellier",
+            "country": "France"
+          },
+          {
+            "iata": "MRS",
+            "city": "Marseille",
+            "country": "France"
+          },
+          {
+            "iata": "MSQ",
+            "city": "Minsk 2",
+            "country": "Belarus"
+          },
+          {
+            "iata": "MSY",
+            "city": "New Orleans",
+            "country": "United States"
+          },
+          {
+            "iata": "MUC",
+            "city": "Munich",
+            "country": "Germany"
+          },
+          {
+            "iata": "MXP",
+            "city": "Milano",
+            "country": "Italy"
+          },
+          {
+            "iata": "NAP",
+            "city": "Naples",
+            "country": "Italy"
+          },
+          {
+            "iata": "NBO",
+            "city": "Nairobi",
+            "country": "Kenya"
+          },
+          {
+            "iata": "NCE",
+            "city": "Nice",
+            "country": "France"
+          },
+          {
+            "iata": "NCL",
+            "city": "Newcastle",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "NGO",
+            "city": "Nagoya",
+            "country": "Japan"
+          },
+          {
+            "iata": "NKG",
+            "city": "Nanjing",
+            "country": "China"
+          },
+          {
+            "iata": "NRT",
+            "city": "Tokyo",
+            "country": "Japan"
+          },
+          {
+            "iata": "NSI",
+            "city": "Yaounde",
+            "country": "Cameroon"
+          },
+          {
+            "iata": "NUE",
+            "city": "Nuernberg",
+            "country": "Germany"
+          },
+          {
+            "iata": "ODS",
+            "city": "Odessa",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "OLB",
+            "city": "Olbia",
+            "country": "Italy"
+          },
+          {
+            "iata": "OPO",
+            "city": "Porto",
+            "country": "Portugal"
+          },
+          {
+            "iata": "ORD",
+            "city": "Chicago",
+            "country": "United States"
+          },
+          {
+            "iata": "OSL",
+            "city": "Oslo",
+            "country": "Norway"
+          },
+          {
+            "iata": "OTP",
+            "city": "Bucharest",
+            "country": "Romania"
+          },
+          {
+            "iata": "OUA",
+            "city": "Ouagadougou",
+            "country": "Burkina Faso"
+          },
+          {
+            "iata": "PAD",
+            "city": "Paderborn",
+            "country": "Germany"
+          },
+          {
+            "iata": "PEK",
+            "city": "Beijing",
+            "country": "China"
+          },
+          {
+            "iata": "PHC",
+            "city": "Port Hartcourt",
+            "country": "Nigeria"
+          },
+          {
+            "iata": "PHL",
+            "city": "Philadelphia",
+            "country": "United States"
+          },
+          {
+            "iata": "PMI",
+            "city": "Palma de Mallorca",
+            "country": "Spain"
+          },
+          {
+            "iata": "PMO",
+            "city": "Palermo",
+            "country": "Italy"
+          },
+          {
+            "iata": "PNQ",
+            "city": "Pune",
+            "country": "India"
+          },
+          {
+            "iata": "POZ",
+            "city": "Poznan",
+            "country": "Poland"
+          },
+          {
+            "iata": "PRG",
+            "city": "Prague",
+            "country": "Czech Republic"
+          },
+          {
+            "iata": "PRN",
+            "city": "Pristina",
+            "country": "Serbia"
+          },
+          {
+            "iata": "PSA",
+            "city": "Pisa",
+            "country": "Italy"
+          },
+          {
+            "iata": "PUY",
+            "city": "Pula",
+            "country": "Croatia"
+          },
+          {
+            "iata": "PVG",
+            "city": "Shanghai",
+            "country": "China"
+          },
+          {
+            "iata": "RIX",
+            "city": "Riga",
+            "country": "Latvia"
+          },
+          {
+            "iata": "RLG",
+            "city": "Laage",
+            "country": "Germany"
+          },
+          {
+            "iata": "ROB",
+            "city": "Monrovia",
+            "country": "Liberia"
+          },
+          {
+            "iata": "RTM",
+            "city": "Rotterdam",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "RUH",
+            "city": "Riyadh",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "RZE",
+            "city": "Rzeszow",
+            "country": "Poland"
+          },
+          {
+            "iata": "SBZ",
+            "city": "Sibiu",
+            "country": "Romania"
+          },
+          {
+            "iata": "SCN",
+            "city": "Saarbruecken",
+            "country": "Germany"
+          },
+          {
+            "iata": "SEA",
+            "city": "Seattle",
+            "country": "United States"
+          },
+          {
+            "iata": "SFO",
+            "city": "San Francisco",
+            "country": "United States"
+          },
+          {
+            "iata": "SHE",
+            "city": "Shenyang",
+            "country": "China"
+          },
+          {
+            "iata": "SIN",
+            "city": "Singapore",
+            "country": "Singapore"
+          },
+          {
+            "iata": "SJJ",
+            "city": "Sarajevo",
+            "country": "Bosnia and Herzegovina"
+          },
+          {
+            "iata": "SKG",
+            "city": "Thessaloniki",
+            "country": "Greece"
+          },
+          {
+            "iata": "SNN",
+            "city": "Shannon",
+            "country": "Ireland"
+          },
+          {
+            "iata": "SOF",
+            "city": "Sofia",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "SPU",
+            "city": "Split",
+            "country": "Croatia"
+          },
+          {
+            "iata": "SSG",
+            "city": "Malabo",
+            "country": "Equatorial Guinea"
+          },
+          {
+            "iata": "STR",
+            "city": "Stuttgart",
+            "country": "Germany"
+          },
+          {
+            "iata": "SUF",
+            "city": "Lamezia",
+            "country": "Italy"
+          },
+          {
+            "iata": "SVG",
+            "city": "Stavanger",
+            "country": "Norway"
+          },
+          {
+            "iata": "SZG",
+            "city": "Salzburg",
+            "country": "Austria"
+          },
+          {
+            "iata": "TAO",
+            "city": "Qingdao",
+            "country": "China"
+          },
+          {
+            "iata": "TBS",
+            "city": "Tbilisi",
+            "country": "Georgia"
+          },
+          {
+            "iata": "TIA",
+            "city": "Tirana",
+            "country": "Albania"
+          },
+          {
+            "iata": "TLL",
+            "city": "Tallinn-ulemiste International",
+            "country": "Estonia"
+          },
+          {
+            "iata": "TLS",
+            "city": "Toulouse",
+            "country": "France"
+          },
+          {
+            "iata": "TLV",
+            "city": "Tel-aviv",
+            "country": "Israel"
+          },
+          {
+            "iata": "TOS",
+            "city": "Tromso",
+            "country": "Norway"
+          },
+          {
+            "iata": "TRN",
+            "city": "Torino",
+            "country": "Italy"
+          },
+          {
+            "iata": "TRS",
+            "city": "Ronchi De Legionari",
+            "country": "Italy"
+          },
+          {
+            "iata": "TSE",
+            "city": "Tselinograd",
+            "country": "Kazakhstan"
+          },
+          {
+            "iata": "TSR",
+            "city": "Timisoara",
+            "country": "Romania"
+          },
+          {
+            "iata": "TUN",
+            "city": "Tunis",
+            "country": "Tunisia"
+          },
+          {
+            "iata": "TXL",
+            "city": "Berlin",
+            "country": "Germany"
+          },
+          {
+            "iata": "UIO",
+            "city": "Quito",
+            "country": "Ecuador"
+          },
+          {
+            "iata": "VCE",
+            "city": "Venice",
+            "country": "Italy"
+          },
+          {
+            "iata": "VIE",
+            "city": "Vienna",
+            "country": "Austria"
+          },
+          {
+            "iata": "VKO",
+            "city": "Moscow",
+            "country": "Russia"
+          },
+          {
+            "iata": "VLC",
+            "city": "Valencia",
+            "country": "Spain"
+          },
+          {
+            "iata": "VNO",
+            "city": "Vilnius",
+            "country": "Lithuania"
+          },
+          {
+            "iata": "VRN",
+            "city": "Villafranca",
+            "country": "Italy"
+          },
+          {
+            "iata": "WAW",
+            "city": "Warsaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "WRO",
+            "city": "Wroclaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "YEG",
+            "city": "Edmonton",
+            "country": "Canada"
+          },
+          {
+            "iata": "YHZ",
+            "city": "Halifax",
+            "country": "Canada"
+          },
+          {
+            "iata": "YOW",
+            "city": "Ottawa",
+            "country": "Canada"
+          },
+          {
+            "iata": "YUL",
+            "city": "Montreal",
+            "country": "Canada"
+          },
+          {
+            "iata": "YVR",
+            "city": "Vancouver",
+            "country": "Canada"
+          },
+          {
+            "iata": "YYC",
+            "city": "Calgary",
+            "country": "Canada"
+          },
+          {
+            "iata": "YYT",
+            "city": "St. John's",
+            "country": "Canada"
+          },
+          {
+            "iata": "YYZ",
+            "city": "Toronto",
+            "country": "Canada"
+          },
+          {
+            "iata": "ZAD",
+            "city": "Zadar",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZAG",
+            "city": "Zagreb",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZNZ",
+            "city": "Zanzibar",
+            "country": "Tanzania"
+          },
+          {
+            "iata": "ZRH",
+            "city": "Zurich",
+            "country": "Switzerland"
+          }
+        ],
+        "countries": [
+          "Albania",
+          "Algeria",
+          "Angola",
+          "Argentina",
+          "Austria",
+          "Azerbaijan",
+          "Bahrain",
+          "Belarus",
+          "Belgium",
+          "Benin",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Bulgaria",
+          "Burkina Faso",
+          "Burundi",
+          "Cameroon",
+          "Canada",
+          "China",
+          "Colombia",
+          "Congo (Kinshasa)",
+          "Cote d'Ivoire",
+          "Croatia",
+          "Cyprus",
+          "Czech Republic",
+          "Denmark",
+          "Ecuador",
+          "Egypt",
+          "Equatorial Guinea",
+          "Estonia",
+          "Ethiopia",
+          "Finland",
+          "France",
+          "Georgia",
+          "Germany",
+          "Ghana",
+          "Greece",
+          "Guinea",
+          "Hong Kong",
+          "Hungary",
+          "India",
+          "Iran",
+          "Iraq",
+          "Ireland",
+          "Israel",
+          "Italy",
+          "Japan",
+          "Jordan",
+          "Kazakhstan",
+          "Kenya",
+          "Kuwait",
+          "Latvia",
+          "Lebanon",
+          "Liberia",
+          "Lithuania",
+          "Luxembourg",
+          "Malaysia",
+          "Malta",
+          "Mexico",
+          "Moldova",
+          "Morocco",
+          "Netherlands",
+          "Nigeria",
+          "Norway",
+          "Oman",
+          "Peru",
+          "Poland",
+          "Portugal",
+          "Qatar",
+          "Romania",
+          "Russia",
+          "Rwanda",
+          "Saudi Arabia",
+          "Senegal",
+          "Serbia",
+          "Sierra Leone",
+          "Singapore",
+          "Slovenia",
+          "South Africa",
+          "South Korea",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Tanzania",
+          "Thailand",
+          "Togo",
+          "Tunisia",
+          "Turkey",
+          "Turkmenistan",
+          "Uganda",
+          "Ukraine",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States",
+          "Venezuela",
+          "Zambia",
+          "Zimbabwe"
+        ],
+        "testedRoutes": [
+          {
+            "origin": "VIE",
+            "destination": "EWR",
+            "status": "priced",
+            "note": "Official Lufthansa Group route-offer fallback"
+          },
+          {
+            "origin": "VIE",
+            "destination": "LHR",
+            "status": "priced",
+            "note": "Official Lufthansa Group route-offer fallback"
+          }
+        ]
+      }
+    ],
+    "diagnostics": {
+      "lufthansa": {
+        "source": "community-openflights-route-database",
+        "count": 248,
+        "sourceUrl": "https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat"
+      }
+    }
+  }
+}

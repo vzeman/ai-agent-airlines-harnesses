@@ -1,0 +1,2995 @@
+{
+  "status": "ok",
+  "data": {
+    "source": "live",
+    "requestedSource": "live",
+    "count": 224,
+    "airports": [
+      {
+        "iata": "AAR",
+        "city": "Aarhus",
+        "country": "Denmark",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ABZ",
+        "city": "Aberdeen",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ACE",
+        "city": "Lanzarote",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "AGA",
+        "city": "Agadir",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "AGP",
+        "city": "Malaga",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "AHO",
+        "city": "Alghero",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ALC",
+        "city": "Alicante",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "AMM",
+        "city": "Amman Jordan",
+        "country": "Jordan",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "AMS",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "AOI",
+        "city": "Ancona",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ARN",
+        "city": "Stockholm Arlanda",
+        "country": "Sweden",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ATH",
+        "city": "Athens",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BBU",
+        "city": "Bucharest Baneasa ",
+        "country": "Romania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BCN",
+        "city": "Barcelona",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BDS",
+        "city": "Brindisi",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BEM",
+        "city": "Beni Mellal",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BER",
+        "city": "Berlin Brandenburg",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BFS",
+        "city": "Belfast International",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BGY",
+        "city": "Milan Bergamo",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BHX",
+        "city": "Birmingham",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BIQ",
+        "city": "Biarritz",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BJV",
+        "city": "Bodrum",
+        "country": "Türkiye",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BLQ",
+        "city": "Bologna",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BNX",
+        "city": "Banja Luka",
+        "country": "Bosnia & Herzegovina",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BOH",
+        "city": "Bournemouth",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BOJ",
+        "city": "Burgas",
+        "country": "Bulgaria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BRE",
+        "city": "Bremen",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BRI",
+        "city": "Bari",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BRQ",
+        "city": "Brno",
+        "country": "Czechia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BRS",
+        "city": "Bristol",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BRU",
+        "city": "Brussels",
+        "country": "Belgium",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BSL",
+        "city": "Basel",
+        "country": "Switzerland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BTS",
+        "city": "Bratislava",
+        "country": "Slovakia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BUD",
+        "city": "Budapest",
+        "country": "Hungary",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BVA",
+        "city": "Paris Beauvais",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BVE",
+        "city": "Brive",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BZG",
+        "city": "Bydgoszcz",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "BZR",
+        "city": "Beziers Cap d'Agde",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CAG",
+        "city": "Cagliari",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CCF",
+        "city": "Carcassonne",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CDT",
+        "city": "Castellon (Valencia)",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CFU",
+        "city": "Corfu",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CGN",
+        "city": "Cologne",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CHQ",
+        "city": "Chania",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CIA",
+        "city": "Rome Ciampino",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CLJ",
+        "city": "Cluj",
+        "country": "Romania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CPH",
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CRL",
+        "city": "Brussels Charleroi",
+        "country": "Belgium",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CRV",
+        "city": "Crotone",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CTA",
+        "city": "Catania",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CUF",
+        "city": "Cuneo",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "CWL",
+        "city": "Cardiff",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "DBV",
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "DLE",
+        "city": "Dole",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "DLM",
+        "city": "Dalaman",
+        "country": "Türkiye",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "DUB",
+        "city": "Dublin",
+        "country": "Ireland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "EDI",
+        "city": "Edinburgh",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "EFL",
+        "city": "Kefalonia",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "EGC",
+        "city": "Bergerac",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "EIN",
+        "city": "Eindhoven",
+        "country": "Netherlands",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "EMA",
+        "city": "East Midlands",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ERH",
+        "city": "Errachidia",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ESU",
+        "city": "Essaouira",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "EXT",
+        "city": "Exeter",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FAO",
+        "city": "Faro",
+        "country": "Portugal",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FCO",
+        "city": "Rome Fiumicino",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FDH",
+        "city": "Friedrichshafen",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FEZ",
+        "city": "Fez",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FKB",
+        "city": "Karlsruhe / Baden-Baden",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FMM",
+        "city": "Memmingen",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FMO",
+        "city": "Münster",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FNC",
+        "city": "Madeira Funchal",
+        "country": "Portugal",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FNI",
+        "city": "Nimes",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FRL",
+        "city": "Bologna Forli",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FSC",
+        "city": "Figari-Corsica",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "FUE",
+        "city": "Fuerteventura",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "GDN",
+        "city": "Gdansk",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "GLA",
+        "city": "Glasgow",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "GNB",
+        "city": "Grenoble",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "GOA",
+        "city": "Genoa",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "GOT",
+        "city": "Göteborg Landvetter",
+        "country": "Sweden",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "GRO",
+        "city": "Barcelona Girona",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "HAM",
+        "city": "Hamburg",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "HEL",
+        "city": "Helsinki",
+        "country": "Finland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "HER",
+        "city": "Heraklion Crete",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "HHN",
+        "city": "Frankfurt Hahn",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "IAS",
+        "city": "Iasi",
+        "country": "Romania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "IBZ",
+        "city": "Ibiza",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "INI",
+        "city": "Nis",
+        "country": "Serbia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "JMK",
+        "city": "Mykonos",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "JSI",
+        "city": "Skiathos",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "JTR",
+        "city": "Santorini",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KGS",
+        "city": "Kos",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KIR",
+        "city": "Kerry",
+        "country": "Ireland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KLU",
+        "city": "Klagenfurt",
+        "country": "Austria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KLX",
+        "city": "Kalamata",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KRK",
+        "city": "Krakow",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KSC",
+        "city": "Kosice",
+        "country": "Slovakia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KTW",
+        "city": "Katowice",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "KUN",
+        "city": "Kaunas",
+        "country": "Lithuania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LBA",
+        "city": "Leeds Bradford",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LBC",
+        "city": "Lubeck",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LCA",
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LCJ",
+        "city": "Lodz",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LDE",
+        "city": "Lourdes–Pyrenees",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LDY",
+        "city": "Derry",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LEI",
+        "city": "Almeria",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LGW",
+        "city": "London Gatwick",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LIG",
+        "city": "Limoges",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LIL",
+        "city": "Lille",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LIS",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LNZ",
+        "city": "Linz",
+        "country": "Austria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LPA",
+        "city": "Gran Canaria",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LPL",
+        "city": "Liverpool",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LRH",
+        "city": "La Rochelle",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LTN",
+        "city": "London Luton",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LUX",
+        "city": "Luxembourg",
+        "country": "Luxembourg",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LUZ",
+        "city": "Lublin",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "LXS",
+        "city": "Lemnos",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MAD",
+        "city": "Madrid",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MAH",
+        "city": "Menorca",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MAN",
+        "city": "Manchester",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MLA",
+        "city": "Malta",
+        "country": "Malta",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MME",
+        "city": "Teesside",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MMX",
+        "city": "Malmo",
+        "country": "Sweden",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MRS",
+        "city": "Marseille",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "MXP",
+        "city": "Milan Malpensa",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NAP",
+        "city": "Naples",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NCE",
+        "city": "Nice",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NCL",
+        "city": "Newcastle",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NDR",
+        "city": "Nador",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NOC",
+        "city": "Knock",
+        "country": "Ireland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NQY",
+        "city": "Newquay Cornwall",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NRN",
+        "city": "Dusseldorf Weeze",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NTE",
+        "city": "Nantes",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NUE",
+        "city": "Nuremberg",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "NWI",
+        "city": "Norwich",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OLB",
+        "city": "Olbia",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OPO",
+        "city": "Porto",
+        "country": "Portugal",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ORK",
+        "city": "Cork",
+        "country": "Ireland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OSI",
+        "city": "Osijek",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OSL",
+        "city": "Oslo",
+        "country": "Norway",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OSR",
+        "city": "Ostrava",
+        "country": "Czechia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OTP",
+        "city": "Bucharest Otopeni",
+        "country": "Romania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OUD",
+        "city": "Oujda",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "OZZ",
+        "city": "Ouarzazate",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PAD",
+        "city": "Paderborn",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PDV",
+        "city": "Plovdiv",
+        "country": "Bulgaria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PED",
+        "city": "Pardubice",
+        "country": "Czechia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PEG",
+        "city": "Perugia",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PFO",
+        "city": "Paphos",
+        "country": "Cyprus",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PGF",
+        "city": "Perpignan",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PIK",
+        "city": "Glasgow Prestwick",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PIS",
+        "city": "Poitiers",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PLQ",
+        "city": "Palanga",
+        "country": "Lithuania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PMF",
+        "city": "Parma",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PMI",
+        "city": "Palma de Mallorca",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PMO",
+        "city": "Palermo",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "POZ",
+        "city": "Poznan",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PRG",
+        "city": "Prague",
+        "country": "Czechia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PSA",
+        "city": "Pisa",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PSR",
+        "city": "Pescara",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PUY",
+        "city": "Pula",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "PVK",
+        "city": "Preveza - Aktion",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "QSR",
+        "city": "Salerno Costa d'Amalfi",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RAK",
+        "city": "Marrakesh",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RBA",
+        "city": "Rabat",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RDZ",
+        "city": "Rodez",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "REG",
+        "city": "Reggio Calabria",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "REU",
+        "city": "Barcelona Reus",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RHO",
+        "city": "Rhodes",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RIX",
+        "city": "Riga",
+        "country": "Latvia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RJK",
+        "city": "Rijeka",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RMI",
+        "city": "Rimini",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RMU",
+        "city": "Murcia International",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RVN",
+        "city": "Lapland Rovaniemi",
+        "country": "Finland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "RZE",
+        "city": "Rzeszow",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SCN",
+        "city": "Saarbrücken",
+        "country": "Germany",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SCQ",
+        "city": "Santiago",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SDR",
+        "city": "Santander",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SFT",
+        "city": "Skelleftea",
+        "country": "Sweden",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SJJ",
+        "city": "Sarajevo",
+        "country": "Bosnia & Herzegovina",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SKG",
+        "city": "Thessaloniki",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SNN",
+        "city": "Shannon",
+        "country": "Ireland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SOF",
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SPU",
+        "city": "Split",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "STN",
+        "city": "London Stansted",
+        "country": "United Kingdom",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SUF",
+        "city": "Lamezia",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SVQ",
+        "city": "Seville",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SZG",
+        "city": "Salzburg",
+        "country": "Austria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SZY",
+        "city": "Olsztyn - Mazury",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "SZZ",
+        "city": "Szczecin",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TFS",
+        "city": "Tenerife South",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TGD",
+        "city": "Podgorica",
+        "country": "Montenegro",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TIA",
+        "city": "Tirana",
+        "country": "Albania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TLL",
+        "city": "Tallinn",
+        "country": "Estonia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TLS",
+        "city": "Toulouse",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TNG",
+        "city": "Tangier",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TPS",
+        "city": "Trapani-Marsala",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TRF",
+        "city": "Oslo Torp",
+        "country": "Norway",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TRN",
+        "city": "Turin",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TRS",
+        "city": "Trieste",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TSF",
+        "city": "Venice Treviso",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TTU",
+        "city": "Tétouan",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "TUF",
+        "city": "Tours Loire Valley",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VAR",
+        "city": "Varna",
+        "country": "Bulgaria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VCE",
+        "city": "Venice M.Polo",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VIE",
+        "city": "Vienna",
+        "country": "Austria",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VIL",
+        "city": "Dakhla ",
+        "country": "Morocco",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VIT",
+        "city": "Vitoria (Basque Country)",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VLC",
+        "city": "Valencia",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VNO",
+        "city": "Vilnius",
+        "country": "Lithuania",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VOL",
+        "city": "Volos",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VRN",
+        "city": "Verona",
+        "country": "Italy",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VST",
+        "city": "Stockholm Västerås",
+        "country": "Sweden",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "VXO",
+        "city": "Växjö Småland",
+        "country": "Sweden",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "WAW",
+        "city": "Warsaw Chopin",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "WMI",
+        "city": "Warsaw Modlin",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "WRO",
+        "city": "Wroclaw",
+        "country": "Poland",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "XCR",
+        "city": "Paris Vatry",
+        "country": "France",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ZAD",
+        "city": "Zadar",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ZAG",
+        "city": "Zagreb",
+        "country": "Croatia",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ZAZ",
+        "city": "Zaragoza",
+        "country": "Spain",
+        "airlines": [
+          "ryanair"
+        ]
+      },
+      {
+        "iata": "ZTH",
+        "city": "Zakynthos",
+        "country": "Greece",
+        "airlines": [
+          "ryanair"
+        ]
+      }
+    ],
+    "airlines": [
+      {
+        "airline": "ryanair",
+        "coverage": "dynamic",
+        "airports": [
+          {
+            "iata": "AAR",
+            "city": "Aarhus",
+            "country": "Denmark"
+          },
+          {
+            "iata": "ABZ",
+            "city": "Aberdeen",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "ACE",
+            "city": "Lanzarote",
+            "country": "Spain"
+          },
+          {
+            "iata": "AGA",
+            "city": "Agadir",
+            "country": "Morocco"
+          },
+          {
+            "iata": "AGP",
+            "city": "Malaga",
+            "country": "Spain"
+          },
+          {
+            "iata": "AHO",
+            "city": "Alghero",
+            "country": "Italy"
+          },
+          {
+            "iata": "ALC",
+            "city": "Alicante",
+            "country": "Spain"
+          },
+          {
+            "iata": "AMM",
+            "city": "Amman Jordan",
+            "country": "Jordan"
+          },
+          {
+            "iata": "AMS",
+            "city": "Amsterdam",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "AOI",
+            "city": "Ancona",
+            "country": "Italy"
+          },
+          {
+            "iata": "ARN",
+            "city": "Stockholm Arlanda",
+            "country": "Sweden"
+          },
+          {
+            "iata": "ATH",
+            "city": "Athens",
+            "country": "Greece"
+          },
+          {
+            "iata": "BBU",
+            "city": "Bucharest Baneasa ",
+            "country": "Romania"
+          },
+          {
+            "iata": "BCN",
+            "city": "Barcelona",
+            "country": "Spain"
+          },
+          {
+            "iata": "BDS",
+            "city": "Brindisi",
+            "country": "Italy"
+          },
+          {
+            "iata": "BEM",
+            "city": "Beni Mellal",
+            "country": "Morocco"
+          },
+          {
+            "iata": "BER",
+            "city": "Berlin Brandenburg",
+            "country": "Germany"
+          },
+          {
+            "iata": "BFS",
+            "city": "Belfast International",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BGY",
+            "city": "Milan Bergamo",
+            "country": "Italy"
+          },
+          {
+            "iata": "BHX",
+            "city": "Birmingham",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BIQ",
+            "city": "Biarritz",
+            "country": "France"
+          },
+          {
+            "iata": "BJV",
+            "city": "Bodrum",
+            "country": "Türkiye"
+          },
+          {
+            "iata": "BLQ",
+            "city": "Bologna",
+            "country": "Italy"
+          },
+          {
+            "iata": "BNX",
+            "city": "Banja Luka",
+            "country": "Bosnia & Herzegovina"
+          },
+          {
+            "iata": "BOH",
+            "city": "Bournemouth",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BOJ",
+            "city": "Burgas",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "BRE",
+            "city": "Bremen",
+            "country": "Germany"
+          },
+          {
+            "iata": "BRI",
+            "city": "Bari",
+            "country": "Italy"
+          },
+          {
+            "iata": "BRQ",
+            "city": "Brno",
+            "country": "Czechia"
+          },
+          {
+            "iata": "BRS",
+            "city": "Bristol",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BRU",
+            "city": "Brussels",
+            "country": "Belgium"
+          },
+          {
+            "iata": "BSL",
+            "city": "Basel",
+            "country": "Switzerland"
+          },
+          {
+            "iata": "BTS",
+            "city": "Bratislava",
+            "country": "Slovakia"
+          },
+          {
+            "iata": "BUD",
+            "city": "Budapest",
+            "country": "Hungary"
+          },
+          {
+            "iata": "BVA",
+            "city": "Paris Beauvais",
+            "country": "France"
+          },
+          {
+            "iata": "BVE",
+            "city": "Brive",
+            "country": "France"
+          },
+          {
+            "iata": "BZG",
+            "city": "Bydgoszcz",
+            "country": "Poland"
+          },
+          {
+            "iata": "BZR",
+            "city": "Beziers Cap d'Agde",
+            "country": "France"
+          },
+          {
+            "iata": "CAG",
+            "city": "Cagliari",
+            "country": "Italy"
+          },
+          {
+            "iata": "CCF",
+            "city": "Carcassonne",
+            "country": "France"
+          },
+          {
+            "iata": "CDT",
+            "city": "Castellon (Valencia)",
+            "country": "Spain"
+          },
+          {
+            "iata": "CFU",
+            "city": "Corfu",
+            "country": "Greece"
+          },
+          {
+            "iata": "CGN",
+            "city": "Cologne",
+            "country": "Germany"
+          },
+          {
+            "iata": "CHQ",
+            "city": "Chania",
+            "country": "Greece"
+          },
+          {
+            "iata": "CIA",
+            "city": "Rome Ciampino",
+            "country": "Italy"
+          },
+          {
+            "iata": "CLJ",
+            "city": "Cluj",
+            "country": "Romania"
+          },
+          {
+            "iata": "CPH",
+            "city": "Copenhagen",
+            "country": "Denmark"
+          },
+          {
+            "iata": "CRL",
+            "city": "Brussels Charleroi",
+            "country": "Belgium"
+          },
+          {
+            "iata": "CRV",
+            "city": "Crotone",
+            "country": "Italy"
+          },
+          {
+            "iata": "CTA",
+            "city": "Catania",
+            "country": "Italy"
+          },
+          {
+            "iata": "CUF",
+            "city": "Cuneo",
+            "country": "Italy"
+          },
+          {
+            "iata": "CWL",
+            "city": "Cardiff",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "DBV",
+            "city": "Dubrovnik",
+            "country": "Croatia"
+          },
+          {
+            "iata": "DLE",
+            "city": "Dole",
+            "country": "France"
+          },
+          {
+            "iata": "DLM",
+            "city": "Dalaman",
+            "country": "Türkiye"
+          },
+          {
+            "iata": "DUB",
+            "city": "Dublin",
+            "country": "Ireland"
+          },
+          {
+            "iata": "EDI",
+            "city": "Edinburgh",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "EFL",
+            "city": "Kefalonia",
+            "country": "Greece"
+          },
+          {
+            "iata": "EGC",
+            "city": "Bergerac",
+            "country": "France"
+          },
+          {
+            "iata": "EIN",
+            "city": "Eindhoven",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "EMA",
+            "city": "East Midlands",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "ERH",
+            "city": "Errachidia",
+            "country": "Morocco"
+          },
+          {
+            "iata": "ESU",
+            "city": "Essaouira",
+            "country": "Morocco"
+          },
+          {
+            "iata": "EXT",
+            "city": "Exeter",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "FAO",
+            "city": "Faro",
+            "country": "Portugal"
+          },
+          {
+            "iata": "FCO",
+            "city": "Rome Fiumicino",
+            "country": "Italy"
+          },
+          {
+            "iata": "FDH",
+            "city": "Friedrichshafen",
+            "country": "Germany"
+          },
+          {
+            "iata": "FEZ",
+            "city": "Fez",
+            "country": "Morocco"
+          },
+          {
+            "iata": "FKB",
+            "city": "Karlsruhe / Baden-Baden",
+            "country": "Germany"
+          },
+          {
+            "iata": "FMM",
+            "city": "Memmingen",
+            "country": "Germany"
+          },
+          {
+            "iata": "FMO",
+            "city": "Münster",
+            "country": "Germany"
+          },
+          {
+            "iata": "FNC",
+            "city": "Madeira Funchal",
+            "country": "Portugal"
+          },
+          {
+            "iata": "FNI",
+            "city": "Nimes",
+            "country": "France"
+          },
+          {
+            "iata": "FRL",
+            "city": "Bologna Forli",
+            "country": "Italy"
+          },
+          {
+            "iata": "FSC",
+            "city": "Figari-Corsica",
+            "country": "France"
+          },
+          {
+            "iata": "FUE",
+            "city": "Fuerteventura",
+            "country": "Spain"
+          },
+          {
+            "iata": "GDN",
+            "city": "Gdansk",
+            "country": "Poland"
+          },
+          {
+            "iata": "GLA",
+            "city": "Glasgow",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "GNB",
+            "city": "Grenoble",
+            "country": "France"
+          },
+          {
+            "iata": "GOA",
+            "city": "Genoa",
+            "country": "Italy"
+          },
+          {
+            "iata": "GOT",
+            "city": "Göteborg Landvetter",
+            "country": "Sweden"
+          },
+          {
+            "iata": "GRO",
+            "city": "Barcelona Girona",
+            "country": "Spain"
+          },
+          {
+            "iata": "HAM",
+            "city": "Hamburg",
+            "country": "Germany"
+          },
+          {
+            "iata": "HEL",
+            "city": "Helsinki",
+            "country": "Finland"
+          },
+          {
+            "iata": "HER",
+            "city": "Heraklion Crete",
+            "country": "Greece"
+          },
+          {
+            "iata": "HHN",
+            "city": "Frankfurt Hahn",
+            "country": "Germany"
+          },
+          {
+            "iata": "IAS",
+            "city": "Iasi",
+            "country": "Romania"
+          },
+          {
+            "iata": "IBZ",
+            "city": "Ibiza",
+            "country": "Spain"
+          },
+          {
+            "iata": "INI",
+            "city": "Nis",
+            "country": "Serbia"
+          },
+          {
+            "iata": "JMK",
+            "city": "Mykonos",
+            "country": "Greece"
+          },
+          {
+            "iata": "JSI",
+            "city": "Skiathos",
+            "country": "Greece"
+          },
+          {
+            "iata": "JTR",
+            "city": "Santorini",
+            "country": "Greece"
+          },
+          {
+            "iata": "KGS",
+            "city": "Kos",
+            "country": "Greece"
+          },
+          {
+            "iata": "KIR",
+            "city": "Kerry",
+            "country": "Ireland"
+          },
+          {
+            "iata": "KLU",
+            "city": "Klagenfurt",
+            "country": "Austria"
+          },
+          {
+            "iata": "KLX",
+            "city": "Kalamata",
+            "country": "Greece"
+          },
+          {
+            "iata": "KRK",
+            "city": "Krakow",
+            "country": "Poland"
+          },
+          {
+            "iata": "KSC",
+            "city": "Kosice",
+            "country": "Slovakia"
+          },
+          {
+            "iata": "KTW",
+            "city": "Katowice",
+            "country": "Poland"
+          },
+          {
+            "iata": "KUN",
+            "city": "Kaunas",
+            "country": "Lithuania"
+          },
+          {
+            "iata": "LBA",
+            "city": "Leeds Bradford",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LBC",
+            "city": "Lubeck",
+            "country": "Germany"
+          },
+          {
+            "iata": "LCA",
+            "city": "Larnaca",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "LCJ",
+            "city": "Lodz",
+            "country": "Poland"
+          },
+          {
+            "iata": "LDE",
+            "city": "Lourdes–Pyrenees",
+            "country": "France"
+          },
+          {
+            "iata": "LDY",
+            "city": "Derry",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LEI",
+            "city": "Almeria",
+            "country": "Spain"
+          },
+          {
+            "iata": "LGW",
+            "city": "London Gatwick",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LIG",
+            "city": "Limoges",
+            "country": "France"
+          },
+          {
+            "iata": "LIL",
+            "city": "Lille",
+            "country": "France"
+          },
+          {
+            "iata": "LIS",
+            "city": "Lisbon",
+            "country": "Portugal"
+          },
+          {
+            "iata": "LNZ",
+            "city": "Linz",
+            "country": "Austria"
+          },
+          {
+            "iata": "LPA",
+            "city": "Gran Canaria",
+            "country": "Spain"
+          },
+          {
+            "iata": "LPL",
+            "city": "Liverpool",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LRH",
+            "city": "La Rochelle",
+            "country": "France"
+          },
+          {
+            "iata": "LTN",
+            "city": "London Luton",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LUX",
+            "city": "Luxembourg",
+            "country": "Luxembourg"
+          },
+          {
+            "iata": "LUZ",
+            "city": "Lublin",
+            "country": "Poland"
+          },
+          {
+            "iata": "LXS",
+            "city": "Lemnos",
+            "country": "Greece"
+          },
+          {
+            "iata": "MAD",
+            "city": "Madrid",
+            "country": "Spain"
+          },
+          {
+            "iata": "MAH",
+            "city": "Menorca",
+            "country": "Spain"
+          },
+          {
+            "iata": "MAN",
+            "city": "Manchester",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "MLA",
+            "city": "Malta",
+            "country": "Malta"
+          },
+          {
+            "iata": "MME",
+            "city": "Teesside",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "MMX",
+            "city": "Malmo",
+            "country": "Sweden"
+          },
+          {
+            "iata": "MRS",
+            "city": "Marseille",
+            "country": "France"
+          },
+          {
+            "iata": "MXP",
+            "city": "Milan Malpensa",
+            "country": "Italy"
+          },
+          {
+            "iata": "NAP",
+            "city": "Naples",
+            "country": "Italy"
+          },
+          {
+            "iata": "NCE",
+            "city": "Nice",
+            "country": "France"
+          },
+          {
+            "iata": "NCL",
+            "city": "Newcastle",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "NDR",
+            "city": "Nador",
+            "country": "Morocco"
+          },
+          {
+            "iata": "NOC",
+            "city": "Knock",
+            "country": "Ireland"
+          },
+          {
+            "iata": "NQY",
+            "city": "Newquay Cornwall",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "NRN",
+            "city": "Dusseldorf Weeze",
+            "country": "Germany"
+          },
+          {
+            "iata": "NTE",
+            "city": "Nantes",
+            "country": "France"
+          },
+          {
+            "iata": "NUE",
+            "city": "Nuremberg",
+            "country": "Germany"
+          },
+          {
+            "iata": "NWI",
+            "city": "Norwich",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "OLB",
+            "city": "Olbia",
+            "country": "Italy"
+          },
+          {
+            "iata": "OPO",
+            "city": "Porto",
+            "country": "Portugal"
+          },
+          {
+            "iata": "ORK",
+            "city": "Cork",
+            "country": "Ireland"
+          },
+          {
+            "iata": "OSI",
+            "city": "Osijek",
+            "country": "Croatia"
+          },
+          {
+            "iata": "OSL",
+            "city": "Oslo",
+            "country": "Norway"
+          },
+          {
+            "iata": "OSR",
+            "city": "Ostrava",
+            "country": "Czechia"
+          },
+          {
+            "iata": "OTP",
+            "city": "Bucharest Otopeni",
+            "country": "Romania"
+          },
+          {
+            "iata": "OUD",
+            "city": "Oujda",
+            "country": "Morocco"
+          },
+          {
+            "iata": "OZZ",
+            "city": "Ouarzazate",
+            "country": "Morocco"
+          },
+          {
+            "iata": "PAD",
+            "city": "Paderborn",
+            "country": "Germany"
+          },
+          {
+            "iata": "PDV",
+            "city": "Plovdiv",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "PED",
+            "city": "Pardubice",
+            "country": "Czechia"
+          },
+          {
+            "iata": "PEG",
+            "city": "Perugia",
+            "country": "Italy"
+          },
+          {
+            "iata": "PFO",
+            "city": "Paphos",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "PGF",
+            "city": "Perpignan",
+            "country": "France"
+          },
+          {
+            "iata": "PIK",
+            "city": "Glasgow Prestwick",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "PIS",
+            "city": "Poitiers",
+            "country": "France"
+          },
+          {
+            "iata": "PLQ",
+            "city": "Palanga",
+            "country": "Lithuania"
+          },
+          {
+            "iata": "PMF",
+            "city": "Parma",
+            "country": "Italy"
+          },
+          {
+            "iata": "PMI",
+            "city": "Palma de Mallorca",
+            "country": "Spain"
+          },
+          {
+            "iata": "PMO",
+            "city": "Palermo",
+            "country": "Italy"
+          },
+          {
+            "iata": "POZ",
+            "city": "Poznan",
+            "country": "Poland"
+          },
+          {
+            "iata": "PRG",
+            "city": "Prague",
+            "country": "Czechia"
+          },
+          {
+            "iata": "PSA",
+            "city": "Pisa",
+            "country": "Italy"
+          },
+          {
+            "iata": "PSR",
+            "city": "Pescara",
+            "country": "Italy"
+          },
+          {
+            "iata": "PUY",
+            "city": "Pula",
+            "country": "Croatia"
+          },
+          {
+            "iata": "PVK",
+            "city": "Preveza - Aktion",
+            "country": "Greece"
+          },
+          {
+            "iata": "QSR",
+            "city": "Salerno Costa d'Amalfi",
+            "country": "Italy"
+          },
+          {
+            "iata": "RAK",
+            "city": "Marrakesh",
+            "country": "Morocco"
+          },
+          {
+            "iata": "RBA",
+            "city": "Rabat",
+            "country": "Morocco"
+          },
+          {
+            "iata": "RDZ",
+            "city": "Rodez",
+            "country": "France"
+          },
+          {
+            "iata": "REG",
+            "city": "Reggio Calabria",
+            "country": "Italy"
+          },
+          {
+            "iata": "REU",
+            "city": "Barcelona Reus",
+            "country": "Spain"
+          },
+          {
+            "iata": "RHO",
+            "city": "Rhodes",
+            "country": "Greece"
+          },
+          {
+            "iata": "RIX",
+            "city": "Riga",
+            "country": "Latvia"
+          },
+          {
+            "iata": "RJK",
+            "city": "Rijeka",
+            "country": "Croatia"
+          },
+          {
+            "iata": "RMI",
+            "city": "Rimini",
+            "country": "Italy"
+          },
+          {
+            "iata": "RMU",
+            "city": "Murcia International",
+            "country": "Spain"
+          },
+          {
+            "iata": "RVN",
+            "city": "Lapland Rovaniemi",
+            "country": "Finland"
+          },
+          {
+            "iata": "RZE",
+            "city": "Rzeszow",
+            "country": "Poland"
+          },
+          {
+            "iata": "SCN",
+            "city": "Saarbrücken",
+            "country": "Germany"
+          },
+          {
+            "iata": "SCQ",
+            "city": "Santiago",
+            "country": "Spain"
+          },
+          {
+            "iata": "SDR",
+            "city": "Santander",
+            "country": "Spain"
+          },
+          {
+            "iata": "SFT",
+            "city": "Skelleftea",
+            "country": "Sweden"
+          },
+          {
+            "iata": "SJJ",
+            "city": "Sarajevo",
+            "country": "Bosnia & Herzegovina"
+          },
+          {
+            "iata": "SKG",
+            "city": "Thessaloniki",
+            "country": "Greece"
+          },
+          {
+            "iata": "SNN",
+            "city": "Shannon",
+            "country": "Ireland"
+          },
+          {
+            "iata": "SOF",
+            "city": "Sofia",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "SPU",
+            "city": "Split",
+            "country": "Croatia"
+          },
+          {
+            "iata": "STN",
+            "city": "London Stansted",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "SUF",
+            "city": "Lamezia",
+            "country": "Italy"
+          },
+          {
+            "iata": "SVQ",
+            "city": "Seville",
+            "country": "Spain"
+          },
+          {
+            "iata": "SZG",
+            "city": "Salzburg",
+            "country": "Austria"
+          },
+          {
+            "iata": "SZY",
+            "city": "Olsztyn - Mazury",
+            "country": "Poland"
+          },
+          {
+            "iata": "SZZ",
+            "city": "Szczecin",
+            "country": "Poland"
+          },
+          {
+            "iata": "TFS",
+            "city": "Tenerife South",
+            "country": "Spain"
+          },
+          {
+            "iata": "TGD",
+            "city": "Podgorica",
+            "country": "Montenegro"
+          },
+          {
+            "iata": "TIA",
+            "city": "Tirana",
+            "country": "Albania"
+          },
+          {
+            "iata": "TLL",
+            "city": "Tallinn",
+            "country": "Estonia"
+          },
+          {
+            "iata": "TLS",
+            "city": "Toulouse",
+            "country": "France"
+          },
+          {
+            "iata": "TNG",
+            "city": "Tangier",
+            "country": "Morocco"
+          },
+          {
+            "iata": "TPS",
+            "city": "Trapani-Marsala",
+            "country": "Italy"
+          },
+          {
+            "iata": "TRF",
+            "city": "Oslo Torp",
+            "country": "Norway"
+          },
+          {
+            "iata": "TRN",
+            "city": "Turin",
+            "country": "Italy"
+          },
+          {
+            "iata": "TRS",
+            "city": "Trieste",
+            "country": "Italy"
+          },
+          {
+            "iata": "TSF",
+            "city": "Venice Treviso",
+            "country": "Italy"
+          },
+          {
+            "iata": "TTU",
+            "city": "Tétouan",
+            "country": "Morocco"
+          },
+          {
+            "iata": "TUF",
+            "city": "Tours Loire Valley",
+            "country": "France"
+          },
+          {
+            "iata": "VAR",
+            "city": "Varna",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "VCE",
+            "city": "Venice M.Polo",
+            "country": "Italy"
+          },
+          {
+            "iata": "VIE",
+            "city": "Vienna",
+            "country": "Austria"
+          },
+          {
+            "iata": "VIL",
+            "city": "Dakhla ",
+            "country": "Morocco"
+          },
+          {
+            "iata": "VIT",
+            "city": "Vitoria (Basque Country)",
+            "country": "Spain"
+          },
+          {
+            "iata": "VLC",
+            "city": "Valencia",
+            "country": "Spain"
+          },
+          {
+            "iata": "VNO",
+            "city": "Vilnius",
+            "country": "Lithuania"
+          },
+          {
+            "iata": "VOL",
+            "city": "Volos",
+            "country": "Greece"
+          },
+          {
+            "iata": "VRN",
+            "city": "Verona",
+            "country": "Italy"
+          },
+          {
+            "iata": "VST",
+            "city": "Stockholm Västerås",
+            "country": "Sweden"
+          },
+          {
+            "iata": "VXO",
+            "city": "Växjö Småland",
+            "country": "Sweden"
+          },
+          {
+            "iata": "WAW",
+            "city": "Warsaw Chopin",
+            "country": "Poland"
+          },
+          {
+            "iata": "WMI",
+            "city": "Warsaw Modlin",
+            "country": "Poland"
+          },
+          {
+            "iata": "WRO",
+            "city": "Wroclaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "XCR",
+            "city": "Paris Vatry",
+            "country": "France"
+          },
+          {
+            "iata": "ZAD",
+            "city": "Zadar",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZAG",
+            "city": "Zagreb",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZAZ",
+            "city": "Zaragoza",
+            "country": "Spain"
+          },
+          {
+            "iata": "ZTH",
+            "city": "Zakynthos",
+            "country": "Greece"
+          }
+        ],
+        "countries": [
+          "Albania",
+          "Austria",
+          "Belgium",
+          "Bosnia & Herzegovina",
+          "Bulgaria",
+          "Croatia",
+          "Cyprus",
+          "Czechia",
+          "Denmark",
+          "Estonia",
+          "Finland",
+          "France",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "Ireland",
+          "Italy",
+          "Jordan",
+          "Latvia",
+          "Lithuania",
+          "Luxembourg",
+          "Malta",
+          "Montenegro",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Serbia",
+          "Slovakia",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Türkiye",
+          "United Kingdom"
+        ],
+        "testedRoutes": [
+          {
+            "origin": "VIE",
+            "destination": "STN",
+            "status": "priced",
+            "note": "Fare Finder API"
+          },
+          {
+            "origin": "BTS",
+            "destination": "STN",
+            "status": "priced",
+            "note": "Fare Finder API"
+          },
+          {
+            "origin": "VIE",
+            "destination": "EWR",
+            "status": "unsupported",
+            "note": "EWR is outside Ryanair network"
+          }
+        ]
+      }
+    ],
+    "diagnostics": {
+      "ryanair": {
+        "source": "official-ryanair-active-airports",
+        "count": 224,
+        "sourceUrl": "https://www.ryanair.com/api/views/locate/3/airports/en/active"
+      }
+    }
+  }
+}
