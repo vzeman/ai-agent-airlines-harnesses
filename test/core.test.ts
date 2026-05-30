@@ -78,6 +78,17 @@ test("airline support exposes airports and rejects known unsupported routes", ()
       }),
     /does not support VIE-EWR/
   );
+
+  assert.throws(
+    () =>
+      assertRouteSupported({
+        airline: "qatar",
+        origin: "VIE",
+        destination: "EWR",
+        dateOut: "2026-07-23"
+      }),
+    /does not support VIE-EWR/
+  );
 });
 
 test("resolve-session validation accepts optional proxy credentials", () => {

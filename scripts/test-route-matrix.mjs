@@ -18,7 +18,7 @@ const matrix = [
   { airline: "british", origin: "VIE", destination: "LHR", expected: ["manual_intervention_required", "priced"] },
   { airline: "qatar", origin: "VIE", destination: "LHR", expected: ["priced"] },
   { airline: "qatar", origin: "VIE", destination: "LGW", expected: ["priced"] },
-  { airline: "qatar", origin: "VIE", destination: "EWR", expected: ["manual_intervention_required", "priced"] }
+  { airline: "qatar", origin: "VIE", destination: "EWR", expected: ["unsupported_route"] }
 ];
 
 const selectedMatrix = matrix.filter((item) => {
