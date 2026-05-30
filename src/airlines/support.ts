@@ -1,5 +1,5 @@
 import { UnsupportedRouteError } from "../core/unsupported-route.js";
-import type { AirlineCode, AirlineSupport, FlightSearchInput, SupportedAirportsInput, SupportedAirportsResult } from "../core/types.js";
+import type { AirlineCode, AirlineSupport, AirportSupport, FlightSearchInput, SupportedAirportsInput, SupportedAirportsResult } from "../core/types.js";
 
 const supports: Record<AirlineCode, AirlineSupport> = {
   ryanair: {
@@ -153,8 +153,57 @@ export function listAirlineSupport(): AirlineSupport[] {
   return Object.values(supports);
 }
 
-export function findSupportedAirports(input: SupportedAirportsInput = {}): SupportedAirportsResult {
-  const selectedSupports = input.airline ? [supports[input.airline]] : listAirlineSupport();
+export async function resolveSupportedAirports(input: SupportedAirportsInput = {}): Promise<SupportedAirportsResult> {
+  const requestedSource = input.source ?? "curated";
+  if (requestedSource !== "live") {
+    return findSupportedAirports(input, listAirlineSupport(), "curated", requestedSource);
+  }
+
+  const diagnostics: Record<string, unknown> = {};
+  let usedLiveSource = false;
+  const liveSupports = await Promise.all(
+    listAirlineSupport().map(async (support) => {
+      if (input.airline && support.airline !== input.airline) return support;
+      if (support.airline !== "ryanair") {
+        diagnostics[support.airline] = {
+          source: "curated",
+          fallback: "live_source_not_implemented"
+        };
+        return support;
+      }
+
+      try {
+        const airports = await fetchRyanairLiveAirports();
+        usedLiveSource = true;
+        diagnostics.ryanair = { source: "official-live", count: airports.length };
+        return {
+          ...support,
+          coverage: "dynamic" as const,
+          airports,
+          countries: [...new Set(airports.map((airport) => airport.country))].sort()
+        };
+      } catch (error) {
+        diagnostics.ryanair = {
+          source: "official-live",
+          error: error instanceof Error ? error.message : String(error),
+          fallback: "curated"
+        };
+        return support;
+      }
+    })
+  );
+
+  return findSupportedAirports(input, liveSupports, usedLiveSource ? "live" : "curated", requestedSource, diagnostics);
+}
+
+export function findSupportedAirports(
+  input: SupportedAirportsInput = {},
+  supportList = listAirlineSupport(),
+  source: "curated" | "live" = "curated",
+  requestedSource: "curated" | "live" = input.source ?? "curated",
+  diagnostics?: Record<string, unknown>
+): SupportedAirportsResult {
+  const selectedSupports = input.airline ? [supportList.find((support) => support.airline === input.airline) ?? supports[input.airline]] : supportList;
   const query = normalizeSearch(input.query);
   const country = normalizeSearch(input.country);
   const matches = new Map<string, { iata: string; city: string; country: string; airlines: Set<AirlineCode> }>();
@@ -186,12 +235,35 @@ export function findSupportedAirports(input: SupportedAirportsInput = {}): Suppo
     }));
 
   return {
+    source,
+    requestedSource,
     query: input.query,
     country: input.country,
     count: airports.length,
     airports,
-    airlines: selectedSupports
+    airlines: selectedSupports,
+    diagnostics
   };
+}
+
+export function parseRyanairLiveAirports(value: unknown): AirportSupport[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((airport): AirportSupport | undefined => {
+      if (!airport || typeof airport !== "object") return undefined;
+      const record = airport as Record<string, unknown>;
+      const iata = typeof record.iataCode === "string" ? record.iataCode.toUpperCase() : undefined;
+      const city = typeof record.name === "string" ? record.name : undefined;
+      const countryCode = typeof record.countryCode === "string" ? record.countryCode.toUpperCase() : undefined;
+      if (!iata || !city || !countryCode) return undefined;
+      return {
+        iata,
+        city,
+        country: countryName(countryCode)
+      };
+    })
+    .filter((airport): airport is AirportSupport => Boolean(airport))
+    .sort((a, b) => a.iata.localeCompare(b.iata));
 }
 
 export function assertRouteSupported(input: FlightSearchInput): void {
@@ -227,10 +299,26 @@ function airport(iata: string, city: string, country: string): { iata: string; c
   return { iata, city, country };
 }
 
+async function fetchRyanairLiveAirports(): Promise<AirportSupport[]> {
+  const response = await fetch("https://www.ryanair.com/api/views/locate/3/airports/en/active", {
+    headers: { accept: "application/json" }
+  });
+  if (!response.ok) throw new Error(`Ryanair airports HTTP ${response.status}`);
+  return parseRyanairLiveAirports(await response.json());
+}
+
 function airportMatches(airport: { iata: string; city: string; country: string }, query: string): boolean {
   return [airport.iata, airport.city, airport.country].some((value) => normalizeSearch(value).includes(query));
 }
 
 function normalizeSearch(value?: string): string {
   return (value ?? "").trim().toLowerCase();
+}
+
+function countryName(countryCode: string): string {
+  try {
+    return new Intl.DisplayNames(["en"], { type: "region" }).of(countryCode) ?? countryCode;
+  } catch {
+    return countryCode;
+  }
 }

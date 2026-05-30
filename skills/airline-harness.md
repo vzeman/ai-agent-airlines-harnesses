@@ -50,6 +50,12 @@ Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:8787/task/supported-ai
 
 Omit `airline` to search all configured adapters. The task returns matching airports plus the airlines that support each airport, and it does not create browser sessions.
 
+The default `source` is `curated`, meaning the harness-tested subset. Use `source: "live"` only when you need a fuller airline network catalog and the airline has an implemented official source. Ryanair live airport discovery is currently implemented:
+
+```powershell
+Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:8787/task/supported-airports" -Method Post -ContentType "application/json" -Body '{"airline":"ryanair","source":"live","query":"Vienna"}'
+```
+
 If a task returns `unsupported_route`, report the reason from `diagnostics.reason` and do not retry that airline for the same route.
 
 ## Find Flights

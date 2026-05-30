@@ -127,7 +127,7 @@ curl http://localhost:8787/airlines/ryanair/support
 
 Task-style harness endpoint for supported airport discovery. It does not create browser or FlareSolverr sessions.
 
-Return every configured airline's curated airports:
+Return every configured airline's curated harness-tested airports:
 
 ```bash
 curl -X POST http://localhost:8787/task/supported-airports \
@@ -143,6 +143,14 @@ curl -X POST http://localhost:8787/task/supported-airports \
   -d '{"airline":"qatar","query":"London"}'
 ```
 
+Use a live official source where implemented. Currently this is implemented for Ryanair's public active-airport catalog:
+
+```bash
+curl -X POST http://localhost:8787/task/supported-airports \
+  -H 'content-type: application/json' \
+  -d '{"airline":"ryanair","source":"live","query":"Vienna"}'
+```
+
 Request fields:
 
 | Field | Required | Description |
@@ -151,6 +159,7 @@ Request fields:
 | `query` | no | Case-insensitive match against IATA, city, or country |
 | `country` | no | Exact country filter, case-insensitive |
 | `limit` | no | Maximum airport matches to return, default `500` |
+| `source` | no | `curated` for harness-tested subset, or `live` where an official airport catalog is implemented |
 
 ### `POST /session/resolve`
 

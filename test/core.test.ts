@@ -16,7 +16,7 @@ import {
 } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
-import { assertRouteSupported, findSupportedAirports, getAirlineSupport } from "../src/airlines/support.js";
+import { assertRouteSupported, findSupportedAirports, getAirlineSupport, parseRyanairLiveAirports, resolveSupportedAirports } from "../src/airlines/support.js";
 
 test("cookieHeader filters by domain and serializes name/value pairs", () => {
   const header = cookieHeader(
@@ -104,6 +104,7 @@ test("supported airport harness searches by airline, IATA, city, and country", (
   const parsed = supportedAirportsSchema.parse({
     airline: "qatar",
     query: "London",
+    source: "curated",
     limit: 10
   });
   const qatarLondon = findSupportedAirports(parsed);
@@ -116,6 +117,28 @@ test("supported airport harness searches by airline, IATA, city, and country", (
   );
   assert.ok(allVienna.airports.some((airport) => airport.iata === "VIE" && airport.airlines.includes("ryanair")));
   assert.ok(ukAirports.airports.every((airport) => airport.country === "United Kingdom"));
+  assert.equal(qatarLondon.source, "curated");
+});
+
+test("Ryanair live airport parser maps official airport catalog shape", () => {
+  const airports = parseRyanairLiveAirports([
+    { iataCode: "AAR", name: "Aarhus", countryCode: "dk" },
+    { iataCode: "VIE", name: "Vienna", countryCode: "at" },
+    { iataCode: null, name: "Broken", countryCode: "xx" }
+  ]);
+
+  assert.deepEqual(airports, [
+    { iata: "AAR", city: "Aarhus", country: "Denmark" },
+    { iata: "VIE", city: "Vienna", country: "Austria" }
+  ]);
+});
+
+test("live airport discovery falls back clearly when no live source is implemented", async () => {
+  const result = await resolveSupportedAirports({ airline: "qatar", source: "live" });
+
+  assert.equal(result.source, "curated");
+  assert.equal(result.requestedSource, "live");
+  assert.deepEqual(result.diagnostics?.qatar, { source: "curated", fallback: "live_source_not_implemented" });
 });
 
 test("resolve-session validation accepts optional proxy credentials", () => {

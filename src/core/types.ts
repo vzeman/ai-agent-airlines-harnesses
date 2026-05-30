@@ -41,6 +41,7 @@ export interface SupportedAirportsInput {
   query?: string;
   country?: string;
   limit?: number;
+  source?: "curated" | "live";
 }
 
 export interface SupportedAirportMatch extends AirportSupport {
@@ -48,11 +49,14 @@ export interface SupportedAirportMatch extends AirportSupport {
 }
 
 export interface SupportedAirportsResult {
+  source: "curated" | "live";
+  requestedSource: "curated" | "live";
   query?: string;
   country?: string;
   count: number;
   airports: SupportedAirportMatch[];
   airlines: AirlineSupport[];
+  diagnostics?: Record<string, unknown>;
 }
 
 export interface FlightSearchInput extends SessionReuseInput {

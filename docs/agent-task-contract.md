@@ -27,13 +27,16 @@ This harness is an API boundary between an AI agent and airline websites. The ag
 
 Endpoint: `POST /task/supported-airports`
 
-Use this before unusual routes or when the user gives a city/country instead of an IATA code. The task accepts optional `airline`, `query`, `country`, and `limit` fields. It does not open browser sessions.
+Use this before unusual routes or when the user gives a city/country instead of an IATA code. The task accepts optional `airline`, `query`, `country`, `limit`, and `source` fields. It does not open browser sessions.
+
+Use `source: "curated"` for deterministic harness-tested subsets. Use `source: "live"` when the agent needs a fuller airline network catalog and the airline has an implemented official airport source. Ryanair live airport discovery is implemented first.
 
 Canonical output:
 
 - `data.airports[]` with `iata`, `city`, `country`, and supporting `airlines`
 - `data.airlines[]` with supported airports, countries, tested route statuses, and route caveats
 - `data.count`
+- `data.source` and `data.requestedSource`
 
 Metadata-only alternatives remain available as `GET /airlines` and `GET /airlines/:code/support`.
 
