@@ -12,6 +12,7 @@ The harness keeps browser infrastructure outside the LLM loop:
 - Agents call one API endpoint instead of manually clicking through airline sites.
 
 The stable AI-agent task contract is documented in [docs/agent-task-contract.md](docs/agent-task-contract.md). New airline adapters and skills should follow that contract before adding airline-specific behavior.
+The offline/live behavioral test split is documented in [docs/behavioral-test-matrix.md](docs/behavioral-test-matrix.md).
 
 ## Supported Airlines
 

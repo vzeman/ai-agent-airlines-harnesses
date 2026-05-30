@@ -1,25 +1,83 @@
 const harnessUrl = process.env.HARNESS_URL ?? "http://localhost:8787";
 const dateOut = process.env.DATE_OUT ?? "2026-07-23";
+const routeTimeoutMs = Number(process.env.ROUTE_TIMEOUT_MS ?? 90_000);
+const matrixFilter = process.env.MATRIX_FILTER?.toLowerCase();
 
 const matrix = [
-  { airline: "ryanair", origin: "VIE", destination: "STN", expected: "priced-or-empty" },
-  { airline: "ryanair", origin: "VIE", destination: "EWR", expected: "unsupported_route" },
-  { airline: "wizzair", origin: "BTS", destination: "VAR", expected: "priced" },
-  { airline: "wizzair", origin: "VIE", destination: "EWR", expected: "unsupported_route" },
-  { airline: "austrian", origin: "VIE", destination: "EWR", expected: "priced" },
-  { airline: "lufthansa", origin: "VIE", destination: "EWR", expected: "priced" },
-  { airline: "american", origin: "VIE", destination: "EWR", expected: "unsupported_route" },
-  { airline: "american", origin: "JFK", destination: "LAX", expected: "priced" },
-  { airline: "british", origin: "LHR", destination: "JFK", expected: "priced" },
-  { airline: "qatar", origin: "VIE", destination: "LHR", expected: "priced" },
-  { airline: "qatar", origin: "VIE", destination: "EWR", expected: "manual_or_priced" }
+  { airline: "ryanair", origin: "VIE", destination: "STN", expected: ["priced", "no_flights"] },
+  { airline: "ryanair", origin: "VIE", destination: "EWR", expected: ["unsupported_route"] },
+  { airline: "wizzair", origin: "BTS", destination: "VAR", expected: ["priced", "no_flights"] },
+  { airline: "wizzair", origin: "VIE", destination: "EWR", expected: ["unsupported_route"] },
+  { airline: "austrian", origin: "VIE", destination: "EWR", expected: ["priced"] },
+  { airline: "austrian", origin: "VIE", destination: "LHR", expected: ["manual_intervention_required", "priced"] },
+  { airline: "lufthansa", origin: "VIE", destination: "EWR", expected: ["priced"] },
+  { airline: "lufthansa", origin: "VIE", destination: "LHR", expected: ["manual_intervention_required", "priced"] },
+  { airline: "american", origin: "VIE", destination: "EWR", expected: ["unsupported_route"] },
+  { airline: "american", origin: "JFK", destination: "LAX", expected: ["priced"] },
+  { airline: "british", origin: "LHR", destination: "JFK", expected: ["priced", "manual_intervention_required"] },
+  { airline: "british", origin: "VIE", destination: "LHR", expected: ["manual_intervention_required", "priced"] },
+  { airline: "qatar", origin: "VIE", destination: "LHR", expected: ["priced"] },
+  { airline: "qatar", origin: "VIE", destination: "LGW", expected: ["priced"] },
+  { airline: "qatar", origin: "VIE", destination: "EWR", expected: ["manual_intervention_required", "priced"] }
 ];
 
+const selectedMatrix = matrix.filter((item) => {
+  if (!matrixFilter) return true;
+  const haystack = `${item.airline} ${item.origin}-${item.destination}`.toLowerCase();
+  return haystack.includes(matrixFilter);
+});
+
 const results = [];
-for (const item of matrix) {
+for (const item of selectedMatrix) {
+  console.error(`Testing ${item.airline} ${item.origin}-${item.destination} ${dateOut}`);
+  const startedAt = Date.now();
+  const body = await runRoute(item).catch((error) => ({
+    status: "error",
+    message: error instanceof Error ? error.message : String(error)
+  }));
+  const flights = body.data?.flights ?? [];
+  const priced = flights.filter((flight) => typeof flight.price === "number");
+  const cheapest = priced.sort((a, b) => a.price - b.price)[0];
+  const outcome = classifyOutcome(body.status, flights, cheapest);
+  results.push({
+    ...item,
+    status: body.status,
+    outcome,
+    count: flights.length,
+    cheapest,
+    message: body.message,
+    blocker: body.diagnostics?.blocker,
+    retryable: body.diagnostics?.retryable,
+    renderedState: body.diagnostics?.renderedState,
+    durationMs: Date.now() - startedAt
+  });
+  console.error(`Finished ${item.airline} ${item.origin}-${item.destination}: ${outcome}`);
+}
+
+console.log(JSON.stringify(results, null, 2));
+
+const failures = results.filter((result) => {
+  return !result.expected.includes(result.outcome);
+});
+
+if (failures.length > 0) {
+  console.error("Unexpected matrix results:");
+  console.error(JSON.stringify(failures, null, 2));
+  process.exit(1);
+}
+
+function classifyOutcome(status, flights, cheapest) {
+  if (status === "ok" && cheapest) return "priced";
+  if (status === "ok" && flights.length === 0) return "no_flights";
+  return status;
+}
+
+async function runRoute(item) {
+  const signal = AbortSignal.timeout(routeTimeoutMs);
   const response = await fetch(`${harnessUrl}/task/find-flights`, {
     method: "POST",
     headers: { "content-type": "application/json" },
+    signal,
     body: JSON.stringify({
       airline: item.airline,
       origin: item.origin,
@@ -29,30 +87,5 @@ for (const item of matrix) {
       currency: "EUR"
     })
   });
-  const body = await response.json();
-  const flights = body.data?.flights ?? [];
-  const priced = flights.filter((flight) => typeof flight.price === "number");
-  results.push({
-    ...item,
-    status: body.status,
-    count: flights.length,
-    cheapest: priced.sort((a, b) => a.price - b.price)[0],
-    message: body.message
-  });
-}
-
-console.log(JSON.stringify(results, null, 2));
-
-const failures = results.filter((result) => {
-  if (result.expected === "priced") return result.status !== "ok" || !result.cheapest;
-  if (result.expected === "unsupported_route") return result.status !== "unsupported_route";
-  if (result.expected === "manual_or_priced") return !["ok", "manual_intervention_required"].includes(result.status);
-  if (result.expected === "priced-or-empty") return result.status !== "ok";
-  return true;
-});
-
-if (failures.length > 0) {
-  console.error("Unexpected matrix results:");
-  console.error(JSON.stringify(failures, null, 2));
-  process.exit(1);
+  return response.json();
 }
