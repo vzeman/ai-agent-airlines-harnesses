@@ -16,7 +16,15 @@ import {
 } from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
-import { assertRouteSupported, findSupportedAirports, getAirlineSupport, parseRyanairLiveAirports, resolveSupportedAirports } from "../src/airlines/support.js";
+import {
+  assertRouteSupported,
+  findSupportedAirports,
+  getAirlineSupport,
+  parseOpenFlightsAirportCatalog,
+  parseOpenFlightsRouteAirports,
+  parseRyanairLiveAirports,
+  resolveSupportedAirports
+} from "../src/airlines/support.js";
 
 test("cookieHeader filters by domain and serializes name/value pairs", () => {
   const header = cookieHeader(
@@ -133,12 +141,66 @@ test("Ryanair live airport parser maps official airport catalog shape", () => {
   ]);
 });
 
-test("live airport discovery falls back clearly when no live source is implemented", async () => {
-  const result = await resolveSupportedAirports({ airline: "qatar", source: "live" });
+test("OpenFlights route catalog parser maps airline routes to airports", () => {
+  const airports = parseOpenFlightsAirportCatalog(
+    [
+      '1,"Frankfurt","Frankfurt","Germany","FRA","EDDF",50.033333,8.570556,364,1,"E","Europe/Berlin","airport","OurAirports"',
+      '2,"Vienna","Vienna","Austria","VIE","LOWW",48.110278,16.569722,600,1,"E","Europe/Vienna","airport","OurAirports"',
+      '3,"Broken","Broken","Nowhere","\\\\N","XXXX",0,0,0,0,"U","UTC","airport","OurAirports"'
+    ].join("\n")
+  );
 
-  assert.equal(result.source, "curated");
+  const routeAirports = parseOpenFlightsRouteAirports(["LH,3320,FRA,340,VIE,1613,,0,320", "OS,3320,VIE,1613,FRA,340,,0,320"].join("\n"), airports, "LH");
+
+  assert.deepEqual(routeAirports, [
+    { iata: "FRA", city: "Frankfurt", country: "Germany" },
+    { iata: "VIE", city: "Vienna", country: "Austria" }
+  ]);
+});
+
+test("live airport discovery returns a broader non-Ryanair remote catalog", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = (async (url: string | URL | Request) => {
+    const href = String(url);
+    if (href.endsWith("/airports.dat")) {
+      return new Response(
+        [
+          '1,"Doha Hamad International Airport","Doha","Qatar","DOH","OTHH",25.273056,51.608056,13,3,"U","Asia/Qatar","airport","OurAirports"',
+          '2,"London Heathrow Airport","London","United Kingdom","LHR","EGLL",51.4706,-0.461941,83,0,"E","Europe/London","airport","OurAirports"',
+          '3,"Vienna International Airport","Vienna","Austria","VIE","LOWW",48.110278,16.569722,600,1,"E","Europe/Vienna","airport","OurAirports"',
+          '4,"John F Kennedy International Airport","New York","United States","JFK","KJFK",40.639751,-73.778925,13,-5,"A","America/New_York","airport","OurAirports"',
+          '5,"Los Angeles International Airport","Los Angeles","United States","LAX","KLAX",33.942536,-118.408075,125,-8,"A","America/Los_Angeles","airport","OurAirports"',
+          '6,"Frankfurt am Main Airport","Frankfurt","Germany","FRA","EDDF",50.033333,8.570556,364,1,"E","Europe/Berlin","airport","OurAirports"'
+        ].join("\n")
+      );
+    }
+    if (href.endsWith("/routes.dat")) {
+      return new Response(
+        [
+          "QR,4091,DOH,2241,LHR,507,,0,77W",
+          "QR,4091,DOH,2241,VIE,1613,,0,788",
+          "QR,4091,DOH,2241,JFK,3797,,0,77W",
+          "QR,4091,DOH,2241,LAX,3484,,0,77W",
+          "QR,4091,DOH,2241,FRA,340,,0,77W"
+        ].join("\n")
+      );
+    }
+    throw new Error(`Unexpected test fetch ${href}`);
+  }) as typeof fetch;
+
+  let result;
+  try {
+    result = await resolveSupportedAirports({ airline: "qatar", source: "live", limit: 500 });
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+
+  assert.ok(result);
+  assert.equal(result.source, "live");
   assert.equal(result.requestedSource, "live");
-  assert.deepEqual(result.diagnostics?.qatar, { source: "curated", fallback: "live_source_not_implemented" });
+  assert.ok(result.count > getAirlineSupport("qatar").airports.length);
+  assert.equal((result.diagnostics?.qatar as { source?: string } | undefined)?.source, "community-openflights-route-database");
+  assert.ok(result.airports.some((airport) => airport.iata === "DOH"));
 });
 
 test("resolve-session validation accepts optional proxy credentials", () => {

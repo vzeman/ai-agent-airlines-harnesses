@@ -145,6 +145,19 @@ const unsupportedRoutes = new Set(
   )
 );
 
+const openFlightsAirlineCodes: Partial<Record<AirlineCode, string>> = {
+  wizzair: "W6",
+  lufthansa: "LH",
+  austrian: "OS",
+  american: "AA",
+  british: "BA",
+  qatar: "QR"
+};
+
+const openFlightsRoutesUrl = "https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat";
+const openFlightsAirportsUrl = "https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat";
+let openFlightsCache: Promise<OpenFlightsData> | undefined;
+
 export function getAirlineSupport(airline: AirlineCode): AirlineSupport {
   return supports[airline];
 }
@@ -164,18 +177,20 @@ export async function resolveSupportedAirports(input: SupportedAirportsInput = {
   const liveSupports = await Promise.all(
     listAirlineSupport().map(async (support) => {
       if (input.airline && support.airline !== input.airline) return support;
-      if (support.airline !== "ryanair") {
-        diagnostics[support.airline] = {
-          source: "curated",
-          fallback: "live_source_not_implemented"
-        };
-        return support;
-      }
 
       try {
-        const airports = await fetchRyanairLiveAirports();
+        const liveCatalog = await fetchLiveAirports(support.airline);
+        if (!liveCatalog) {
+          diagnostics[support.airline] = {
+            source: "curated",
+            fallback: "live_source_not_implemented"
+          };
+          return support;
+        }
+
+        const airports = liveCatalog.airports;
         usedLiveSource = true;
-        diagnostics.ryanair = { source: "official-live", count: airports.length };
+        diagnostics[support.airline] = { source: liveCatalog.source, count: airports.length, sourceUrl: liveCatalog.sourceUrl };
         return {
           ...support,
           coverage: "dynamic" as const,
@@ -183,8 +198,8 @@ export async function resolveSupportedAirports(input: SupportedAirportsInput = {
           countries: [...new Set(airports.map((airport) => airport.country))].sort()
         };
       } catch (error) {
-        diagnostics.ryanair = {
-          source: "official-live",
+        diagnostics[support.airline] = {
+          source: liveSourceName(support.airline),
           error: error instanceof Error ? error.message : String(error),
           fallback: "curated"
         };
@@ -266,6 +281,37 @@ export function parseRyanairLiveAirports(value: unknown): AirportSupport[] {
     .sort((a, b) => a.iata.localeCompare(b.iata));
 }
 
+export function parseOpenFlightsAirportCatalog(airportsCsv: string): Map<string, AirportSupport> {
+  const airports = new Map<string, AirportSupport>();
+  for (const line of airportsCsv.split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    const columns = parseCsvLine(line);
+    const iata = normalizeIata(columns[4]);
+    if (!iata) continue;
+    airports.set(iata, {
+      iata,
+      city: columns[2] || columns[1] || iata,
+      country: columns[3] || "Unknown"
+    });
+  }
+  return airports;
+}
+
+export function parseOpenFlightsRouteAirports(routesCsv: string, airports: Map<string, AirportSupport>, airlineCode: string): AirportSupport[] {
+  const matches = new Map<string, AirportSupport>();
+  for (const line of routesCsv.split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    const columns = parseCsvLine(line);
+    if (columns[0] !== airlineCode) continue;
+    for (const iata of [normalizeIata(columns[2]), normalizeIata(columns[4])]) {
+      if (!iata) continue;
+      const airport = airports.get(iata);
+      if (airport) matches.set(iata, airport);
+    }
+  }
+  return [...matches.values()].sort((a, b) => a.iata.localeCompare(b.iata));
+}
+
 export function assertRouteSupported(input: FlightSearchInput): void {
   const origin = input.origin.toUpperCase();
   const destination = input.destination.toUpperCase();
@@ -307,6 +353,45 @@ async function fetchRyanairLiveAirports(): Promise<AirportSupport[]> {
   return parseRyanairLiveAirports(await response.json());
 }
 
+async function fetchLiveAirports(airline: AirlineCode): Promise<LiveAirportCatalog | undefined> {
+  if (airline === "ryanair") {
+    return {
+      source: "official-ryanair-active-airports",
+      sourceUrl: "https://www.ryanair.com/api/views/locate/3/airports/en/active",
+      airports: await fetchRyanairLiveAirports()
+    };
+  }
+
+  const openFlightsCode = openFlightsAirlineCodes[airline];
+  if (!openFlightsCode) return undefined;
+  const data = await fetchOpenFlightsData();
+  return {
+    source: "community-openflights-route-database",
+    sourceUrl: openFlightsRoutesUrl,
+    airports: parseOpenFlightsRouteAirports(data.routesCsv, data.airports, openFlightsCode)
+  };
+}
+
+async function fetchOpenFlightsData(): Promise<OpenFlightsData> {
+  openFlightsCache ??= Promise.all([fetchText(openFlightsAirportsUrl), fetchText(openFlightsRoutesUrl)]).then(([airportsCsv, routesCsv]) => ({
+    airports: parseOpenFlightsAirportCatalog(airportsCsv),
+    routesCsv
+  }));
+  return openFlightsCache;
+}
+
+async function fetchText(url: string): Promise<string> {
+  const response = await fetch(url, {
+    headers: { accept: "text/plain,*/*" }
+  });
+  if (!response.ok) throw new Error(`${url} HTTP ${response.status}`);
+  return response.text();
+}
+
+function liveSourceName(airline: AirlineCode): string {
+  return airline === "ryanair" ? "official-ryanair-active-airports" : "community-openflights-route-database";
+}
+
 function airportMatches(airport: { iata: string; city: string; country: string }, query: string): boolean {
   return [airport.iata, airport.city, airport.country].some((value) => normalizeSearch(value).includes(query));
 }
@@ -321,4 +406,47 @@ function countryName(countryCode: string): string {
   } catch {
     return countryCode;
   }
+}
+
+function normalizeIata(value: string | undefined): string | undefined {
+  if (!value || value === "\\N") return undefined;
+  const iata = value.trim().toUpperCase();
+  return /^[A-Z0-9]{3}$/.test(iata) ? iata : undefined;
+}
+
+function parseCsvLine(line: string): string[] {
+  const columns: string[] = [];
+  let current = "";
+  let quoted = false;
+  for (let index = 0; index < line.length; index += 1) {
+    const char = line[index];
+    if (char === "\"") {
+      if (quoted && line[index + 1] === "\"") {
+        current += "\"";
+        index += 1;
+      } else {
+        quoted = !quoted;
+      }
+      continue;
+    }
+    if (char === "," && !quoted) {
+      columns.push(current);
+      current = "";
+      continue;
+    }
+    current += char;
+  }
+  columns.push(current);
+  return columns;
+}
+
+interface OpenFlightsData {
+  airports: Map<string, AirportSupport>;
+  routesCsv: string;
+}
+
+interface LiveAirportCatalog {
+  source: string;
+  sourceUrl: string;
+  airports: AirportSupport[];
 }
