@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { parseAmericanRouteOfferPage } from "../src/airlines/american.js";
 import { classifyBritishRenderedState, classifyBritishRouteOfferPage, parseBritishRouteOfferPage } from "../src/airlines/british.js";
@@ -8,6 +9,8 @@ import { classifyQatarPageState, extractQatarFlights } from "../src/airlines/qat
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
 import { isWizzNoFlightsRendered, parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
 import type { FlightSearchInput } from "../src/core/types.js";
+
+const fixtures = JSON.parse(readFileSync("test/fixtures/airline-pages.json", "utf8")) as Record<string, string>;
 
 const baseInput: FlightSearchInput = {
   airline: "ryanair",
@@ -232,15 +235,7 @@ test("Wizz Fare Finder parser extracts route and calendar prices", () => {
 });
 
 test("Wizz rendered select-flight text detects no-flight terminal state", () => {
-  const text = `
-    Choose an outbound flight
-    VIE London Luton LTN
-    Mon 01, Jun
-    No flights on this date.
-    Show next available flight
-  `;
-
-  assert.equal(isWizzNoFlightsRendered(text), true);
+  assert.equal(isWizzNoFlightsRendered(fixtures.wizzNoFlights), true);
   assert.equal(isWizzNoFlightsRendered("Choose an outbound flight €49.99"), false);
 });
 
@@ -258,12 +253,35 @@ test("British route offer parser extracts lowest published From fare", () => {
 });
 
 test("British classifiers distinguish route offers and high-demand queue pages", () => {
-  assert.equal(classifyBritishRouteOfferPage("<main>Flights to New York From £412</main>"), "offer");
+  assert.equal(classifyBritishRouteOfferPage(fixtures.britishRouteOffer), "offer");
   assert.equal(
     classifyBritishRenderedState({
-      visibleTextSample: "Welcome to ba.com We are experiencing high demand on ba.com at the moment. Thank you for your patience."
+      visibleTextSample: fixtures.britishHighDemand
     }),
     "high_demand_queue"
   );
   assert.equal(classifyBritishRenderedState({ visibleTextSample: "Book a flight Flight search From To Depart" }), "search_form");
+});
+
+test("recorded fixture parsers cover critical airline page states", () => {
+  const lufthansaFlights = parseLufthansaGroupOfferPage(
+    fixtures.lufthansaGroupOffer,
+    { airline: "austrian", origin: "VIE", destination: "EWR", dateOut: "2026-07-23", currency: "EUR" },
+    "austrian",
+    "OS",
+    "https://www.austrian.com/lhg/us/en/o-d/cy-cy/vienna-new-york"
+  );
+  const qatarFlights = extractQatarFlights(fixtures.qatarBookingCards, {
+    airline: "qatar",
+    origin: "VIE",
+    destination: "LHR",
+    dateOut: "2026-07-23",
+    currency: "EUR"
+  });
+
+  assert.equal(lufthansaFlights[0].price, 581);
+  assert.equal(classifyLufthansaGroupRoutePage(fixtures.lufthansaGroupNotFound), "page_not_found");
+  assert.equal(qatarFlights.length, 1);
+  assert.equal(qatarFlights[0].price, 1230);
+  assert.equal(classifyQatarPageState(fixtures.qatarBookingCards), "booking_results");
 });
