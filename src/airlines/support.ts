@@ -125,15 +125,14 @@ const supports: Record<AirlineCode, AirlineSupport> = {
       airport("VIE", "Vienna", "Austria"),
       airport("LHR", "London Heathrow", "United Kingdom"),
       airport("LGW", "London Gatwick", "United Kingdom"),
-      airport("JFK", "New York JFK", "United States"),
-      airport("EWR", "Newark", "United States")
+      airport("JFK", "New York JFK", "United States")
     ],
     countries: ["Qatar", "Austria", "United Kingdom", "United States"],
     testedRoutes: [
       { origin: "VIE", destination: "LHR", status: "priced", note: "Booking-flow page extraction" },
       { origin: "VIE", destination: "LGW", status: "priced", note: "Booking-flow page extraction" },
       { origin: "DOH", destination: "LHR", status: "priced", note: "Booking-flow page extraction" },
-      { origin: "VIE", destination: "EWR", status: "manual_intervention_required", note: "Rendered fallback currently returns Qatar/Akamai access-denied blocker" }
+      { origin: "VIE", destination: "EWR", status: "unsupported", note: "Qatar publishes New York JFK, not Newark EWR, in the current support set" }
     ]
   }
 };
