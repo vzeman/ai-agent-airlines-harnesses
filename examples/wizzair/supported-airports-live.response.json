@@ -1,0 +1,1140 @@
+{
+  "status": "ok",
+  "data": {
+    "source": "live",
+    "requestedSource": "live",
+    "count": 81,
+    "airports": [
+      {
+        "iata": "AES",
+        "city": "Alesund",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "AGP",
+        "city": "Malaga",
+        "country": "Spain",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "AHO",
+        "city": "Alghero",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "ARW",
+        "city": "Arad",
+        "country": "Romania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BCN",
+        "city": "Barcelona",
+        "country": "Spain",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BEG",
+        "city": "Belgrade",
+        "country": "Serbia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BGO",
+        "city": "Bergen",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BGY",
+        "city": "Bergamo",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BLQ",
+        "city": "Bologna",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BOJ",
+        "city": "Bourgas",
+        "country": "Bulgaria",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BRI",
+        "city": "Bari",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BUD",
+        "city": "Budapest",
+        "country": "Hungary",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "BVA",
+        "city": "Beauvais",
+        "country": "France",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CGN",
+        "city": "Cologne",
+        "country": "Germany",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CIA",
+        "city": "Rome",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CLJ",
+        "city": "Cluj-napoca",
+        "country": "Romania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CRA",
+        "city": "Craiova",
+        "country": "Romania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CRL",
+        "city": "Charleroi",
+        "country": "Belgium",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CTA",
+        "city": "Catania",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "CUF",
+        "city": "Cuneo",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "DEB",
+        "city": "Debrecen",
+        "country": "Hungary",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "DSA",
+        "city": "Doncaster, Sheffield",
+        "country": "United Kingdom",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "DTM",
+        "city": "Dortmund",
+        "country": "Germany",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "DWC",
+        "city": "Dubai",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "EIN",
+        "city": "Eindhoven",
+        "country": "Netherlands",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "FCO",
+        "city": "Rome",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "FMM",
+        "city": "Memmingen",
+        "country": "Germany",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "GDN",
+        "city": "Gdansk",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "GLA",
+        "city": "Glasgow",
+        "country": "United Kingdom",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "GSE",
+        "city": "Gothenborg",
+        "country": "Sweden",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "GVA",
+        "city": "Geneva",
+        "country": "Switzerland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "GYD",
+        "city": "Baku",
+        "country": "Azerbaijan",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "HAU",
+        "city": "Haugesund",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "HHN",
+        "city": "Hahn",
+        "country": "Germany",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "HRK",
+        "city": "Kharkov",
+        "country": "Ukraine",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "IEV",
+        "city": "Kiev",
+        "country": "Ukraine",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "KIV",
+        "city": "Chisinau",
+        "country": "Moldova",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "KRS",
+        "city": "Kristiansand",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "KSC",
+        "city": "Kosice",
+        "country": "Slovakia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "KTW",
+        "city": "Katowice",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "KUT",
+        "city": "Kutaisi",
+        "country": "Georgia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "LBC",
+        "city": "Luebeck",
+        "country": "Germany",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "LCA",
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "LJU",
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "LPL",
+        "city": "Liverpool",
+        "country": "United Kingdom",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "LTN",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "LUZ",
+        "city": "Lublin",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "MAD",
+        "city": "Madrid",
+        "country": "Spain",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "MLA",
+        "city": "Malta",
+        "country": "Malta",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "MMX",
+        "city": "Malmoe",
+        "country": "Sweden",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "MXP",
+        "city": "Milano",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "NAP",
+        "city": "Naples",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "NYO",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "OTP",
+        "city": "Bucharest",
+        "country": "Romania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "PEG",
+        "city": "Perugia",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "POZ",
+        "city": "Poznan",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "PRG",
+        "city": "Prague",
+        "country": "Czech Republic",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "PSA",
+        "city": "Pisa",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "RIX",
+        "city": "Riga",
+        "country": "Latvia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "SAW",
+        "city": "Istanbul",
+        "country": "Turkey",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "SKG",
+        "city": "Thessaloniki",
+        "country": "Greece",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "SKP",
+        "city": "Skopje",
+        "country": "Macedonia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "SOF",
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "SVG",
+        "city": "Stavanger",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "SZZ",
+        "city": "Szczecin",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TGM",
+        "city": "Tirgu Mures",
+        "country": "Romania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TKU",
+        "city": "Turku",
+        "country": "Finland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TLV",
+        "city": "Tel-aviv",
+        "country": "Israel",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TRD",
+        "city": "Trondheim",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TRF",
+        "city": "Sandefjord",
+        "country": "Norway",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TSF",
+        "city": "Treviso",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TSR",
+        "city": "Timisoara",
+        "country": "Romania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "TZL",
+        "city": "Null",
+        "country": "Bosnia and Herzegovina",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "VAR",
+        "city": "Varna",
+        "country": "Bulgaria",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "VKO",
+        "city": "Moscow",
+        "country": "Russia",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "VLC",
+        "city": "Valencia",
+        "country": "Spain",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "VNO",
+        "city": "Vilnius",
+        "country": "Lithuania",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "VRN",
+        "city": "Villafranca",
+        "country": "Italy",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "WAW",
+        "city": "Warsaw",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "WRO",
+        "city": "Wroclaw",
+        "country": "Poland",
+        "airlines": [
+          "wizzair"
+        ]
+      },
+      {
+        "iata": "ZAZ",
+        "city": "Zaragoza",
+        "country": "Spain",
+        "airlines": [
+          "wizzair"
+        ]
+      }
+    ],
+    "airlines": [
+      {
+        "airline": "wizzair",
+        "coverage": "dynamic",
+        "airports": [
+          {
+            "iata": "AES",
+            "city": "Alesund",
+            "country": "Norway"
+          },
+          {
+            "iata": "AGP",
+            "city": "Malaga",
+            "country": "Spain"
+          },
+          {
+            "iata": "AHO",
+            "city": "Alghero",
+            "country": "Italy"
+          },
+          {
+            "iata": "ARW",
+            "city": "Arad",
+            "country": "Romania"
+          },
+          {
+            "iata": "BCN",
+            "city": "Barcelona",
+            "country": "Spain"
+          },
+          {
+            "iata": "BEG",
+            "city": "Belgrade",
+            "country": "Serbia"
+          },
+          {
+            "iata": "BGO",
+            "city": "Bergen",
+            "country": "Norway"
+          },
+          {
+            "iata": "BGY",
+            "city": "Bergamo",
+            "country": "Italy"
+          },
+          {
+            "iata": "BLQ",
+            "city": "Bologna",
+            "country": "Italy"
+          },
+          {
+            "iata": "BOJ",
+            "city": "Bourgas",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "BRI",
+            "city": "Bari",
+            "country": "Italy"
+          },
+          {
+            "iata": "BUD",
+            "city": "Budapest",
+            "country": "Hungary"
+          },
+          {
+            "iata": "BVA",
+            "city": "Beauvais",
+            "country": "France"
+          },
+          {
+            "iata": "CGN",
+            "city": "Cologne",
+            "country": "Germany"
+          },
+          {
+            "iata": "CIA",
+            "city": "Rome",
+            "country": "Italy"
+          },
+          {
+            "iata": "CLJ",
+            "city": "Cluj-napoca",
+            "country": "Romania"
+          },
+          {
+            "iata": "CRA",
+            "city": "Craiova",
+            "country": "Romania"
+          },
+          {
+            "iata": "CRL",
+            "city": "Charleroi",
+            "country": "Belgium"
+          },
+          {
+            "iata": "CTA",
+            "city": "Catania",
+            "country": "Italy"
+          },
+          {
+            "iata": "CUF",
+            "city": "Cuneo",
+            "country": "Italy"
+          },
+          {
+            "iata": "DEB",
+            "city": "Debrecen",
+            "country": "Hungary"
+          },
+          {
+            "iata": "DSA",
+            "city": "Doncaster, Sheffield",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "DTM",
+            "city": "Dortmund",
+            "country": "Germany"
+          },
+          {
+            "iata": "DWC",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "EIN",
+            "city": "Eindhoven",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "FCO",
+            "city": "Rome",
+            "country": "Italy"
+          },
+          {
+            "iata": "FMM",
+            "city": "Memmingen",
+            "country": "Germany"
+          },
+          {
+            "iata": "GDN",
+            "city": "Gdansk",
+            "country": "Poland"
+          },
+          {
+            "iata": "GLA",
+            "city": "Glasgow",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "GSE",
+            "city": "Gothenborg",
+            "country": "Sweden"
+          },
+          {
+            "iata": "GVA",
+            "city": "Geneva",
+            "country": "Switzerland"
+          },
+          {
+            "iata": "GYD",
+            "city": "Baku",
+            "country": "Azerbaijan"
+          },
+          {
+            "iata": "HAU",
+            "city": "Haugesund",
+            "country": "Norway"
+          },
+          {
+            "iata": "HHN",
+            "city": "Hahn",
+            "country": "Germany"
+          },
+          {
+            "iata": "HRK",
+            "city": "Kharkov",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "IEV",
+            "city": "Kiev",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "KIV",
+            "city": "Chisinau",
+            "country": "Moldova"
+          },
+          {
+            "iata": "KRS",
+            "city": "Kristiansand",
+            "country": "Norway"
+          },
+          {
+            "iata": "KSC",
+            "city": "Kosice",
+            "country": "Slovakia"
+          },
+          {
+            "iata": "KTW",
+            "city": "Katowice",
+            "country": "Poland"
+          },
+          {
+            "iata": "KUT",
+            "city": "Kutaisi",
+            "country": "Georgia"
+          },
+          {
+            "iata": "LBC",
+            "city": "Luebeck",
+            "country": "Germany"
+          },
+          {
+            "iata": "LCA",
+            "city": "Larnaca",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "LJU",
+            "city": "Ljubljana",
+            "country": "Slovenia"
+          },
+          {
+            "iata": "LPL",
+            "city": "Liverpool",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LTN",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LUZ",
+            "city": "Lublin",
+            "country": "Poland"
+          },
+          {
+            "iata": "MAD",
+            "city": "Madrid",
+            "country": "Spain"
+          },
+          {
+            "iata": "MLA",
+            "city": "Malta",
+            "country": "Malta"
+          },
+          {
+            "iata": "MMX",
+            "city": "Malmoe",
+            "country": "Sweden"
+          },
+          {
+            "iata": "MXP",
+            "city": "Milano",
+            "country": "Italy"
+          },
+          {
+            "iata": "NAP",
+            "city": "Naples",
+            "country": "Italy"
+          },
+          {
+            "iata": "NYO",
+            "city": "Stockholm",
+            "country": "Sweden"
+          },
+          {
+            "iata": "OTP",
+            "city": "Bucharest",
+            "country": "Romania"
+          },
+          {
+            "iata": "PEG",
+            "city": "Perugia",
+            "country": "Italy"
+          },
+          {
+            "iata": "POZ",
+            "city": "Poznan",
+            "country": "Poland"
+          },
+          {
+            "iata": "PRG",
+            "city": "Prague",
+            "country": "Czech Republic"
+          },
+          {
+            "iata": "PSA",
+            "city": "Pisa",
+            "country": "Italy"
+          },
+          {
+            "iata": "RIX",
+            "city": "Riga",
+            "country": "Latvia"
+          },
+          {
+            "iata": "SAW",
+            "city": "Istanbul",
+            "country": "Turkey"
+          },
+          {
+            "iata": "SKG",
+            "city": "Thessaloniki",
+            "country": "Greece"
+          },
+          {
+            "iata": "SKP",
+            "city": "Skopje",
+            "country": "Macedonia"
+          },
+          {
+            "iata": "SOF",
+            "city": "Sofia",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "SVG",
+            "city": "Stavanger",
+            "country": "Norway"
+          },
+          {
+            "iata": "SZZ",
+            "city": "Szczecin",
+            "country": "Poland"
+          },
+          {
+            "iata": "TGM",
+            "city": "Tirgu Mures",
+            "country": "Romania"
+          },
+          {
+            "iata": "TKU",
+            "city": "Turku",
+            "country": "Finland"
+          },
+          {
+            "iata": "TLV",
+            "city": "Tel-aviv",
+            "country": "Israel"
+          },
+          {
+            "iata": "TRD",
+            "city": "Trondheim",
+            "country": "Norway"
+          },
+          {
+            "iata": "TRF",
+            "city": "Sandefjord",
+            "country": "Norway"
+          },
+          {
+            "iata": "TSF",
+            "city": "Treviso",
+            "country": "Italy"
+          },
+          {
+            "iata": "TSR",
+            "city": "Timisoara",
+            "country": "Romania"
+          },
+          {
+            "iata": "TZL",
+            "city": "Null",
+            "country": "Bosnia and Herzegovina"
+          },
+          {
+            "iata": "VAR",
+            "city": "Varna",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "VKO",
+            "city": "Moscow",
+            "country": "Russia"
+          },
+          {
+            "iata": "VLC",
+            "city": "Valencia",
+            "country": "Spain"
+          },
+          {
+            "iata": "VNO",
+            "city": "Vilnius",
+            "country": "Lithuania"
+          },
+          {
+            "iata": "VRN",
+            "city": "Villafranca",
+            "country": "Italy"
+          },
+          {
+            "iata": "WAW",
+            "city": "Warsaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "WRO",
+            "city": "Wroclaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "ZAZ",
+            "city": "Zaragoza",
+            "country": "Spain"
+          }
+        ],
+        "countries": [
+          "Azerbaijan",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Bulgaria",
+          "Cyprus",
+          "Czech Republic",
+          "Finland",
+          "France",
+          "Georgia",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "Israel",
+          "Italy",
+          "Latvia",
+          "Lithuania",
+          "Macedonia",
+          "Malta",
+          "Moldova",
+          "Netherlands",
+          "Norway",
+          "Poland",
+          "Romania",
+          "Russia",
+          "Serbia",
+          "Slovakia",
+          "Slovenia",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Turkey",
+          "Ukraine",
+          "United Arab Emirates",
+          "United Kingdom"
+        ],
+        "testedRoutes": [
+          {
+            "origin": "BTS",
+            "destination": "VAR",
+            "status": "priced",
+            "note": "Official Wizz Fare Finder route-page fallback"
+          },
+          {
+            "origin": "BTS",
+            "destination": "LTN",
+            "status": "priced",
+            "note": "Official Wizz Fare Finder route-page fallback"
+          },
+          {
+            "origin": "VIE",
+            "destination": "LTN",
+            "status": "manual_intervention_required",
+            "note": "Needs current Wizz browser/XHR flow or route fallback"
+          },
+          {
+            "origin": "VIE",
+            "destination": "EWR",
+            "status": "unsupported",
+            "note": "Wizz Air does not operate transatlantic EWR service"
+          }
+        ]
+      }
+    ],
+    "diagnostics": {
+      "wizzair": {
+        "source": "community-openflights-route-database",
+        "count": 81,
+        "sourceUrl": "https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat"
+      }
+    }
+  }
+}

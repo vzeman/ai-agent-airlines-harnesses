@@ -15,11 +15,25 @@ Login examples are sanitized and never include real usernames, passwords, cookie
 
 British Airways is not included in this screenshot set because both artifact-generation retries hit a FlareSolverr challenge timeout. Route-offer fallbacks are official airline pages but can be indicative rather than guaranteed checkout quotes. The response JSON includes the source and caveat in each fare's `raw` payload where applicable.
 
+## Live Airport Catalog Examples
+
+These examples document `POST /task/supported-airports` with `source: "live"`. Ryanair uses its official active-airports catalog. The other airline adapters use the live OpenFlights route database as a broader remote network catalog; always read `data.diagnostics[airline].source` before describing provenance.
+
+| Airline | Airport count | Source | Response | Screenshot |
+| --- | ---: | --- | --- | --- |
+| Ryanair | 224 | `official-ryanair-active-airports` | [response](ryanair/supported-airports-live.response.json) | [screenshot](ryanair/supported-airports-live.screenshot.png) |
+| Wizz Air | 81 | `community-openflights-route-database` | [response](wizzair/supported-airports-live.response.json) | [screenshot](wizzair/supported-airports-live.screenshot.png) |
+| Austrian | 109 | `community-openflights-route-database` | [response](austrian/supported-airports-live.response.json) | [screenshot](austrian/supported-airports-live.screenshot.png) |
+| Lufthansa | 248 | `community-openflights-route-database` | [response](lufthansa/supported-airports-live.response.json) | [screenshot](lufthansa/supported-airports-live.screenshot.png) |
+| American Airlines | 434 | `community-openflights-route-database` | [response](american/supported-airports-live.response.json) | [screenshot](american/supported-airports-live.screenshot.png) |
+| British Airways | 203 | `community-openflights-route-database` | [response](british/supported-airports-live.response.json) | [screenshot](british/supported-airports-live.screenshot.png) |
+| Qatar Airways | 134 | `community-openflights-route-database` | [response](qatar/supported-airports-live.response.json) | [screenshot](qatar/supported-airports-live.screenshot.png) |
+
 ## Endpoint Examples
 
 | Endpoint | Scope | Request | Response | Screenshot / artifact policy |
 | --- | --- | --- | --- | --- |
-| `POST /task/supported-airports` | Airport search and support discovery | `{}` or `{"airline":"qatar","query":"London"}` | Returns matching airports and supporting airlines | No browser session or screenshot |
+| `POST /task/supported-airports` | Airport search and support discovery | `{}` or `{"airline":"qatar","source":"live","query":"London"}` | Returns matching airports, supporting airlines, and source diagnostics | Example screenshots are rendered evidence pages; the endpoint itself opens no browser session |
 | `POST /task/find-flights` | Public flight pricing | See airline rows above | See airline rows above | Committed only for confirmed public pricing pages |
 | `POST /task/login` | Ryanair authenticated login | [request](ryanair/login-verification-required.request.json) | [verification required](ryanair/login-verification-required.response.json), [success](ryanair/login-success.response.json) | Redacted screenshots are committed for verification and success states |
 | `POST /task/submit-verification-code` | Continue a live Ryanair verification challenge | [request](ryanair/submit-verification-code.request.json) | [success](ryanair/submit-verification-code.response.json) | Verification codes are runtime-only and never committed |

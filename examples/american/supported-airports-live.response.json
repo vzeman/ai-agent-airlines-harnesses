@@ -1,0 +1,5779 @@
+{
+  "status": "ok",
+  "data": {
+    "source": "live",
+    "requestedSource": "live",
+    "count": 434,
+    "airports": [
+      {
+        "iata": "ABE",
+        "city": "Allentown",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ABI",
+        "city": "Abilene",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ABQ",
+        "city": "Albuquerque",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ABZ",
+        "city": "Aberdeen",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ACC",
+        "city": "Accra",
+        "country": "Ghana",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ACT",
+        "city": "Waco",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ADL",
+        "city": "Adelaide",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AEX",
+        "city": "Alexandria",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AGP",
+        "city": "Malaga",
+        "country": "Spain",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AGS",
+        "city": "Bush Field",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AGU",
+        "city": "Aguascalientes",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AKL",
+        "city": "Auckland",
+        "country": "New Zealand",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ALB",
+        "city": "Albany",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ALO",
+        "city": "Waterloo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AMA",
+        "city": "Amarillo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AMM",
+        "city": "Amman",
+        "country": "Jordan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AMS",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ANC",
+        "city": "Anchorage",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ANU",
+        "city": "Antigua",
+        "country": "Antigua and Barbuda",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AQP",
+        "city": "Arequipa",
+        "country": "Peru",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ARN",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ART",
+        "city": "Watertown",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ASP",
+        "city": "Alice Springs",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ASU",
+        "city": "Asuncion",
+        "country": "Paraguay",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ATH",
+        "city": "Athens",
+        "country": "Greece",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ATL",
+        "city": "Atlanta",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AUA",
+        "city": "Oranjestad",
+        "country": "Aruba",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AUH",
+        "city": "Abu Dhabi",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AUS",
+        "city": "Austin",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AVL",
+        "city": "Asheville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AVP",
+        "city": "Scranton",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "AZO",
+        "city": "Kalamazoo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BAH",
+        "city": "Bahrain",
+        "country": "Bahrain",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BCN",
+        "city": "Barcelona",
+        "country": "Spain",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BDA",
+        "city": "Bermuda",
+        "country": "Bermuda",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BDL",
+        "city": "Windsor Locks",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BFL",
+        "city": "Bakersfield",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BGI",
+        "city": "Bridgetown",
+        "country": "Barbados",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BGM",
+        "city": "Binghamton",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BGO",
+        "city": "Bergen",
+        "country": "Norway",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BGR",
+        "city": "Bangor",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BHD",
+        "city": "Belfast",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BHM",
+        "city": "Birmingham",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BJL",
+        "city": "Banjul",
+        "country": "Gambia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BJX",
+        "city": "Del Bajio",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BKK",
+        "city": "Bangkok",
+        "country": "Thailand",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BLQ",
+        "city": "Bologna",
+        "country": "Italy",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BLR",
+        "city": "Bangalore",
+        "country": "India",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BMI",
+        "city": "Bloomington",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BNA",
+        "city": "Nashville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BNE",
+        "city": "Brisbane",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BOG",
+        "city": "Bogota",
+        "country": "Colombia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BOI",
+        "city": "Boise",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BOM",
+        "city": "Mumbai",
+        "country": "India",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BOS",
+        "city": "Boston",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BPT",
+        "city": "Beaumont",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BRO",
+        "city": "Brownsville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BRU",
+        "city": "Brussels",
+        "country": "Belgium",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BSB",
+        "city": "Brasilia",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BSL",
+        "city": "Mulhouse",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BTR",
+        "city": "Baton Rouge",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BTV",
+        "city": "Burlington",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BUD",
+        "city": "Budapest",
+        "country": "Hungary",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BUF",
+        "city": "Buffalo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BUR",
+        "city": "Burbank",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BWI",
+        "city": "Baltimore",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "BZE",
+        "city": "Belize City",
+        "country": "Belize",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CAE",
+        "city": "Columbia",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CAK",
+        "city": "Akron",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CBR",
+        "city": "Canberra",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CCS",
+        "city": "Caracas",
+        "country": "Venezuela",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CDG",
+        "city": "Paris",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CHA",
+        "city": "Chattanooga",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CHC",
+        "city": "Christchurch",
+        "country": "New Zealand",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CHO",
+        "city": "Charlottesville VA",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CHS",
+        "city": "Charleston",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CID",
+        "city": "Cedar Rapids",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CLE",
+        "city": "Cleveland",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CLL",
+        "city": "College Station",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CLO",
+        "city": "Cali",
+        "country": "Colombia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CLT",
+        "city": "Charlotte",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CMB",
+        "city": "Colombo",
+        "country": "Sri Lanka",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CMH",
+        "city": "Columbus",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CMI",
+        "city": "Champaign",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CNF",
+        "city": "Belo Horizonte",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CNS",
+        "city": "Cairns",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "COS",
+        "city": "Colorado Springs",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "COU",
+        "city": "Columbia",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CPH",
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CPT",
+        "city": "Cape Town",
+        "country": "South Africa",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CRP",
+        "city": "Corpus Christi",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CRW",
+        "city": "Charleston",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CTS",
+        "city": "Sapporo",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CUN",
+        "city": "Cancun",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CUR",
+        "city": "Willemstad",
+        "country": "Netherlands Antilles",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CUU",
+        "city": "Chihuahua",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CVG",
+        "city": "Cincinnati",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CWA",
+        "city": "Wassau",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CWB",
+        "city": "Curitiba",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "CZM",
+        "city": "Cozumel",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DAB",
+        "city": "Daytona Beach",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DAY",
+        "city": "Dayton",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DBQ",
+        "city": "Dubuque IA",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DCA",
+        "city": "Washington",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DEL",
+        "city": "Delhi",
+        "country": "India",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DEN",
+        "city": "Denver",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DFW",
+        "city": "Dallas-Fort Worth",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DKR",
+        "city": "Dakar",
+        "country": "Senegal",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DOH",
+        "city": "Doha",
+        "country": "Qatar",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DOM",
+        "city": "Dominica",
+        "country": "Dominica",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DRO",
+        "city": "Durango",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DRW",
+        "city": "Darwin",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DSM",
+        "city": "Des Moines",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DTW",
+        "city": "Detroit",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DUB",
+        "city": "Dublin",
+        "country": "Ireland",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DUS",
+        "city": "Duesseldorf",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "DXB",
+        "city": "Dubai",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EBB",
+        "city": "Entebbe",
+        "country": "Uganda",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EDI",
+        "city": "Edinburgh",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EIS",
+        "city": "Tortola",
+        "country": "British Virgin Islands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ELH",
+        "city": "North Eleuthera",
+        "country": "Bahamas",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ELM",
+        "city": "Elmira",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ELP",
+        "city": "El Paso",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ERI",
+        "city": "Erie",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EUG",
+        "city": "Eugene",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EVV",
+        "city": "Evansville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EWN",
+        "city": "New Bern",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EWR",
+        "city": "Newark",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EYW",
+        "city": "Key West",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "EZE",
+        "city": "Buenos Aires",
+        "country": "Argentina",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FAR",
+        "city": "Fargo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FAT",
+        "city": "Fresno",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FAY",
+        "city": "Fayetteville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FCO",
+        "city": "Rome",
+        "country": "Italy",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FDF",
+        "city": "Fort-de-france",
+        "country": "Martinique",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FLG",
+        "city": "Flagstaff",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FLL",
+        "city": "Fort Lauderdale",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FLO",
+        "city": "Florence",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FNT",
+        "city": "Flint",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FPO",
+        "city": "Freeport",
+        "country": "Bahamas",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FRA",
+        "city": "Frankfurt",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FSD",
+        "city": "Sioux Falls",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FSM",
+        "city": "Fort Smith",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FUK",
+        "city": "Fukuoka",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "FWA",
+        "city": "Fort Wayne",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GCK",
+        "city": "Garden City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GCM",
+        "city": "Georgetown",
+        "country": "Cayman Islands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GDL",
+        "city": "Guadalajara",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GEG",
+        "city": "Spokane",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GGG",
+        "city": "Longview",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GGT",
+        "city": "Great Exuma",
+        "country": "Bahamas",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GIB",
+        "city": "Gibraltar",
+        "country": "Gibraltar",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GIG",
+        "city": "Rio De Janeiro",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GJT",
+        "city": "Grand Junction",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GLA",
+        "city": "Glasgow",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GND",
+        "city": "Point Salines",
+        "country": "Grenada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GNV",
+        "city": "Gainesville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GOT",
+        "city": "Gothenborg",
+        "country": "Sweden",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GPT",
+        "city": "Gulfport",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GRB",
+        "city": "Green Bay",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GRI",
+        "city": "Grand Island",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GRK",
+        "city": "Killeen",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GRR",
+        "city": "Grand Rapids",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GRU",
+        "city": "Sao Paulo",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GSO",
+        "city": "Greensboro",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GSP",
+        "city": "Greenville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GUA",
+        "city": "Guatemala City",
+        "country": "Guatemala",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GVA",
+        "city": "Geneva",
+        "country": "Switzerland",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "GYE",
+        "city": "Guayaquil",
+        "country": "Ecuador",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HAJ",
+        "city": "Hannover",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HAM",
+        "city": "Hamburg",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HAN",
+        "city": "Hanoi",
+        "country": "Vietnam",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HEL",
+        "city": "Helsinki",
+        "country": "Finland",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HHH",
+        "city": "Hilton Head Island",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HKG",
+        "city": "Hong Kong",
+        "country": "Hong Kong",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HMO",
+        "city": "Hermosillo",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HND",
+        "city": "Tokyo",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HNL",
+        "city": "Honolulu",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HOU",
+        "city": "Houston",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HPN",
+        "city": "White Plains",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HSV",
+        "city": "Huntsville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HTS",
+        "city": "Huntington",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HVN",
+        "city": "New Haven",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "HYD",
+        "city": "Hyderabad",
+        "country": "India",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "IAD",
+        "city": "Washington",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "IAH",
+        "city": "Houston",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ICN",
+        "city": "Seoul",
+        "country": "South Korea",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ICT",
+        "city": "Wichita",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ILM",
+        "city": "Wilmington",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "IND",
+        "city": "Indianapolis",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "IPT",
+        "city": "Williamsport",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ISB",
+        "city": "Islamabad",
+        "country": "Pakistan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ISP",
+        "city": "Islip",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "IST",
+        "city": "Istanbul",
+        "country": "Turkey",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ITH",
+        "city": "Ithaca",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ITM",
+        "city": "Osaka",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JAN",
+        "city": "Jackson",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JAX",
+        "city": "Jacksonville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JFK",
+        "city": "New York",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JLN",
+        "city": "Joplin",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JNB",
+        "city": "Johannesburg",
+        "country": "South Africa",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JNU",
+        "city": "Juneau",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "JUL",
+        "city": "Juliaca",
+        "country": "Peru",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KHH",
+        "city": "Kaohsiung",
+        "country": "Taiwan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KIN",
+        "city": "Kingston",
+        "country": "Jamaica",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KIX",
+        "city": "Osaka",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KOA",
+        "city": "Kona",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KTN",
+        "city": "Ketchikan",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KUL",
+        "city": "Kuala Lumpur",
+        "country": "Malaysia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "KWI",
+        "city": "Kuwait",
+        "country": "Kuwait",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LAS",
+        "city": "Las Vegas",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LAW",
+        "city": "Lawton",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LAX",
+        "city": "Los Angeles",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LBA",
+        "city": "Leeds",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LBB",
+        "city": "Lubbock",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LCA",
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LCH",
+        "city": "Lake Charles",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LCY",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LEX",
+        "city": "Lexington KY",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LFT",
+        "city": "Lafayette",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LGA",
+        "city": "New York",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LGB",
+        "city": "Long Beach",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LGK",
+        "city": "Langkawi",
+        "country": "Malaysia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LGW",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LHE",
+        "city": "Lahore",
+        "country": "Pakistan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LHR",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LIH",
+        "city": "Lihue",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LIM",
+        "city": "Lima",
+        "country": "Peru",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LIN",
+        "city": "Milan",
+        "country": "Italy",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LIR",
+        "city": "Liberia",
+        "country": "Costa Rica",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LIS",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LIT",
+        "city": "Little Rock",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LPA",
+        "city": "Gran Canaria",
+        "country": "Spain",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LPB",
+        "city": "La Paz",
+        "country": "Bolivia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LRD",
+        "city": "Laredo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LRM",
+        "city": "La Romana",
+        "country": "Dominican Republic",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LSE",
+        "city": "La Crosse",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LUX",
+        "city": "Luxemburg",
+        "country": "Luxembourg",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LYH",
+        "city": "Lynchburg",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "LYS",
+        "city": "Lyon",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MAA",
+        "city": "Madras",
+        "country": "India",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MAD",
+        "city": "Madrid",
+        "country": "Spain",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MAF",
+        "city": "Midland",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MAN",
+        "city": "Manchester",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MAO",
+        "city": "Manaus",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MAR",
+        "city": "Maracaibo",
+        "country": "Venezuela",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MBJ",
+        "city": "Montego Bay",
+        "country": "Jamaica",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MCI",
+        "city": "Kansas City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MCO",
+        "city": "Orlando",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MCT",
+        "city": "Muscat",
+        "country": "Oman",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MDE",
+        "city": "Rio Negro",
+        "country": "Colombia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MDT",
+        "city": "Harrisburg",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MEL",
+        "city": "Melbourne",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MEM",
+        "city": "Memphis",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MEX",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MFE",
+        "city": "Mcallen",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MFR",
+        "city": "Medford",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MGA",
+        "city": "Managua",
+        "country": "Nicaragua",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MGM",
+        "city": "MONTGOMERY",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MHH",
+        "city": "Marsh Harbor",
+        "country": "Bahamas",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MHK",
+        "city": "Manhattan",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MHT",
+        "city": "Manchester NH",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MIA",
+        "city": "Miami",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MKE",
+        "city": "Milwaukee",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MLB",
+        "city": "Melbourne",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MLI",
+        "city": "Moline",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MLM",
+        "city": "Morelia",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MLU",
+        "city": "Monroe",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MMH",
+        "city": "Mammoth Lakes",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MOB",
+        "city": "Mobile",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MQT",
+        "city": "Gwinn",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MRS",
+        "city": "Marseille",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MRY",
+        "city": "Monterey",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MSN",
+        "city": "Madison",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MSP",
+        "city": "Minneapolis",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MSY",
+        "city": "New Orleans",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MTY",
+        "city": "Monterrey",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MUC",
+        "city": "Munich",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MVD",
+        "city": "Montevideo",
+        "country": "Uruguay",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MXP",
+        "city": "Milano",
+        "country": "Italy",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MYR",
+        "city": "Myrtle Beach",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "MZT",
+        "city": "Mazatlan",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NAN",
+        "city": "Nandi",
+        "country": "Fiji",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NAS",
+        "city": "Nassau",
+        "country": "Bahamas",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NBO",
+        "city": "Nairobi",
+        "country": "Kenya",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NCE",
+        "city": "Nice",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NCL",
+        "city": "Newcastle",
+        "country": "United Kingdom",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NGO",
+        "city": "Nagoya",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "NRT",
+        "city": "Tokyo",
+        "country": "Japan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OAJ",
+        "city": "Jacksonville NC",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OAK",
+        "city": "Oakland",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OGG",
+        "city": "Kahului",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OKC",
+        "city": "Oklahoma City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OMA",
+        "city": "Omaha",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ONT",
+        "city": "Ontario",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ORD",
+        "city": "Chicago",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ORF",
+        "city": "Norfolk",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ORY",
+        "city": "Paris",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OSL",
+        "city": "Oslo",
+        "country": "Norway",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "OTP",
+        "city": "Bucharest",
+        "country": "Romania",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PAP",
+        "city": "Port-au-prince",
+        "country": "Haiti",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PBC",
+        "city": "Puebla",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PBI",
+        "city": "West Palm Beach",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PDX",
+        "city": "Portland",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PEK",
+        "city": "Beijing",
+        "country": "China",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PEN",
+        "city": "Penang",
+        "country": "Malaysia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PER",
+        "city": "Perth",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PGV",
+        "city": "Greenville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PHF",
+        "city": "Newport News",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PHL",
+        "city": "Philadelphia",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PHX",
+        "city": "Phoenix",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PIA",
+        "city": "Peoria",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PIT",
+        "city": "Pittsburgh",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PLS",
+        "city": "Providenciales",
+        "country": "Turks and Caicos Islands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PMC",
+        "city": "Puerto Montt",
+        "country": "Chile",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PNS",
+        "city": "Pensacola",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "POA",
+        "city": "Porto Alegre",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "POP",
+        "city": "Puerto Plata",
+        "country": "Dominican Republic",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "POS",
+        "city": "Port-of-spain",
+        "country": "Trinidad and Tobago",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PPT",
+        "city": "Papeete",
+        "country": "French Polynesia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PRG",
+        "city": "Prague",
+        "country": "Czech Republic",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PSA",
+        "city": "Pisa",
+        "country": "Italy",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PSP",
+        "city": "Palm Springs",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PTP",
+        "city": "Pointe-a-pitre",
+        "country": "Guadeloupe",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PTY",
+        "city": "Panama City",
+        "country": "Panama",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PUJ",
+        "city": "Punta Cana",
+        "country": "Dominican Republic",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PUQ",
+        "city": "Punta Arenas",
+        "country": "Chile",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PUS",
+        "city": "Busan",
+        "country": "South Korea",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PVD",
+        "city": "Providence",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PVG",
+        "city": "Shanghai",
+        "country": "China",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PVR",
+        "city": "Puerto Vallarta",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "PWM",
+        "city": "Portland",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "QRO",
+        "city": "Queretaro",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RAP",
+        "city": "Rapid City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RDM",
+        "city": "Redmond-Bend",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RDU",
+        "city": "Raleigh-durham",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "REC",
+        "city": "Recife",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RIC",
+        "city": "Richmond",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RNO",
+        "city": "Reno",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ROA",
+        "city": "Roanoke VA",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ROC",
+        "city": "Rochester",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ROW",
+        "city": "Roswell",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RST",
+        "city": "Rochester",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RSW",
+        "city": "Fort Myers",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RTB",
+        "city": "Roatan",
+        "country": "Honduras",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "RTM",
+        "city": "Rotterdam",
+        "country": "Netherlands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SAF",
+        "city": "Santa Fe",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SAL",
+        "city": "San Salvador",
+        "country": "El Salvador",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SAN",
+        "city": "San Diego",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SAP",
+        "city": "San Pedro Sula",
+        "country": "Honduras",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SAT",
+        "city": "San Antonio",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SAV",
+        "city": "Savannah",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SBA",
+        "city": "Santa Barbara",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SBP",
+        "city": "San Luis Obispo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SBY",
+        "city": "Salisbury",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SCE",
+        "city": "State College Pennsylvania",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SCL",
+        "city": "Santiago",
+        "country": "Chile",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SCY",
+        "city": "San Cristóbal",
+        "country": "Ecuador",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SDF",
+        "city": "Louisville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SDQ",
+        "city": "Santo Domingo",
+        "country": "Dominican Republic",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SEA",
+        "city": "Seattle",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SFO",
+        "city": "San Francisco",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SGF",
+        "city": "Springfield",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SGN",
+        "city": "Ho Chi Minh City",
+        "country": "Vietnam",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SHV",
+        "city": "Shreveport",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SIN",
+        "city": "Singapore",
+        "country": "Singapore",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SJC",
+        "city": "San Jose",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SJD",
+        "city": "San Jose Del Cabo",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SJO",
+        "city": "San Jose",
+        "country": "Costa Rica",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SJT",
+        "city": "San Angelo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SJU",
+        "city": "San Juan",
+        "country": "Puerto Rico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SKB",
+        "city": "Basse Terre",
+        "country": "Saint Kitts and Nevis",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SLC",
+        "city": "Salt Lake City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SLP",
+        "city": "San Luis Potosi",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SMF",
+        "city": "Sacramento",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SNA",
+        "city": "Santa Ana",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SOF",
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SPI",
+        "city": "Springfield",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SPS",
+        "city": "Wichita Falls",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SRQ",
+        "city": "Sarasota",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SSA",
+        "city": "Salvador",
+        "country": "Brazil",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "STI",
+        "city": "Santiago",
+        "country": "Dominican Republic",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "STL",
+        "city": "St. Louis",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "STR",
+        "city": "Stuttgart",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "STS",
+        "city": "Santa Rosa",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "STT",
+        "city": "St. Thomas",
+        "country": "Virgin Islands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "STX",
+        "city": "St. Croix Island",
+        "country": "Virgin Islands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SUX",
+        "city": "Sioux City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SVG",
+        "city": "Stavanger",
+        "country": "Norway",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SWF",
+        "city": "Newburgh",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SXM",
+        "city": "Philipsburg",
+        "country": "Netherlands Antilles",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SYD",
+        "city": "Sydney",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "SYR",
+        "city": "Syracuse",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TGU",
+        "city": "Tegucigalpa",
+        "country": "Honduras",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TLH",
+        "city": "Tallahassee",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TLS",
+        "city": "Toulouse",
+        "country": "France",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TLV",
+        "city": "Tel-aviv",
+        "country": "Israel",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TOL",
+        "city": "Toledo",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TPA",
+        "city": "Tampa",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TPE",
+        "city": "Taipei",
+        "country": "Taiwan",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TRC",
+        "city": "Torreon",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TRI",
+        "city": "BRISTOL",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TSV",
+        "city": "Townsville",
+        "country": "Australia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TUL",
+        "city": "Tulsa",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TUS",
+        "city": "Tucson",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TVC",
+        "city": "Traverse City",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TXK",
+        "city": "Texarkana",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TXL",
+        "city": "Berlin",
+        "country": "Germany",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TYR",
+        "city": "Tyler",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "TYS",
+        "city": "Knoxville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "UIO",
+        "city": "Quito",
+        "country": "Ecuador",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "UVF",
+        "city": "Hewandorra",
+        "country": "Saint Lucia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "VCE",
+        "city": "Venice",
+        "country": "Italy",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "VIE",
+        "city": "Vienna",
+        "country": "Austria",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "VIJ",
+        "city": "Spanish Town",
+        "country": "British Virgin Islands",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "VPS",
+        "city": "Valparaiso",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "VQS",
+        "city": "Vieques Island",
+        "country": "Puerto Rico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "VVI",
+        "city": "Santa Cruz",
+        "country": "Bolivia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "WAW",
+        "city": "Warsaw",
+        "country": "Poland",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "XNA",
+        "city": "Bentonville",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YEG",
+        "city": "Edmonton",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YHZ",
+        "city": "Halifax",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YKF",
+        "city": "Waterloo",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YOW",
+        "city": "Ottawa",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YQB",
+        "city": "Quebec",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YUL",
+        "city": "Montreal",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YUM",
+        "city": "Yuma",
+        "country": "United States",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YVR",
+        "city": "Vancouver",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YYC",
+        "city": "Calgary",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "YYZ",
+        "city": "Toronto",
+        "country": "Canada",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ZAG",
+        "city": "Zagreb",
+        "country": "Croatia",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ZCL",
+        "city": "Zacatecas",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ZIH",
+        "city": "Zihuatanejo",
+        "country": "Mexico",
+        "airlines": [
+          "american"
+        ]
+      },
+      {
+        "iata": "ZRH",
+        "city": "Zurich",
+        "country": "Switzerland",
+        "airlines": [
+          "american"
+        ]
+      }
+    ],
+    "airlines": [
+      {
+        "airline": "american",
+        "coverage": "dynamic",
+        "airports": [
+          {
+            "iata": "ABE",
+            "city": "Allentown",
+            "country": "United States"
+          },
+          {
+            "iata": "ABI",
+            "city": "Abilene",
+            "country": "United States"
+          },
+          {
+            "iata": "ABQ",
+            "city": "Albuquerque",
+            "country": "United States"
+          },
+          {
+            "iata": "ABZ",
+            "city": "Aberdeen",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "ACC",
+            "city": "Accra",
+            "country": "Ghana"
+          },
+          {
+            "iata": "ACT",
+            "city": "Waco",
+            "country": "United States"
+          },
+          {
+            "iata": "ADL",
+            "city": "Adelaide",
+            "country": "Australia"
+          },
+          {
+            "iata": "AEX",
+            "city": "Alexandria",
+            "country": "United States"
+          },
+          {
+            "iata": "AGP",
+            "city": "Malaga",
+            "country": "Spain"
+          },
+          {
+            "iata": "AGS",
+            "city": "Bush Field",
+            "country": "United States"
+          },
+          {
+            "iata": "AGU",
+            "city": "Aguascalientes",
+            "country": "Mexico"
+          },
+          {
+            "iata": "AKL",
+            "city": "Auckland",
+            "country": "New Zealand"
+          },
+          {
+            "iata": "ALB",
+            "city": "Albany",
+            "country": "United States"
+          },
+          {
+            "iata": "ALO",
+            "city": "Waterloo",
+            "country": "United States"
+          },
+          {
+            "iata": "AMA",
+            "city": "Amarillo",
+            "country": "United States"
+          },
+          {
+            "iata": "AMM",
+            "city": "Amman",
+            "country": "Jordan"
+          },
+          {
+            "iata": "AMS",
+            "city": "Amsterdam",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "ANC",
+            "city": "Anchorage",
+            "country": "United States"
+          },
+          {
+            "iata": "ANU",
+            "city": "Antigua",
+            "country": "Antigua and Barbuda"
+          },
+          {
+            "iata": "AQP",
+            "city": "Arequipa",
+            "country": "Peru"
+          },
+          {
+            "iata": "ARN",
+            "city": "Stockholm",
+            "country": "Sweden"
+          },
+          {
+            "iata": "ART",
+            "city": "Watertown",
+            "country": "United States"
+          },
+          {
+            "iata": "ASP",
+            "city": "Alice Springs",
+            "country": "Australia"
+          },
+          {
+            "iata": "ASU",
+            "city": "Asuncion",
+            "country": "Paraguay"
+          },
+          {
+            "iata": "ATH",
+            "city": "Athens",
+            "country": "Greece"
+          },
+          {
+            "iata": "ATL",
+            "city": "Atlanta",
+            "country": "United States"
+          },
+          {
+            "iata": "AUA",
+            "city": "Oranjestad",
+            "country": "Aruba"
+          },
+          {
+            "iata": "AUH",
+            "city": "Abu Dhabi",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "AUS",
+            "city": "Austin",
+            "country": "United States"
+          },
+          {
+            "iata": "AVL",
+            "city": "Asheville",
+            "country": "United States"
+          },
+          {
+            "iata": "AVP",
+            "city": "Scranton",
+            "country": "United States"
+          },
+          {
+            "iata": "AZO",
+            "city": "Kalamazoo",
+            "country": "United States"
+          },
+          {
+            "iata": "BAH",
+            "city": "Bahrain",
+            "country": "Bahrain"
+          },
+          {
+            "iata": "BCN",
+            "city": "Barcelona",
+            "country": "Spain"
+          },
+          {
+            "iata": "BDA",
+            "city": "Bermuda",
+            "country": "Bermuda"
+          },
+          {
+            "iata": "BDL",
+            "city": "Windsor Locks",
+            "country": "United States"
+          },
+          {
+            "iata": "BFL",
+            "city": "Bakersfield",
+            "country": "United States"
+          },
+          {
+            "iata": "BGI",
+            "city": "Bridgetown",
+            "country": "Barbados"
+          },
+          {
+            "iata": "BGM",
+            "city": "Binghamton",
+            "country": "United States"
+          },
+          {
+            "iata": "BGO",
+            "city": "Bergen",
+            "country": "Norway"
+          },
+          {
+            "iata": "BGR",
+            "city": "Bangor",
+            "country": "United States"
+          },
+          {
+            "iata": "BHD",
+            "city": "Belfast",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "BHM",
+            "city": "Birmingham",
+            "country": "United States"
+          },
+          {
+            "iata": "BJL",
+            "city": "Banjul",
+            "country": "Gambia"
+          },
+          {
+            "iata": "BJX",
+            "city": "Del Bajio",
+            "country": "Mexico"
+          },
+          {
+            "iata": "BKK",
+            "city": "Bangkok",
+            "country": "Thailand"
+          },
+          {
+            "iata": "BLQ",
+            "city": "Bologna",
+            "country": "Italy"
+          },
+          {
+            "iata": "BLR",
+            "city": "Bangalore",
+            "country": "India"
+          },
+          {
+            "iata": "BMI",
+            "city": "Bloomington",
+            "country": "United States"
+          },
+          {
+            "iata": "BNA",
+            "city": "Nashville",
+            "country": "United States"
+          },
+          {
+            "iata": "BNE",
+            "city": "Brisbane",
+            "country": "Australia"
+          },
+          {
+            "iata": "BOG",
+            "city": "Bogota",
+            "country": "Colombia"
+          },
+          {
+            "iata": "BOI",
+            "city": "Boise",
+            "country": "United States"
+          },
+          {
+            "iata": "BOM",
+            "city": "Mumbai",
+            "country": "India"
+          },
+          {
+            "iata": "BOS",
+            "city": "Boston",
+            "country": "United States"
+          },
+          {
+            "iata": "BPT",
+            "city": "Beaumont",
+            "country": "United States"
+          },
+          {
+            "iata": "BRO",
+            "city": "Brownsville",
+            "country": "United States"
+          },
+          {
+            "iata": "BRU",
+            "city": "Brussels",
+            "country": "Belgium"
+          },
+          {
+            "iata": "BSB",
+            "city": "Brasilia",
+            "country": "Brazil"
+          },
+          {
+            "iata": "BSL",
+            "city": "Mulhouse",
+            "country": "France"
+          },
+          {
+            "iata": "BTR",
+            "city": "Baton Rouge",
+            "country": "United States"
+          },
+          {
+            "iata": "BTV",
+            "city": "Burlington",
+            "country": "United States"
+          },
+          {
+            "iata": "BUD",
+            "city": "Budapest",
+            "country": "Hungary"
+          },
+          {
+            "iata": "BUF",
+            "city": "Buffalo",
+            "country": "United States"
+          },
+          {
+            "iata": "BUR",
+            "city": "Burbank",
+            "country": "United States"
+          },
+          {
+            "iata": "BWI",
+            "city": "Baltimore",
+            "country": "United States"
+          },
+          {
+            "iata": "BZE",
+            "city": "Belize City",
+            "country": "Belize"
+          },
+          {
+            "iata": "CAE",
+            "city": "Columbia",
+            "country": "United States"
+          },
+          {
+            "iata": "CAK",
+            "city": "Akron",
+            "country": "United States"
+          },
+          {
+            "iata": "CBR",
+            "city": "Canberra",
+            "country": "Australia"
+          },
+          {
+            "iata": "CCS",
+            "city": "Caracas",
+            "country": "Venezuela"
+          },
+          {
+            "iata": "CDG",
+            "city": "Paris",
+            "country": "France"
+          },
+          {
+            "iata": "CHA",
+            "city": "Chattanooga",
+            "country": "United States"
+          },
+          {
+            "iata": "CHC",
+            "city": "Christchurch",
+            "country": "New Zealand"
+          },
+          {
+            "iata": "CHO",
+            "city": "Charlottesville VA",
+            "country": "United States"
+          },
+          {
+            "iata": "CHS",
+            "city": "Charleston",
+            "country": "United States"
+          },
+          {
+            "iata": "CID",
+            "city": "Cedar Rapids",
+            "country": "United States"
+          },
+          {
+            "iata": "CLE",
+            "city": "Cleveland",
+            "country": "United States"
+          },
+          {
+            "iata": "CLL",
+            "city": "College Station",
+            "country": "United States"
+          },
+          {
+            "iata": "CLO",
+            "city": "Cali",
+            "country": "Colombia"
+          },
+          {
+            "iata": "CLT",
+            "city": "Charlotte",
+            "country": "United States"
+          },
+          {
+            "iata": "CMB",
+            "city": "Colombo",
+            "country": "Sri Lanka"
+          },
+          {
+            "iata": "CMH",
+            "city": "Columbus",
+            "country": "United States"
+          },
+          {
+            "iata": "CMI",
+            "city": "Champaign",
+            "country": "United States"
+          },
+          {
+            "iata": "CNF",
+            "city": "Belo Horizonte",
+            "country": "Brazil"
+          },
+          {
+            "iata": "CNS",
+            "city": "Cairns",
+            "country": "Australia"
+          },
+          {
+            "iata": "COS",
+            "city": "Colorado Springs",
+            "country": "United States"
+          },
+          {
+            "iata": "COU",
+            "city": "Columbia",
+            "country": "United States"
+          },
+          {
+            "iata": "CPH",
+            "city": "Copenhagen",
+            "country": "Denmark"
+          },
+          {
+            "iata": "CPT",
+            "city": "Cape Town",
+            "country": "South Africa"
+          },
+          {
+            "iata": "CRP",
+            "city": "Corpus Christi",
+            "country": "United States"
+          },
+          {
+            "iata": "CRW",
+            "city": "Charleston",
+            "country": "United States"
+          },
+          {
+            "iata": "CTS",
+            "city": "Sapporo",
+            "country": "Japan"
+          },
+          {
+            "iata": "CUN",
+            "city": "Cancun",
+            "country": "Mexico"
+          },
+          {
+            "iata": "CUR",
+            "city": "Willemstad",
+            "country": "Netherlands Antilles"
+          },
+          {
+            "iata": "CUU",
+            "city": "Chihuahua",
+            "country": "Mexico"
+          },
+          {
+            "iata": "CVG",
+            "city": "Cincinnati",
+            "country": "United States"
+          },
+          {
+            "iata": "CWA",
+            "city": "Wassau",
+            "country": "United States"
+          },
+          {
+            "iata": "CWB",
+            "city": "Curitiba",
+            "country": "Brazil"
+          },
+          {
+            "iata": "CZM",
+            "city": "Cozumel",
+            "country": "Mexico"
+          },
+          {
+            "iata": "DAB",
+            "city": "Daytona Beach",
+            "country": "United States"
+          },
+          {
+            "iata": "DAY",
+            "city": "Dayton",
+            "country": "United States"
+          },
+          {
+            "iata": "DBQ",
+            "city": "Dubuque IA",
+            "country": "United States"
+          },
+          {
+            "iata": "DCA",
+            "city": "Washington",
+            "country": "United States"
+          },
+          {
+            "iata": "DEL",
+            "city": "Delhi",
+            "country": "India"
+          },
+          {
+            "iata": "DEN",
+            "city": "Denver",
+            "country": "United States"
+          },
+          {
+            "iata": "DFW",
+            "city": "Dallas-Fort Worth",
+            "country": "United States"
+          },
+          {
+            "iata": "DKR",
+            "city": "Dakar",
+            "country": "Senegal"
+          },
+          {
+            "iata": "DOH",
+            "city": "Doha",
+            "country": "Qatar"
+          },
+          {
+            "iata": "DOM",
+            "city": "Dominica",
+            "country": "Dominica"
+          },
+          {
+            "iata": "DRO",
+            "city": "Durango",
+            "country": "United States"
+          },
+          {
+            "iata": "DRW",
+            "city": "Darwin",
+            "country": "Australia"
+          },
+          {
+            "iata": "DSM",
+            "city": "Des Moines",
+            "country": "United States"
+          },
+          {
+            "iata": "DTW",
+            "city": "Detroit",
+            "country": "United States"
+          },
+          {
+            "iata": "DUB",
+            "city": "Dublin",
+            "country": "Ireland"
+          },
+          {
+            "iata": "DUS",
+            "city": "Duesseldorf",
+            "country": "Germany"
+          },
+          {
+            "iata": "DXB",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "EBB",
+            "city": "Entebbe",
+            "country": "Uganda"
+          },
+          {
+            "iata": "EDI",
+            "city": "Edinburgh",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "EIS",
+            "city": "Tortola",
+            "country": "British Virgin Islands"
+          },
+          {
+            "iata": "ELH",
+            "city": "North Eleuthera",
+            "country": "Bahamas"
+          },
+          {
+            "iata": "ELM",
+            "city": "Elmira",
+            "country": "United States"
+          },
+          {
+            "iata": "ELP",
+            "city": "El Paso",
+            "country": "United States"
+          },
+          {
+            "iata": "ERI",
+            "city": "Erie",
+            "country": "United States"
+          },
+          {
+            "iata": "EUG",
+            "city": "Eugene",
+            "country": "United States"
+          },
+          {
+            "iata": "EVV",
+            "city": "Evansville",
+            "country": "United States"
+          },
+          {
+            "iata": "EWN",
+            "city": "New Bern",
+            "country": "United States"
+          },
+          {
+            "iata": "EWR",
+            "city": "Newark",
+            "country": "United States"
+          },
+          {
+            "iata": "EYW",
+            "city": "Key West",
+            "country": "United States"
+          },
+          {
+            "iata": "EZE",
+            "city": "Buenos Aires",
+            "country": "Argentina"
+          },
+          {
+            "iata": "FAR",
+            "city": "Fargo",
+            "country": "United States"
+          },
+          {
+            "iata": "FAT",
+            "city": "Fresno",
+            "country": "United States"
+          },
+          {
+            "iata": "FAY",
+            "city": "Fayetteville",
+            "country": "United States"
+          },
+          {
+            "iata": "FCO",
+            "city": "Rome",
+            "country": "Italy"
+          },
+          {
+            "iata": "FDF",
+            "city": "Fort-de-france",
+            "country": "Martinique"
+          },
+          {
+            "iata": "FLG",
+            "city": "Flagstaff",
+            "country": "United States"
+          },
+          {
+            "iata": "FLL",
+            "city": "Fort Lauderdale",
+            "country": "United States"
+          },
+          {
+            "iata": "FLO",
+            "city": "Florence",
+            "country": "United States"
+          },
+          {
+            "iata": "FNT",
+            "city": "Flint",
+            "country": "United States"
+          },
+          {
+            "iata": "FPO",
+            "city": "Freeport",
+            "country": "Bahamas"
+          },
+          {
+            "iata": "FRA",
+            "city": "Frankfurt",
+            "country": "Germany"
+          },
+          {
+            "iata": "FSD",
+            "city": "Sioux Falls",
+            "country": "United States"
+          },
+          {
+            "iata": "FSM",
+            "city": "Fort Smith",
+            "country": "United States"
+          },
+          {
+            "iata": "FUK",
+            "city": "Fukuoka",
+            "country": "Japan"
+          },
+          {
+            "iata": "FWA",
+            "city": "Fort Wayne",
+            "country": "United States"
+          },
+          {
+            "iata": "GCK",
+            "city": "Garden City",
+            "country": "United States"
+          },
+          {
+            "iata": "GCM",
+            "city": "Georgetown",
+            "country": "Cayman Islands"
+          },
+          {
+            "iata": "GDL",
+            "city": "Guadalajara",
+            "country": "Mexico"
+          },
+          {
+            "iata": "GEG",
+            "city": "Spokane",
+            "country": "United States"
+          },
+          {
+            "iata": "GGG",
+            "city": "Longview",
+            "country": "United States"
+          },
+          {
+            "iata": "GGT",
+            "city": "Great Exuma",
+            "country": "Bahamas"
+          },
+          {
+            "iata": "GIB",
+            "city": "Gibraltar",
+            "country": "Gibraltar"
+          },
+          {
+            "iata": "GIG",
+            "city": "Rio De Janeiro",
+            "country": "Brazil"
+          },
+          {
+            "iata": "GJT",
+            "city": "Grand Junction",
+            "country": "United States"
+          },
+          {
+            "iata": "GLA",
+            "city": "Glasgow",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "GND",
+            "city": "Point Salines",
+            "country": "Grenada"
+          },
+          {
+            "iata": "GNV",
+            "city": "Gainesville",
+            "country": "United States"
+          },
+          {
+            "iata": "GOT",
+            "city": "Gothenborg",
+            "country": "Sweden"
+          },
+          {
+            "iata": "GPT",
+            "city": "Gulfport",
+            "country": "United States"
+          },
+          {
+            "iata": "GRB",
+            "city": "Green Bay",
+            "country": "United States"
+          },
+          {
+            "iata": "GRI",
+            "city": "Grand Island",
+            "country": "United States"
+          },
+          {
+            "iata": "GRK",
+            "city": "Killeen",
+            "country": "United States"
+          },
+          {
+            "iata": "GRR",
+            "city": "Grand Rapids",
+            "country": "United States"
+          },
+          {
+            "iata": "GRU",
+            "city": "Sao Paulo",
+            "country": "Brazil"
+          },
+          {
+            "iata": "GSO",
+            "city": "Greensboro",
+            "country": "United States"
+          },
+          {
+            "iata": "GSP",
+            "city": "Greenville",
+            "country": "United States"
+          },
+          {
+            "iata": "GUA",
+            "city": "Guatemala City",
+            "country": "Guatemala"
+          },
+          {
+            "iata": "GVA",
+            "city": "Geneva",
+            "country": "Switzerland"
+          },
+          {
+            "iata": "GYE",
+            "city": "Guayaquil",
+            "country": "Ecuador"
+          },
+          {
+            "iata": "HAJ",
+            "city": "Hannover",
+            "country": "Germany"
+          },
+          {
+            "iata": "HAM",
+            "city": "Hamburg",
+            "country": "Germany"
+          },
+          {
+            "iata": "HAN",
+            "city": "Hanoi",
+            "country": "Vietnam"
+          },
+          {
+            "iata": "HEL",
+            "city": "Helsinki",
+            "country": "Finland"
+          },
+          {
+            "iata": "HHH",
+            "city": "Hilton Head Island",
+            "country": "United States"
+          },
+          {
+            "iata": "HKG",
+            "city": "Hong Kong",
+            "country": "Hong Kong"
+          },
+          {
+            "iata": "HMO",
+            "city": "Hermosillo",
+            "country": "Mexico"
+          },
+          {
+            "iata": "HND",
+            "city": "Tokyo",
+            "country": "Japan"
+          },
+          {
+            "iata": "HNL",
+            "city": "Honolulu",
+            "country": "United States"
+          },
+          {
+            "iata": "HOU",
+            "city": "Houston",
+            "country": "United States"
+          },
+          {
+            "iata": "HPN",
+            "city": "White Plains",
+            "country": "United States"
+          },
+          {
+            "iata": "HSV",
+            "city": "Huntsville",
+            "country": "United States"
+          },
+          {
+            "iata": "HTS",
+            "city": "Huntington",
+            "country": "United States"
+          },
+          {
+            "iata": "HVN",
+            "city": "New Haven",
+            "country": "United States"
+          },
+          {
+            "iata": "HYD",
+            "city": "Hyderabad",
+            "country": "India"
+          },
+          {
+            "iata": "IAD",
+            "city": "Washington",
+            "country": "United States"
+          },
+          {
+            "iata": "IAH",
+            "city": "Houston",
+            "country": "United States"
+          },
+          {
+            "iata": "ICN",
+            "city": "Seoul",
+            "country": "South Korea"
+          },
+          {
+            "iata": "ICT",
+            "city": "Wichita",
+            "country": "United States"
+          },
+          {
+            "iata": "ILM",
+            "city": "Wilmington",
+            "country": "United States"
+          },
+          {
+            "iata": "IND",
+            "city": "Indianapolis",
+            "country": "United States"
+          },
+          {
+            "iata": "IPT",
+            "city": "Williamsport",
+            "country": "United States"
+          },
+          {
+            "iata": "ISB",
+            "city": "Islamabad",
+            "country": "Pakistan"
+          },
+          {
+            "iata": "ISP",
+            "city": "Islip",
+            "country": "United States"
+          },
+          {
+            "iata": "IST",
+            "city": "Istanbul",
+            "country": "Turkey"
+          },
+          {
+            "iata": "ITH",
+            "city": "Ithaca",
+            "country": "United States"
+          },
+          {
+            "iata": "ITM",
+            "city": "Osaka",
+            "country": "Japan"
+          },
+          {
+            "iata": "JAN",
+            "city": "Jackson",
+            "country": "United States"
+          },
+          {
+            "iata": "JAX",
+            "city": "Jacksonville",
+            "country": "United States"
+          },
+          {
+            "iata": "JFK",
+            "city": "New York",
+            "country": "United States"
+          },
+          {
+            "iata": "JLN",
+            "city": "Joplin",
+            "country": "United States"
+          },
+          {
+            "iata": "JNB",
+            "city": "Johannesburg",
+            "country": "South Africa"
+          },
+          {
+            "iata": "JNU",
+            "city": "Juneau",
+            "country": "United States"
+          },
+          {
+            "iata": "JUL",
+            "city": "Juliaca",
+            "country": "Peru"
+          },
+          {
+            "iata": "KHH",
+            "city": "Kaohsiung",
+            "country": "Taiwan"
+          },
+          {
+            "iata": "KIN",
+            "city": "Kingston",
+            "country": "Jamaica"
+          },
+          {
+            "iata": "KIX",
+            "city": "Osaka",
+            "country": "Japan"
+          },
+          {
+            "iata": "KOA",
+            "city": "Kona",
+            "country": "United States"
+          },
+          {
+            "iata": "KTN",
+            "city": "Ketchikan",
+            "country": "United States"
+          },
+          {
+            "iata": "KUL",
+            "city": "Kuala Lumpur",
+            "country": "Malaysia"
+          },
+          {
+            "iata": "KWI",
+            "city": "Kuwait",
+            "country": "Kuwait"
+          },
+          {
+            "iata": "LAS",
+            "city": "Las Vegas",
+            "country": "United States"
+          },
+          {
+            "iata": "LAW",
+            "city": "Lawton",
+            "country": "United States"
+          },
+          {
+            "iata": "LAX",
+            "city": "Los Angeles",
+            "country": "United States"
+          },
+          {
+            "iata": "LBA",
+            "city": "Leeds",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LBB",
+            "city": "Lubbock",
+            "country": "United States"
+          },
+          {
+            "iata": "LCA",
+            "city": "Larnaca",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "LCH",
+            "city": "Lake Charles",
+            "country": "United States"
+          },
+          {
+            "iata": "LCY",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LEX",
+            "city": "Lexington KY",
+            "country": "United States"
+          },
+          {
+            "iata": "LFT",
+            "city": "Lafayette",
+            "country": "United States"
+          },
+          {
+            "iata": "LGA",
+            "city": "New York",
+            "country": "United States"
+          },
+          {
+            "iata": "LGB",
+            "city": "Long Beach",
+            "country": "United States"
+          },
+          {
+            "iata": "LGK",
+            "city": "Langkawi",
+            "country": "Malaysia"
+          },
+          {
+            "iata": "LGW",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LHE",
+            "city": "Lahore",
+            "country": "Pakistan"
+          },
+          {
+            "iata": "LHR",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LIH",
+            "city": "Lihue",
+            "country": "United States"
+          },
+          {
+            "iata": "LIM",
+            "city": "Lima",
+            "country": "Peru"
+          },
+          {
+            "iata": "LIN",
+            "city": "Milan",
+            "country": "Italy"
+          },
+          {
+            "iata": "LIR",
+            "city": "Liberia",
+            "country": "Costa Rica"
+          },
+          {
+            "iata": "LIS",
+            "city": "Lisbon",
+            "country": "Portugal"
+          },
+          {
+            "iata": "LIT",
+            "city": "Little Rock",
+            "country": "United States"
+          },
+          {
+            "iata": "LPA",
+            "city": "Gran Canaria",
+            "country": "Spain"
+          },
+          {
+            "iata": "LPB",
+            "city": "La Paz",
+            "country": "Bolivia"
+          },
+          {
+            "iata": "LRD",
+            "city": "Laredo",
+            "country": "United States"
+          },
+          {
+            "iata": "LRM",
+            "city": "La Romana",
+            "country": "Dominican Republic"
+          },
+          {
+            "iata": "LSE",
+            "city": "La Crosse",
+            "country": "United States"
+          },
+          {
+            "iata": "LUX",
+            "city": "Luxemburg",
+            "country": "Luxembourg"
+          },
+          {
+            "iata": "LYH",
+            "city": "Lynchburg",
+            "country": "United States"
+          },
+          {
+            "iata": "LYS",
+            "city": "Lyon",
+            "country": "France"
+          },
+          {
+            "iata": "MAA",
+            "city": "Madras",
+            "country": "India"
+          },
+          {
+            "iata": "MAD",
+            "city": "Madrid",
+            "country": "Spain"
+          },
+          {
+            "iata": "MAF",
+            "city": "Midland",
+            "country": "United States"
+          },
+          {
+            "iata": "MAN",
+            "city": "Manchester",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "MAO",
+            "city": "Manaus",
+            "country": "Brazil"
+          },
+          {
+            "iata": "MAR",
+            "city": "Maracaibo",
+            "country": "Venezuela"
+          },
+          {
+            "iata": "MBJ",
+            "city": "Montego Bay",
+            "country": "Jamaica"
+          },
+          {
+            "iata": "MCI",
+            "city": "Kansas City",
+            "country": "United States"
+          },
+          {
+            "iata": "MCO",
+            "city": "Orlando",
+            "country": "United States"
+          },
+          {
+            "iata": "MCT",
+            "city": "Muscat",
+            "country": "Oman"
+          },
+          {
+            "iata": "MDE",
+            "city": "Rio Negro",
+            "country": "Colombia"
+          },
+          {
+            "iata": "MDT",
+            "city": "Harrisburg",
+            "country": "United States"
+          },
+          {
+            "iata": "MEL",
+            "city": "Melbourne",
+            "country": "Australia"
+          },
+          {
+            "iata": "MEM",
+            "city": "Memphis",
+            "country": "United States"
+          },
+          {
+            "iata": "MEX",
+            "city": "Mexico City",
+            "country": "Mexico"
+          },
+          {
+            "iata": "MFE",
+            "city": "Mcallen",
+            "country": "United States"
+          },
+          {
+            "iata": "MFR",
+            "city": "Medford",
+            "country": "United States"
+          },
+          {
+            "iata": "MGA",
+            "city": "Managua",
+            "country": "Nicaragua"
+          },
+          {
+            "iata": "MGM",
+            "city": "MONTGOMERY",
+            "country": "United States"
+          },
+          {
+            "iata": "MHH",
+            "city": "Marsh Harbor",
+            "country": "Bahamas"
+          },
+          {
+            "iata": "MHK",
+            "city": "Manhattan",
+            "country": "United States"
+          },
+          {
+            "iata": "MHT",
+            "city": "Manchester NH",
+            "country": "United States"
+          },
+          {
+            "iata": "MIA",
+            "city": "Miami",
+            "country": "United States"
+          },
+          {
+            "iata": "MKE",
+            "city": "Milwaukee",
+            "country": "United States"
+          },
+          {
+            "iata": "MLB",
+            "city": "Melbourne",
+            "country": "United States"
+          },
+          {
+            "iata": "MLI",
+            "city": "Moline",
+            "country": "United States"
+          },
+          {
+            "iata": "MLM",
+            "city": "Morelia",
+            "country": "Mexico"
+          },
+          {
+            "iata": "MLU",
+            "city": "Monroe",
+            "country": "United States"
+          },
+          {
+            "iata": "MMH",
+            "city": "Mammoth Lakes",
+            "country": "United States"
+          },
+          {
+            "iata": "MOB",
+            "city": "Mobile",
+            "country": "United States"
+          },
+          {
+            "iata": "MQT",
+            "city": "Gwinn",
+            "country": "United States"
+          },
+          {
+            "iata": "MRS",
+            "city": "Marseille",
+            "country": "France"
+          },
+          {
+            "iata": "MRY",
+            "city": "Monterey",
+            "country": "United States"
+          },
+          {
+            "iata": "MSN",
+            "city": "Madison",
+            "country": "United States"
+          },
+          {
+            "iata": "MSP",
+            "city": "Minneapolis",
+            "country": "United States"
+          },
+          {
+            "iata": "MSY",
+            "city": "New Orleans",
+            "country": "United States"
+          },
+          {
+            "iata": "MTY",
+            "city": "Monterrey",
+            "country": "Mexico"
+          },
+          {
+            "iata": "MUC",
+            "city": "Munich",
+            "country": "Germany"
+          },
+          {
+            "iata": "MVD",
+            "city": "Montevideo",
+            "country": "Uruguay"
+          },
+          {
+            "iata": "MXP",
+            "city": "Milano",
+            "country": "Italy"
+          },
+          {
+            "iata": "MYR",
+            "city": "Myrtle Beach",
+            "country": "United States"
+          },
+          {
+            "iata": "MZT",
+            "city": "Mazatlan",
+            "country": "Mexico"
+          },
+          {
+            "iata": "NAN",
+            "city": "Nandi",
+            "country": "Fiji"
+          },
+          {
+            "iata": "NAS",
+            "city": "Nassau",
+            "country": "Bahamas"
+          },
+          {
+            "iata": "NBO",
+            "city": "Nairobi",
+            "country": "Kenya"
+          },
+          {
+            "iata": "NCE",
+            "city": "Nice",
+            "country": "France"
+          },
+          {
+            "iata": "NCL",
+            "city": "Newcastle",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "NGO",
+            "city": "Nagoya",
+            "country": "Japan"
+          },
+          {
+            "iata": "NRT",
+            "city": "Tokyo",
+            "country": "Japan"
+          },
+          {
+            "iata": "OAJ",
+            "city": "Jacksonville NC",
+            "country": "United States"
+          },
+          {
+            "iata": "OAK",
+            "city": "Oakland",
+            "country": "United States"
+          },
+          {
+            "iata": "OGG",
+            "city": "Kahului",
+            "country": "United States"
+          },
+          {
+            "iata": "OKC",
+            "city": "Oklahoma City",
+            "country": "United States"
+          },
+          {
+            "iata": "OMA",
+            "city": "Omaha",
+            "country": "United States"
+          },
+          {
+            "iata": "ONT",
+            "city": "Ontario",
+            "country": "United States"
+          },
+          {
+            "iata": "ORD",
+            "city": "Chicago",
+            "country": "United States"
+          },
+          {
+            "iata": "ORF",
+            "city": "Norfolk",
+            "country": "United States"
+          },
+          {
+            "iata": "ORY",
+            "city": "Paris",
+            "country": "France"
+          },
+          {
+            "iata": "OSL",
+            "city": "Oslo",
+            "country": "Norway"
+          },
+          {
+            "iata": "OTP",
+            "city": "Bucharest",
+            "country": "Romania"
+          },
+          {
+            "iata": "PAP",
+            "city": "Port-au-prince",
+            "country": "Haiti"
+          },
+          {
+            "iata": "PBC",
+            "city": "Puebla",
+            "country": "Mexico"
+          },
+          {
+            "iata": "PBI",
+            "city": "West Palm Beach",
+            "country": "United States"
+          },
+          {
+            "iata": "PDX",
+            "city": "Portland",
+            "country": "United States"
+          },
+          {
+            "iata": "PEK",
+            "city": "Beijing",
+            "country": "China"
+          },
+          {
+            "iata": "PEN",
+            "city": "Penang",
+            "country": "Malaysia"
+          },
+          {
+            "iata": "PER",
+            "city": "Perth",
+            "country": "Australia"
+          },
+          {
+            "iata": "PGV",
+            "city": "Greenville",
+            "country": "United States"
+          },
+          {
+            "iata": "PHF",
+            "city": "Newport News",
+            "country": "United States"
+          },
+          {
+            "iata": "PHL",
+            "city": "Philadelphia",
+            "country": "United States"
+          },
+          {
+            "iata": "PHX",
+            "city": "Phoenix",
+            "country": "United States"
+          },
+          {
+            "iata": "PIA",
+            "city": "Peoria",
+            "country": "United States"
+          },
+          {
+            "iata": "PIT",
+            "city": "Pittsburgh",
+            "country": "United States"
+          },
+          {
+            "iata": "PLS",
+            "city": "Providenciales",
+            "country": "Turks and Caicos Islands"
+          },
+          {
+            "iata": "PMC",
+            "city": "Puerto Montt",
+            "country": "Chile"
+          },
+          {
+            "iata": "PNS",
+            "city": "Pensacola",
+            "country": "United States"
+          },
+          {
+            "iata": "POA",
+            "city": "Porto Alegre",
+            "country": "Brazil"
+          },
+          {
+            "iata": "POP",
+            "city": "Puerto Plata",
+            "country": "Dominican Republic"
+          },
+          {
+            "iata": "POS",
+            "city": "Port-of-spain",
+            "country": "Trinidad and Tobago"
+          },
+          {
+            "iata": "PPT",
+            "city": "Papeete",
+            "country": "French Polynesia"
+          },
+          {
+            "iata": "PRG",
+            "city": "Prague",
+            "country": "Czech Republic"
+          },
+          {
+            "iata": "PSA",
+            "city": "Pisa",
+            "country": "Italy"
+          },
+          {
+            "iata": "PSP",
+            "city": "Palm Springs",
+            "country": "United States"
+          },
+          {
+            "iata": "PTP",
+            "city": "Pointe-a-pitre",
+            "country": "Guadeloupe"
+          },
+          {
+            "iata": "PTY",
+            "city": "Panama City",
+            "country": "Panama"
+          },
+          {
+            "iata": "PUJ",
+            "city": "Punta Cana",
+            "country": "Dominican Republic"
+          },
+          {
+            "iata": "PUQ",
+            "city": "Punta Arenas",
+            "country": "Chile"
+          },
+          {
+            "iata": "PUS",
+            "city": "Busan",
+            "country": "South Korea"
+          },
+          {
+            "iata": "PVD",
+            "city": "Providence",
+            "country": "United States"
+          },
+          {
+            "iata": "PVG",
+            "city": "Shanghai",
+            "country": "China"
+          },
+          {
+            "iata": "PVR",
+            "city": "Puerto Vallarta",
+            "country": "Mexico"
+          },
+          {
+            "iata": "PWM",
+            "city": "Portland",
+            "country": "United States"
+          },
+          {
+            "iata": "QRO",
+            "city": "Queretaro",
+            "country": "Mexico"
+          },
+          {
+            "iata": "RAP",
+            "city": "Rapid City",
+            "country": "United States"
+          },
+          {
+            "iata": "RDM",
+            "city": "Redmond-Bend",
+            "country": "United States"
+          },
+          {
+            "iata": "RDU",
+            "city": "Raleigh-durham",
+            "country": "United States"
+          },
+          {
+            "iata": "REC",
+            "city": "Recife",
+            "country": "Brazil"
+          },
+          {
+            "iata": "RIC",
+            "city": "Richmond",
+            "country": "United States"
+          },
+          {
+            "iata": "RNO",
+            "city": "Reno",
+            "country": "United States"
+          },
+          {
+            "iata": "ROA",
+            "city": "Roanoke VA",
+            "country": "United States"
+          },
+          {
+            "iata": "ROC",
+            "city": "Rochester",
+            "country": "United States"
+          },
+          {
+            "iata": "ROW",
+            "city": "Roswell",
+            "country": "United States"
+          },
+          {
+            "iata": "RST",
+            "city": "Rochester",
+            "country": "United States"
+          },
+          {
+            "iata": "RSW",
+            "city": "Fort Myers",
+            "country": "United States"
+          },
+          {
+            "iata": "RTB",
+            "city": "Roatan",
+            "country": "Honduras"
+          },
+          {
+            "iata": "RTM",
+            "city": "Rotterdam",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "SAF",
+            "city": "Santa Fe",
+            "country": "United States"
+          },
+          {
+            "iata": "SAL",
+            "city": "San Salvador",
+            "country": "El Salvador"
+          },
+          {
+            "iata": "SAN",
+            "city": "San Diego",
+            "country": "United States"
+          },
+          {
+            "iata": "SAP",
+            "city": "San Pedro Sula",
+            "country": "Honduras"
+          },
+          {
+            "iata": "SAT",
+            "city": "San Antonio",
+            "country": "United States"
+          },
+          {
+            "iata": "SAV",
+            "city": "Savannah",
+            "country": "United States"
+          },
+          {
+            "iata": "SBA",
+            "city": "Santa Barbara",
+            "country": "United States"
+          },
+          {
+            "iata": "SBP",
+            "city": "San Luis Obispo",
+            "country": "United States"
+          },
+          {
+            "iata": "SBY",
+            "city": "Salisbury",
+            "country": "United States"
+          },
+          {
+            "iata": "SCE",
+            "city": "State College Pennsylvania",
+            "country": "United States"
+          },
+          {
+            "iata": "SCL",
+            "city": "Santiago",
+            "country": "Chile"
+          },
+          {
+            "iata": "SCY",
+            "city": "San Cristóbal",
+            "country": "Ecuador"
+          },
+          {
+            "iata": "SDF",
+            "city": "Louisville",
+            "country": "United States"
+          },
+          {
+            "iata": "SDQ",
+            "city": "Santo Domingo",
+            "country": "Dominican Republic"
+          },
+          {
+            "iata": "SEA",
+            "city": "Seattle",
+            "country": "United States"
+          },
+          {
+            "iata": "SFO",
+            "city": "San Francisco",
+            "country": "United States"
+          },
+          {
+            "iata": "SGF",
+            "city": "Springfield",
+            "country": "United States"
+          },
+          {
+            "iata": "SGN",
+            "city": "Ho Chi Minh City",
+            "country": "Vietnam"
+          },
+          {
+            "iata": "SHV",
+            "city": "Shreveport",
+            "country": "United States"
+          },
+          {
+            "iata": "SIN",
+            "city": "Singapore",
+            "country": "Singapore"
+          },
+          {
+            "iata": "SJC",
+            "city": "San Jose",
+            "country": "United States"
+          },
+          {
+            "iata": "SJD",
+            "city": "San Jose Del Cabo",
+            "country": "Mexico"
+          },
+          {
+            "iata": "SJO",
+            "city": "San Jose",
+            "country": "Costa Rica"
+          },
+          {
+            "iata": "SJT",
+            "city": "San Angelo",
+            "country": "United States"
+          },
+          {
+            "iata": "SJU",
+            "city": "San Juan",
+            "country": "Puerto Rico"
+          },
+          {
+            "iata": "SKB",
+            "city": "Basse Terre",
+            "country": "Saint Kitts and Nevis"
+          },
+          {
+            "iata": "SLC",
+            "city": "Salt Lake City",
+            "country": "United States"
+          },
+          {
+            "iata": "SLP",
+            "city": "San Luis Potosi",
+            "country": "Mexico"
+          },
+          {
+            "iata": "SMF",
+            "city": "Sacramento",
+            "country": "United States"
+          },
+          {
+            "iata": "SNA",
+            "city": "Santa Ana",
+            "country": "United States"
+          },
+          {
+            "iata": "SOF",
+            "city": "Sofia",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "SPI",
+            "city": "Springfield",
+            "country": "United States"
+          },
+          {
+            "iata": "SPS",
+            "city": "Wichita Falls",
+            "country": "United States"
+          },
+          {
+            "iata": "SRQ",
+            "city": "Sarasota",
+            "country": "United States"
+          },
+          {
+            "iata": "SSA",
+            "city": "Salvador",
+            "country": "Brazil"
+          },
+          {
+            "iata": "STI",
+            "city": "Santiago",
+            "country": "Dominican Republic"
+          },
+          {
+            "iata": "STL",
+            "city": "St. Louis",
+            "country": "United States"
+          },
+          {
+            "iata": "STR",
+            "city": "Stuttgart",
+            "country": "Germany"
+          },
+          {
+            "iata": "STS",
+            "city": "Santa Rosa",
+            "country": "United States"
+          },
+          {
+            "iata": "STT",
+            "city": "St. Thomas",
+            "country": "Virgin Islands"
+          },
+          {
+            "iata": "STX",
+            "city": "St. Croix Island",
+            "country": "Virgin Islands"
+          },
+          {
+            "iata": "SUX",
+            "city": "Sioux City",
+            "country": "United States"
+          },
+          {
+            "iata": "SVG",
+            "city": "Stavanger",
+            "country": "Norway"
+          },
+          {
+            "iata": "SWF",
+            "city": "Newburgh",
+            "country": "United States"
+          },
+          {
+            "iata": "SXM",
+            "city": "Philipsburg",
+            "country": "Netherlands Antilles"
+          },
+          {
+            "iata": "SYD",
+            "city": "Sydney",
+            "country": "Australia"
+          },
+          {
+            "iata": "SYR",
+            "city": "Syracuse",
+            "country": "United States"
+          },
+          {
+            "iata": "TGU",
+            "city": "Tegucigalpa",
+            "country": "Honduras"
+          },
+          {
+            "iata": "TLH",
+            "city": "Tallahassee",
+            "country": "United States"
+          },
+          {
+            "iata": "TLS",
+            "city": "Toulouse",
+            "country": "France"
+          },
+          {
+            "iata": "TLV",
+            "city": "Tel-aviv",
+            "country": "Israel"
+          },
+          {
+            "iata": "TOL",
+            "city": "Toledo",
+            "country": "United States"
+          },
+          {
+            "iata": "TPA",
+            "city": "Tampa",
+            "country": "United States"
+          },
+          {
+            "iata": "TPE",
+            "city": "Taipei",
+            "country": "Taiwan"
+          },
+          {
+            "iata": "TRC",
+            "city": "Torreon",
+            "country": "Mexico"
+          },
+          {
+            "iata": "TRI",
+            "city": "BRISTOL",
+            "country": "United States"
+          },
+          {
+            "iata": "TSV",
+            "city": "Townsville",
+            "country": "Australia"
+          },
+          {
+            "iata": "TUL",
+            "city": "Tulsa",
+            "country": "United States"
+          },
+          {
+            "iata": "TUS",
+            "city": "Tucson",
+            "country": "United States"
+          },
+          {
+            "iata": "TVC",
+            "city": "Traverse City",
+            "country": "United States"
+          },
+          {
+            "iata": "TXK",
+            "city": "Texarkana",
+            "country": "United States"
+          },
+          {
+            "iata": "TXL",
+            "city": "Berlin",
+            "country": "Germany"
+          },
+          {
+            "iata": "TYR",
+            "city": "Tyler",
+            "country": "United States"
+          },
+          {
+            "iata": "TYS",
+            "city": "Knoxville",
+            "country": "United States"
+          },
+          {
+            "iata": "UIO",
+            "city": "Quito",
+            "country": "Ecuador"
+          },
+          {
+            "iata": "UVF",
+            "city": "Hewandorra",
+            "country": "Saint Lucia"
+          },
+          {
+            "iata": "VCE",
+            "city": "Venice",
+            "country": "Italy"
+          },
+          {
+            "iata": "VIE",
+            "city": "Vienna",
+            "country": "Austria"
+          },
+          {
+            "iata": "VIJ",
+            "city": "Spanish Town",
+            "country": "British Virgin Islands"
+          },
+          {
+            "iata": "VPS",
+            "city": "Valparaiso",
+            "country": "United States"
+          },
+          {
+            "iata": "VQS",
+            "city": "Vieques Island",
+            "country": "Puerto Rico"
+          },
+          {
+            "iata": "VVI",
+            "city": "Santa Cruz",
+            "country": "Bolivia"
+          },
+          {
+            "iata": "WAW",
+            "city": "Warsaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "XNA",
+            "city": "Bentonville",
+            "country": "United States"
+          },
+          {
+            "iata": "YEG",
+            "city": "Edmonton",
+            "country": "Canada"
+          },
+          {
+            "iata": "YHZ",
+            "city": "Halifax",
+            "country": "Canada"
+          },
+          {
+            "iata": "YKF",
+            "city": "Waterloo",
+            "country": "Canada"
+          },
+          {
+            "iata": "YOW",
+            "city": "Ottawa",
+            "country": "Canada"
+          },
+          {
+            "iata": "YQB",
+            "city": "Quebec",
+            "country": "Canada"
+          },
+          {
+            "iata": "YUL",
+            "city": "Montreal",
+            "country": "Canada"
+          },
+          {
+            "iata": "YUM",
+            "city": "Yuma",
+            "country": "United States"
+          },
+          {
+            "iata": "YVR",
+            "city": "Vancouver",
+            "country": "Canada"
+          },
+          {
+            "iata": "YYC",
+            "city": "Calgary",
+            "country": "Canada"
+          },
+          {
+            "iata": "YYZ",
+            "city": "Toronto",
+            "country": "Canada"
+          },
+          {
+            "iata": "ZAG",
+            "city": "Zagreb",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZCL",
+            "city": "Zacatecas",
+            "country": "Mexico"
+          },
+          {
+            "iata": "ZIH",
+            "city": "Zihuatanejo",
+            "country": "Mexico"
+          },
+          {
+            "iata": "ZRH",
+            "city": "Zurich",
+            "country": "Switzerland"
+          }
+        ],
+        "countries": [
+          "Antigua and Barbuda",
+          "Argentina",
+          "Aruba",
+          "Australia",
+          "Austria",
+          "Bahamas",
+          "Bahrain",
+          "Barbados",
+          "Belgium",
+          "Belize",
+          "Bermuda",
+          "Bolivia",
+          "Brazil",
+          "British Virgin Islands",
+          "Bulgaria",
+          "Canada",
+          "Cayman Islands",
+          "Chile",
+          "China",
+          "Colombia",
+          "Costa Rica",
+          "Croatia",
+          "Cyprus",
+          "Czech Republic",
+          "Denmark",
+          "Dominica",
+          "Dominican Republic",
+          "Ecuador",
+          "El Salvador",
+          "Fiji",
+          "Finland",
+          "France",
+          "French Polynesia",
+          "Gambia",
+          "Germany",
+          "Ghana",
+          "Gibraltar",
+          "Greece",
+          "Grenada",
+          "Guadeloupe",
+          "Guatemala",
+          "Haiti",
+          "Honduras",
+          "Hong Kong",
+          "Hungary",
+          "India",
+          "Ireland",
+          "Israel",
+          "Italy",
+          "Jamaica",
+          "Japan",
+          "Jordan",
+          "Kenya",
+          "Kuwait",
+          "Luxembourg",
+          "Malaysia",
+          "Martinique",
+          "Mexico",
+          "Netherlands",
+          "Netherlands Antilles",
+          "New Zealand",
+          "Nicaragua",
+          "Norway",
+          "Oman",
+          "Pakistan",
+          "Panama",
+          "Paraguay",
+          "Peru",
+          "Poland",
+          "Portugal",
+          "Puerto Rico",
+          "Qatar",
+          "Romania",
+          "Saint Kitts and Nevis",
+          "Saint Lucia",
+          "Senegal",
+          "Singapore",
+          "South Africa",
+          "South Korea",
+          "Spain",
+          "Sri Lanka",
+          "Sweden",
+          "Switzerland",
+          "Taiwan",
+          "Thailand",
+          "Trinidad and Tobago",
+          "Turkey",
+          "Turks and Caicos Islands",
+          "Uganda",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States",
+          "Uruguay",
+          "Venezuela",
+          "Vietnam",
+          "Virgin Islands"
+        ],
+        "testedRoutes": [
+          {
+            "origin": "JFK",
+            "destination": "LAX",
+            "status": "priced",
+            "note": "Official American route-offer fallback"
+          },
+          {
+            "origin": "VIE",
+            "destination": "EWR",
+            "status": "unsupported",
+            "note": "VIE is outside this adapter's current AA support set"
+          }
+        ]
+      }
+    ],
+    "diagnostics": {
+      "american": {
+        "source": "community-openflights-route-database",
+        "count": 434,
+        "sourceUrl": "https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat"
+      }
+    }
+  }
+}

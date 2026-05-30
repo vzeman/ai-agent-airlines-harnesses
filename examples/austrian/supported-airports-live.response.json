@@ -1,0 +1,1511 @@
+{
+  "status": "ok",
+  "data": {
+    "source": "live",
+    "requestedSource": "live",
+    "count": 109,
+    "airports": [
+      {
+        "iata": "AMM",
+        "city": "Amman",
+        "country": "Jordan",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "AMS",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ARN",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ATH",
+        "city": "Athens",
+        "country": "Greece",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "AYT",
+        "city": "Antalya",
+        "country": "Turkey",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BCN",
+        "city": "Barcelona",
+        "country": "Spain",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BEG",
+        "city": "Belgrade",
+        "country": "Serbia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BKK",
+        "city": "Bangkok",
+        "country": "Thailand",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BLQ",
+        "city": "Bologna",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BRU",
+        "city": "Brussels",
+        "country": "Belgium",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BSL",
+        "city": "Mulhouse",
+        "country": "France",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "BUD",
+        "city": "Budapest",
+        "country": "Hungary",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CAI",
+        "city": "Cairo",
+        "country": "Egypt",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CDG",
+        "city": "Paris",
+        "country": "France",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CGN",
+        "city": "Cologne",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CHQ",
+        "city": "Chania",
+        "country": "Greece",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CLJ",
+        "city": "Cluj-napoca",
+        "country": "Romania",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CPH",
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "CTA",
+        "city": "Catania",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DBV",
+        "city": "Dubrovnik",
+        "country": "Croatia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DEL",
+        "city": "Delhi",
+        "country": "India",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DLM",
+        "city": "Dalaman",
+        "country": "Turkey",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DME",
+        "city": "Moscow",
+        "country": "Russia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DNK",
+        "city": "Dnepropetrovsk",
+        "country": "Ukraine",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DUS",
+        "city": "Duesseldorf",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "DXB",
+        "city": "Dubai",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "EBL",
+        "city": "Erbil",
+        "country": "Iraq",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "EVN",
+        "city": "Yerevan",
+        "country": "Armenia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "FCO",
+        "city": "Rome",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "FLR",
+        "city": "Florence",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "FNC",
+        "city": "Funchal",
+        "country": "Portugal",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "FRA",
+        "city": "Frankfurt",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "GRZ",
+        "city": "Graz",
+        "country": "Austria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "GVA",
+        "city": "Geneva",
+        "country": "Switzerland",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "GYD",
+        "city": "Baku",
+        "country": "Azerbaijan",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "HAJ",
+        "city": "Hannover",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "HAM",
+        "city": "Hamburg",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "HER",
+        "city": "Heraklion",
+        "country": "Greece",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "HRG",
+        "city": "Hurghada",
+        "country": "Egypt",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "HRK",
+        "city": "Kharkov",
+        "country": "Ukraine",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "IAD",
+        "city": "Washington",
+        "country": "United States",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "IAS",
+        "city": "Iasi",
+        "country": "Romania",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "IKA",
+        "city": "Tehran",
+        "country": "Iran",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "INN",
+        "city": "Innsbruck",
+        "country": "Austria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "IST",
+        "city": "Istanbul",
+        "country": "Turkey",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "JFK",
+        "city": "New York",
+        "country": "United States",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "JTR",
+        "city": "Thira",
+        "country": "Greece",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "KBP",
+        "city": "Kiev",
+        "country": "Ukraine",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "KIV",
+        "city": "Chisinau",
+        "country": "Moldova",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "KLU",
+        "city": "Klagenfurt",
+        "country": "Austria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "KRK",
+        "city": "Krakow",
+        "country": "Poland",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "KRR",
+        "city": "Krasnodar",
+        "country": "Russia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "KSC",
+        "city": "Kosice",
+        "country": "Slovakia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LCA",
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LED",
+        "city": "St. Petersburg",
+        "country": "Russia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LEJ",
+        "city": "Leipzig",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LHR",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LIS",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LJU",
+        "city": "Ljubljana",
+        "country": "Slovenia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LNZ",
+        "city": "Linz",
+        "country": "Austria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LPA",
+        "city": "Gran Canaria",
+        "country": "Spain",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LUX",
+        "city": "Luxemburg",
+        "country": "Luxembourg",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LWO",
+        "city": "Lvov",
+        "country": "Ukraine",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "LYS",
+        "city": "Lyon",
+        "country": "France",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "MLA",
+        "city": "Malta",
+        "country": "Malta",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "MSQ",
+        "city": "Minsk 2",
+        "country": "Belarus",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "MUC",
+        "city": "Munich",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "MXP",
+        "city": "Milano",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "NAP",
+        "city": "Naples",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "NCE",
+        "city": "Nice",
+        "country": "France",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "NRT",
+        "city": "Tokyo",
+        "country": "Japan",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ODS",
+        "city": "Odessa",
+        "country": "Ukraine",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "OLB",
+        "city": "Olbia",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ORD",
+        "city": "Chicago",
+        "country": "United States",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "OSL",
+        "city": "Oslo",
+        "country": "Norway",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "OTP",
+        "city": "Bucharest",
+        "country": "Romania",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "PEK",
+        "city": "Beijing",
+        "country": "China",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "PMI",
+        "city": "Palma de Mallorca",
+        "country": "Spain",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "PMO",
+        "city": "Palermo",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "PRG",
+        "city": "Prague",
+        "country": "Czech Republic",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "PRN",
+        "city": "Pristina",
+        "country": "Serbia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "RHO",
+        "city": "Rhodos",
+        "country": "Greece",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "RIX",
+        "city": "Riga",
+        "country": "Latvia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ROV",
+        "city": "Rostov",
+        "country": "Russia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SBZ",
+        "city": "Sibiu",
+        "country": "Romania",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SJJ",
+        "city": "Sarajevo",
+        "country": "Bosnia and Herzegovina",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SKG",
+        "city": "Thessaloniki",
+        "country": "Greece",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SKP",
+        "city": "Skopje",
+        "country": "Macedonia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SOF",
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SPU",
+        "city": "Split",
+        "country": "Croatia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "STR",
+        "city": "Stuttgart",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SUF",
+        "city": "Lamezia",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "SZG",
+        "city": "Salzburg",
+        "country": "Austria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TBS",
+        "city": "Tbilisi",
+        "country": "Georgia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TFS",
+        "city": "Tenerife",
+        "country": "Spain",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TGD",
+        "city": "Podgorica",
+        "country": "Montenegro",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TIA",
+        "city": "Tirana",
+        "country": "Albania",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TLV",
+        "city": "Tel-aviv",
+        "country": "Israel",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TSE",
+        "city": "Tselinograd",
+        "country": "Kazakhstan",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "TXL",
+        "city": "Berlin",
+        "country": "Germany",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "VAR",
+        "city": "Varna",
+        "country": "Bulgaria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "VCE",
+        "city": "Venice",
+        "country": "Italy",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "VIE",
+        "city": "Vienna",
+        "country": "Austria",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "VKO",
+        "city": "Moscow",
+        "country": "Russia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "VNO",
+        "city": "Vilnius",
+        "country": "Lithuania",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "WAW",
+        "city": "Warsaw",
+        "country": "Poland",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "YYZ",
+        "city": "Toronto",
+        "country": "Canada",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ZAG",
+        "city": "Zagreb",
+        "country": "Croatia",
+        "airlines": [
+          "austrian"
+        ]
+      },
+      {
+        "iata": "ZRH",
+        "city": "Zurich",
+        "country": "Switzerland",
+        "airlines": [
+          "austrian"
+        ]
+      }
+    ],
+    "airlines": [
+      {
+        "airline": "austrian",
+        "coverage": "dynamic",
+        "airports": [
+          {
+            "iata": "AMM",
+            "city": "Amman",
+            "country": "Jordan"
+          },
+          {
+            "iata": "AMS",
+            "city": "Amsterdam",
+            "country": "Netherlands"
+          },
+          {
+            "iata": "ARN",
+            "city": "Stockholm",
+            "country": "Sweden"
+          },
+          {
+            "iata": "ATH",
+            "city": "Athens",
+            "country": "Greece"
+          },
+          {
+            "iata": "AYT",
+            "city": "Antalya",
+            "country": "Turkey"
+          },
+          {
+            "iata": "BCN",
+            "city": "Barcelona",
+            "country": "Spain"
+          },
+          {
+            "iata": "BEG",
+            "city": "Belgrade",
+            "country": "Serbia"
+          },
+          {
+            "iata": "BKK",
+            "city": "Bangkok",
+            "country": "Thailand"
+          },
+          {
+            "iata": "BLQ",
+            "city": "Bologna",
+            "country": "Italy"
+          },
+          {
+            "iata": "BRU",
+            "city": "Brussels",
+            "country": "Belgium"
+          },
+          {
+            "iata": "BSL",
+            "city": "Mulhouse",
+            "country": "France"
+          },
+          {
+            "iata": "BUD",
+            "city": "Budapest",
+            "country": "Hungary"
+          },
+          {
+            "iata": "CAI",
+            "city": "Cairo",
+            "country": "Egypt"
+          },
+          {
+            "iata": "CDG",
+            "city": "Paris",
+            "country": "France"
+          },
+          {
+            "iata": "CGN",
+            "city": "Cologne",
+            "country": "Germany"
+          },
+          {
+            "iata": "CHQ",
+            "city": "Chania",
+            "country": "Greece"
+          },
+          {
+            "iata": "CLJ",
+            "city": "Cluj-napoca",
+            "country": "Romania"
+          },
+          {
+            "iata": "CPH",
+            "city": "Copenhagen",
+            "country": "Denmark"
+          },
+          {
+            "iata": "CTA",
+            "city": "Catania",
+            "country": "Italy"
+          },
+          {
+            "iata": "DBV",
+            "city": "Dubrovnik",
+            "country": "Croatia"
+          },
+          {
+            "iata": "DEL",
+            "city": "Delhi",
+            "country": "India"
+          },
+          {
+            "iata": "DLM",
+            "city": "Dalaman",
+            "country": "Turkey"
+          },
+          {
+            "iata": "DME",
+            "city": "Moscow",
+            "country": "Russia"
+          },
+          {
+            "iata": "DNK",
+            "city": "Dnepropetrovsk",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "DUS",
+            "city": "Duesseldorf",
+            "country": "Germany"
+          },
+          {
+            "iata": "DXB",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "EBL",
+            "city": "Erbil",
+            "country": "Iraq"
+          },
+          {
+            "iata": "EVN",
+            "city": "Yerevan",
+            "country": "Armenia"
+          },
+          {
+            "iata": "FCO",
+            "city": "Rome",
+            "country": "Italy"
+          },
+          {
+            "iata": "FLR",
+            "city": "Florence",
+            "country": "Italy"
+          },
+          {
+            "iata": "FNC",
+            "city": "Funchal",
+            "country": "Portugal"
+          },
+          {
+            "iata": "FRA",
+            "city": "Frankfurt",
+            "country": "Germany"
+          },
+          {
+            "iata": "GRZ",
+            "city": "Graz",
+            "country": "Austria"
+          },
+          {
+            "iata": "GVA",
+            "city": "Geneva",
+            "country": "Switzerland"
+          },
+          {
+            "iata": "GYD",
+            "city": "Baku",
+            "country": "Azerbaijan"
+          },
+          {
+            "iata": "HAJ",
+            "city": "Hannover",
+            "country": "Germany"
+          },
+          {
+            "iata": "HAM",
+            "city": "Hamburg",
+            "country": "Germany"
+          },
+          {
+            "iata": "HER",
+            "city": "Heraklion",
+            "country": "Greece"
+          },
+          {
+            "iata": "HRG",
+            "city": "Hurghada",
+            "country": "Egypt"
+          },
+          {
+            "iata": "HRK",
+            "city": "Kharkov",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "IAD",
+            "city": "Washington",
+            "country": "United States"
+          },
+          {
+            "iata": "IAS",
+            "city": "Iasi",
+            "country": "Romania"
+          },
+          {
+            "iata": "IKA",
+            "city": "Tehran",
+            "country": "Iran"
+          },
+          {
+            "iata": "INN",
+            "city": "Innsbruck",
+            "country": "Austria"
+          },
+          {
+            "iata": "IST",
+            "city": "Istanbul",
+            "country": "Turkey"
+          },
+          {
+            "iata": "JFK",
+            "city": "New York",
+            "country": "United States"
+          },
+          {
+            "iata": "JTR",
+            "city": "Thira",
+            "country": "Greece"
+          },
+          {
+            "iata": "KBP",
+            "city": "Kiev",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "KIV",
+            "city": "Chisinau",
+            "country": "Moldova"
+          },
+          {
+            "iata": "KLU",
+            "city": "Klagenfurt",
+            "country": "Austria"
+          },
+          {
+            "iata": "KRK",
+            "city": "Krakow",
+            "country": "Poland"
+          },
+          {
+            "iata": "KRR",
+            "city": "Krasnodar",
+            "country": "Russia"
+          },
+          {
+            "iata": "KSC",
+            "city": "Kosice",
+            "country": "Slovakia"
+          },
+          {
+            "iata": "LCA",
+            "city": "Larnaca",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "LED",
+            "city": "St. Petersburg",
+            "country": "Russia"
+          },
+          {
+            "iata": "LEJ",
+            "city": "Leipzig",
+            "country": "Germany"
+          },
+          {
+            "iata": "LHR",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LIS",
+            "city": "Lisbon",
+            "country": "Portugal"
+          },
+          {
+            "iata": "LJU",
+            "city": "Ljubljana",
+            "country": "Slovenia"
+          },
+          {
+            "iata": "LNZ",
+            "city": "Linz",
+            "country": "Austria"
+          },
+          {
+            "iata": "LPA",
+            "city": "Gran Canaria",
+            "country": "Spain"
+          },
+          {
+            "iata": "LUX",
+            "city": "Luxemburg",
+            "country": "Luxembourg"
+          },
+          {
+            "iata": "LWO",
+            "city": "Lvov",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "LYS",
+            "city": "Lyon",
+            "country": "France"
+          },
+          {
+            "iata": "MLA",
+            "city": "Malta",
+            "country": "Malta"
+          },
+          {
+            "iata": "MSQ",
+            "city": "Minsk 2",
+            "country": "Belarus"
+          },
+          {
+            "iata": "MUC",
+            "city": "Munich",
+            "country": "Germany"
+          },
+          {
+            "iata": "MXP",
+            "city": "Milano",
+            "country": "Italy"
+          },
+          {
+            "iata": "NAP",
+            "city": "Naples",
+            "country": "Italy"
+          },
+          {
+            "iata": "NCE",
+            "city": "Nice",
+            "country": "France"
+          },
+          {
+            "iata": "NRT",
+            "city": "Tokyo",
+            "country": "Japan"
+          },
+          {
+            "iata": "ODS",
+            "city": "Odessa",
+            "country": "Ukraine"
+          },
+          {
+            "iata": "OLB",
+            "city": "Olbia",
+            "country": "Italy"
+          },
+          {
+            "iata": "ORD",
+            "city": "Chicago",
+            "country": "United States"
+          },
+          {
+            "iata": "OSL",
+            "city": "Oslo",
+            "country": "Norway"
+          },
+          {
+            "iata": "OTP",
+            "city": "Bucharest",
+            "country": "Romania"
+          },
+          {
+            "iata": "PEK",
+            "city": "Beijing",
+            "country": "China"
+          },
+          {
+            "iata": "PMI",
+            "city": "Palma de Mallorca",
+            "country": "Spain"
+          },
+          {
+            "iata": "PMO",
+            "city": "Palermo",
+            "country": "Italy"
+          },
+          {
+            "iata": "PRG",
+            "city": "Prague",
+            "country": "Czech Republic"
+          },
+          {
+            "iata": "PRN",
+            "city": "Pristina",
+            "country": "Serbia"
+          },
+          {
+            "iata": "RHO",
+            "city": "Rhodos",
+            "country": "Greece"
+          },
+          {
+            "iata": "RIX",
+            "city": "Riga",
+            "country": "Latvia"
+          },
+          {
+            "iata": "ROV",
+            "city": "Rostov",
+            "country": "Russia"
+          },
+          {
+            "iata": "SBZ",
+            "city": "Sibiu",
+            "country": "Romania"
+          },
+          {
+            "iata": "SJJ",
+            "city": "Sarajevo",
+            "country": "Bosnia and Herzegovina"
+          },
+          {
+            "iata": "SKG",
+            "city": "Thessaloniki",
+            "country": "Greece"
+          },
+          {
+            "iata": "SKP",
+            "city": "Skopje",
+            "country": "Macedonia"
+          },
+          {
+            "iata": "SOF",
+            "city": "Sofia",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "SPU",
+            "city": "Split",
+            "country": "Croatia"
+          },
+          {
+            "iata": "STR",
+            "city": "Stuttgart",
+            "country": "Germany"
+          },
+          {
+            "iata": "SUF",
+            "city": "Lamezia",
+            "country": "Italy"
+          },
+          {
+            "iata": "SZG",
+            "city": "Salzburg",
+            "country": "Austria"
+          },
+          {
+            "iata": "TBS",
+            "city": "Tbilisi",
+            "country": "Georgia"
+          },
+          {
+            "iata": "TFS",
+            "city": "Tenerife",
+            "country": "Spain"
+          },
+          {
+            "iata": "TGD",
+            "city": "Podgorica",
+            "country": "Montenegro"
+          },
+          {
+            "iata": "TIA",
+            "city": "Tirana",
+            "country": "Albania"
+          },
+          {
+            "iata": "TLV",
+            "city": "Tel-aviv",
+            "country": "Israel"
+          },
+          {
+            "iata": "TSE",
+            "city": "Tselinograd",
+            "country": "Kazakhstan"
+          },
+          {
+            "iata": "TXL",
+            "city": "Berlin",
+            "country": "Germany"
+          },
+          {
+            "iata": "VAR",
+            "city": "Varna",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "VCE",
+            "city": "Venice",
+            "country": "Italy"
+          },
+          {
+            "iata": "VIE",
+            "city": "Vienna",
+            "country": "Austria"
+          },
+          {
+            "iata": "VKO",
+            "city": "Moscow",
+            "country": "Russia"
+          },
+          {
+            "iata": "VNO",
+            "city": "Vilnius",
+            "country": "Lithuania"
+          },
+          {
+            "iata": "WAW",
+            "city": "Warsaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "YYZ",
+            "city": "Toronto",
+            "country": "Canada"
+          },
+          {
+            "iata": "ZAG",
+            "city": "Zagreb",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZRH",
+            "city": "Zurich",
+            "country": "Switzerland"
+          }
+        ],
+        "countries": [
+          "Albania",
+          "Armenia",
+          "Austria",
+          "Azerbaijan",
+          "Belarus",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Bulgaria",
+          "Canada",
+          "China",
+          "Croatia",
+          "Cyprus",
+          "Czech Republic",
+          "Denmark",
+          "Egypt",
+          "France",
+          "Georgia",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "India",
+          "Iran",
+          "Iraq",
+          "Israel",
+          "Italy",
+          "Japan",
+          "Jordan",
+          "Kazakhstan",
+          "Latvia",
+          "Lithuania",
+          "Luxembourg",
+          "Macedonia",
+          "Malta",
+          "Moldova",
+          "Montenegro",
+          "Netherlands",
+          "Norway",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Russia",
+          "Serbia",
+          "Slovakia",
+          "Slovenia",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Thailand",
+          "Turkey",
+          "Ukraine",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States"
+        ],
+        "testedRoutes": [
+          {
+            "origin": "VIE",
+            "destination": "EWR",
+            "status": "priced",
+            "note": "Official Austrian route-offer fallback with OS37 schedule"
+          },
+          {
+            "origin": "VIE",
+            "destination": "LHR",
+            "status": "priced",
+            "note": "Official Austrian route-offer fallback with Vienna-London schedule"
+          }
+        ]
+      }
+    ],
+    "diagnostics": {
+      "austrian": {
+        "source": "community-openflights-route-database",
+        "count": 109,
+        "sourceUrl": "https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat"
+      }
+    }
+  }
+}

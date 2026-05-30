@@ -1,0 +1,1866 @@
+{
+  "status": "ok",
+  "data": {
+    "source": "live",
+    "requestedSource": "live",
+    "count": 134,
+    "airports": [
+      {
+        "iata": "ADD",
+        "city": "Addis Ababa",
+        "country": "Ethiopia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ALG",
+        "city": "Algier",
+        "country": "Algeria",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "AMD",
+        "city": "Ahmedabad",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "AMM",
+        "city": "Amman",
+        "country": "Jordan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ARN",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ATH",
+        "city": "Athens",
+        "country": "Greece",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ATL",
+        "city": "Atlanta",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ATQ",
+        "city": "Amritsar",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "AUH",
+        "city": "Abu Dhabi",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BAH",
+        "city": "Bahrain",
+        "country": "Bahrain",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BCN",
+        "city": "Barcelona",
+        "country": "Spain",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BEG",
+        "city": "Belgrade",
+        "country": "Serbia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BEY",
+        "city": "Beirut",
+        "country": "Lebanon",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BGW",
+        "city": "Baghdad",
+        "country": "Iraq",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BKK",
+        "city": "Bangkok",
+        "country": "Thailand",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BLR",
+        "city": "Bangalore",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BOM",
+        "city": "Mumbai",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BRU",
+        "city": "Brussels",
+        "country": "Belgium",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BSR",
+        "city": "Basrah",
+        "country": "Iraq",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "BUD",
+        "city": "Budapest",
+        "country": "Hungary",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CAI",
+        "city": "Cairo",
+        "country": "Egypt",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CAN",
+        "city": "Guangzhou",
+        "country": "China",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CCJ",
+        "city": "Calicut",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CCU",
+        "city": "Kolkata",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CDG",
+        "city": "Paris",
+        "country": "France",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CGK",
+        "city": "Jakarta",
+        "country": "Indonesia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CKG",
+        "city": "Chongqing",
+        "country": "China",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CMB",
+        "city": "Colombo",
+        "country": "Sri Lanka",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CMN",
+        "city": "Casablanca",
+        "country": "Morocco",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CNX",
+        "city": "Chiang Mai",
+        "country": "Thailand",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "COK",
+        "city": "Kochi",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CPH",
+        "city": "Copenhagen",
+        "country": "Denmark",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CPT",
+        "city": "Cape Town",
+        "country": "South Africa",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CRK",
+        "city": "Angeles City",
+        "country": "Philippines",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "CTU",
+        "city": "Chengdu",
+        "country": "China",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DAC",
+        "city": "Dhaka",
+        "country": "Bangladesh",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DAR",
+        "city": "Dar Es Salaam",
+        "country": "Tanzania",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DEL",
+        "city": "Delhi",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DME",
+        "city": "Moscow",
+        "country": "Russia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DMM",
+        "city": "Dammam",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DOH",
+        "city": "Doha",
+        "country": "Qatar",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DPS",
+        "city": "Denpasar",
+        "country": "Indonesia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DWC",
+        "city": "Dubai",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "DXB",
+        "city": "Dubai",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "EBB",
+        "city": "Entebbe",
+        "country": "Uganda",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "EBL",
+        "city": "Erbil",
+        "country": "Iraq",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ELQ",
+        "city": "Gassim",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ESB",
+        "city": "Ankara",
+        "country": "Turkey",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "EZE",
+        "city": "Buenos Aires",
+        "country": "Argentina",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "FCO",
+        "city": "Rome",
+        "country": "Italy",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "FRA",
+        "city": "Frankfurt",
+        "country": "Germany",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "GOI",
+        "city": "Goa",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "GRU",
+        "city": "Sao Paulo",
+        "country": "Brazil",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "GVA",
+        "city": "Geneva",
+        "country": "Switzerland",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "GYD",
+        "city": "Baku",
+        "country": "Azerbaijan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "HAN",
+        "city": "Hanoi",
+        "country": "Vietnam",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "HBE",
+        "city": "Alexandria",
+        "country": "Egypt",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "HGH",
+        "city": "Hangzhou",
+        "country": "China",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "HKG",
+        "city": "Hong Kong",
+        "country": "Hong Kong",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "HKT",
+        "city": "Phuket",
+        "country": "Thailand",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "HYD",
+        "city": "Hyderabad",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "IAD",
+        "city": "Washington",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "IAH",
+        "city": "Houston",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ICN",
+        "city": "Seoul",
+        "country": "South Korea",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "IKA",
+        "city": "Tehran",
+        "country": "Iran",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ISB",
+        "city": "Islamabad",
+        "country": "Pakistan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "IST",
+        "city": "Istanbul",
+        "country": "Turkey",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ISU",
+        "city": "Sulaymaniyah",
+        "country": "Iraq",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "JED",
+        "city": "Jeddah",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "JFK",
+        "city": "New York",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "JNB",
+        "city": "Johannesburg",
+        "country": "South Africa",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "JRO",
+        "city": "Kilimanjaro",
+        "country": "Tanzania",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KBV",
+        "city": "Krabi",
+        "country": "Thailand",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KGL",
+        "city": "Kigali",
+        "country": "Rwanda",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KHI",
+        "city": "Karachi",
+        "country": "Pakistan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KIX",
+        "city": "Osaka",
+        "country": "Japan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KRT",
+        "city": "Khartoum",
+        "country": "Sudan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KTM",
+        "city": "Kathmandu",
+        "country": "Nepal",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KUL",
+        "city": "Kuala Lumpur",
+        "country": "Malaysia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "KWI",
+        "city": "Kuwait",
+        "country": "Kuwait",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "LAS",
+        "city": "Las Vegas",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "LCA",
+        "city": "Larnaca",
+        "country": "Cyprus",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "LHE",
+        "city": "Lahore",
+        "country": "Pakistan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "LHR",
+        "city": "London",
+        "country": "United Kingdom",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "LOS",
+        "city": "Lagos",
+        "country": "Nigeria",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "LXR",
+        "city": "Luxor",
+        "country": "Egypt",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MAA",
+        "city": "Madras",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MAD",
+        "city": "Madrid",
+        "country": "Spain",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MAN",
+        "city": "Manchester",
+        "country": "United Kingdom",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MCT",
+        "city": "Muscat",
+        "country": "Oman",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MDL",
+        "city": "Mandalay",
+        "country": "Burma",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MED",
+        "city": "Madinah",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MEL",
+        "city": "Melbourne",
+        "country": "Australia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MEX",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MHD",
+        "city": "Mashhad",
+        "country": "Iran",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MLE",
+        "city": "Male",
+        "country": "Maldives",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MNL",
+        "city": "Manila",
+        "country": "Philippines",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MPM",
+        "city": "Maputo",
+        "country": "Mozambique",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MSY",
+        "city": "New Orleans",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MUC",
+        "city": "Munich",
+        "country": "Germany",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "MXP",
+        "city": "Milano",
+        "country": "Italy",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "NBO",
+        "city": "Nairobi",
+        "country": "Kenya",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "NJF",
+        "city": "Najaf",
+        "country": "Iraq",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "NRT",
+        "city": "Tokyo",
+        "country": "Japan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ORD",
+        "city": "Chicago",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "OSL",
+        "city": "Oslo",
+        "country": "Norway",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "OTP",
+        "city": "Bucharest",
+        "country": "Romania",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "PEK",
+        "city": "Beijing",
+        "country": "China",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "PER",
+        "city": "Perth",
+        "country": "Australia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "PEW",
+        "city": "Peshawar",
+        "country": "Pakistan",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "PHL",
+        "city": "Philadelphia",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "PNH",
+        "city": "Phnom-penh",
+        "country": "Cambodia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "PVG",
+        "city": "Shanghai",
+        "country": "China",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "RGN",
+        "city": "Yangon",
+        "country": "Burma",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "RUH",
+        "city": "Riyadh",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SAH",
+        "city": "Sanaa",
+        "country": "Yemen",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SAN",
+        "city": "San Diego",
+        "country": "United States",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SGN",
+        "city": "Ho Chi Minh City",
+        "country": "Vietnam",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SHJ",
+        "city": "Sharjah",
+        "country": "United Arab Emirates",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SIN",
+        "city": "Singapore",
+        "country": "Singapore",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SLL",
+        "city": "Salalah",
+        "country": "Oman",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SOF",
+        "city": "Sofia",
+        "country": "Bulgaria",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "SYZ",
+        "city": "Shiraz",
+        "country": "Iran",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "TBS",
+        "city": "Tbilisi",
+        "country": "Georgia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "TIF",
+        "city": "Taif",
+        "country": "Saudi Arabia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "TRV",
+        "city": "Trivandrum",
+        "country": "India",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "TUN",
+        "city": "Tunis",
+        "country": "Tunisia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "TXL",
+        "city": "Berlin",
+        "country": "Germany",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "VCE",
+        "city": "Venice",
+        "country": "Italy",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "VIE",
+        "city": "Vienna",
+        "country": "Austria",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "WAW",
+        "city": "Warsaw",
+        "country": "Poland",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "YUL",
+        "city": "Montreal",
+        "country": "Canada",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ZAG",
+        "city": "Zagreb",
+        "country": "Croatia",
+        "airlines": [
+          "qatar"
+        ]
+      },
+      {
+        "iata": "ZRH",
+        "city": "Zurich",
+        "country": "Switzerland",
+        "airlines": [
+          "qatar"
+        ]
+      }
+    ],
+    "airlines": [
+      {
+        "airline": "qatar",
+        "coverage": "dynamic",
+        "airports": [
+          {
+            "iata": "ADD",
+            "city": "Addis Ababa",
+            "country": "Ethiopia"
+          },
+          {
+            "iata": "ALG",
+            "city": "Algier",
+            "country": "Algeria"
+          },
+          {
+            "iata": "AMD",
+            "city": "Ahmedabad",
+            "country": "India"
+          },
+          {
+            "iata": "AMM",
+            "city": "Amman",
+            "country": "Jordan"
+          },
+          {
+            "iata": "ARN",
+            "city": "Stockholm",
+            "country": "Sweden"
+          },
+          {
+            "iata": "ATH",
+            "city": "Athens",
+            "country": "Greece"
+          },
+          {
+            "iata": "ATL",
+            "city": "Atlanta",
+            "country": "United States"
+          },
+          {
+            "iata": "ATQ",
+            "city": "Amritsar",
+            "country": "India"
+          },
+          {
+            "iata": "AUH",
+            "city": "Abu Dhabi",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "BAH",
+            "city": "Bahrain",
+            "country": "Bahrain"
+          },
+          {
+            "iata": "BCN",
+            "city": "Barcelona",
+            "country": "Spain"
+          },
+          {
+            "iata": "BEG",
+            "city": "Belgrade",
+            "country": "Serbia"
+          },
+          {
+            "iata": "BEY",
+            "city": "Beirut",
+            "country": "Lebanon"
+          },
+          {
+            "iata": "BGW",
+            "city": "Baghdad",
+            "country": "Iraq"
+          },
+          {
+            "iata": "BKK",
+            "city": "Bangkok",
+            "country": "Thailand"
+          },
+          {
+            "iata": "BLR",
+            "city": "Bangalore",
+            "country": "India"
+          },
+          {
+            "iata": "BOM",
+            "city": "Mumbai",
+            "country": "India"
+          },
+          {
+            "iata": "BRU",
+            "city": "Brussels",
+            "country": "Belgium"
+          },
+          {
+            "iata": "BSR",
+            "city": "Basrah",
+            "country": "Iraq"
+          },
+          {
+            "iata": "BUD",
+            "city": "Budapest",
+            "country": "Hungary"
+          },
+          {
+            "iata": "CAI",
+            "city": "Cairo",
+            "country": "Egypt"
+          },
+          {
+            "iata": "CAN",
+            "city": "Guangzhou",
+            "country": "China"
+          },
+          {
+            "iata": "CCJ",
+            "city": "Calicut",
+            "country": "India"
+          },
+          {
+            "iata": "CCU",
+            "city": "Kolkata",
+            "country": "India"
+          },
+          {
+            "iata": "CDG",
+            "city": "Paris",
+            "country": "France"
+          },
+          {
+            "iata": "CGK",
+            "city": "Jakarta",
+            "country": "Indonesia"
+          },
+          {
+            "iata": "CKG",
+            "city": "Chongqing",
+            "country": "China"
+          },
+          {
+            "iata": "CMB",
+            "city": "Colombo",
+            "country": "Sri Lanka"
+          },
+          {
+            "iata": "CMN",
+            "city": "Casablanca",
+            "country": "Morocco"
+          },
+          {
+            "iata": "CNX",
+            "city": "Chiang Mai",
+            "country": "Thailand"
+          },
+          {
+            "iata": "COK",
+            "city": "Kochi",
+            "country": "India"
+          },
+          {
+            "iata": "CPH",
+            "city": "Copenhagen",
+            "country": "Denmark"
+          },
+          {
+            "iata": "CPT",
+            "city": "Cape Town",
+            "country": "South Africa"
+          },
+          {
+            "iata": "CRK",
+            "city": "Angeles City",
+            "country": "Philippines"
+          },
+          {
+            "iata": "CTU",
+            "city": "Chengdu",
+            "country": "China"
+          },
+          {
+            "iata": "DAC",
+            "city": "Dhaka",
+            "country": "Bangladesh"
+          },
+          {
+            "iata": "DAR",
+            "city": "Dar Es Salaam",
+            "country": "Tanzania"
+          },
+          {
+            "iata": "DEL",
+            "city": "Delhi",
+            "country": "India"
+          },
+          {
+            "iata": "DME",
+            "city": "Moscow",
+            "country": "Russia"
+          },
+          {
+            "iata": "DMM",
+            "city": "Dammam",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "DOH",
+            "city": "Doha",
+            "country": "Qatar"
+          },
+          {
+            "iata": "DPS",
+            "city": "Denpasar",
+            "country": "Indonesia"
+          },
+          {
+            "iata": "DWC",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "DXB",
+            "city": "Dubai",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "EBB",
+            "city": "Entebbe",
+            "country": "Uganda"
+          },
+          {
+            "iata": "EBL",
+            "city": "Erbil",
+            "country": "Iraq"
+          },
+          {
+            "iata": "ELQ",
+            "city": "Gassim",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "ESB",
+            "city": "Ankara",
+            "country": "Turkey"
+          },
+          {
+            "iata": "EZE",
+            "city": "Buenos Aires",
+            "country": "Argentina"
+          },
+          {
+            "iata": "FCO",
+            "city": "Rome",
+            "country": "Italy"
+          },
+          {
+            "iata": "FRA",
+            "city": "Frankfurt",
+            "country": "Germany"
+          },
+          {
+            "iata": "GOI",
+            "city": "Goa",
+            "country": "India"
+          },
+          {
+            "iata": "GRU",
+            "city": "Sao Paulo",
+            "country": "Brazil"
+          },
+          {
+            "iata": "GVA",
+            "city": "Geneva",
+            "country": "Switzerland"
+          },
+          {
+            "iata": "GYD",
+            "city": "Baku",
+            "country": "Azerbaijan"
+          },
+          {
+            "iata": "HAN",
+            "city": "Hanoi",
+            "country": "Vietnam"
+          },
+          {
+            "iata": "HBE",
+            "city": "Alexandria",
+            "country": "Egypt"
+          },
+          {
+            "iata": "HGH",
+            "city": "Hangzhou",
+            "country": "China"
+          },
+          {
+            "iata": "HKG",
+            "city": "Hong Kong",
+            "country": "Hong Kong"
+          },
+          {
+            "iata": "HKT",
+            "city": "Phuket",
+            "country": "Thailand"
+          },
+          {
+            "iata": "HYD",
+            "city": "Hyderabad",
+            "country": "India"
+          },
+          {
+            "iata": "IAD",
+            "city": "Washington",
+            "country": "United States"
+          },
+          {
+            "iata": "IAH",
+            "city": "Houston",
+            "country": "United States"
+          },
+          {
+            "iata": "ICN",
+            "city": "Seoul",
+            "country": "South Korea"
+          },
+          {
+            "iata": "IKA",
+            "city": "Tehran",
+            "country": "Iran"
+          },
+          {
+            "iata": "ISB",
+            "city": "Islamabad",
+            "country": "Pakistan"
+          },
+          {
+            "iata": "IST",
+            "city": "Istanbul",
+            "country": "Turkey"
+          },
+          {
+            "iata": "ISU",
+            "city": "Sulaymaniyah",
+            "country": "Iraq"
+          },
+          {
+            "iata": "JED",
+            "city": "Jeddah",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "JFK",
+            "city": "New York",
+            "country": "United States"
+          },
+          {
+            "iata": "JNB",
+            "city": "Johannesburg",
+            "country": "South Africa"
+          },
+          {
+            "iata": "JRO",
+            "city": "Kilimanjaro",
+            "country": "Tanzania"
+          },
+          {
+            "iata": "KBV",
+            "city": "Krabi",
+            "country": "Thailand"
+          },
+          {
+            "iata": "KGL",
+            "city": "Kigali",
+            "country": "Rwanda"
+          },
+          {
+            "iata": "KHI",
+            "city": "Karachi",
+            "country": "Pakistan"
+          },
+          {
+            "iata": "KIX",
+            "city": "Osaka",
+            "country": "Japan"
+          },
+          {
+            "iata": "KRT",
+            "city": "Khartoum",
+            "country": "Sudan"
+          },
+          {
+            "iata": "KTM",
+            "city": "Kathmandu",
+            "country": "Nepal"
+          },
+          {
+            "iata": "KUL",
+            "city": "Kuala Lumpur",
+            "country": "Malaysia"
+          },
+          {
+            "iata": "KWI",
+            "city": "Kuwait",
+            "country": "Kuwait"
+          },
+          {
+            "iata": "LAS",
+            "city": "Las Vegas",
+            "country": "United States"
+          },
+          {
+            "iata": "LCA",
+            "city": "Larnaca",
+            "country": "Cyprus"
+          },
+          {
+            "iata": "LHE",
+            "city": "Lahore",
+            "country": "Pakistan"
+          },
+          {
+            "iata": "LHR",
+            "city": "London",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "LOS",
+            "city": "Lagos",
+            "country": "Nigeria"
+          },
+          {
+            "iata": "LXR",
+            "city": "Luxor",
+            "country": "Egypt"
+          },
+          {
+            "iata": "MAA",
+            "city": "Madras",
+            "country": "India"
+          },
+          {
+            "iata": "MAD",
+            "city": "Madrid",
+            "country": "Spain"
+          },
+          {
+            "iata": "MAN",
+            "city": "Manchester",
+            "country": "United Kingdom"
+          },
+          {
+            "iata": "MCT",
+            "city": "Muscat",
+            "country": "Oman"
+          },
+          {
+            "iata": "MDL",
+            "city": "Mandalay",
+            "country": "Burma"
+          },
+          {
+            "iata": "MED",
+            "city": "Madinah",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "MEL",
+            "city": "Melbourne",
+            "country": "Australia"
+          },
+          {
+            "iata": "MEX",
+            "city": "Mexico City",
+            "country": "Mexico"
+          },
+          {
+            "iata": "MHD",
+            "city": "Mashhad",
+            "country": "Iran"
+          },
+          {
+            "iata": "MLE",
+            "city": "Male",
+            "country": "Maldives"
+          },
+          {
+            "iata": "MNL",
+            "city": "Manila",
+            "country": "Philippines"
+          },
+          {
+            "iata": "MPM",
+            "city": "Maputo",
+            "country": "Mozambique"
+          },
+          {
+            "iata": "MSY",
+            "city": "New Orleans",
+            "country": "United States"
+          },
+          {
+            "iata": "MUC",
+            "city": "Munich",
+            "country": "Germany"
+          },
+          {
+            "iata": "MXP",
+            "city": "Milano",
+            "country": "Italy"
+          },
+          {
+            "iata": "NBO",
+            "city": "Nairobi",
+            "country": "Kenya"
+          },
+          {
+            "iata": "NJF",
+            "city": "Najaf",
+            "country": "Iraq"
+          },
+          {
+            "iata": "NRT",
+            "city": "Tokyo",
+            "country": "Japan"
+          },
+          {
+            "iata": "ORD",
+            "city": "Chicago",
+            "country": "United States"
+          },
+          {
+            "iata": "OSL",
+            "city": "Oslo",
+            "country": "Norway"
+          },
+          {
+            "iata": "OTP",
+            "city": "Bucharest",
+            "country": "Romania"
+          },
+          {
+            "iata": "PEK",
+            "city": "Beijing",
+            "country": "China"
+          },
+          {
+            "iata": "PER",
+            "city": "Perth",
+            "country": "Australia"
+          },
+          {
+            "iata": "PEW",
+            "city": "Peshawar",
+            "country": "Pakistan"
+          },
+          {
+            "iata": "PHL",
+            "city": "Philadelphia",
+            "country": "United States"
+          },
+          {
+            "iata": "PNH",
+            "city": "Phnom-penh",
+            "country": "Cambodia"
+          },
+          {
+            "iata": "PVG",
+            "city": "Shanghai",
+            "country": "China"
+          },
+          {
+            "iata": "RGN",
+            "city": "Yangon",
+            "country": "Burma"
+          },
+          {
+            "iata": "RUH",
+            "city": "Riyadh",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "SAH",
+            "city": "Sanaa",
+            "country": "Yemen"
+          },
+          {
+            "iata": "SAN",
+            "city": "San Diego",
+            "country": "United States"
+          },
+          {
+            "iata": "SGN",
+            "city": "Ho Chi Minh City",
+            "country": "Vietnam"
+          },
+          {
+            "iata": "SHJ",
+            "city": "Sharjah",
+            "country": "United Arab Emirates"
+          },
+          {
+            "iata": "SIN",
+            "city": "Singapore",
+            "country": "Singapore"
+          },
+          {
+            "iata": "SLL",
+            "city": "Salalah",
+            "country": "Oman"
+          },
+          {
+            "iata": "SOF",
+            "city": "Sofia",
+            "country": "Bulgaria"
+          },
+          {
+            "iata": "SYZ",
+            "city": "Shiraz",
+            "country": "Iran"
+          },
+          {
+            "iata": "TBS",
+            "city": "Tbilisi",
+            "country": "Georgia"
+          },
+          {
+            "iata": "TIF",
+            "city": "Taif",
+            "country": "Saudi Arabia"
+          },
+          {
+            "iata": "TRV",
+            "city": "Trivandrum",
+            "country": "India"
+          },
+          {
+            "iata": "TUN",
+            "city": "Tunis",
+            "country": "Tunisia"
+          },
+          {
+            "iata": "TXL",
+            "city": "Berlin",
+            "country": "Germany"
+          },
+          {
+            "iata": "VCE",
+            "city": "Venice",
+            "country": "Italy"
+          },
+          {
+            "iata": "VIE",
+            "city": "Vienna",
+            "country": "Austria"
+          },
+          {
+            "iata": "WAW",
+            "city": "Warsaw",
+            "country": "Poland"
+          },
+          {
+            "iata": "YUL",
+            "city": "Montreal",
+            "country": "Canada"
+          },
+          {
+            "iata": "ZAG",
+            "city": "Zagreb",
+            "country": "Croatia"
+          },
+          {
+            "iata": "ZRH",
+            "city": "Zurich",
+            "country": "Switzerland"
+          }
+        ],
+        "countries": [
+          "Algeria",
+          "Argentina",
+          "Australia",
+          "Austria",
+          "Azerbaijan",
+          "Bahrain",
+          "Bangladesh",
+          "Belgium",
+          "Brazil",
+          "Bulgaria",
+          "Burma",
+          "Cambodia",
+          "Canada",
+          "China",
+          "Croatia",
+          "Cyprus",
+          "Denmark",
+          "Egypt",
+          "Ethiopia",
+          "France",
+          "Georgia",
+          "Germany",
+          "Greece",
+          "Hong Kong",
+          "Hungary",
+          "India",
+          "Indonesia",
+          "Iran",
+          "Iraq",
+          "Italy",
+          "Japan",
+          "Jordan",
+          "Kenya",
+          "Kuwait",
+          "Lebanon",
+          "Malaysia",
+          "Maldives",
+          "Mexico",
+          "Morocco",
+          "Mozambique",
+          "Nepal",
+          "Nigeria",
+          "Norway",
+          "Oman",
+          "Pakistan",
+          "Philippines",
+          "Poland",
+          "Qatar",
+          "Romania",
+          "Russia",
+          "Rwanda",
+          "Saudi Arabia",
+          "Serbia",
+          "Singapore",
+          "South Africa",
+          "South Korea",
+          "Spain",
+          "Sri Lanka",
+          "Sudan",
+          "Sweden",
+          "Switzerland",
+          "Tanzania",
+          "Thailand",
+          "Tunisia",
+          "Turkey",
+          "Uganda",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States",
+          "Vietnam",
+          "Yemen"
+        ],
+        "testedRoutes": [
+          {
+            "origin": "VIE",
+            "destination": "LHR",
+            "status": "priced",
+            "note": "Booking-flow page extraction"
+          },
+          {
+            "origin": "VIE",
+            "destination": "LGW",
+            "status": "priced",
+            "note": "Booking-flow page extraction"
+          },
+          {
+            "origin": "DOH",
+            "destination": "LHR",
+            "status": "priced",
+            "note": "Booking-flow page extraction"
+          },
+          {
+            "origin": "VIE",
+            "destination": "EWR",
+            "status": "unsupported",
+            "note": "Qatar publishes New York JFK, not Newark EWR, in the current support set"
+          }
+        ]
+      }
+    ],
+    "diagnostics": {
+      "qatar": {
+        "source": "community-openflights-route-database",
+        "count": 134,
+        "sourceUrl": "https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat"
+      }
+    }
+  }
+}
