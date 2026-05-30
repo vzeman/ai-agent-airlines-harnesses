@@ -111,9 +111,9 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     countries: ["United Kingdom", "United States", "Austria"],
     testedRoutes: [
       { origin: "LHR", destination: "JFK", status: "priced", note: "Official British Airways route/destination offer fallback" },
-      { origin: "VIE", destination: "LHR", status: "manual_intervention_required", note: "Detects BA high-demand queue and returns retryable blocker diagnostics" },
-      { origin: "VIE", destination: "LGW", status: "manual_intervention_required", note: "Detects BA high-demand queue and returns retryable blocker diagnostics" },
-      { origin: "VIE", destination: "LCY", status: "manual_intervention_required", note: "Detects BA high-demand queue and returns retryable blocker diagnostics" },
+      { origin: "VIE", destination: "LHR", status: "manual_intervention_required", note: "Detects BA high-demand queue and checks official Vienna destination page fallback" },
+      { origin: "VIE", destination: "LGW", status: "manual_intervention_required", note: "Detects BA high-demand queue and checks official Vienna destination page fallback" },
+      { origin: "VIE", destination: "LCY", status: "manual_intervention_required", note: "Detects BA high-demand queue and checks official Vienna destination page fallback" },
       { origin: "VIE", destination: "EWR", status: "manual_intervention_required", note: "Likely connecting itinerary, exact extractor not yet implemented" }
     ]
   },

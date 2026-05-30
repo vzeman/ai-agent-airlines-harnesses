@@ -287,6 +287,7 @@ test("British route offer parser extracts lowest published From fare", () => {
 
 test("British classifiers distinguish route offers and high-demand queue pages", () => {
   assert.equal(classifyBritishRouteOfferPage(fixtures.britishRouteOffer), "offer");
+  assert.equal(classifyBritishRouteOfferPage("<main>Flights to Vienna Plan your trip to Vienna</main>"), "no_price_found");
   assert.equal(
     classifyBritishRenderedState({
       visibleTextSample: fixtures.britishHighDemand

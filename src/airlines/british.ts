@@ -60,7 +60,7 @@ export class BritishAdapter extends BrowserFlowAdapter {
           retryable: isQueue,
           retryAfterSeconds: isQueue ? 300 : undefined,
           nextHarnessStep: isQueue
-            ? "Retry the same task later with the same harness endpoint; do not manually click through the queue from the LLM loop."
+            ? "Retry the same task later with the same harness endpoint; the official BA Vienna destination page is checked as a fallback but does not expose parseable fares. Do not manually click through the queue from the LLM loop."
             : "Implement a BA form-driving flow or configure partner/NDC priced-shopping credentials."
         }
       );
@@ -106,6 +106,9 @@ export class BritishAdapter extends BrowserFlowAdapter {
 function buildBritishRoutePageUrl(input: FlightSearchInput): string | undefined {
   const key = `${input.origin.toUpperCase()}-${input.destination.toUpperCase()}`;
   const routes: Record<string, string> = {
+    "VIE-LHR": "https://www.britishairways.com/content/en/bm/flights/austria/vienna",
+    "VIE-LGW": "https://www.britishairways.com/content/en/bm/flights/austria/vienna",
+    "VIE-LCY": "https://www.britishairways.com/content/en/bm/flights/austria/vienna",
     "LHR-JFK": "https://www.britishairways.com/content/flights/usa/new-york",
     "LHR-EWR": "https://www.britishairways.com/content/flights/usa/new-york",
     "LGW-JFK": "https://www.britishairways.com/content/flights/usa/new-york",
