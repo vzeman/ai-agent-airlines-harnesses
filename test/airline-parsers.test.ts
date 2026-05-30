@@ -191,8 +191,32 @@ test("Lufthansa Group route offer parser extracts official route page price and 
 
 test("Lufthansa Group route page classifier distinguishes offers and blockers", () => {
   assert.equal(classifyLufthansaGroupRoutePage("<main>Flights from Vienna to London from €127</main>"), "offer");
+  assert.equal(classifyLufthansaGroupRoutePage("<main>Cheapest flight from 201 €</main>"), "offer");
+  assert.equal(classifyLufthansaGroupRoutePage("<main>Cheapest flight from 222 EUR</main>"), "offer");
   assert.equal(classifyLufthansaGroupRoutePage("<main>The page could not be found</main>"), "page_not_found");
   assert.equal(classifyLufthansaGroupRoutePage("<main>Flight search without prices</main>"), "no_price_found");
+});
+
+test("Lufthansa Group route offer parser accepts currency after amount", () => {
+  const austrianFlights = parseLufthansaGroupOfferPage(
+    "<main>Cheapest flight from 201 € Flightplan Vienna London 06:50 VIE 08:20 LHR OS331</main>",
+    { airline: "austrian", origin: "VIE", destination: "LHR", dateOut: "2026-07-23", currency: "EUR" },
+    "austrian",
+    "OS",
+    "https://www.austrian.com/lhg/gb/en/o-d/cy-cy/vienna-london"
+  );
+  const lufthansaFlights = parseLufthansaGroupOfferPage(
+    "<main>Cheapest flight from 222 EUR Departure and arrival airport VIE-LON</main>",
+    { airline: "lufthansa", origin: "VIE", destination: "LHR", dateOut: "2026-07-23", currency: "EUR" },
+    "lufthansa",
+    "LH",
+    "https://www.lufthansa.com/lhg/at/en/o-d/cy-cy/vienna-london"
+  );
+
+  assert.equal(austrianFlights[0].price, 201);
+  assert.equal(austrianFlights[0].currency, "EUR");
+  assert.equal(lufthansaFlights[0].price, 222);
+  assert.equal(lufthansaFlights[0].currency, "EUR");
 });
 
 test("American route offer parser extracts structured EveryMundo fares", () => {

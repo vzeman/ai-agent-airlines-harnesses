@@ -140,7 +140,17 @@ function buildOfficialRoutePageUrl(code: Extract<AirlineCode, "lufthansa" | "aus
   if (!cityRoute) return undefined;
 
   const host = code === "austrian" ? "https://www.austrian.com" : "https://www.lufthansa.com";
-  return `${host}/lhg/us/en/o-d/cy-cy/${cityRoute}`;
+  const locale = routeOfferLocale(code, origin, destination);
+  return `${host}/lhg/${locale}/o-d/cy-cy/${cityRoute}`;
+}
+
+function routeOfferLocale(code: Extract<AirlineCode, "lufthansa" | "austrian">, origin: string, destination: string): string {
+  const route = `${origin}-${destination}`;
+  if (cityRouteSlug(origin, destination) === "vienna-london") {
+    return code === "austrian" ? "gb/en" : "at/en";
+  }
+  if (route.startsWith("VIE-")) return "us/en";
+  return "us/en";
 }
 
 function cityRouteSlug(origin: string, destination: string): string | undefined {
@@ -170,10 +180,14 @@ export function parseLufthansaGroupOfferPage(
 
   const priceMatch =
     text.match(/Cheapest flight\s+from\s+([€$£])\s*([0-9][0-9,.]*)/i) ??
-    text.match(/from\s+([€$£])\s*([0-9][0-9,.]*)/i);
+    text.match(/from\s+([€$£])\s*([0-9][0-9,.]*)/i) ??
+    text.match(/Cheapest flight\s+from\s+([0-9][0-9,.]*)\s*([€$£]|[A-Z]{3})/i) ??
+    text.match(/from\s+([0-9][0-9,.]*)\s*([€$£]|[A-Z]{3})/i);
   if (!priceMatch) return [];
 
-  const price = Number(priceMatch[2].replace(/,/g, ""));
+  const amount = /^[€$£]$/.test(priceMatch[1]) ? priceMatch[2] : priceMatch[1];
+  const currencyToken = /^[€$£]$/.test(priceMatch[1]) ? priceMatch[1] : priceMatch[2];
+  const price = Number(amount.replace(/,/g, ""));
   if (!Number.isFinite(price)) return [];
 
   const scheduled = parseAustrianNewYorkSchedule(text, input);
@@ -185,7 +199,7 @@ export function parseLufthansaGroupOfferPage(
       departure: scheduled?.departure ?? input.dateOut,
       arrival: scheduled?.arrival,
       flightNumber: scheduled?.flightNumber,
-      currency: currencyFromSymbol(priceMatch[1]) ?? input.currency,
+      currency: currencyFromToken(currencyToken) ?? input.currency,
       price,
       fareClass: "official-route-offer",
       raw: {
@@ -202,7 +216,12 @@ export function parseLufthansaGroupOfferPage(
 export function classifyLufthansaGroupRoutePage(html: string): "offer" | "page_not_found" | "no_price_found" {
   const text = normalizeLufthansaGroupText(html);
   if (/page (could )?not (be )?found|page not found/i.test(text)) return "page_not_found";
-  if (/Cheapest flight\s+from\s+[€$£]\s*[0-9]|from\s+[€$£]\s*[0-9]/i.test(text)) return "offer";
+  if (
+    /Cheapest flight\s+from\s+[€$£]\s*[0-9]|from\s+[€$£]\s*[0-9]/i.test(text) ||
+    /Cheapest flight\s+from\s+[0-9][0-9,.]*\s*([€$£]|[A-Z]{3})|from\s+[0-9][0-9,.]*\s*([€$£]|[A-Z]{3})/i.test(text)
+  ) {
+    return "offer";
+  }
   return "no_price_found";
 }
 
@@ -231,9 +250,10 @@ function parseAustrianNewYorkSchedule(text: string, input: FlightSearchInput): {
   };
 }
 
-function currencyFromSymbol(symbol: string): string | undefined {
-  if (symbol === "€") return "EUR";
-  if (symbol === "$") return "USD";
-  if (symbol === "£") return "GBP";
+function currencyFromToken(token: string): string | undefined {
+  if (token === "€") return "EUR";
+  if (token === "$") return "USD";
+  if (token === "£") return "GBP";
+  if (/^[A-Z]{3}$/.test(token)) return token;
   return undefined;
 }
