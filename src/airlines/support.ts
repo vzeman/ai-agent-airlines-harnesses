@@ -58,7 +58,7 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     countries: ["Austria", "United States", "Germany", "United Kingdom"],
     testedRoutes: [
       { origin: "VIE", destination: "EWR", status: "priced", note: "Official Lufthansa Group route-offer fallback" },
-      { origin: "VIE", destination: "LHR", status: "manual_intervention_required", note: "Precise non-retryable booking-flow diagnostic when the route-offer page is unavailable" }
+      { origin: "VIE", destination: "LHR", status: "priced", note: "Official Lufthansa Group route-offer fallback" }
     ]
   },
   austrian: {
@@ -75,7 +75,7 @@ const supports: Record<AirlineCode, AirlineSupport> = {
     countries: ["Austria", "United States", "Germany", "United Kingdom"],
     testedRoutes: [
       { origin: "VIE", destination: "EWR", status: "priced", note: "Official Austrian route-offer fallback with OS37 schedule" },
-      { origin: "VIE", destination: "LHR", status: "manual_intervention_required", note: "Precise non-retryable booking-flow diagnostic when the route-offer page is unavailable" }
+      { origin: "VIE", destination: "LHR", status: "priced", note: "Official Austrian route-offer fallback with Vienna-London schedule" }
     ]
   },
   american: {
