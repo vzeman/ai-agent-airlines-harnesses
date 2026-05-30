@@ -42,6 +42,14 @@ Use support metadata before trying unusual routes:
 Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:8787/airlines/ryanair/support"
 ```
 
+For agent workflows, prefer the task-style airport harness so you can search IATA, city, or country before calling `find-flights`:
+
+```powershell
+Invoke-RestMethod -UseBasicParsing -Uri "http://localhost:8787/task/supported-airports" -Method Post -ContentType "application/json" -Body '{"airline":"qatar","query":"London"}'
+```
+
+Omit `airline` to search all configured adapters. The task returns matching airports plus the airlines that support each airport, and it does not create browser sessions.
+
 If a task returns `unsupported_route`, report the reason from `diagnostics.reason` and do not retry that airline for the same route.
 
 ## Find Flights

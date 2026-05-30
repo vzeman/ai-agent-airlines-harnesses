@@ -23,15 +23,19 @@ This harness is an API boundary between an AI agent and airline websites. The ag
 
 ## Canonical Tasks
 
-### `supportsRoute`
+### `supportedAirports`
 
-Use `GET /airlines` or `GET /airlines/:code/support` before unusual routes.
+Endpoint: `POST /task/supported-airports`
+
+Use this before unusual routes or when the user gives a city/country instead of an IATA code. The task accepts optional `airline`, `query`, `country`, and `limit` fields. It does not open browser sessions.
 
 Canonical output:
 
-- supported airports and countries
-- tested route statuses
-- route caveats
+- `data.airports[]` with `iata`, `city`, `country`, and supporting `airlines`
+- `data.airlines[]` with supported airports, countries, tested route statuses, and route caveats
+- `data.count`
+
+Metadata-only alternatives remain available as `GET /airlines` and `GET /airlines/:code/support`.
 
 ### `searchFlights`
 

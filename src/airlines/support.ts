@@ -1,5 +1,5 @@
 import { UnsupportedRouteError } from "../core/unsupported-route.js";
-import type { AirlineCode, AirlineSupport, FlightSearchInput } from "../core/types.js";
+import type { AirlineCode, AirlineSupport, FlightSearchInput, SupportedAirportsInput, SupportedAirportsResult } from "../core/types.js";
 
 const supports: Record<AirlineCode, AirlineSupport> = {
   ryanair: {
@@ -153,6 +153,47 @@ export function listAirlineSupport(): AirlineSupport[] {
   return Object.values(supports);
 }
 
+export function findSupportedAirports(input: SupportedAirportsInput = {}): SupportedAirportsResult {
+  const selectedSupports = input.airline ? [supports[input.airline]] : listAirlineSupport();
+  const query = normalizeSearch(input.query);
+  const country = normalizeSearch(input.country);
+  const matches = new Map<string, { iata: string; city: string; country: string; airlines: Set<AirlineCode> }>();
+
+  for (const support of selectedSupports) {
+    for (const airport of support.airports) {
+      if (country && normalizeSearch(airport.country) !== country) continue;
+      if (query && !airportMatches(airport, query)) continue;
+
+      const existing =
+        matches.get(airport.iata) ??
+        {
+          ...airport,
+          airlines: new Set<AirlineCode>()
+        };
+      existing.airlines.add(support.airline);
+      matches.set(airport.iata, existing);
+    }
+  }
+
+  const airports = [...matches.values()]
+    .sort((a, b) => a.iata.localeCompare(b.iata))
+    .slice(0, input.limit ?? 500)
+    .map((airport) => ({
+      iata: airport.iata,
+      city: airport.city,
+      country: airport.country,
+      airlines: [...airport.airlines].sort()
+    }));
+
+  return {
+    query: input.query,
+    country: input.country,
+    count: airports.length,
+    airports,
+    airlines: selectedSupports
+  };
+}
+
 export function assertRouteSupported(input: FlightSearchInput): void {
   const origin = input.origin.toUpperCase();
   const destination = input.destination.toUpperCase();
@@ -184,4 +225,12 @@ function unsupported(airline: AirlineCode, origin: string, destination: string, 
 
 function airport(iata: string, city: string, country: string): { iata: string; city: string; country: string } {
   return { iata, city, country };
+}
+
+function airportMatches(airport: { iata: string; city: string; country: string }, query: string): boolean {
+  return [airport.iata, airport.city, airport.country].some((value) => normalizeSearch(value).includes(query));
+}
+
+function normalizeSearch(value?: string): string {
+  return (value ?? "").trim().toLowerCase();
 }

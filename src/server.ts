@@ -7,8 +7,17 @@ import type { TaskResult } from "./core/types.js";
 import { getAdapter, listAirlines } from "./airlines/index.js";
 import { capturePricingScreenshot } from "./airlines/rendered-browser.js";
 import { pricingScreenshotUrl } from "./airlines/screenshot-url.js";
-import { assertRouteSupported, getAirlineSupport, listAirlineSupport } from "./airlines/support.js";
-import { bookingDetailSchema, bookingListSchema, flightSearchSchema, loginSchema, portalSchema, resolveSessionSchema, verificationCodeSchema } from "./validation.js";
+import { assertRouteSupported, findSupportedAirports, getAirlineSupport, listAirlineSupport } from "./airlines/support.js";
+import {
+  bookingDetailSchema,
+  bookingListSchema,
+  flightSearchSchema,
+  loginSchema,
+  portalSchema,
+  resolveSessionSchema,
+  supportedAirportsSchema,
+  verificationCodeSchema
+} from "./validation.js";
 
 const sessions = new SessionManager();
 
@@ -169,6 +178,16 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
       }
       throw error;
     }
+    return;
+  }
+
+  if (req.method === "POST" && url.pathname === "/task/supported-airports") {
+    const input = supportedAirportsSchema.parse(await readJson(req));
+    const data = findSupportedAirports(input);
+    sendJson(res, 200, {
+      status: "ok",
+      data
+    } satisfies TaskResult<unknown>);
     return;
   }
 
