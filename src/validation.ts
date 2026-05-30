@@ -2,9 +2,10 @@ import { z } from "zod";
 
 const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "date must be YYYY-MM-DD");
 const taskSessionIdSchema = z.string().min(8).max(120).optional();
+const airlineSchema = z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]);
 
 export const flightSearchSchema = z.object({
-  airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  airline: airlineSchema,
   origin: z.string().min(3).max(3),
   destination: z.string().min(3).max(3),
   dateOut: dateSchema,
@@ -29,7 +30,7 @@ export const flightSearchSchema = z.object({
 });
 
 export const resolveSessionSchema = z.object({
-  airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  airline: airlineSchema,
   ttlMinutes: z.number().int().min(1).max(240).optional(),
   proxy: z
     .object({
@@ -41,7 +42,7 @@ export const resolveSessionSchema = z.object({
 });
 
 export const loginSchema = z.object({
-  airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  airline: airlineSchema,
   username: z.string().min(1).max(320),
   password: z.string().min(1).max(1024),
   verificationCode: z.string().min(4).max(16).optional(),
@@ -76,7 +77,14 @@ export const portalSchema = loginSchema.extend({
 });
 
 export const verificationCodeSchema = z.object({
-  airline: z.enum(["ryanair", "wizzair", "lufthansa", "austrian", "american", "british", "qatar"]),
+  airline: airlineSchema,
   challengeId: z.string().min(8).max(80),
   verificationCode: z.string().min(4).max(16)
+});
+
+export const supportedAirportsSchema = z.object({
+  airline: airlineSchema.optional(),
+  query: z.string().min(1).max(80).optional(),
+  country: z.string().min(2).max(80).optional(),
+  limit: z.number().int().min(1).max(500).optional()
 });

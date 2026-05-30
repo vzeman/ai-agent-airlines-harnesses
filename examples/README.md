@@ -19,6 +19,7 @@ British Airways is not included in this screenshot set because both artifact-gen
 
 | Endpoint | Scope | Request | Response | Screenshot / artifact policy |
 | --- | --- | --- | --- | --- |
+| `POST /task/supported-airports` | Airport search and support discovery | `{}` or `{"airline":"qatar","query":"London"}` | Returns matching airports and supporting airlines | No browser session or screenshot |
 | `POST /task/find-flights` | Public flight pricing | See airline rows above | See airline rows above | Committed only for confirmed public pricing pages |
 | `POST /task/login` | Ryanair authenticated login | [request](ryanair/login-verification-required.request.json) | [verification required](ryanair/login-verification-required.response.json), [success](ryanair/login-success.response.json) | Redacted screenshots are committed for verification and success states |
 | `POST /task/submit-verification-code` | Continue a live Ryanair verification challenge | [request](ryanair/submit-verification-code.request.json) | [success](ryanair/submit-verification-code.response.json) | Verification codes are runtime-only and never committed |

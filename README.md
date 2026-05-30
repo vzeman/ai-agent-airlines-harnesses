@@ -123,6 +123,35 @@ Returns airport, country, and tested-route metadata for one adapter.
 curl http://localhost:8787/airlines/ryanair/support
 ```
 
+### `POST /task/supported-airports`
+
+Task-style harness endpoint for supported airport discovery. It does not create browser or FlareSolverr sessions.
+
+Return every configured airline's curated airports:
+
+```bash
+curl -X POST http://localhost:8787/task/supported-airports \
+  -H 'content-type: application/json' \
+  -d '{}'
+```
+
+Search one airline by IATA, city, or country:
+
+```bash
+curl -X POST http://localhost:8787/task/supported-airports \
+  -H 'content-type: application/json' \
+  -d '{"airline":"qatar","query":"London"}'
+```
+
+Request fields:
+
+| Field | Required | Description |
+| --- | --- | --- |
+| `airline` | no | Optional airline code to scope the search |
+| `query` | no | Case-insensitive match against IATA, city, or country |
+| `country` | no | Exact country filter, case-insensitive |
+| `limit` | no | Maximum airport matches to return, default `500` |
+
 ### `POST /session/resolve`
 
 Creates a reusable browser-resolved session for debugging. Prefer `POST /sessions` for new code.

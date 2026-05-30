@@ -36,6 +36,25 @@ export interface AirlineSupport {
   }>;
 }
 
+export interface SupportedAirportsInput {
+  airline?: AirlineCode;
+  query?: string;
+  country?: string;
+  limit?: number;
+}
+
+export interface SupportedAirportMatch extends AirportSupport {
+  airlines: AirlineCode[];
+}
+
+export interface SupportedAirportsResult {
+  query?: string;
+  country?: string;
+  count: number;
+  airports: SupportedAirportMatch[];
+  airlines: AirlineSupport[];
+}
+
 export interface FlightSearchInput extends SessionReuseInput {
   airline: AirlineCode;
   origin: string;

@@ -4,10 +4,19 @@ import { cookieHeader } from "../src/core/flaresolverr.js";
 import { ManualInterventionRequired } from "../src/core/errors.js";
 import { SessionManager } from "../src/core/session-manager.js";
 import type { AirlineAdapter, FlightSearchInput, HarnessSession } from "../src/core/types.js";
-import { bookingDetailSchema, bookingListSchema, flightSearchSchema, loginSchema, portalSchema, resolveSessionSchema, verificationCodeSchema } from "../src/validation.js";
+import {
+  bookingDetailSchema,
+  bookingListSchema,
+  flightSearchSchema,
+  loginSchema,
+  portalSchema,
+  resolveSessionSchema,
+  supportedAirportsSchema,
+  verificationCodeSchema
+} from "../src/validation.js";
 import { pricingScreenshotUrl } from "../src/airlines/screenshot-url.js";
 import { parseRyanairBookingText } from "../src/airlines/ryanair.js";
-import { assertRouteSupported, getAirlineSupport } from "../src/airlines/support.js";
+import { assertRouteSupported, findSupportedAirports, getAirlineSupport } from "../src/airlines/support.js";
 
 test("cookieHeader filters by domain and serializes name/value pairs", () => {
   const header = cookieHeader(
@@ -89,6 +98,24 @@ test("airline support exposes airports and rejects known unsupported routes", ()
       }),
     /does not support VIE-EWR/
   );
+});
+
+test("supported airport harness searches by airline, IATA, city, and country", () => {
+  const parsed = supportedAirportsSchema.parse({
+    airline: "qatar",
+    query: "London",
+    limit: 10
+  });
+  const qatarLondon = findSupportedAirports(parsed);
+  const allVienna = findSupportedAirports({ query: "VIE" });
+  const ukAirports = findSupportedAirports({ country: "United Kingdom", limit: 20 });
+
+  assert.deepEqual(
+    qatarLondon.airports.map((airport) => airport.iata),
+    ["LGW", "LHR"]
+  );
+  assert.ok(allVienna.airports.some((airport) => airport.iata === "VIE" && airport.airlines.includes("ryanair")));
+  assert.ok(ukAirports.airports.every((airport) => airport.country === "United Kingdom"));
 });
 
 test("resolve-session validation accepts optional proxy credentials", () => {
