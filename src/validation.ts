@@ -86,5 +86,6 @@ export const supportedAirportsSchema = z.object({
   airline: airlineSchema.optional(),
   query: z.string().min(1).max(80).optional(),
   country: z.string().min(2).max(80).optional(),
-  limit: z.number().int().min(1).max(500).optional()
+  limit: z.number().int().min(1).max(500).optional(),
+  source: z.enum(["curated", "live"]).optional()
 });

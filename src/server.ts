@@ -7,7 +7,7 @@ import type { TaskResult } from "./core/types.js";
 import { getAdapter, listAirlines } from "./airlines/index.js";
 import { capturePricingScreenshot } from "./airlines/rendered-browser.js";
 import { pricingScreenshotUrl } from "./airlines/screenshot-url.js";
-import { assertRouteSupported, findSupportedAirports, getAirlineSupport, listAirlineSupport } from "./airlines/support.js";
+import { assertRouteSupported, getAirlineSupport, listAirlineSupport, resolveSupportedAirports } from "./airlines/support.js";
 import {
   bookingDetailSchema,
   bookingListSchema,
@@ -183,7 +183,7 @@ async function route(req: http.IncomingMessage, res: http.ServerResponse): Promi
 
   if (req.method === "POST" && url.pathname === "/task/supported-airports") {
     const input = supportedAirportsSchema.parse(await readJson(req));
-    const data = findSupportedAirports(input);
+    const data = await resolveSupportedAirports(input);
     sendJson(res, 200, {
       status: "ok",
       data
