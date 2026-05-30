@@ -5,7 +5,7 @@ import { parseAmericanRouteOfferPage } from "../src/airlines/american.js";
 import { classifyBritishRenderedState, classifyBritishRouteOfferPage, parseBritishRouteOfferPage } from "../src/airlines/british.js";
 import { extractPriceCandidates } from "../src/airlines/browser-flow.js";
 import { classifyLufthansaGroupRoutePage, parseLufthansaGroupOfferPage } from "../src/airlines/lufthansa-group.js";
-import { classifyQatarPageState, extractQatarFlights } from "../src/airlines/qatar.js";
+import { classifyQatarManualIntervention, classifyQatarPageState, extractQatarFlights } from "../src/airlines/qatar.js";
 import { parseRyanairAvailability, parseRyanairFareFinder } from "../src/airlines/ryanair.js";
 import { isWizzNoFlightsRendered, parseWizzRouteOfferPage } from "../src/airlines/wizzair.js";
 import type { FlightSearchInput } from "../src/core/types.js";
@@ -164,6 +164,15 @@ test("Qatar page classifier distinguishes booking results from access denied", (
   assert.equal(classifyQatarPageState("Flight details €1,230 Economy"), "booking_results");
   assert.equal(classifyQatarPageState("Access Denied Reference #18.abc"), "access_denied");
   assert.equal(classifyQatarPageState("Qatar Airways homepage"), "no_price_found");
+  assert.equal(
+    classifyQatarManualIntervention({
+      rendered: {
+        visibleTextSample:
+          "Access Denied You don't have permission to access http://www.qatarairways.com/app/booking/flight-selection on this server. Reference #18.abc"
+      }
+    }),
+    "access_denied"
+  );
 });
 
 test("Lufthansa Group route offer parser extracts official route page price and Austrian EWR schedule", () => {

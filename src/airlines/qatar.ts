@@ -1,4 +1,6 @@
 import type { FlightOption, FlightSearchInput } from "../core/types.js";
+import { ManualInterventionRequired } from "../core/errors.js";
+import type { HarnessSession } from "../core/types.js";
 import type { BrowserFlowExtractContext } from "./browser-flow.js";
 import { BrowserFlowAdapter } from "./browser-flow.js";
 
@@ -31,6 +33,27 @@ export class QatarAdapter extends BrowserFlowAdapter {
       },
       extractFlights: (html, input, context) => extractQatarFlights(html, input, qatarExtractionOptions(context))
     });
+  }
+
+  override async findFlights(input: FlightSearchInput, session: HarnessSession): Promise<FlightOption[]> {
+    try {
+      return await super.findFlights(input, session);
+    } catch (error) {
+      if (!(error instanceof ManualInterventionRequired)) throw error;
+
+      const pageState = classifyQatarManualIntervention(error.diagnostics);
+      if (pageState !== "access_denied") throw error;
+
+      throw new ManualInterventionRequired("Qatar Airways blocked the rendered booking fallback with an access-denied page.", {
+        ...error.diagnostics,
+        pageState,
+        blocker:
+          "The FlareSolverr-resolved HTML did not expose fare cards for this route, and the rendered fallback was blocked by Qatar/Akamai access control.",
+        retryable: false,
+        nextHarnessStep:
+          "Use an official Qatar Airways, partner, GDS, or NDC shopping source for this route, or test a different supported destination such as LHR/LGW where the booking-card parser currently succeeds."
+      });
+    }
   }
 }
 
@@ -87,6 +110,16 @@ export function classifyQatarPageState(html: string): "booking_results" | "acces
   const text = normalizeQatarText(html);
   if (/access denied|request blocked|reference #[a-z0-9-]+/i.test(text)) return "access_denied";
   if (/Flight details\s+€[0-9][0-9,]*\s+Economy/i.test(text)) return "booking_results";
+  return "no_price_found";
+}
+
+export function classifyQatarManualIntervention(diagnostics: Record<string, unknown>): "access_denied" | "no_price_found" {
+  const rendered = diagnostics.rendered;
+  const visibleTextSample =
+    rendered && typeof rendered === "object" && "visibleTextSample" in rendered
+      ? String((rendered as { visibleTextSample?: unknown }).visibleTextSample ?? "")
+      : "";
+  if (classifyQatarPageState(visibleTextSample) === "access_denied") return "access_denied";
   return "no_price_found";
 }
 
