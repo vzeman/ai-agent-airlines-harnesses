@@ -143,7 +143,7 @@ curl -X POST http://localhost:8787/task/supported-airports \
   -d '{"airline":"qatar","query":"London"}'
 ```
 
-Use a live official source where implemented. Currently this is implemented for Ryanair's public active-airport catalog:
+Use a live remote source where implemented. Ryanair uses its public active-airport catalog. The other airline adapters use the live OpenFlights route database as a broad network catalog until a better official public catalog is wired for that carrier:
 
 ```bash
 curl -X POST http://localhost:8787/task/supported-airports \
@@ -159,7 +159,7 @@ Request fields:
 | `query` | no | Case-insensitive match against IATA, city, or country |
 | `country` | no | Exact country filter, case-insensitive |
 | `limit` | no | Maximum airport matches to return, default `500` |
-| `source` | no | `curated` for harness-tested subset, or `live` where an official airport catalog is implemented |
+| `source` | no | `curated` for harness-tested subset, or `live` for the broad remote catalog. Check `data.diagnostics[airline].source` for provenance. |
 
 ### `POST /session/resolve`
 

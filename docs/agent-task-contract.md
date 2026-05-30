@@ -29,7 +29,7 @@ Endpoint: `POST /task/supported-airports`
 
 Use this before unusual routes or when the user gives a city/country instead of an IATA code. The task accepts optional `airline`, `query`, `country`, `limit`, and `source` fields. It does not open browser sessions.
 
-Use `source: "curated"` for deterministic harness-tested subsets. Use `source: "live"` when the agent needs a fuller airline network catalog and the airline has an implemented official airport source. Ryanair live airport discovery is implemented first.
+Use `source: "curated"` for deterministic harness-tested subsets. Use `source: "live"` when the agent needs a fuller remote network catalog. Ryanair uses its public active-airport catalog; Wizz Air, Lufthansa, Austrian, American Airlines, British Airways, and Qatar Airways use the live OpenFlights route database until a better official public catalog is implemented for that carrier. Always read `data.diagnostics[airline].source` before describing provenance to the user.
 
 Canonical output:
 
@@ -37,6 +37,7 @@ Canonical output:
 - `data.airlines[]` with supported airports, countries, tested route statuses, and route caveats
 - `data.count`
 - `data.source` and `data.requestedSource`
+- `data.diagnostics[airline].source` with live catalog provenance
 
 Metadata-only alternatives remain available as `GET /airlines` and `GET /airlines/:code/support`.
 
